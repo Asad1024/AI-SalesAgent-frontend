@@ -4,7 +4,7 @@ This is the frontend application for the AI Spark Sales Agent project.
 
 ## Getting Started
 
-This project is currently in development. More documentation will be added as the project progresses.
+This project is currently in development. More documentation will be added as the project progress.
 
 ## Technologies
 
