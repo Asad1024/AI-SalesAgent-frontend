@@ -11,5 +11,5 @@ This project is currently in development. More documentation will be added as th
 - Frontend framework and technologies will be specified as development progresses.
 
 ## Contributing
-
+ 
 Please follow the project guidelines for contributing to this repository.
