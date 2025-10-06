@@ -11,7 +11,8 @@ export interface AuthError {
 }
 
 class AuthService {
-  private baseUrl = `${import.meta.env.VITE_API_URL || (import.meta.env.PROD ? 'https://api.sparkai.ae' : 'http://localhost:8000')}/api/auth`;
+  private baseUrl = 'https://aisparksalesagent-backend.onrender.com/api/auth';
+// private baseUrl = 'http://localhost:8000/api/auth';
 
   async register(email: string, password: string, confirmPassword: string): Promise<AuthResponse> {
     const response = await fetch(`${this.baseUrl}/register`, {

@@ -83,8 +83,8 @@ export interface ExperienceCallRequest {
   agent: string;
 }
 
-const BASE_URL = import.meta.env.VITE_API_URL || 
-  (import.meta.env.PROD ? 'https://api.sparkai.ae' : 'http://localhost:8000');  // Backend server URL
+const BASE_URL = 'https://aisparksalesagent-backend.onrender.com';
+// const BASE_URL = 'http://localhost:8000';
 
 async function handleResponse(response: Response) {
   const data = await response.json();
