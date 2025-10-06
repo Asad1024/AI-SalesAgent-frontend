@@ -67,7 +67,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
   const [customScript, setCustomScript] = useState('');
 
   const { toast } = useToast();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const queryClient = useQueryClient();
 
   // Preset conversation scripts
@@ -172,10 +172,12 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
 
   const handleCreateCampaign = () => {
     if (newCampaignName.trim()) {
+      const currentLanguage = i18n?.language || 'en';
       const campaignData = {
         name: newCampaignName,
         firstPrompt: "Hi FIRST NAME, I'm calling from our sales team. I hope you're having a great day!",
-        systemPersona: "You are a friendly, professional sales assistant. You help potential customers by clearly explaining features, answering questions, and guiding them toward the right solution. Always be helpful, confident, and respectful of their time."
+        systemPersona: "You are a friendly, professional sales assistant. You help potential customers by clearly explaining features, answering questions, and guiding them toward the right solution. Always be helpful, confident, and respectful of their time.",
+        language: currentLanguage
       };
       createCampaignMutation.mutate(campaignData);
     }

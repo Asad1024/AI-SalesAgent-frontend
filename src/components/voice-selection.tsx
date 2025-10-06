@@ -8,6 +8,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { MicOff, Play, Pause, Upload, Users, RefreshCw, Sparkles, Zap } from "lucide-react";
 import { api, type Voice } from "@/lib/api";
 import { Badge } from "@/components/ui/badge";
+import { useTranslation } from 'react-i18next';
 
 interface VoiceSelectionProps {
   selectedVoiceId: string;
@@ -24,6 +25,7 @@ export default function VoiceSelection({ selectedVoiceId, onVoiceSelect }: Voice
   const [isRefreshing, setIsRefreshing] = useState(false);
   
   const { toast } = useToast();
+  const { i18n } = useTranslation();
   const queryClient = useQueryClient();
 
   // Helper function to cleanup audio
@@ -324,14 +326,41 @@ export default function VoiceSelection({ selectedVoiceId, onVoiceSelect }: Voice
     );
   }
 
-  const voices: any[] = Array.isArray(voicesData) ? voicesData : (voicesData?.voices || []);
+  const allVoices: any[] = Array.isArray(voicesData) ? voicesData : (voicesData?.voices || []);
+  
+  const languageMap: Record<string, string[]> = {
+    'tr': ['turkish', 'türkçe', 'turkce'],
+    'ar': ['arabic', 'عربي'],
+    'az': ['azerbaijani', 'azərbaycan'],
+    'en': ['english', 'american', 'british', 'australian', 'indian']
+  };
+  
+  const currentLanguageCode = i18n.language || 'en';
+  const languageKeywords = languageMap[currentLanguageCode] || languageMap['en'];
+  
+  const voices = allVoices.filter((voice: any) => {
+    if (voice.isCloned || voice.category === 'cloned') {
+      return true;
+    }
+    
+    const voiceLanguage = (voice.language || '').toLowerCase();
+    const voiceDescription = (voice.description || '').toLowerCase();
+    const voiceName = (voice.name || '').toLowerCase();
+    
+    return languageKeywords.some(keyword => 
+      voiceLanguage.includes(keyword.toLowerCase()) ||
+      voiceDescription.includes(keyword.toLowerCase()) ||
+      voiceName.includes(keyword.toLowerCase())
+    );
+  });
   
   // Debug: Check if voices are loaded
-  if (voices.length > 0) {
-    console.log('Voice selection: Found', voices.length, 'voices');
-  } else {
-    console.log('Voice selection: No voices found, isLoading:', isLoading, 'voicesData:', voicesData);
-  }
+  console.log('Voice selection:', {
+    total: allVoices.length,
+    filtered: voices.length,
+    language: currentLanguageCode,
+    keywords: languageKeywords
+  });
 
   return (
     <Card className="group relative overflow-hidden border-0 bg-gradient-to-br from-blue-50/80 to-indigo-50/80 dark:from-blue-900/20 dark:to-indigo-900/20 backdrop-blur-xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
