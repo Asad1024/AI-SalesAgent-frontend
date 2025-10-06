@@ -1,0 +1,1182 @@
+{
+  "common": {
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "create": "Oluştur",
+    "update": "Güncelle",
+    "confirm": "Onayla",
+    "close": "Kapat",
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "warning": "Uyarı",
+    "info": "Bilgi",
+    "yes": "Evet",
+    "no": "Hayır",
+    "ok": "Tamam",
+    "back": "Geri",
+    "next": "İleri",
+    "previous": "Önceki",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "clear": "Temizle",
+    "refresh": "Yenile",
+    "upload": "Yükle",
+    "download": "İndir",
+    "export": "Dışa Aktar",
+    "import": "İçe Aktar",
+    "required": "Gerekli",
+    "optional": "İsteğe Bağlı",
+    "name": "Ad",
+    "description": "Açıklama",
+    "status": "Durum",
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "completed": "Tamamlandı",
+    "pending": "Beklemede",
+    "paused": "Duraklatıldı",
+    "pause": "Duraklat",
+    "resume": "Devam Et",
+    "draft": "Taslak",
+    "settings": "Ayarlar",
+    "logout": "Çıkış",
+    "login": "Giriş",
+    "register": "Kayıt Ol",
+    "email": "E-posta",
+    "password": "Şifre",
+    "confirmPassword": "Şifreyi Onayla",
+    "user": "Kullanıcı",
+    "admin": "Yönetici",
+    "administrator": "Yönetici",
+    "signIn": "Giriş Yap",
+    "getStarted": "Başlayın",
+    "startFreeTrial": "Ücretsiz Deneme Başlat",
+    "watchDemo": "Demo İzle",
+    "scheduleDemo": "Demo Planla",
+    "about": "Hakkında",
+    "contact": "İletişim",
+    "features": "Özellikler",
+    "pricing": "Fiyatlandırma",
+    "home": "Ana Sayfa",
+    "dashboard": "Kontrol Paneli",
+    "campaigns": "Kampanyalar",
+    "voices": "Sesler",
+    "analytics": "Analitik"
+  },
+  "auth": {
+    "title": "AI Sesli Arama",
+    "subtitle": "Satış Otomasyonu",
+    "signIn": "Giriş Yap",
+    "signUp": "Kayıt Ol",
+    "createAccount": "Hesap Oluştur",
+    "welcomeBack": "Ses kampanya panelinize hoş geldiniz",
+    "createAccountPrompt": "Başlamak için hesabınızı oluşturun",
+    "enterCredentials": "Panelinize erişmek için bilgilerinizi girin",
+    "fillDetails": "Yeni hesap oluşturmak için bilgilerinizi doldurun",
+    "emailPlaceholder": "sizin@email.com",
+    "passwordPlaceholder": "Şifrenizi girin",
+    "confirmPasswordPlaceholder": "Şifrenizi onaylayın",
+    "signingIn": "Giriş yapılıyor...",
+    "creatingAccount": "Hesap oluşturuluyor...",
+    "dontHaveAccount": "Hesabınız yok mu?",
+    "alreadyHaveAccount": "Zaten hesabınız var mı?",
+    "createOneHere": "Burada oluşturun",
+    "signInHere": "Burada giriş yapın",
+    "passwordRequirements": "Şifre gereksinimleri:",
+    "passwordRequirementsText": "En az 8 karakter, büyük, küçük harf ve rakamlar.",
+    "validationError": "Doğrulama Hatası",
+    "emailPasswordRequired": "E-posta ve şifre gereklidir",
+    "passwordsDoNotMatch": "Şifreler eşleşmiyor",
+    "welcomeMessage": "Hoş geldiniz!",
+    "loginSuccessMessage": "Başarıyla giriş yaptınız.",
+    "accountCreatedMessage": "Hesap oluşturuldu!",
+    "accountCreatedSuccessMessage": "Hesabınız oluşturuldu ve şimdi giriş yaptınız.",
+    "loginFailed": "Giriş başarısız",
+    "registrationFailed": "Kayıt başarısız",
+    "errorOccurred": "Bir hata oluştu. Lütfen tekrar deneyin.",
+    "checkingAuthentication": "Kimlik doğrulama kontrol ediliyor...",
+    "tryDemoAccount": "Demo Hesabı Dene",
+    "demoCredentials": "Demo Bilgileri"
+  },
+  "navigation": {
+    "dashboard": "Kontrol Paneli",
+    "campaigns": "Kampanyalar",
+    "voices": "Sesler",
+    "analytics": "Analitik",
+    "aiPowered": "AI Destekli",
+    "voiceConversations": "Sesli Konuşmalar",
+    "home": "Ana Sayfa",
+    "features": "Özellikler",
+    "benefits": "Faydalar",
+    "pricing": "Fiyatlandırma",
+    "about": "Hakkında",
+    "contact": "İletişim",
+    "signIn": "Giriş Yap",
+    "getStarted": "Başla"
+  },
+  "dashboard": {
+    "title": "Kontrol Paneli",
+    "welcomeMessage": "Hoş geldiniz! AI ses kampanyalarınızı yönetin",
+    "campaignStatistics": "Kampanya İstatistikleri",
+    "liveData": "Canlı Veri",
+    "campaignManagement": "Kampanya Yönetimi",
+    "changeCampaign": "Kampanya Değiştir",
+    "voiceSelection": "Ses Seçimi",
+    "leadsManagement": "Müşteri Yönetimi",
+    "knowledgeBase": "Bilgi Tabanı",
+    "uploadPdfFiles": "AI ajanınızı eğitmek için PDF dosyalarını yükleyin.",
+    "aiConfiguration": "AI Yapılandırması",
+    "setupAiAgent": "AI ajanınızın kişiliğini ve davranışını ayarlayın.",
+    "aiVoiceSelection": "AI Ses Seçimi",
+    "chooseFromPremium": "Premium veya özel seslerden seçin.",
+    "uploadAndManageLeads": "Arama listelerinizi yükleyin ve yönetin.",
+    "knowledgeBaseRequired": "Bilgi Tabanı Gerekli",
+    "knowledgeBaseUploaded": "Bilgi Tabanı Yüklendi",
+    "campaignLaunch": "Kampanya Başlatma",
+    "notifications": "Bildirimler",
+    "noNotifications": "Bildirim yok",
+    "markAllAsRead": "Tümünü okundu işaretle",
+    "clearAll": "Tümünü temizle",
+    "selectCampaign": "Kampanyanızı Seçin",
+    "campaignSelection": "Kampanya Seçimi",
+    "createNewCampaign": "Yeni kampanya oluşturun veya mevcut olanı seçin",
+    "createNewCampaignButton": "+ Yeni Kampanya Oluştur",
+     "existingCampaigns": "Mevcut Kampanyalar",
+     "viewAllCampaigns": "Tüm Kampanyaları Görüntüle",
+     "noExistingCampaigns": "Mevcut kampanya bulunamadı",
+    "performanceOverview": "Performans Genel Bakış",
+    "activeCampaigns": "Aktif Kampanyalar",
+    "currentlyRunningCampaigns": "Şu anda çalışan kampanyalar",
+    "callsToday": "Bugünkü Aramalar",
+    "totalCallsMadeToday": "Bugün yapılan toplam aramalar",
+    "successRate": "Başarı Oranı",
+    "overallCampaignSuccess": "Genel kampanya başarısı",
+    "totalMinutes": "Toplam Dakika",
+    "totalCallDuration": "Toplam arama süresi",
+    "performanceTrends": "Performans Trendleri",
+    "last12Hours": "Son 12 saat",
+    "live": "Canlı",
+    "liveFeedback": "Canlı Geri Bildirim",
+    "recentCallReviews": "Son arama değerlendirmeleri",
+    "active": "Aktif",
+    "greatCallQuality": "Harika arama kalitesi!",
+    "veryProfessional": "Çok profesyonel",
+    "positive": "Pozitif",
+    "minutesAgo": "dakika önce",
+    "launchCampaign": "Kampanya Başlat",
+    "startNewAICalling": "Yeni AI araması başlat",
+    "viewAnalytics": "Analitikleri Görüntüle",
+    "detailedReports": "Detaylı raporlar",
+    "optimize": "Optimize Et",
+    "aiSuggestions": "AI önerileri"
+  },
+  "hero": {
+    "title": "Satışlarınızı AI Ses Zekası ile Dönüştürün",
+    "subtitle": "Potansiyel müşterileri nitelendiren, toplantıları planlayan ve 7/24 anlaşma kapatan insan benzeri AI ajanları ile satış aramalarınızı otomatikleştirin. Satış otomasyonunun geleceğini deneyimleyin.",
+    "startFreeTrial": "Ücretsiz Deneme Başlat",
+    "watchDemo": "Demo İzle",
+    "tagline": "Spark AI tarafından AI Satış Arama Ajanı"
+  },
+  "stats": {
+    "aiCallsMade": "Yapılan AI Aramaları",
+    "happyCustomers": "Mutlu Müşteriler",
+    "languagesSupported": "Desteklenen Dil",
+    "uptime": "Çalışma Süresi"
+  },
+  "features": {
+    "title": "Modern Satış için Güçlü Özellikler",
+    "subtitle": "Satış sürecinizi otomatikleştirmek ve işinizi AI ile büyütmek için ihtiyacınız olan her şey",
+    "aiVoiceCalling": {
+      "title": "AI Ses Araması",
+      "description": "İnsan gibi ses çıkarıp doğal konuşmalarla müşteri dönüşümü sağlayan akıllı ses ajanları",
+      "stats": "%27+ Ortalama Sipariş Değeri Artışı"
+    },
+    "voiceCloning": {
+      "title": "Ses Klonlama",
+      "description": "Marka kişiliğiniz ve tonunuzla eşleşen özel AI sesler oluşturun",
+      "stats": "95+ Ses Seçeneği"
+    },
+    "multiLanguageSupport": {
+      "title": "Çok Dilli Destek",
+      "description": "Ana dil konuşmaları ve kültürel farkındalıkla küresel kitlelere ulaşın",
+      "stats": "95+ Dil"
+    },
+    "multiLanguage": {
+      "title": "Çok Dilli Destek",
+      "description": "Ana dil konuşmaları ve kültürel farkındalıkla küresel kitlelere ulaşın",
+      "stats": "95+ Dil"
+    },
+    "arabicSupport": {
+      "title": "Arapça Destek",
+      "description": "Bölgesel lehçelerle yerel Arapça dil desteği",
+      "stats": "4 Lehçe"
+    },
+    "availability": {
+      "title": "7/24 Erişilebilirlik",
+      "description": "Yorulmadan çalışan 7/24 AI ajanları ile hiçbir potansiyel müşteriyi kaçırmayın",
+      "stats": "Her Zaman Çevrimiçi"
+    },
+    "analytics": {
+      "title": "Gerçek Zamanlı Analitik",
+      "description": "Performansı takip edin ve canlı içgörüler ve metriklerle kampanyaları optimize edin",
+      "stats": "Canlı İçgörüler"
+    },
+    "leadQualification": {
+      "title": "Akıllı Potansiyel Müşteri Nitelendirme",
+      "description": "AI hassasiyeti ile yüksek değerli potansiyel müşterileri otomatik olarak tanımlayın ve önceliklendirin",
+      "stats": "%94 Doğruluk"
+    }
+  },
+  "experience": {
+    "title": "AI Ses Ajanlarımızı Deneyimleyin",
+    "subtitle": "Farklı sektörlerde AI arama ajanlarımızı deneyin ve işinizi nasıl dönüştürebileceklerini görün",
+    "selectIndustry": "Sektörünüzü Seçin",
+    "chooseAgent": "AI Ajanınızı Seçin",
+    "tryCall": "Aramayı Dene",
+    "industryInsights": "Sektör İçgörüleri",
+    "useCases": "Kullanım Alanları",
+    "keyBenefits": "Temel Faydalar",
+    "agentProfile": "Ajan Profili",
+    "experience": "Deneyim",
+    "languages": "Diller",
+    "successRate": "Başarı Oranı",
+    "industryPerformance": "Sektör Performans Metrikleri",
+    "exploreMore": "Daha Fazla Sektör Keşfet"
+  },
+  "sectors": {
+    "banking": {
+      "name": "Bankacılık ve Finans",
+      "description": "Müşteri hizmetleri, kredi başvuruları ve finansal danışmanlık için AI ajanları",
+      "useCases": ["Müşteri Desteği", "Kredi Başvuruları", "Hesap Yönetimi", "Yatırım Danışmanlığı"],
+      "benefits": ["7/24 Finansal Destek", "Uyumluluk İzleme", "Çok Dilli Bankacılık", "Dolandırıcılık Tespiti"],
+      "stats": "%85 daha hızlı kredi işleme"
+    },
+    "healthcare": {
+      "name": "Sağlık",
+      "description": "Hasta randevu planlama, sağlık hatırlatmaları ve tıbbi destek",
+      "useCases": ["Randevu Planlama", "Sağlık Hatırlatmaları", "Telemedicine Desteği", "Sigorta Doğrulama"],
+      "benefits": ["Kaçırılan Randevularda Azalma", "HIPAA Uyumlu", "Çok Dilli Destek", "Acil Durum Uyarıları"],
+      "stats": "Kaçırılan randevularda %60 azalma"
+    },
+    "education": {
+      "name": "Eğitim",
+      "description": "Öğrenci kayıt, ders bilgileri ve akademik destek",
+      "useCases": ["Öğrenci Kaydı", "Ders Kaydı", "Akademik Danışmanlık", "Veli İletişimi"],
+      "benefits": ["Otomatik Kayıt", "Çok Dilli Eğitim", "İlerleme Takibi", "Veli Katılımı"],
+      "stats": "Kayıt oranlarında %40 artış"
+    },
+    "realEstate": {
+      "name": "Emlak",
+      "description": "Emlak sorguları, randevu planlama ve pazar güncellemeleri",
+      "useCases": ["Emlak Sorguları", "Görüntüleme Planlama", "Pazar Güncellemeleri", "Müşteri Takibi"],
+      "benefits": ["Potansiyel Müşteri Nitelendirme", "Otomatik Görüntülemeler", "Pazar Zekası", "Müşteri Tutma"],
+      "stats": "3x daha nitelikli potansiyel müşteri"
+    },
+    "retail": {
+      "name": "Perakende ve E-ticaret",
+      "description": "Müşteri desteği, sipariş takibi ve ürün önerileri",
+      "useCases": ["Müşteri Desteği", "Sipariş Takibi", "Ürün Önerileri", "İade İşlemleri"],
+      "benefits": ["7/24 Alışveriş Desteği", "Kişiselleştirilmiş Öneriler", "Çok Kanallı Destek", "Envanter Yönetimi"],
+      "stats": "Ortalama sipariş değerinde %35 artış"
+    },
+    "automotive": {
+      "name": "Otomotiv",
+      "description": "Servis randevuları, araç sorguları ve bayilik desteği",
+      "useCases": ["Servis Randevuları", "Araç Sorguları", "Parça Mevcudiyeti", "Test Sürüşü Planlama"],
+      "benefits": ["Servis Hatırlatmaları", "Parça Envanteri", "Garanti Desteği", "Müşteri Tutma"],
+      "stats": "%50 daha hızlı servis rezervasyonu"
+    },
+    "travel": {
+      "name": "Seyahat ve Konaklama",
+      "description": "Rezervasyon yardımı, seyahat bilgileri ve müşteri hizmetleri",
+      "useCases": ["Rezervasyon Yardımı", "Seyahat Bilgileri", "Otel Rezervasyonları", "Müşteri Desteği"],
+      "benefits": ["Çok Dilli Seyahat", "Gerçek Zamanlı Güncellemeler", "Kişiselleştirilmiş Öneriler", "Acil Durum Desteği"],
+      "stats": "Rezervasyon dönüşümlerinde %45 artış"
+    },
+    "technology": {
+      "name": "Teknoloji",
+      "description": "Teknik destek, ürün demoları ve satış yardımı",
+      "useCases": ["Teknik Destek", "Ürün Demoları", "Satış Yardımı", "Onboarding"],
+      "benefits": ["7/24 Teknik Destek", "Çok Dilli Destek", "Ürün Eğitimi", "Potansiyel Müşteri Nitelendirme"],
+      "stats": "%70 daha hızlı sorun çözümü"
+    }
+  },
+  "agents": {
+    "sarah": {
+      "name": "Sarah",
+      "role": "Müşteri Hizmetleri Uzmanı",
+      "specialties": ["Müşteri Desteği", "Sorun Çözümü", "Ürün Bilgisi"],
+      "experience": "5+ yıl müşteri hizmetleri deneyimi",
+      "languages": ["İngilizce", "İspanyolca", "Fransızca"],
+      "successRate": "%94 müşteri memnuniyeti"
+    },
+    "mike": {
+      "name": "Mike",
+      "role": "Satış Temsilcisi",
+      "specialties": ["Potansiyel Müşteri Nitelendirme", "Satış Demoları", "İtiraz Yönetimi"],
+      "experience": "7+ yıl satış deneyimi",
+      "languages": ["İngilizce", "Almanca", "İtalyanca"],
+      "successRate": "%27 daha yüksek dönüşüm oranı"
+    },
+    "emma": {
+      "name": "Emma",
+      "role": "Teknik Destek",
+      "specialties": ["Teknik Sorunlar", "Ürün Eğitimi", "Sorun Giderme"],
+      "experience": "6+ yıl teknik destek deneyimi",
+      "languages": ["İngilizce", "Portekizce", "Hollandaca"],
+      "successRate": "%89 ilk aramada çözüm"
+    },
+    "david": {
+      "name": "David",
+      "role": "Randevu Planlayıcısı",
+      "specialties": ["Planlama", "Takvim Yönetimi", "Hatırlatmalar"],
+      "experience": "4+ yıl planlama deneyimi",
+      "languages": ["İngilizce", "Arapça", "Rusça"],
+      "successRate": "%95 randevu tamamlama"
+    },
+    "lisa": {
+      "name": "Lisa",
+      "role": "Finansal Danışman",
+      "specialties": ["Yatırım Tavsiyesi", "Kredi Başvuruları", "Finansal Planlama"],
+      "experience": "8+ yıl finans deneyimi",
+      "languages": ["İngilizce", "Mandarin", "Japonca"],
+      "successRate": "%92 müşteri tutma"
+    },
+    "alex": {
+      "name": "Alex",
+      "role": "Sağlık Koordinatörü",
+      "specialties": ["Randevu Planlama", "Sigorta Doğrulama", "Hasta Bakımı"],
+      "experience": "6+ yıl sağlık deneyimi",
+      "languages": ["İngilizce", "İspanyolca", "Korece"],
+      "successRate": "%88 hasta memnuniyeti"
+    }
+  },
+  "callForm": {
+    "title": "AI Aramayı Deneyimle",
+    "fullName": "Ad Soyad",
+    "emailAddress": "E-posta Adresi",
+    "phoneNumber": "Telefon Numarası",
+    "enterFullName": "Ad soyadınızı girin",
+    "enterEmail": "E-posta adresinizi girin",
+    "enterPhone": "Telefon numaranızı girin",
+    "weWillCall": "Sizi şu numaradan arayacağız",
+    "initiatingCall": "Arama Başlatılıyor...",
+    "getAiCallExperience": "AI Arama Deneyimi Al",
+    "callDescription": "AI ajanımız deneyimi göstermek için 2-3 dakika içinde sizi arayacak"
+  },
+  "pricing": {
+    "title": "Ses AI Çıkış Ajanı - Fiyatlandırma",
+    "subtitle": "Gizli maliyet olmadan şeffaf fiyatlandırma. İhtiyaçlarınıza uygun destek paketini seçin.",
+    "mostPopular": "En Popüler",
+    "setupFee": {
+      "title": "Tek Seferlik Kurulum Ücreti",
+      "price": "AED 10,000",
+      "description": "Ajan başına kurulum ve yapılandırma"
+    },
+    "aiUsage": {
+      "title": "AI Kullanım Ücretleri",
+      "price": "AED 0.51 - 0.66",
+      "period": "/dakika",
+      "description": "Tam saniyeye kadar faturalandırılır (ses üretimi, gerçek zamanlı transkripsiyon ve LLM işleme dahil)"
+    },
+    "essential": {
+      "name": "Temel Destek",
+      "price": "AED 1,500",
+      "period": "/ay",
+      "description": "AI arama ile başlayan işletmeler için mükemmel",
+      "features": [
+        "7/24 çalışma süresi izleme ve olay uyarıları",
+        "Ayda 4 saate kadar akış ayarlaması veya komut değişikliği",
+        "Kullanılmayan süre 60 gün boyunca devredilir",
+        "Eylem odaklı içgörülerle aylık performans raporu",
+        "Bir sonraki iş günü SLA ile e-posta desteği"
+      ]
+    },
+    "premium": {
+      "name": "Premium Destek",
+      "price": "AED 3,000",
+      "period": "/ay",
+      "description": "Gelişmiş optimizasyon ve öncelikli destek gerektiren işletmeler için",
+      "features": [
+        "Temel paketteki her şey artı:",
+        "Ayda 10 saate kadar komut/akış optimizasyonu",
+        "Metrikleri ve yol haritasını gözden geçirmek için strateji oturumu",
+        "Aynı iş günü yanıtlarla öncelikli destek kuyruğu",
+        "Düşük maliyetli ses modellerinin erken erişim testi",
+        "Paket değişiklikleri için 30 günlük bildirim"
+      ]
+    },
+    "notes": {
+      "vat": "UAE %5 KDV uygun yerlerde geçerlidir",
+      "optimization": "Ajanınızı daha büyük ölçekli modellerle yükseltir ve tasarrufları aktarırız - kilitli ölçülü oranlar yok"
+    }
+  },
+  "testimonials": {
+    "title": "Müşterilerimiz Ne Diyor",
+    "subtitle": "AI Satış Arama Ajanı ile işlerini dönüştüren satış ekiplerinden gerçek hikayeler",
+    "keyResults": "Temel Sonuçlar",
+    "leadIncrease": "%40 Potansiyel Müşteri Artışı",
+    "marketGrowth": "%300 Pazar Büyümesi",
+    "customerSatisfaction": "%95 Müşteri Memnuniyeti",
+    "availability": "7/24 Erişilebilirlik",
+    "sarah": {
+      "name": "Sarah Johnson",
+      "role": "Satış Müdürü",
+      "company": "TechFlow Solutions",
+      "content": "Spark AI'nin AI Satış Arama Ajanı satış sürecimizi dönüştürdü. Nitelikli potansiyel müşterilerde %40 artış gördük ve ekibimiz soğuk arama yapmak yerine anlaşma kapatmaya odaklanabiliyor."
+    },
+    "ahmed": {
+      "name": "Ahmed Al-Rashid",
+      "role": "Pazarlama Müdürü",
+      "company": "Global Connect",
+      "content": "Arapça dil desteği inanılmaz. Spark AI'nin AI Satış Arama Ajanını uyguladığımızdan beri Orta Doğu pazarı yanıtımız %300 arttı."
+    },
+    "maria": {
+      "name": "Maria Rodriguez",
+      "role": "Satış Başkan Yardımcısı",
+      "company": "InnovateCorp",
+      "content": "Ses klonlama özelliği oyun değiştirici. Müşterilerimiz AI ile konuştuklarını anlayamıyor. Dönüşüm oranları hiç bu kadar yüksek olmamıştı."
+    }
+  },
+  "cta": {
+    "title": "Satışlarınızı Dönüştürmeye Hazır mısınız?",
+    "subtitle": "Arama süreçlerini otomatikleştirmek için AI Satış Arama Ajanını kullanan binlerce satış ekibine katılın",
+    "startFreeTrial": "Ücretsiz Deneme Başlat",
+    "scheduleDemo": "Demo Planla"
+  },
+  "footer": {
+    "companyDescription": "İnsan gibi ses çıkarıp 7/24 müşteri dönüşümü sağlayan AI destekli ses ajanları ile satış sürecinizi dönüştürün.",
+    "address": "Office 705, New Century City Tower, Port Saeed, Dubai, UAE",
+    "email": "contactus@sparkai.ae",
+    "phone": "+971503519350",
+    "product": "Ürün",
+    "company": "Şirket",
+    "features": "Özellikler",
+    "pricing": "Fiyatlandırma",
+    "api": "API",
+    "integrations": "Entegrasyonlar",
+    "about": "Hakkında",
+    "blog": "Blog",
+    "careers": "Kariyer",
+    "contact": "İletişim",
+    "privacyPolicy": "Gizlilik Politikası",
+    "termsOfService": "Hizmet Şartları",
+    "cookiePolicy": "Çerez Politikası",
+    "voiceLibrary": "Ses Kütüphanesi",
+    "helpCenter": "Yardım Merkezi",
+    "copyright": "© 2024 Spark AI. Tüm hakları saklıdır."
+  },
+  "language": {
+    "switchTo": "Şuna geç",
+    "currentLanguage": "Mevcut Dil",
+    "selectLanguage": "Dil Seçin"
+  },
+  "signup": {
+    "title": "Hesap Oluştur",
+    "subtitle": "SparkAI'ye katılın ve AI satış yolculuğunuza başlayın",
+    "emailLabel": "E-posta Adresi",
+    "emailPlaceholder": "E-postanızı girin",
+    "passwordLabel": "Şifre",
+    "passwordPlaceholder": "Şifre oluşturun",
+    "confirmPasswordLabel": "Şifreyi Onayla",
+    "confirmPasswordPlaceholder": "Şifrenizi onaylayın",
+    "createAccount": "Hesap Oluştur",
+    "creatingAccount": "Hesap Oluşturuluyor...",
+    "alreadyHaveAccount": "Zaten hesabınız var mı?",
+    "signInHere": "Buradan giriş yapın",
+    "accountCreated": "Hesap Oluşturuldu!",
+    "welcomeMessage": "SparkAI'ye hoş geldiniz! Kontrol panelinize yönlendiriliyorsunuz...",
+    "floatingElements": {
+      "aiVoiceCalls": "AI Sesli Aramalar",
+      "smartAgents": "Akıllı Ajanlar",
+      "realTimeChat": "Gerçek Zamanlı Sohbet",
+      "analytics": "Analitik"
+    },
+    "features": {
+      "lightningFastSetup": "Şimşek Hızında Kurulum",
+      "enterpriseSecurity": "Kurumsal Güvenlik",
+      "multiLanguageSupport": "Çok Dilli Destek",
+      "advancedAnalytics": "Gelişmiş Analitik"
+    }
+  },
+  "home": {
+    "title": "AI Satış Arama Ajanı",
+    "subtitle": "Satışlarınızı akıllı ses otomasyonu ile dönüştürün",
+    "hero": {
+      "title": "Gerçekten Dönüştüren AI Satış Aramaları",
+      "subtitle": "Kaçırılan aramalar nedeniyle müşteri adaylarını kaybetmeyi bırakın. AI ajanlarımız 7/24 insan gibi ses çıkaran satış aramaları yapar, müşteri adaylarını değerlendirir ve otomatik olarak toplantı planlar. Haftada 10+ saat tasarruf ederken dönüşümleri %300 artırın.",
+      "startFreeTrial": "Ücretsiz Deneme Başlat",
+      "seeInAction": "Spark AI'yı Aksiyonda Görün",
+      "watchDescription": "AI ajanımızın gerçek müşteri aramalarını doğal konuşma ve akıllı yanıtlarla nasıl hallettiğini izleyin",
+      "tryLiveDemo": "Canlı Demo Dene",
+      "enterPhoneNumber": "Telefon numaranızı girin",
+      "playDemoVideo": "Demo Videosunu Oynat",
+      "tryForFree": "Ücretsiz Dene - Haftada 10+ Saat Tasarruf Et",
+      "tryInteractiveDemo": "Etkileşimli Demo Dene",
+      "stats": {
+        "successRate": "%98",
+        "successRateLabel": "Başarı Oranı",
+        "availability": "7/24",
+        "availabilityLabel": "Erişilebilirlik",
+        "languages": "100+",
+        "languagesLabel": "Dil"
+      }
+    },
+    "benefits": {
+      "moreSalesCalls": {
+        "title": "%300 Daha Fazla Satış Araması",
+        "description": "Bir daha asla müşteri adayını kaçırmayın. AI ajanlar 7/24 arama yapar, siz uyurken bile, erişiminizi %300 artırır.",
+        "stats": "%300 artış"
+      },
+      "saveTime": {
+        "title": "Haftada 10+ Saat Tasarruf",
+        "description": "Soğuk aramalarda saatler harcamayı bırakın. AI tüm süreci hallederken siz anlaşma kapatmaya odaklanın.",
+        "stats": "10+ saat tasarruf"
+      },
+      "qualityLeads": {
+        "title": "Daha Kaliteli Müşteri Adayları",
+        "description": "AI sizinle konuşmadan önce müşteri adaylarını değerlendirir, böylece sadece satın almaya hazır sıcak adaylarla zaman harcarsınız.",
+        "stats": "%85 nitelikli"
+      },
+      "analytics": {
+        "title": "Gerçek Zamanlı Analitik",
+        "description": "Her aramayı, dönüşümü ve ROI'yi gerçek zamanlı olarak takip edin. Ne işe yaradığını ve neyin işe yaramadığını tam olarak bilin.",
+        "stats": "Gerçek zamanlı veri"
+      },
+      "multiLanguage": {
+        "title": "Çok Dilli Destek",
+        "description": "95+ dili akıcı şekilde konuşan AI ajanlarla küresel pazarlara ulaşın, dil bariyerlerini kırın.",
+        "stats": "95+ dil"
+      },
+      "humanLike": {
+        "title": "İnsan Gibi Konuşmalar",
+        "description": "Tamamen doğal ses çıkaran gelişmiş AI. Müşteri adayları bir makineyle konuştuklarını anlayamaz.",
+        "stats": "%99 doğal"
+      }
+    },
+    "pricing": {
+      "starter": {
+        "name": "Başlangıç",
+        "period": "/ay",
+        "description": "Başlayan küçük ekipler için mükemmel",
+        "features": {
+          "feature1": "Ayda 1.000 aramaya kadar",
+          "feature2": "Temel AI ses ajanı",
+          "feature3": "E-posta desteği",
+          "feature4": "Temel analitik",
+          "feature5": "CRM entegrasyonu"
+        }
+      },
+      "professional": {
+        "name": "Profesyonel",
+        "period": "/ay",
+        "description": "Büyüyen işletmeler için en popüler",
+        "features": {
+          "feature1": "Ayda 10.000 aramaya kadar",
+          "feature2": "Gelişmiş AI ses ajanı",
+          "feature3": "Öncelikli destek",
+          "feature4": "Gelişmiş analitik",
+          "feature5": "Çoklu CRM entegrasyonu",
+          "feature6": "Özel ses klonlama",
+          "feature7": "A/B testi"
+        }
+      }
+    },
+    "demo": {
+      "aiSalesAgent": "AI Satış Ajanı",
+      "sparkAICalling": "Spark AI Arama Sistemi",
+      "connected": "Bağlandı",
+      "callAnalytics": "Arama Analitiği",
+      "duration": "Süre",
+      "sentiment": "Duygu",
+      "conversion": "Dönüşüm",
+      "callScript": "Merhaba John! Spark AI'dan arıyorum. Satış otomasyon çözümlerimize baktığınızı fark ettim..."
+    },
+    "testimonials": {
+      "detailed": {
+        "testimonial1": "Sadece 3 ayda satışlarımızı %340 artırdık. AI o kadar doğal ses çıkarıyor ki, müşteri adayları insan olmadığını anlayamıyor. ROI anında oldu.",
+        "testimonial2": "Soğuk aramalarda haftada 20 saat tasarruf ettik. Ekibimiz artık müşteri adayı aramak yerine anlaşma kapatmaya odaklanıyor. Oyun değiştirici!",
+        "testimonial3": "Bir startup olarak satış ekibi karşılayamıyorduk. Bu AI ajan en iyi satış elemanımız oldu, maliyetin çok küçük bir kısmına 7/24 çalışıyor."
+      }
+    }
+  },
+  "chat": {
+    "welcomeMessage": "Merhaba! 👋 AI sesli arama konusunda size yardımcı olmak için buradayım. Bugün size nasıl yardımcı olabilirim?",
+    "chatWithUs": "Bizimle sohbet et",
+    "aiSalesSupport": "AI Satış Desteği",
+    "onlineNow": "Şimdi çevrimiçi",
+    "typeMessage": "Mesajınızı yazın...",
+    "call": "Ara",
+    "email": "E-posta",
+    "schedule": "Planla",
+    "quickQuestions": "Hızlı sorular:",
+    "quickReplies": {
+      "cost": "Ne kadar tutuyor?",
+      "freeTrial": "Ücretsiz deneyebilir miyim?",
+      "howItWorks": "Nasıl çalışıyor?",
+      "demo": "Demo var mı?"
+    },
+    "responses": {
+      "pricing": "Harika soru! Planlarımız Başlangıç için sadece 97$/ay ve Profesyonel için 297$/ay ile başlıyor. Şu anda ilk 3 ayınızda %50 indirim + ücretsiz kurulum (500$ değerinde) sunuyoruz! Detayları göstermemi ister misiniz?",
+      "freeTrial": "Kesinlikle! Kredi kartı gerektirmeyen 14 günlük ücretsiz deneme sunuyoruz. Tüm özellikleri test edebilir ve gerçek sonuçları görebilirsiniz. Ayrıca 30 günlük para iade garantimiz var. Başlamaya hazır mısınız?",
+      "demo": "Size göstermeyi çok isterim! AI'miz 7/24 doğal sesli aramalar yapar, müşteri adaylarını değerlendirir ve otomatik olarak toplantı planlar. Şimdi interaktif demomuzu deneyebilir veya kişiselleştirilmiş demo araması planlayabilirim. Hangisi daha iyi geliyor?",
+      "setup": "Başlamak çok kolay! Sadece iletişim listenizi yükleyin, AI sesinizi seçin ve başlatın. Kurulum sadece 5 dakika sürer ve ücretsiz onboarding sağlıyoruz. Size rehberlik etmemi ister misiniz?",
+      "default": "Bu harika bir soru! Size kişiselleştirilmiş bir yanıt verebilecek AI arama uzmanlarımızdan biriyle sizi bağlayayım. Bu arada ücretsiz denememizi deneyebilir veya demomuzu kontrol edebilirsiniz. Hangisini tercih edersiniz?"
+    },
+    "clearChat": "Sohbeti Temizle",
+    "backToMain": "Ana Sayfaya Dön"
+  },
+  "exitIntent": {
+    "title": "Bekle! Kaçırma! 🚨",
+    "subtitle": "İlk 3 ayınızda %50 İNDİRİM + ÜCRETSİZ kurulum alın (Değer: $500)",
+    "benefits": {
+      "save": "İlk 3 ayda $1,500+ tasarruf edin",
+      "setup": "Ücretsiz profesyonel kurulum ($500 değerinde)",
+      "trial": "14 günlük ücretsiz deneme dahil",
+      "guarantee": "30 günlük para iade garantisi"
+    },
+    "emailLabel": "Bu teklifi talep etmek için e-postanızı girin:",
+    "emailPlaceholder": "sizin@email.com",
+    "claimButton": "%50 İndirimimi Talep Et",
+    "privacy": "🔒 Gizliliğinize saygı duyuyoruz. Asla spam yok. İstediğiniz zaman abonelikten çıkın.",
+    "success": {
+      "title": "🎉 İçeridesiniz!",
+      "message": "Özel %50 indirim kodunuz için e-postanızı kontrol edin. Bu teklif 24 saat içinde sona eriyor!",
+      "button": "Ücretsiz Denememi Başlat"
+    }
+  },
+  "faq": {
+    "title": "Sık Sorulan Sorular",
+    "subtitle": "Yaygın soruları basitçe yanıtlayın. Fiyatlandırma, kurulum veya özellikler hakkındaki şüpheleri gidermeye odaklanın.",
+    "items": {
+      "cost": {
+        "question": "Başlamak ne kadar tutuyor?",
+        "answer": "Başlangıç planımız sadece 97$/ay ve kurulum ücreti yok. Ayrıca sistemi risksiz test edebilmeniz için 14 günlük ücretsiz deneme sunuyoruz. Artı, şu anda ilk 3 ayınızda %50 indirim sunuyoruz!"
+      },
+      "setup": {
+        "question": "Kurulum ne kadar sürüyor?",
+        "answer": "Kurulum sadece 5 dakika sürüyor! Sadece iletişim listenizi yükleyin, AI sesinizi seçin ve hazırsınız. Ekibimiz en iyi sonuçları almanızı sağlamak için ücretsiz onboarding sağlıyor."
+      },
+      "natural": {
+        "question": "AI doğal ses çıkarıyor mu?",
+        "answer": "Evet! AI'miz tamamen insan gibi ses çıkaran gelişmiş ses sentezi teknolojisi kullanıyor. Müşteri adaylarının %99'u AI ile konuştuklarını anlayamıyor. Kişisel dokunuş için kendi sesinizi bile klonlayabilirsiniz."
+      },
+      "satisfaction": {
+        "question": "Memnun kalmazsam ne olur?",
+        "answer": "30 günlük para iade garantisi sunuyoruz. Sonuçlardan tamamen memnun kalmazsanız, soru sormadan paranızı iade ederiz. Sonuçları seveceğinizden eminiz!"
+      },
+      "integration": {
+        "question": "Mevcut CRM'imle entegre olabilir miyim?",
+        "answer": "Kesinlikle! Salesforce, HubSpot, Pipedrive ve daha fazlası dahil olmak üzere tüm büyük CRM'lerle entegre oluyoruz. Tüm arama verileri ve müşteri adayları mevcut sisteminize otomatik olarak senkronize edilir."
+      }
+    }
+  },
+  "process": {
+    "title": "Nasıl Çalışır",
+    "subtitle": "Çözümünüzün uygulanmasının kolay olduğunu gösterin. Süreci 3 basit adımda açıklayın.",
+    "steps": {
+      "step1": {
+        "title": "Müşteri Adaylarınızı Yükleyin",
+        "description": "Sadece iletişim listenizi yükleyin veya CRM'inizi bağlayın. Sistemimiz otomatik olarak müşteri adaylarınızı içe aktarır ve düzenler."
+      },
+      "step2": {
+        "title": "AI Aramaları Yapar",
+        "description": "AI ajanlarımız müşteri adaylarınızı arar, onları değerlendirir ve toplantı planlar. Tüm konuşmalar doğal ve ilgi çekicidir."
+      },
+      "step3": {
+        "title": "Daha Fazla Anlaşma Kapatın",
+        "description": "Nitelikli müşteri adaylarına odaklanın ve daha fazla anlaşma kapatın. Her arama ve dönüşüm hakkında detaylı raporlar alın."
+      }
+      }
+    },
+    "industries": {
+      "healthcare": "Sağlık",
+      "ecommerce": "E-ticaret", 
+      "realEstate": "Emlak",
+      "education": "Eğitim",
+      "automotive": "Otomotiv",
+      "legal": "Hukuk",
+      "restaurant": "Restoran",
+      "services": "Hizmetler"
+    },
+    "solutions": {
+      "customerSupport": {
+        "title": "Müşteri Desteği",
+        "description": "Hiç uyumayan 24/7 otomatik müşteri hizmeti"
+      },
+      "leadQualification": {
+        "title": "Müşteri Adayı Değerlendirme", 
+        "description": "AI destekli müşteri adayı puanlama ve değerlendirme"
+      },
+      "salesAutomation": {
+        "title": "Satış Otomasyonu",
+        "description": "Müşteri adaylarını müşteriye dönüştüren otomatik takipler"
+      }
+    },
+    "features": {
+      "availability": {
+        "title": "24/7 Erişilebilirlik",
+        "description": "7/24 AI ajanlarla bir daha asla arama kaçırmayın"
+      },
+      "lightningFast": {
+        "title": "Şimşek Hızında",
+        "description": "Anında yanıtlar ve acil müşteri adayı değerlendirme"
+      },
+      "scalableTeam": {
+        "title": "Ölçeklenebilir Ekip",
+        "description": "İşe almadan aynı anda sınırsız arama yapın"
+      },
+      "dataDriven": {
+        "title": "Veri Odaklı",
+        "description": "Gerçek zamanlı analitik ve performans içgörüleri"
+      },
+      "uploadData": {
+        "title": "Verilerinizi Yükleyin",
+        "description": "İş bilgilerinizi, senaryolarınızı ve bilgi tabanınızı ekleyin"
+      },
+      "trainAi": {
+        "title": "AI'nizi Eğitin",
+        "description": "AI'mız sesinizi, tonunuzu ve iş süreçlerinizi öğrenir"
+      },
+      "goLive": {
+        "title": "Canlı Yayına Geçin",
+        "description": "AI ajanınızla arama almayı ve yapmayı başlatın"
+      }
+    },
+    "pricing": {
+      "basic": {
+        "name": "Temel",
+        "description": "Başlayan küçük işletmeler için mükemmel",
+        "features": [
+          "Temel analitik",
+          "E-posta desteği"
+        ],
+        "cta": "Başla"
+      },
+      "pro": {
+        "name": "Profesyonel",
+        "description": "Büyüyen işletmeler için gelişmiş özellikler",
+        "features": [
+          "Gelişmiş analitik",
+          "Öncelikli destek", 
+          "Özel entegrasyonlar"
+        ],
+        "cta": "Başla"
+      }
+    },
+    "testimonials": {
+      "sarah": {
+        "name": "Sarah Johnson",
+        "content": "Spark AI müşteri adayı değerlendirme sürecimizi dönüştürdü. Sadece 3 ayda %20'den %65'e dönüşüm oranına çıktık."
+      },
+      "michael": {
+        "name": "Michael Chen",
+        "role": "Satış Müdürü, RealEstate Pro",
+        "content": "AI ajanlar randevu planlamamızı kusursuz şekilde hallediyor. Ekibimiz artık takvim yönetmek yerine anlaşma kapatmaya odaklanabiliyor."
+      },
+      "emily": {
+        "name": "Emily Rodriguez", 
+        "role": "Kurucu, HealthCare Plus",
+        "content": "Spark AI'ı uyguladığımızdan beri hasta memnuniyeti %40 arttı. Hastalarımız anında, kişiselleştirilmiş desteği seviyor."
+      }
+    },
+    "demos": {
+      "customerSupport": {
+        "title": "Müşteri Desteği Demo",
+        "description": "AI'mızın müşteri sorularını nasıl hallettiğini ve sorunları anında nasıl çözdüğünü görün."
+      },
+      "appointmentBooking": {
+        "title": "Randevu Rezervasyon Demo",
+        "description": "AI ajanımızın randevuları nasıl planladığını ve takvimleri sorunsuz şekilde nasıl yönettiğini izleyin.",
+        "industry": "Sağlık"
+      },
+      "salesQualification": {
+        "title": "Satış Değerlendirme Demo",
+        "description": "AI'mızın müşteri adaylarını nasıl değerlendirdiğini ve toplantıları otomatik olarak nasıl planladığını deneyimleyin."
+      }
+    },
+    "solutionsSection": {
+      "title": "Güçlü AI Çözümleri",
+      "subtitle": "Gerçek sonuçlar veren son teknoloji AI teknolojisi ile işinizi dönüştürün"
+    },
+    "faqs": {
+      "howItWorks": {
+        "question": "Spark AI nasıl çalışır?",
+        "answer": "Spark AI, müşteri aramalarını halledebilen, müşteri adaylarını değerlendiren ve otomatik olarak randevu planlayan akıllı ses ajanları oluşturmak için gelişmiş doğal dil işleme ve makine öğrenmesi kullanır."
+      },
+      "customization": {
+        "question": "AI ajanını özelleştirebilir miyim?",
+        "answer": "Evet! AI'yı iş bilgileriniz, senaryolarınız ve bilgi tabanınızla eğitebilirsiniz. AI sesinizi, tonunuzu ve iş süreçlerinizi öğrenecek."
+      },
+      "languages": {
+        "question": "Hangi diller destekleniyor?",
+        "answer": "Spark AI doğal sesli ve aksanlı 100'den fazla dili destekler. Kişiselleştirilmiş bir deneyim için kendi sesinizi de klonlayabilirsiniz."
+      },
+      "pricing": {
+        "question": "Maliyeti ne kadar?",
+        "answer": "Fiyatlarımız 100 arama ile Temel plan için ayda 150$'dan başlıyor. Ayrıca gelişmiş özellikler ve daha yüksek arama hacimleri ile Pro plan da sunuyoruz."
+      },
+      "freeTrial": {
+        "question": "Ücretsiz deneme var mı?",
+        "answer": "Evet! Kredi kartı gerektirmeyen 14 günlük ücretsiz deneme sunuyoruz. Tüm özellikleri test edebilir ve taahhüt etmeden önce sonuçları görebilirsiniz."
+      }
+    },
+    "callForm": {
+      "callInitiated": "Arama Başlatıldı!",
+      "callDescription": "AI ajanımız yeteneklerimizi göstermek için yakında sizi arayacak."
+    },
+    "companies": {
+      "trustedBy": "Önde gelen şirketler tarafından güveniliyor"
+    },
+    "industryUseCases": {
+      "healthcare": "Randevu planlama, hasta hatırlatmaları ve destek",
+      "ecommerce": "Sipariş takibi, iadeler ve müşteri desteği", 
+      "realEstate": "Müşteri adayı değerlendirme, emlak sorguları ve planlama",
+      "education": "Öğrenci desteği, kayıt ve bilgi",
+      "automotive": "Servis randevuları, satış takipleri ve destek",
+      "legal": "Müvekkil kabulü, randevu planlama ve dava güncellemeleri",
+      "restaurant": "Rezervasyonlar, siparişler ve müşteri hizmetleri",
+      "services": "Randevu rezervasyonu, takipler ve destek"
+    },
+    "demoFeatures": {
+      "customerSupport": {
+        "title": "Müşteri Desteği",
+        "features": ["24/7 Erişilebilirlik", "Çok Dilli Destek", "CRM Entegrasyonu"]
+      },
+      "appointmentBooking": {
+        "title": "Randevu Rezervasyonu",
+        "industry": "Sağlık"
+      }
+    },
+    "benefits": {
+    "title": "AI Arama Sistemimizi Neden Seçmelisiniz",
+    "subtitle": "Ürününüzün temel avantajlarını vurgulayın - 7/24 işlevsellik, sorunsuz entegrasyon ve üstün verimlilik.",
+    "availability": {
+      "title": "7/24 Erişilebilirlik",
+      "description": "AI satış ajanınız asla uyumaz, asla mola vermez ve asla bir aramayı kaçırmaz. Her fırsatı yakalamak için 7/24 çalışın.",
+      "stats": {
+        "value": "7/24",
+        "label": "Her Zaman Erişilebilir"
+      }
+    },
+    "integration": {
+      "title": "Sorunsuz Entegrasyon",
+      "description": "Mevcut CRM'iniz, e-posta araçlarınız ve satış süreçlerinizle çalışır. Mevcut iş akışınızda hiçbir kesinti olmaz.",
+      "stats": {
+        "value": "5 Dk",
+        "label": "Kurulum Süresi"
+      }
+    },
+    "efficiency": {
+      "title": "Üstün Verimlilik",
+      "description": "Aynı sürede 10 kat daha fazla arama yapın. AI tekrarlayan işleri hallederken siz anlaşma kapatmaya odaklanın.",
+      "stats": {
+        "value": "10x",
+        "label": "Daha Verimli"
+      }
+    }
+  },
+  "campaigns": {
+    "title": "Kampanyalar",
+    "subtitle": "Tüm sesli arama kampanyalarınızı yönetin",
+    "createNew": "Yeni Kampanya Oluştur",
+    "createFirst": "İlk Kampanyanızı Oluşturun",
+    "noCampaigns": "Kampanya bulunamadı",
+    "noCampaignsDesc": "Yeni bir kampanya oluşturarak başlayın.",
+    "searchPlaceholder": "Kampanyaları ara...",
+    "loading": "Kampanyalar yükleniyor...",
+    "active": "Aktif",
+    "paused": "Duraklatıldı",
+    "draft": "Taslak",
+    "completed": "Tamamlandı",
+    "totalLeads": "Toplam Potansiyel Müşteri",
+    "completedCalls": "Tamamlanan Aramalar",
+    "successfulCalls": "Başarılı Aramalar",
+    "failedCalls": "Başarısız Aramalar",
+    "averageDuration": "Ortalama Süre",
+    "createdAt": "Oluşturulma",
+    "actions": "İşlemler",
+    "view": "Görüntüle",
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "start": "Başlat",
+    "pause": "Duraklat",
+    "resume": "Devam Et"
+  },
+  "campaignDetails": {
+    "title": "Kampanya Detayları",
+    "subtitle": "Kampanya Detayları ve Konuşmalar",
+    "backToCampaigns": "Kampanyalara Dön",
+    "loading": "Kampanya yükleniyor...",
+    "error": "Kampanya yüklenemedi",
+    "stats": {
+      "totalLeads": "Toplam Potansiyel Müşteri",
+      "completed": "Tamamlandı",
+      "calling": "Aranıyor",
+      "failed": "Başarısız",
+      "pending": "Beklemede"
+    },
+    "leads": {
+      "title": "Potansiyel Müşteriler",
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "contactNo": "İletişim Numarası",
+      "status": "Durum"
+    },
+    "callLogs": {
+      "title": "Arama Kayıtları",
+      "phoneNumber": "Telefon Numarası",
+      "status": "Durum",
+      "duration": "Süre",
+      "createdAt": "Oluşturulma Tarihi",
+      "actions": "İşlemler",
+      "viewConversation": "Konuşmayı Görüntüle"
+    },
+    "conversation": {
+      "title": "Arama Transkripsiyonu",
+      "subtitle": "{{phoneNumber}} ile {{date}} tarihinde yapılan konuşma",
+      "loading": "Transkripsiyon yükleniyor...",
+      "noTranscription": "Bu arama için transkripsiyon mevcut değil.",
+      "speaker": "Konuşmacı",
+      "message": "Mesaj"
+    }
+  },
+  "campaignCreation": {
+    "title": "Yeni Kampanya Oluştur",
+    "subtitle": "AI sesli arama kampanyanızı kurun",
+    "step1": "Kampanya Detayları",
+    "step2": "Ses Seçimi",
+    "step3": "Potansiyel Müşteri Yükle",
+    "step4": "İncele ve Başlat",
+    "campaignName": "Kampanya Adı",
+    "campaignNamePlaceholder": "Kampanya adını girin",
+    "firstPrompt": "İlk Mesaj",
+    "firstPromptPlaceholder": "AI'nızın söyleyeceği ilk mesajı girin",
+    "systemPersona": "Sistem Kişiliği",
+    "systemPersonaPlaceholder": "AI'nızın kişiliğini ve davranışını tanımlayın",
+    "next": "İleri",
+    "previous": "Geri",
+    "create": "Kampanya Oluştur",
+    "creating": "Kampanya Oluşturuluyor...",
+    "success": "Kampanya başarıyla oluşturuldu!"
+  },
+  "voices": {
+    "title": "Ses Seçimi",
+    "subtitle": "Kampanyanız için mükemmel sesi seçin",
+    "premade": "Hazır Sesler",
+    "cloned": "Klonlanmış Sesler",
+    "select": "Ses Seç",
+    "selected": "Seçildi",
+    "preview": "Önizleme",
+    "settings": "Ses Ayarları",
+    "stability": "Kararlılık",
+    "similarity": "Benzerlik Artırma",
+    "style": "Stil",
+    "speakerBoost": "Konuşmacı Artırma",
+    "cloneVoice": "Ses Klonla",
+    "uploadAudio": "Ses Dosyası Yükle",
+    "voiceName": "Ses Adı",
+    "voiceNamePlaceholder": "Ses adını girin",
+    "description": "Açıklama",
+    "descriptionPlaceholder": "Ses açıklamasını girin"
+  },
+  "leads": {
+    "title": "Potansiyel Müşteri Yükle",
+    "subtitle": "Aramaya başlamak için iletişim listenizi yükleyin",
+    "dragDrop": "CSV dosyanızı buraya sürükleyip bırakın veya göz atmak için tıklayın",
+    "supportedFormats": "Desteklenen formatlar: CSV",
+    "uploading": "Yükleniyor...",
+    "processing": "Potansiyel müşteriler işleniyor...",
+    "success": "Potansiyel müşteriler başarıyla yüklendi!",
+    "error": "Potansiyel müşteriler yüklenemedi",
+    "preview": "Önizleme",
+    "totalLeads": "Toplam Potansiyel Müşteri",
+    "validLeads": "Geçerli Potansiyel Müşteri",
+    "invalidLeads": "Geçersiz Potansiyel Müşteri",
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "phone": "Telefon",
+    "email": "E-posta",
+    "company": "Şirket",
+    "remove": "Kaldır",
+    "confirm": "Yüklemeyi Onayla"
+  },
+  "analytics": {
+    "title": "Analitik",
+    "subtitle": "Kampanya performansınızı takip edin",
+    "overview": "Genel Bakış",
+    "campaigns": "Kampanyalar",
+    "calls": "Aramalar",
+    "leads": "Potansiyel Müşteriler",
+    "conversions": "Dönüşümler",
+    "activeCampaigns": "Aktif Kampanyalar",
+    "callsToday": "Bugünkü Aramalar",
+    "successRate": "Başarı Oranı",
+    "totalMinutes": "Toplam Dakika",
+    "totalCalls": "Toplam Aramalar",
+    "successfulCalls": "Başarılı Aramalar",
+    "failedCalls": "Başarısız Aramalar",
+    "averageCallDuration": "Ortalama Arama Süresi",
+    "conversionRate": "Dönüşüm Oranı",
+    "totalLeads": "Toplam Potansiyel Müşteri",
+    "qualifiedLeads": "Nitelikli Potansiyel Müşteri",
+    "appointmentsBooked": "Randevu Alınan",
+    "revenue": "Gelir",
+    "costPerCall": "Arama Başına Maliyet",
+    "roi": "Yatırım Getirisi",
+    "timeframe": "Zaman Aralığı",
+    "last7Days": "Son 7 Gün",
+    "last30Days": "Son 30 Gün",
+    "last90Days": "Son 90 Gün",
+    "custom": "Özel Aralık"
+  },
+  "sidebar": {
+    "dashboard": "Kontrol Paneli",
+    "campaigns": "Kampanyalar",
+    "voices": "Sesler",
+    "analytics": "Analitik",
+    "settings": "Ayarlar",
+    "logout": "Çıkış Yap",
+    "newCampaign": "Yeni Kampanya",
+    "activeCampaigns": "Aktif Kampanyalar",
+    "totalCalls": "Toplam Aramalar",
+    "successRate": "Başarı Oranı"
+  },
+  "notifications": {
+    "title": "Bildirimler",
+    "noNotifications": "Bildirim yok",
+    "markAllRead": "Tümünü okundu olarak işaretle",
+    "campaignStarted": "Kampanya başarıyla başlatıldı",
+    "campaignPaused": "Kampanya duraklatıldı",
+    "campaignCompleted": "Kampanya tamamlandı",
+    "newLead": "Yeni potansiyel müşteri eklendi",
+    "callCompleted": "Arama tamamlandı",
+    "systemUpdate": "Sistem güncellemesi mevcut"
+  },
+  "errors": {
+    "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+    "network": "Ağ hatası. Lütfen bağlantınızı kontrol edin.",
+    "unauthorized": "Bu işlemi gerçekleştirmek için yetkiniz yok.",
+    "notFound": "İstenen kaynak bulunamadı.",
+    "validation": "Lütfen girdinizi kontrol edin ve tekrar deneyin.",
+    "server": "Sunucu hatası. Lütfen daha sonra tekrar deneyin.",
+    "timeout": "İstek zaman aşımına uğradı. Lütfen tekrar deneyin.",
+    "fileUpload": "Dosya yüklenemedi. Lütfen tekrar deneyin.",
+    "invalidFile": "Geçersiz dosya formatı. Lütfen geçerli bir dosya yükleyin.",
+    "fileTooLarge": "Dosya çok büyük. Lütfen daha küçük bir dosya yükleyin."
+  },
+  "success": {
+    "campaignCreated": "Kampanya başarıyla oluşturuldu!",
+    "campaignUpdated": "Kampanya başarıyla güncellendi!",
+    "campaignDeleted": "Kampanya başarıyla silindi!",
+    "leadsUploaded": "Potansiyel müşteriler başarıyla yüklendi!",
+    "voiceCloned": "Ses başarıyla klonlandı!",
+    "settingsUpdated": "Ayarlar başarıyla güncellendi!",
+    "callScheduled": "Arama başarıyla planlandı!",
+    "dataExported": "Veri başarıyla dışa aktarıldı!"
+  },
+  "dialer": {
+    "aiSalesAgent": "AI Satış Ajanı",
+    "sparkAISystem": "Spark AI Sistemi",
+    "dialing": "Aranıyor...",
+    "connecting": "Bağlanıyor...",
+    "connected": "Bağlandı",
+    "readyToCall": "Aramaya Hazır",
+    "duration": "Süre",
+    "quality": "Kalite",
+    "excellent": "Mükemmel",
+    "sentiment": "Duygu",
+    "positive": "Pozitif"
+  },
+  "stats": {
+    "activeCampaigns": "Aktif Kampanyalar",
+    "callsToday": "Bugünkü Aramalar",
+    "successRate": "Başarı Oranı",
+    "languages": "Diller"
+  },
+  "progress": "{total} özellikten",
+  "campaignWorkflow": {
+    "title": "Kampanyalar Nasıl Çalışır",
+    "subtitle": "AI sesli arama kampanyalarınızı oluşturmak ve başlatmak için bu basit adımları izleyin",
+    "workflowTitle": "Kampanya İş Akışı",
+    "step": "Adım",
+    "startFirstCampaign": "İlk Kampanyanızı Başlatın",
+    "step1": {
+      "title": "Kampanya Oluştur",
+      "description": "Sesli arama kampanyanızı kurun",
+      "details": [
+        "Kampanya adı ve açıklamasını girin",
+        "Açılış mesajınızı yazın",
+        "AI kişiliğini yapılandırın",
+        "Kampanya hedeflerini belirleyin"
+      ],
+      "features": [
+        "Kampanya Kurulumu",
+        "Mesaj Oluşturma",
+        "AI Yapılandırması"
+      ]
+    },
+    "step2": {
+      "title": "Potansiyel Müşterileri Yükle",
+      "description": "İletişim listenizi ekleyin",
+      "details": [
+        "İletişimlerle CSV dosyasını yükleyin",
+        "İletişim alanlarını eşleyin (ad, telefon, e-posta)",
+        "Telefon numaralarını doğrulayın",
+        "Potansiyel müşteri verilerini önizleyin"
+      ],
+      "features": [
+        "CSV Yükleme",
+        "Alan Eşleme",
+        "Veri Doğrulama"
+      ]
+    },
+    "step3": {
+      "title": "AI'yi Yapılandır",
+      "description": "Ses ve bilgi tabanını kurun",
+      "details": [
+        "AI sesini seçin (ElevenLabs)",
+        "Bilgi tabanı belgelerini yükleyin",
+        "Konuşma akışını yapılandırın",
+        "Arama parametrelerini ayarlayın"
+      ],
+      "features": [
+        "Ses Seçimi",
+        "Bilgi Tabanı",
+        "AI Kurulumu"
+      ]
+    },
+    "step4": {
+      "title": "Test Et ve Başlat",
+      "description": "Kampanyanızı test edin ve başlatın",
+      "details": [
+        "Kurulumu doğrulamak için test aramaları yapın",
+        "Kampanya ayarlarını gözden geçirin",
+        "Kampanya yürütmesini başlatın",
+        "Arama ilerlemesini izleyin"
+      ],
+      "features": [
+        "Test Aramaları",
+        "Kampanya Başlatma",
+        "İlerleme İzleme"
+      ]
+    },
+    "step5": {
+      "title": "Sonuçları İzle",
+      "description": "Kampanya performansını takip edin",
+      "details": [
+        "Arama istatistiklerini görüntüleyin",
+        "Başarı oranlarını analiz edin",
+        "Arama kayıtlarını gözden geçirin",
+        "Sonuçları dışa aktarın"
+      ],
+      "features": [
+        "Analitik",
+        "Arama Kayıtları",
+        "Performans Raporları"
+      ]
+    }
+  }
+}
