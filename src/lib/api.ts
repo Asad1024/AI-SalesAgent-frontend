@@ -1,5 +1,18 @@
 import { apiRequest } from "./queryClient";
 
+function getAuthHeaders(): HeadersInit {
+  const token = localStorage.getItem('auth-token');
+  const headers: HeadersInit = {
+    'Content-Type': 'application/json',
+  };
+  
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+  
+  return headers;
+}
+
 export interface CampaignStats {
   activeCampaigns: number;
   callsToday: number;
@@ -105,6 +118,7 @@ export const api = {
   // GET requests
   getCampaigns: () => 
     fetch(`${BASE_URL}/api/campaigns`, {
+      headers: getAuthHeaders(),
       credentials: 'include'
     }).then(handleResponse).catch(() => {
       // Return demo campaigns if API fails
@@ -154,8 +168,9 @@ export const api = {
       ];
     }),
   
-  getCampaignDetails: (id: string) =>
+  getCampaignDetails: (id: string) => 
     fetch(`${BASE_URL}/api/campaigns/${id}/details`, {
+      headers: getAuthHeaders(),
       credentials: 'include'
     }).then(handleResponse).catch(() => {
       // Return demo campaign details if API fails
@@ -365,9 +380,7 @@ export const api = {
     console.log('API POST data:', data);
     const response = await fetch(`${BASE_URL}${endpoint}`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: getAuthHeaders(),
       credentials: 'include',
       body: JSON.stringify(data),
     });

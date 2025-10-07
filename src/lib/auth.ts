@@ -33,16 +33,14 @@ class AuthService {
     return data;
   }
 
-  async login(email: string, password: string): Promise<AuthResponse> {
+  async login(email: string, password: string): Promise<AuthResponse & { token?: string }> {
     // Demo login for development/testing
     if (email === 'admin@example.com' && password === 'admin123') {
       const demoUser = {
         id: 'demo-user-1',
         email: 'admin@example.com',
-        name: 'Demo User',
-        role: 'admin',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
       };
       
       // Store demo user in localStorage for demo purposes
@@ -50,7 +48,7 @@ class AuthService {
       
       return {
         message: 'Demo login successful',
-        user: demoUser,
+        user: demoUser as any,
       };
     }
 
@@ -69,20 +67,30 @@ class AuthService {
       throw new Error(data.message || 'Login failed');
     }
 
+    if (data.token) {
+      localStorage.setItem('auth-token', data.token);
+    }
+
+    if (data.user) {
+      localStorage.setItem('user', JSON.stringify(data.user));
+    }
+
     return data;
   }
 
   async logout(): Promise<void> {
-    // Clear demo user if exists
     localStorage.removeItem('demo-user');
+    localStorage.removeItem('auth-token');
+    localStorage.removeItem('user');
     
-    const response = await fetch(`${this.baseUrl}/logout`, {
-      method: 'POST',
-      credentials: 'include',
-    });
+    try {
+      const response = await fetch(`${this.baseUrl}/logout`, {
+        method: 'POST',
+        credentials: 'include',
+      });
 
-    if (!response.ok) {
-      throw new Error('Logout failed');
+    } catch (error) {
+      console.warn('Logout API call failed, but local data cleared');
     }
   }
 
@@ -151,12 +159,35 @@ class AuthService {
       }
     }
 
+    const token = localStorage.getItem('auth-token');
+    const storedUser = localStorage.getItem('user');
+
+    if (token && storedUser) {
+      try {
+        const user = JSON.parse(storedUser);
+        return { authenticated: true, user };
+      } catch (error) {
+        console.error('Error parsing stored user:', error);
+        localStorage.removeItem('auth-token');
+        localStorage.removeItem('user');
+      }
+    }
+
     try {
       // Add timeout to prevent hanging
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
 
+      const headers: HeadersInit = {
+        'Content-Type': 'application/json',
+      };
+
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
+
       const response = await fetch(`${this.baseUrl}/status`, {
+        headers,
         credentials: 'include',
         signal: controller.signal,
       });
@@ -164,14 +195,30 @@ class AuthService {
       clearTimeout(timeoutId);
 
       if (!response.ok) {
+        localStorage.removeItem('auth-token');
+        localStorage.removeItem('user');
         return { authenticated: false };
       }
 
-      return await response.json();
+      const data = await response.json();
+      
+      if (data.user) {
+        localStorage.setItem('user', JSON.stringify(data.user));
+      }
+
+      return data;
     } catch (error) {
-      // If network request fails (backend not available), return unauthenticated
-      // This prevents the app from crashing when backend is not available
-      console.warn('Backend not available, running in demo mode');
+      if (token && storedUser) {
+        console.warn('Backend not available, using cached auth data');
+        try {
+          const user = JSON.parse(storedUser);
+          return { authenticated: true, user };
+        } catch (e) {
+          // Ignore parse error
+        }
+      }
+      
+      console.warn('Backend not available and no cached auth');
       return { authenticated: false };
     }
   }
