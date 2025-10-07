@@ -49,7 +49,15 @@ export default function Dashboard() {
   useEffect(() => {
     if (currentCampaign?.id) {
       // Fetch existing leads for the selected campaign
+      const token = localStorage.getItem('auth-token');
+      const headers: HeadersInit = {};
+      
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
+      
       fetch(`/api/campaigns/${currentCampaign.id}/leads`, {
+        headers,
         credentials: 'include'
       })
       .then(response => response.json())

@@ -81,7 +81,18 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
       }
 
       const audioUrl = `${api.getBaseUrl()}/api/conversations/${conversationId}/audio`;
-      const response = await fetch(audioUrl, { credentials: 'include' });
+
+      const token = localStorage.getItem('auth-token');
+      const headers: HeadersInit = {};
+      
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
+      
+      const response = await fetch(audioUrl, { 
+        headers,
+        credentials: 'include' 
+      });
       if (!response.ok) {
         console.error('Failed to fetch audio:', response.status, response.statusText);
         setPlayingCallSid(null);
