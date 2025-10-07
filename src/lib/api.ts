@@ -13,6 +13,17 @@ function getAuthHeaders(): HeadersInit {
   return headers;
 }
 
+function getAuthHeadersForFormData(): HeadersInit {
+  const token = localStorage.getItem('auth-token');
+  const headers: HeadersInit = {};
+  
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+  
+  return headers;
+}
+
 export interface CampaignStats {
   activeCampaigns: number;
   callsToday: number;
@@ -268,6 +279,7 @@ export const api = {
 
   getConversationDetails: (conversationId: string) =>
     fetch(`${BASE_URL}/api/conversations/${conversationId}/details`, {
+        headers: getAuthHeaders(),
         credentials: 'include'
     }).then(handleResponse).catch(() => {
       // Return demo conversation details if API fails
@@ -315,11 +327,13 @@ export const api = {
 
   getRecordingUrl: (callSid: string) =>
     fetch(`${BASE_URL}/api/calls/${callSid}/recording`, {
+      headers: getAuthHeaders(),
       credentials: 'include'
     }).then(handleResponse),
 
   getVoices: () => 
     fetch(`${BASE_URL}/api/voices`, {
+      headers: getAuthHeaders(),
       credentials: 'include'
     }).then(handleResponse).catch(() => {
       // Return demo voices if API fails
@@ -371,6 +385,7 @@ export const api = {
   
   getKnowledgeBase: () => 
     fetch(`${BASE_URL}/api/knowledge-base`, {
+      headers: getAuthHeaders(),
       credentials: 'include'
     }).then(handleResponse),
 
@@ -392,9 +407,7 @@ export const api = {
   makeExperienceCall: async (data: ExperienceCallRequest) => {
     const response = await fetch(`${BASE_URL}/api/experience-call`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: getAuthHeaders(),
       credentials: 'include',
       body: JSON.stringify(data),
     });
@@ -409,6 +422,7 @@ export const api = {
 
     const response = await fetch(`${BASE_URL}/api/upload/pdf`, {
       method: 'POST',
+      headers: getAuthHeadersForFormData(),
       credentials: 'include',
       body: formData,
     });
@@ -422,6 +436,7 @@ export const api = {
 
     const response = await fetch(`${BASE_URL}/api/upload/csv`, {
       method: 'POST',
+      headers: getAuthHeadersForFormData(),
       credentials: 'include',
       body: formData,
     });
@@ -439,6 +454,7 @@ export const api = {
     // Upload to the uploads route which handles voice cloning
     const response = await fetch(`${BASE_URL}/api/upload/voice`, {
       method: 'POST',
+      headers: getAuthHeadersForFormData(),
       credentials: 'include',
       body: formData,
     });
@@ -449,9 +465,7 @@ export const api = {
   updateAgent: async (campaignId: number, data: { firstPrompt?: string; systemPersona?: string; selectedVoiceId?: string; knowledgeBaseIds?: string[] }) => {
     const response = await fetch(`${BASE_URL}/api/campaigns/${campaignId}/update-agent`, {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: getAuthHeaders(),
       credentials: 'include',
       body: JSON.stringify(data),
     });
@@ -461,9 +475,7 @@ export const api = {
   makeTestCall: async (data: { phoneNumber: string; campaignId?: number; firstName?: string }) => {
     const response = await fetch(`${BASE_URL}/api/make-outbound-call`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: getAuthHeaders(),
       credentials: 'include',
       body: JSON.stringify(data),
     });
@@ -473,9 +485,7 @@ export const api = {
   startCampaign: async (campaignData: any) => {
     const response = await fetch(`${BASE_URL}/api/start-campaign`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: getAuthHeaders(),
       credentials: 'include',
       body: JSON.stringify(campaignData),
     });
@@ -485,6 +495,7 @@ export const api = {
   getCampaignStatus: async (campaignId: number) => {
     const response = await fetch(`${BASE_URL}/api/campaigns/${campaignId}/status`, {
       method: 'GET',
+      headers: getAuthHeaders(),
       credentials: 'include',
     });
     return handleResponse(response);
@@ -493,9 +504,7 @@ export const api = {
   updateCampaignProgress: async (campaignId: number, progress: any) => {
     const response = await fetch(`${BASE_URL}/api/campaigns/${campaignId}/progress`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: getAuthHeaders(),
       credentials: 'include',
       body: JSON.stringify(progress),
     });
@@ -512,6 +521,7 @@ export const api = {
 
     const response = await fetch(`${BASE_URL}/api/clone-voice`, {
       method: 'POST',
+      headers: getAuthHeadersForFormData(),
       credentials: 'include',
       body: formData,
     });
@@ -522,9 +532,7 @@ export const api = {
   deleteKnowledgeBaseFile: async (fileId: string, elevenlabsId?: string) => {
     const response = await fetch(`${BASE_URL}/api/upload/knowledge-base/${fileId}`, {
       method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: getAuthHeaders(),
       credentials: 'include',
       body: JSON.stringify({ elevenlabsId }),
     });
@@ -535,6 +543,7 @@ export const api = {
   getActiveCalls: async () => {
     const response = await fetch(`${BASE_URL}/api/calls/active`, {
       method: 'GET',
+      headers: getAuthHeaders(),
       credentials: 'include',
     });
     return handleResponse(response);
@@ -543,6 +552,7 @@ export const api = {
   getCallStatus: async (callId: string) => {
     const response = await fetch(`${BASE_URL}/api/calls/${callId}/status`, {
       method: 'GET',
+      headers: getAuthHeaders(),
       credentials: 'include',
     });
     return handleResponse(response);
@@ -551,6 +561,7 @@ export const api = {
   getCallHistory: async () => {
     const response = await fetch(`${BASE_URL}/api/calls/history`, {
       method: 'GET',
+      headers: getAuthHeaders(),
       credentials: 'include',
     });
     return handleResponse(response);
@@ -560,6 +571,7 @@ export const api = {
   getStats: async (): Promise<CampaignStats> => {
     try {
       const response = await fetch(`${BASE_URL}/api/analytics/dashboard`, {
+        headers: getAuthHeaders(),
         credentials: 'include'
       });
       if (!response.ok) {
@@ -618,9 +630,7 @@ export const api = {
   }) => {
     const response = await fetch(`${BASE_URL}/api/campaigns/${campaignId}`, {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: getAuthHeaders(),
       credentials: 'include',
       body: JSON.stringify(updates),
     });
@@ -631,10 +641,7 @@ export const api = {
     try {
       const response = await fetch(`${BASE_URL}/api/campaigns/${campaignId}`, {
         method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
+        headers: getAuthHeaders(),
         credentials: 'include',
       });
 
@@ -654,9 +661,7 @@ export const api = {
     try {
       const response = await fetch(`${BASE_URL}/api/analytics/dashboard/settings`, {
         method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: getAuthHeaders(),
         credentials: 'include',
         body: JSON.stringify(settings),
       });
@@ -676,9 +681,7 @@ export const api = {
     try {
       const response = await fetch(`${BASE_URL}/api/upload/knowledge-base/${id}`, {
         method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: getAuthHeaders(),
         credentials: 'include',
         body: JSON.stringify({ campaignId }),
       });
@@ -698,9 +701,7 @@ export const api = {
     try {
       const response = await fetch(`${BASE_URL}/api/campaigns/${campaignId}/leads`, {
         method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: getAuthHeaders(),
         credentials: 'include',
       });
 
@@ -757,6 +758,7 @@ export const api = {
     getAuthUrl: async () => {
       const response = await fetch(`${BASE_URL}/api/calendly/auth/url`, {
         method: 'GET',
+        headers: getAuthHeaders(),
         credentials: 'include'
       });
       
@@ -766,9 +768,7 @@ export const api = {
     exchangeToken: async (code: string) => {
       const response = await fetch(`${BASE_URL}/api/calendly/auth/token`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: getAuthHeaders(),
         credentials: 'include',
         body: JSON.stringify({ code }),
       });
@@ -779,6 +779,7 @@ export const api = {
     getCurrentUser: async (accessToken: string) => {
       const response = await fetch(`${BASE_URL}/api/calendly/user/me?accessToken=${encodeURIComponent(accessToken)}`, {
         method: 'GET',
+        headers: getAuthHeaders(),
         credentials: 'include'
       });
       
@@ -788,6 +789,7 @@ export const api = {
     getEventTypes: async (accessToken: string, userUri: string) => {
       const response = await fetch(`${BASE_URL}/api/calendly/event-types?accessToken=${encodeURIComponent(accessToken)}&userUri=${encodeURIComponent(userUri)}`, {
         method: 'GET',
+        headers: getAuthHeaders(),
         credentials: 'include'
       });
       
