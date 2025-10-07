@@ -172,7 +172,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
 
   const handleCreateCampaign = () => {
     if (newCampaignName.trim()) {
-      const currentLanguage = i18n?.language || 'en';
+      const rawLanguage = i18n?.language || 'en';
+      const currentLanguage = rawLanguage.split('-')[0].toLowerCase();
       const campaignData = {
         name: newCampaignName,
         firstPrompt: "Hi FIRST NAME, I'm calling from our sales team. I hope you're having a great day!",
