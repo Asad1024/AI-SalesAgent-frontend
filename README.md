@@ -8,7 +8,7 @@ This project is currently in development. More documentation will be added as th
 
 ## Technologies
 
-- Frontend framework and technologies will be specified as development progresses.
+- Frontend framework and technologies will be specified as development progresses. 
 
 ## Contributing
  
