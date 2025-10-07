@@ -1794,10 +1794,7 @@ export default function HomeOption2() {
               <h3 className="font-semibold mb-4">{t('footer.company')}</h3>
               <ul className="space-y-2 text-slate-400">
                 <li><a href="/about" className="hover:text-white transition-colors">{t('footer.about')}</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">{t('footer.blog')}</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">{t('footer.careers')}</a></li>
                 <li><a href="/contact" className="hover:text-white transition-colors">{t('footer.contact')}</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">{t('footer.helpCenter')}</a></li>
               </ul>
             </div>
           </div>

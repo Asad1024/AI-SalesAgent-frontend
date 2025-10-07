@@ -31,11 +31,11 @@ export default function Navigation() {
   };
 
   const navigationItems = [
-    { name: t('navigation.home'), path: '/' },
-    { name: 'Home Option 1', path: '/home-option1' },
-    { name: 'Home Option 2', path: '/home-option2' },
-    { name: t('navigation.benefits'), path: '/#benefits' },
-    { name: t('navigation.pricing'), path: '/#pricing' },
+    // { name: t('navigation.home'), path: '/' },
+    // { name: 'Home Option 1', path: '/home-option1' },
+    // { name: 'Home Option 2', path: '/home-option2' },
+    // { name: t('navigation.benefits'), path: '/#benefits' },
+    // { name: t('navigation.pricing'), path: '/#pricing' },
     { name: t('navigation.about'), path: '/about' },
     { name: t('navigation.contact'), path: '/contact' }
   ];
@@ -85,7 +85,7 @@ export default function Navigation() {
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             {/* Currency Switcher */}
-            <CurrencySwitcher />
+            {/* <CurrencySwitcher /> */}
             
             {/* Language Switcher */}
             <LanguageSwitcher />
