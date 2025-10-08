@@ -33,6 +33,19 @@ export function CampaignCard({ campaign, onDelete, onEdit }: CampaignCardProps) 
   // Check if campaign can be edited (draft status with no calls made)
   const canEdit = campaign.status === 'draft' && (campaign.completedCalls || 0) === 0;
 
+  const getLanguageInfo = (lang: string) => {
+    const languages: Record<string, { label: string; flag: string; color: string }> = {
+      en: { label: 'EN', flag: '🇺🇸', color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300' },
+      tr: { label: 'TR', flag: '🇹🇷', color: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300' },
+      ar: { label: 'AR', flag: '🇦🇪', color: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300' },
+      az: { label: 'AZ', flag: '🇦🇿', color: 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300' }
+    };
+    return languages[lang] || languages.en;
+  };
+
+  const languageInfo = getLanguageInfo(campaign.language || 'en');
+
+
   return (
     <Card className="relative bg-white/50 dark:bg-black/50 backdrop-blur-sm border border-gray-200/20 shadow-lg rounded-2xl overflow-hidden group">
       <div className="absolute top-4 right-4 z-10">

@@ -450,10 +450,33 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
     }
   };
 
-  // Cancel editing
   const handleCancelEdit = () => {
     setEditingLeadIndex(null);
     setEditedPhone('');
+  };
+
+  const handleDeleteLead = (index: number) => {
+    const updatedLeads = csvLeads.filter((_, i) => i !== index);
+    setCsvLeads(updatedLeads);
+
+    if (currentCampaign) {
+      setCurrentCampaign({
+        ...currentCampaign,
+        leads: updatedLeads
+      });
+    }
+
+    if (updatedLeads.length === 0) {
+      setLeadsFile(null);
+      setShowCSVPreview(false);
+    } else {
+      setLeadsFile({ name: `Uploaded CSV (${updatedLeads.length} leads)`, leads: updatedLeads } as any);
+    }
+
+    toast({
+      title: "Lead Deleted",
+      description: `Lead removed from the list. ${updatedLeads.length} leads remaining.`,
+    });
   };
 
   // Add country code to phone if missing
@@ -1622,8 +1645,17 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   <div key={index} className="p-3 hover:bg-gray-50 transition-colors">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3 flex-1">
-                        <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
-                          <span className="text-sm font-medium text-purple-600">{index + 1}</span>
+                        <div className="flex items-center space-x-2">
+                          <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                            <span className="text-sm font-medium text-purple-600">{index + 1}</span>
+                          </div>
+                          <button
+                            onClick={() => handleDeleteLead(index)}
+                            className="p-1 hover:bg-red-100 dark:hover:bg-red-900/30 rounded text-red-600 hover:text-red-700 transition-colors"
+                            title="Delete lead"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </button>
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center space-x-2">

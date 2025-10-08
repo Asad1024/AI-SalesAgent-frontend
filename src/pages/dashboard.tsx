@@ -143,26 +143,6 @@ export default function Dashboard() {
                 </p>
               </div>
             </div>
-            <div className="flex items-center space-x-2 sm:space-x-4">
-              {/* Language Switcher */}
-              <LanguageSwitcher />
-              
-              {/* Theme Toggle */}
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={toggleTheme}
-                className="hover:bg-gradient-to-r hover:from-brand-500 hover:to-brand-600 hover:text-white hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl"
-                title={theme === 'light' ? t('common.switchToDark') : t('common.switchToLight')}
-              >
-                {theme === 'light' ? (
-                  <Moon className="h-4 w-4 sm:h-5 sm:w-5" />
-                ) : (
-                  <Sun className="h-4 w-4 sm:h-5 sm:w-5" />
-                )}
-              </Button>
-              
-            </div>
           </div>
         </header>
 

@@ -124,25 +124,6 @@ export default function Analytics() {
                 <p className="text-sm sm:text-base text-brand-600 dark:text-brand-400 mt-1 sm:mt-2">{t('analytics.subtitle')}</p>
               </div>
             </div>
-            <div className="flex items-center space-x-2 sm:space-x-4">
-              <LanguageSwitcher />
-              <ThemeToggle />
-              <Select value={timeRange} onValueChange={setTimeRange}>
-                <SelectTrigger className="w-40">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="24h">{t('analytics.timeRange.24h')}</SelectItem>
-                  <SelectItem value="7d">{t('analytics.timeRange.7d')}</SelectItem>
-                  <SelectItem value="30d">{t('analytics.timeRange.30d')}</SelectItem>
-                  <SelectItem value="90d">{t('analytics.timeRange.90d')}</SelectItem>
-                </SelectContent>
-              </Select>
-              <Button className="bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white shadow-lg">
-                <Download className="h-4 w-4 mr-2" />
-                {t('analytics.export')}
-              </Button>
-            </div>
           </div>
         </header>
 

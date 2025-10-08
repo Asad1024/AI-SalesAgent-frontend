@@ -71,7 +71,7 @@ export default function CampaignSelector({ onCampaignSelect }: CampaignSelectorP
           <Button 
             variant="outline" 
             className="w-full"
-            onClick={() => setLocation('/campaigns')}
+            onClick={() => setLocation('/campaigns/new')}
           >
             <Plus className="h-4 w-4 mr-2" />
 {t('dashboard.createNewCampaignButton')}

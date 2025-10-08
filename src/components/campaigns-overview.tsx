@@ -159,7 +159,7 @@ export default function CampaignsOverview() {
               <h3 className="text-lg font-semibold text-foreground mb-2">No Campaigns Yet</h3>
               <p className="text-muted-foreground mb-4">Create your first AI voice calling campaign to get started.</p>
               <Button 
-                onClick={() => setLocation('/campaigns')}
+                onClick={() => setLocation('/campaigns/new')}
                 className="bg-primary hover:bg-primary/90"
               >
                 Create Campaign

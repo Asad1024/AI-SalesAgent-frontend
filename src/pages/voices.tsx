@@ -331,17 +331,6 @@ export default function Voices() {
                 <p className="text-brand-600 dark:text-brand-400 mt-2">{t('voices.subtitle')}</p>
               </div>
             </div>
-            <div className="flex items-center space-x-4">
-              <LanguageSwitcher />
-              <ThemeToggle />
-              <Button 
-                onClick={() => setShowCloneForm(true)}
-                className="bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white shadow-lg"
-              >
-                <Plus className="h-4 w-4 mr-2" />
-                {t('voices.cloneVoice')}
-              </Button>
-            </div>
           </div>
         </header>
 

@@ -136,10 +136,6 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
                     <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-1 sm:mt-2">{t('campaigns.subtitle')}</p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2 sm:space-x-4">
-                  <LanguageSwitcher />
-                  <ThemeToggle />
-                </div>
               </div>
         </header>
         <main className="flex-1 overflow-auto p-4 sm:p-6 lg:p-8">

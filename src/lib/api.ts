@@ -76,6 +76,7 @@ export interface Campaign {
   failedCalls: number;
   averageDuration: number;
   createdAt: string;
+  language?: string;
 }
 
 export interface Lead {
