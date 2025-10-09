@@ -619,8 +619,8 @@
       "demo": "Demo var mı?"
     },
     "responses": {
-      "pricing": "Harika soru! Planlarımız Başlangıç için sadece 97$/ay ve Profesyonel için 297$/ay ile başlıyor. Şu anda ilk 3 ayınızda %50 indirim + ücretsiz kurulum (500$ değerinde) sunuyoruz! Detayları göstermemi ister misiniz?",
-      "freeTrial": "Kesinlikle! Kredi kartı gerektirmeyen 14 günlük ücretsiz deneme sunuyoruz. Tüm özellikleri test edebilir ve gerçek sonuçları görebilirsiniz. Ayrıca 30 günlük para iade garantimiz var. Başlamaya hazır mısınız?",
+      "pricing": "💰 AI sesli arama hizmetimiz ajan başına 10,000 AED tek seferlik kurulum ücreti ile başlar, aylık destek paketleri 1,500 AED/ay (Temel) veya 3,000 AED/ay (Premium) ile başlar. AI kullanımı dakika başına 0.51-0.66 AED ile faturalandırılır. Fiyatlandırma seçeneklerini görüşmek için sizi aramamı ister misiniz?",
+      "freeTrial": "🎯 AI ses teknolojimizi doğrudan deneyimlemek için ücretsiz danışmanlık ve demo araması sunuyoruz. Kredi kartı gerekmez! Sadece 'demo için beni ara' deyin ve sizin için kişiselleştirilmiş demo araması ayarlayacağım.",
       "demo": "Size göstermeyi çok isterim! AI'miz 7/24 doğal sesli aramalar yapar, müşteri adaylarını değerlendirir ve otomatik olarak toplantı planlar. Şimdi interaktif demomuzu deneyebilir veya kişiselleştirilmiş demo araması planlayabilirim. Hangisi daha iyi geliyor?",
       "setup": "Başlamak çok kolay! Sadece iletişim listenizi yükleyin, AI sesinizi seçin ve başlatın. Kurulum sadece 5 dakika sürer ve ücretsiz onboarding sağlıyoruz. Size rehberlik etmemi ister misiniz?",
       "default": "Bu harika bir soru! Size kişiselleştirilmiş bir yanıt verebilecek AI arama uzmanlarımızdan biriyle sizi bağlayayım. Bu arada ücretsiz denememizi deneyebilir veya demomuzu kontrol edebilirsiniz. Hangisini tercih edersiniz?"

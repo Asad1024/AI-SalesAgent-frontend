@@ -245,34 +245,36 @@ export default function HomeOption2() {
 
   const pricingPlans = [
     {
-      name: t('home.pricing.basic.name'),
-      price: '$150',
-      period: '/mo',
-      description: t('home.pricing.basic.description'),
+      name: 'Essential Support',
+      price: 'AED 1,500',
+      period: '/month',
+      description: 'Perfect for businesses getting started with AI calling',
       features: [
-        '100 calls per month',
-        '1 AI agent',
-        t('home.pricing.basic.features.0'),
-        t('home.pricing.basic.features.1')
+        '24x7 uptime monitoring and incident alerts',
+        'Up to 4 hours/month of flow tweaks or prompt changes',
+        'Unused time rolls over for 60 days',
+        'Monthly performance report with actionable insights',
+        'Email support with next-business-day SLA'
       ],
-      cta: t('home.pricing.basic.cta'),
+      cta: 'Get Started',
       popular: false
     },
     {
-      name: t('home.pricing.pro.name'),
-      price: '$150',
-      period: '/mo',
-      description: t('home.pricing.pro.description'),
+      name: 'Premium Support',
+      price: 'AED 3,000',
+      period: '/month',
+      description: 'For businesses requiring advanced optimization and priority support',
       features: [
-        '500 calls per month',
-        '3 AI agents',
-        t('home.pricing.pro.features.0'),
-        t('home.pricing.pro.features.1'),
-        t('home.pricing.pro.features.2')
+        'Everything in Essential plus:',
+        'Up to 10 hours/month of prompt/flow optimization',
+        'Strategy session to review metrics and roadmap',
+        'Priority support queue with same-business-day responses',
+        'Early-access testing of lower-cost voice models',
+        '30-day notice for package changes'
       ],
-      cta: t('home.pricing.pro.cta'),
+      cta: 'Get Started',
       popular: true,
-      limited: true
+      limited: false
     }
   ];
 
@@ -1108,8 +1110,32 @@ export default function HomeOption2() {
               Pricing
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-              Make the decision easy. Present clear plans, simple pricing, and strong reasons to act now.
+              Transparent pricing with no hidden costs. Choose the support package that fits your needs.
             </p>
+          </div>
+
+          {/* Setup Fee and AI Usage */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="bg-white dark:bg-slate-700/80 dark:backdrop-blur-sm rounded-2xl p-8 border-2 border-slate-200 dark:border-slate-600/50">
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">One-time Setup Fee</h3>
+                <div className="mb-4">
+                  <span className="text-4xl font-bold text-slate-900 dark:text-white">AED 10,000</span>
+                </div>
+                <p className="text-slate-600 dark:text-slate-400 mb-6">Per agent setup and configuration</p>
+              </div>
+            </div>
+            
+            <div className="bg-white dark:bg-slate-700/80 dark:backdrop-blur-sm rounded-2xl p-8 border-2 border-slate-200 dark:border-slate-600/50">
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">AI Usage Fees</h3>
+                <div className="mb-4">
+                  <span className="text-4xl font-bold text-slate-900 dark:text-white">AED 0.51 - 0.66</span>
+                  <span className="text-slate-600 dark:text-slate-400">/minute</span>
+                </div>
+                <p className="text-slate-600 dark:text-slate-400 mb-6">Billed to the exact second (covers voice generation, real-time transcription, and LLM processing)</p>
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">

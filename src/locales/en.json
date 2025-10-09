@@ -999,8 +999,8 @@
       "demo": "📞 Call me to demo!"
     },
     "responses": {
-      "pricing": "💰 Our AI voice calling service starts at just $99/month for up to 1,000 calls. We also offer a 14-day free trial with no credit card required! Would you like me to call you to discuss pricing options?",
-      "freeTrial": "🎯 Yes! We offer a completely free 14-day trial. You can make up to 100 calls to test our AI voice technology. No credit card required! Just say 'call me to demo' and I'll set up a personalized demo call for you.",
+      "pricing": "💰 Our AI voice calling service has a one-time setup fee of AED 10,000 per agent, with monthly support packages starting at AED 1,500/month (Essential) or AED 3,000/month (Premium). AI usage is billed at AED 0.51-0.66 per minute. Would you like me to call you to discuss pricing options?",
+      "freeTrial": "🎯 We offer a free consultation and demo call to experience our AI voice technology firsthand. No credit card required! Just say 'call me to demo' and I'll set up a personalized demo call for you.",
       "demo": "⚡ Our AI makes natural-sounding phone calls to your leads, handles objections, and books appointments - all while sounding completely human! The best way to experience it is to receive a demo call. Would you like me to call you right now?",
       "setup": "🚀 Getting started is super easy! Just upload your contact list, choose your AI voice, and customize your script. Our AI will start calling within minutes. I can walk you through the entire process with a live demo call - shall I call you?",
       "default": "🤖 That's a great question! I'd love to help you learn more about our AI voice calling technology. The best way to understand how powerful it is would be to experience it firsthand. Would you like me to call you for a personalized demo?"
