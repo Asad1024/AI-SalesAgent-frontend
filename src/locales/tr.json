@@ -177,7 +177,7 @@
     "subtitle": "Potansiyel müşterileri nitelendiren, toplantıları planlayan ve 7/24 anlaşma kapatan insan benzeri AI ajanları ile satış aramalarınızı otomatikleştirin. Satış otomasyonunun geleceğini deneyimleyin.",
     "startFreeTrial": "Ücretsiz Deneme Başlat",
     "watchDemo": "Demo İzle",
-    "tagline": "Spark AI tarafından AI Satış Arama Ajanı"
+    "tagline": "AI SPARK SALES AGENT"
   },
   "stats": {
     "aiCallsMade": "Yapılan AI Aramaları",
@@ -466,7 +466,7 @@
     "cookiePolicy": "Çerez Politikası",
     "voiceLibrary": "Ses Kütüphanesi",
     "helpCenter": "Yardım Merkezi",
-    "copyright": "© 2024 Spark AI. Tüm hakları saklıdır."
+    "copyright": "© 2024 AI SPARK SALES AGENT. Tüm hakları saklıdır."
   },
   "language": {
     "switchTo": "Şuna geç",
@@ -645,6 +645,445 @@
       "title": "🎉 İçeridesiniz!",
       "message": "Özel %50 indirim kodunuz için e-postanızı kontrol edin. Bu teklif 24 saat içinde sona eriyor!",
       "button": "Ücretsiz Denememi Başlat"
+    },
+    "consultation": {
+      "title": "AI uzmanlarımızla ücretsiz danışmanlık alın",
+      "subtitle": "AI ses ajanlarının işinizi nasıl dönüştürebileceği konusunda kişiselleştirilmiş tavsiye alın",
+      "expertTeam": "AI Uzman Ekibi",
+      "specialists": "AI Ses Uzmanları",
+      "discoveryCall": "AI Ajan Keşif Çağrısı",
+      "duration": "30 dk",
+      "description": "AI uzmanlarımızla ücretsiz keşif çağrısı planlayın!",
+      "features": [
+        "Sektörünüz için özel AI stratejisi",
+        "Kişiselleştirilmiş uygulama planı",
+        "ROI projeksiyonları ve zaman çizelgesi",
+        "Ücretsiz danışmanlık ve kurulum rehberliği"
+      ],
+      "testimonial": "AI SPARK SALES AGENT'teki AI uzmanları danışmanlığımız sırasında profesyonel ve dikkatliydi. İşimiz için dönüşüm oranımızı %300 artıran harika bir AI ses ajanı stratejisi oluşturdular.",
+      "weWillCover": "Kapsayacağımız konular:",
+      "hearFromOthers": "Diğerlerinden dinleyin:"
+    },
+    "whyChoose": {
+      "title": "Neden önde gelen şirketler AI SPARK SALES AGENT'i seçiyor",
+      "subtitle": "Müşteri etkileşimlerini dönüştürmek ve benzeri görülmemiş büyüme sağlamak için AI SPARK SALES AGENT'e güvenen 500+ şirkete katılın",
+      "comparison": {
+        "ourPlatform": "AI SPARK SALES AGENT",
+        "otherPlatforms": "Diğer AI Platformları"
+      }
+    },
+    "aiSalesTeam": {
+      "title": "Yeni AI Satış Ekibinizle Tanışın",
+      "subtitle": "AI SPARK SALES AGENT, insan gibi ses çıkaran, stratejik düşünen ve işinizi büyütmek için 7/24 yorulmadan çalışan akıllı ses ajanları oluşturur.",
+      "readyToSee": "AI Ajanınızı Aksiyonda Görmeye Hazır mısınız?",
+      "bookDemo": "Kişiselleştirilmiş bir demo planlayın ve AI'mızın belirli kullanım durumunuzu gerçek zamanlı olarak nasıl ele aldığını izleyin."
+    },
+    "solutionsSection": {
+      "title": "Güçlü AI Çözümleri",
+      "subtitle": "Gerçek sonuçlar veren son teknoloji AI teknolojisi ile işinizi dönüştürün."
+    },
+    "solutions": {
+      "customerSupport": {
+        "title": "Müşteri Desteği",
+        "description": "Hiç uyumayan 7/24 otomatik müşteri hizmeti"
+      },
+      "leadQualification": {
+        "title": "Müşteri Adayı Değerlendirme",
+        "description": "AI destekli müşteri adayı puanlama ve değerlendirme"
+      },
+      "salesAutomation": {
+        "title": "Satış Otomasyonu",
+        "description": "Müşteri adaylarını müşteriye dönüştüren otomatik takipler"
+      }
+    },
+    "features": {
+      "availability": {
+        "title": "7/24 Erişilebilirlik",
+        "description": "AI ajanlar 7/24 çalışır"
+      },
+      "lightningFast": {
+        "title": "Şimşek Hızı",
+        "description": "2 saniyeden az sürede anında yanıt"
+      },
+      "scalableTeam": {
+        "title": "Ölçeklenebilir Ekip",
+        "description": "Aynı anda binlerce aramayı idare eder"
+      },
+      "dataDriven": {
+        "title": "Veri Odaklı",
+        "description": "Performansı optimize etmek için gelişmiş analitik"
+      },
+      "uploadData": {
+        "title": "Veri Yükle",
+        "description": "İletişim listenizi yükleyin veya CRM'inizi bağlayın"
+      },
+      "trainAi": {
+        "title": "AI Eğit",
+        "description": "AI'ı ürün ve hizmetlerinizde eğitin"
+      },
+      "goLive": {
+        "title": "Canlıya Al",
+        "description": "Otomatik aramaları başlatın ve satışlarınızı artırın"
+      }
+    },
+    "industries": {
+      "healthcare": "Sağlık",
+      "ecommerce": "E-ticaret",
+      "realEstate": "Emlak",
+      "education": "Eğitim",
+      "automotive": "Otomotiv",
+      "legal": "Hukuk",
+      "restaurant": "Restoran",
+      "services": "Hizmetler"
+    },
+    "industryUseCases": {
+      "healthcare": "Randevu planlama, ilaç hatırlatmaları, hasta desteği",
+      "ecommerce": "Sipariş takibi, iade işlemleri, müşteri desteği",
+      "realEstate": "Müşteri değerlendirme, görüntüleme planlama, satış takibi",
+      "education": "Kayıt, akademik danışmanlık, öğrenci desteği",
+      "automotive": "Müşteri hizmetleri, bakım planlama, satış takibi",
+      "legal": "Hukuki danışmanlık, randevu planlama, müşteri desteği",
+      "restaurant": "Masa rezervasyonu, teslimat siparişleri, müşteri desteği",
+      "services": "Müşteri değerlendirme, randevu planlama, satış takibi"
+    },
+    "testimonials": {
+      "sarah": {
+        "name": "Sarah Ahmed",
+        "content": "Sadece 3 ayda satışlarımızı %340 artırdık. AI o kadar doğal ses çıkarıyor ki, müşteri adayları insan olmadığını anlayamıyor."
+      },
+      "michael": {
+        "name": "Mehmet Ali",
+        "role": "Satış Müdürü, Gelişmiş Teknoloji Şirketi",
+        "content": "Soyuq zənglərdə həftədə 20 saat qənaət etdik. Komandamız indi müştəri namizədi axtarmaq əvəzinə müqavilə bağlamağa diqqət yetirir."
+      },
+      "emily": {
+        "name": "Fatma Hasan",
+        "role": "Kurucu, Hızlı Büyüme Şirketi",
+        "content": "Startup olarak satış ekibi karşılayamadık. Bu AI ajan en iyi satış temsilcimiz oldu, 7/24 çalışıyor ve çok az maliyetli."
+      }
+    },
+    "demos": {
+      "customerSupport": {
+        "title": "Müşteri Desteği",
+        "description": "AI ajan müşteri sorgularını ve destek taleplerini idare eder"
+      },
+      "appointmentBooking": {
+        "title": "Randevu Planlama",
+        "description": "Akıllı hatırlatmalarla otomatik randevu planlama",
+        "industry": "Sağlık"
+      },
+      "salesQualification": {
+        "title": "Satış Değerlendirme",
+        "description": "Müşteri adaylarını otomatik olarak değerlendirme ve nitelendirme"
+      }
+    },
+    "faqs": {
+      "howItWorks": {
+        "question": "AI SPARK SALES AGENT nasıl çalışır?",
+        "answer": "AI SPARK SALES AGENT, müşteri aramalarını idare edebilen, müşteri adaylarını değerlendirebilen ve otomatik olarak randevu planlayabilen akıllı ses ajanları oluşturmak için gelişmiş doğal dil işleme ve makine öğrenmesi kullanır."
+      },
+      "customization": {
+        "question": "AI ajanı özelleştirebilir miyim?",
+        "answer": "Evet! AI'ı iş bilgileriniz, senaryolarınız ve bilgi tabanınızla eğitebilirsiniz. AI sesinizi, tonunuzu ve iş süreçlerinizi öğrenecek."
+      },
+      "languages": {
+        "question": "Hangi diller destekleniyor?",
+        "answer": "AI SPARK SALES AGENT doğal sesli ve aksanlı 100'den fazla dili destekler. Kişiselleştirilmiş deneyim için kendi sesinizi de klonlayabilirsiniz."
+      },
+      "pricing": {
+        "question": "Maliyeti nedir?",
+        "answer": "Fiyatlandırmamız 100 aramalı Temel plan için ayda 150$'dan başlıyor. Ayrıca gelişmiş özellikler ve daha yüksek arama hacmi ile Pro plan sunuyoruz."
+      },
+      "freeTrial": {
+        "question": "Ücretsiz deneme var mı?",
+        "answer": "Evet! Taahhütsüz 14 günlük ücretsiz deneme sunuyoruz. Tüm özellikleri deneyin ve sonuçları kendiniz görün."
+      }
+    },
+    "companies": {
+      "trustedBy": "Lider şirketler tarafından güveniliyor"
+    },
+    "demo": {
+      "title": "AI SPARK SALES AGENT'i Aksiyonda Görün",
+      "subtitle": "AI ses ajanlarımızın farklı sektörlerde gerçek telefon görüşmelerini nasıl idare ettiğini izleyin. Senaryo yok, önceden kaydedilmiş yanıtlar yok - sadece saf AI zekası.",
+      "liveDemo": "Canlı AI Çağrı Demosu",
+      "watchDescription": "AI ajanımızın gerçek müşteri hizmetleri çağrısını nasıl idare ettiğini izleyin",
+      "playFullDemo": "Tam Demo Oynat",
+      "live": "CANLI",
+      "categories": {
+        "customerSupport": {
+          "title": "Müşteri Desteği Demosu",
+          "industry": "E-ticaret",
+          "duration": "2:30 dk",
+          "description": "AI ajan sipariş takibi, iadeler ve müşteri sorgularını doğal konuşma akışıyla idare eder.",
+          "features": ["Sipariş Takibi", "İade İşleme", "Müşteri Sorguları"]
+        },
+        "appointmentBooking": {
+          "title": "Randevu Planlama Demosu",
+          "industry": "Sağlık",
+          "duration": "3:15 dk",
+          "description": "AI ajan müşteri adaylarını değerlendirir, randevuları planlar ve adaylarla otomatik olarak takip eder.",
+          "features": ["Müşteri Adayı Değerlendirme", "Randevu Planlama", "Takip Otomasyonu"]
+        },
+        "salesGeneration": {
+          "title": "Satış ve Müşteri Adayı Üretimi",
+          "industry": "Emlak",
+          "duration": "4:20 dk",
+          "description": "AI ajan müşteri adayları üretir, adayları değerlendirir ve emlak görüntülemelerini planlar.",
+          "features": ["Müşteri Adayı Üretimi", "Aday Değerlendirme", "Görüntüleme Planlama"]
+        }
+      }
+    },
+    "pricing": {
+      "title": "Fiyatlandırma",
+      "subtitle": "Gizli maliyetler olmadan şeffaf fiyatlandırma. İhtiyaçlarınıza uygun destek paketini seçin.",
+      "setupFee": {
+        "title": "Tek Seferlik Kurulum Ücreti",
+        "price": "10,000 AED",
+        "description": "Ajan başına kurulum ve yapılandırma"
+      },
+      "usageFees": {
+        "title": "AI Kullanım Ücretleri",
+        "price": "0.51 - 0.66 AED/dakika",
+        "description": "Tam saniye faturalandırma (ses üretimi, gerçek zamanlı transkripsiyon ve LLM işleme kapsar)"
+      },
+      "essential": {
+        "name": "Temel Destek",
+        "price": "1,500 AED",
+        "period": "/ay",
+        "description": "AI çağrıları ile başlayan işletmeler için mükemmel",
+        "features": [
+          "24x7 çalışma süresi izleme ve olay uyarıları",
+          "Ayda 4 saate kadar akış ayarlamaları veya komut değişiklikleri",
+          "Kullanılmayan süre 60 gün boyunca devreder",
+          "Eyleme dönüştürülebilir içgörülerle aylık performans raporu",
+          "Sonraki iş günü SLA ile e-posta desteği"
+        ]
+      },
+      "premium": {
+        "name": "Premium Destek",
+        "price": "3,000 AED",
+        "period": "/ay",
+        "description": "Gelişmiş optimizasyon ve öncelikli destek gerektiren işletmeler için",
+        "features": [
+          "Temel'deki her şey artı:",
+          "Ayda 10 saate kadar komut/akış optimizasyonu",
+          "Metrikleri ve yol haritasını gözden geçirmek için strateji oturumu",
+          "Aynı iş günü yanıtlarla öncelikli destek kuyruğu",
+          "Düşük maliyetli ses modellerinin erken erişim testi",
+          "Paket değişiklikleri için 30 gün önceden bildirim"
+        ]
+      },
+      "getStarted": "Başlayın",
+      "trustedBy": "Dünya çapında 500+ şirket tarafından güveniliyor"
+    },
+    "featureComparison": {
+      "badge": "Endüstri Liderleri Tarafından Güveniliyor",
+      "title": "Neden Üst Düzey Şirketler AI SPARK SALES AGENT'i Seçiyor",
+      "subtitle": "Müşteri etkileşimini dönüştürmek ve benzeri görülmemiş büyüme sağlamak için AI SPARK SALES AGENT'e güvenen 500+ şirkete katılın",
+      "features": {
+        "advancedVoice": {
+          "name": "Gelişmiş AI Ses Teknolojisi",
+          "description": "En son doğal dil işleme"
+        },
+        "customerSupport": {
+          "name": "7/24 Müşteri Desteği",
+          "description": "Kesintisiz kullanılabilirlik ve izleme"
+        },
+        "voiceCloning": {
+          "name": "Özel Ses Klonlama",
+          "description": "Kişiselleştirilmiş marka sesi oluşturma"
+        },
+        "multiLanguage": {
+          "name": "Çok Dilli Destek",
+          "description": "Yerel aksanlarla 95+ dil"
+        },
+        "realTimeAnalytics": {
+          "name": "Gerçek Zamanlı Analitik",
+          "description": "Kapsamlı performans içgörüleri"
+        },
+        "enterpriseSecurity": {
+          "name": "Kurumsal Güvenlik",
+          "description": "Uçtan uca şifreleme ile SOC 2 uyumlu"
+        },
+        "easyIntegration": {
+          "name": "Kolay Entegrasyon",
+          "description": "Mevcut sistemlerle sorunsuz API entegrasyonu"
+        },
+        "dedicatedManager": {
+          "name": "Özel Hesap Yöneticisi",
+          "description": "Kişisel destek ve optimizasyon"
+        }
+      },
+      "sparkAI": "AI SPARK SALES AGENT",
+      "otherPlatforms": "Diğer AI Platformları"
+    },
+    "featureHighlights": {
+      "enterpriseSecurity": {
+        "title": "Kurumsal Güvenlik",
+        "description": "Askeri düzeyde şifreleme ile SOC 2 uyumlu"
+      },
+      "provenResults": {
+        "title": "Kanıtlanmış Sonuçlar",
+        "description": "Müşteri adayı dönüşüm oranlarında ortalama %300 artış"
+      },
+      "fiveStarSupport": {
+        "title": "5 Yıldızlı Destek",
+        "description": "%99.9 çalışma süresi ile 24/7 özel destek"
+      }
+    },
+    "ctaBanner": {
+      "title": "Endüstri liderlerine katılmaya hazır mısınız?",
+      "subtitle": "Fortune 500 şirketlerinin müşteri etkileşimini dönüştürmelerine yardımcı olan aynı AI teknolojisini deneyimleyin",
+      "startFreeTrial": "Ücretsiz Deneme Başlat →",
+      "bookDemoCall": "Demo Çağrısı Rezervasyonu",
+      "trustedBy": "Dünya çapında 500+ şirket tarafından güveniliyor"
+    },
+    "aiSalesTeam": {
+      "badge": "AI SATIŞ EKİBİ",
+      "title": "Yeni AI Satış Ekibinizle Tanışın",
+      "subtitle": "AI SPARK SALES AGENT, insan gibi ses çıkaran, stratejik düşünen ve işinizi 24/7 büyütmek için yorulmadan çalışan akıllı ses ajanları oluşturur.",
+      "demoForm": {
+        "title": "Büyüyü Deneyimleyin – Sektörünüze Özel Ücretsiz AI Demo Çağrısı Alın",
+        "description": "AI ajanımız sadece **60 saniye** içinde sizi arayarak, sektörünüze ve kullanım durumunuza özel gerçek müşteri konuşmalarını nasıl idare ettiğini gösterecek. Müşteri adaylarını nasıl değerlendirdiğini, soruları nasıl yanıtladığını ve dönüşümü nasıl artırdığını - otomatik olarak deneyimleyin.",
+        "fields": {
+          "name": "Adınız",
+          "namePlaceholder": "Tam adınızı girin",
+          "phone": "Telefon Numarası",
+          "phonePlaceholder": "+971 00 000 0000",
+          "industry": "Sektörünüz",
+          "industryPlaceholder": "Sektörünüzü seçin"
+        },
+        "submitButton": "Ücretsiz Demo Çağrısı Al",
+        "assurances": {
+          "secure": "%100 Güvenli",
+          "setup": "60 Saniye Kurulum",
+          "noCard": "Kredi Kartı Gerekmez"
+        }
+      }
+    },
+    "featuresBenefits": {
+      "availability": {
+        "title": "7/24 Kullanılabilirlik",
+        "description": "AI satış ekibiniz asla uyumaz, hafta sonları çalışır ve tatilleri otomatik olarak halleder."
+      },
+      "leadQualification": {
+        "title": "Müşteri Adayı Değerlendirme",
+        "description": "Yüksek değerli müşteri adaylarını anında belirleyen akıllı müşteri adayı puanlama ve değerlendirme."
+      },
+      "conversionOptimization": {
+        "title": "Dönüşüm Optimizasyonu",
+        "description": "Her çağrıyla dönüşüm oranlarını iyileştirmek için sürekli öğrenme ve optimizasyon."
+      }
+    },
+    "teamSection": {
+      "badge": "AI SPARK SALES AGENT'İN ARKASINDAKİLER",
+      "title": "Ekibimizle tanışın",
+      "subtitle": "AI SPARK SALES AGENT'in devrimci ses ajanı teknolojisinin arkasındaki uzmanlar",
+      "members": {
+        "jay": {
+          "name": "Jay Sir",
+          "title": "CEO / Kurucu",
+          "description": "AI inovasyonu ve iş büyümesini yönlendiren vizyoner lider"
+        },
+        "tooba": {
+          "name": "Tooba",
+          "title": "AI Başkanı",
+          "description": "AI stratejisi ve makine öğrenmesi uygulamasını yönetme"
+        },
+        "sagar": {
+          "name": "Sagar",
+          "title": "AI Stratejisti",
+          "description": "AI çözümleri ve stratejik teknoloji planlamasında uzman"
+        },
+        "ananya": {
+          "name": "Ananya",
+          "title": "Proje Yöneticisi",
+          "description": "Sorunsuz proje teslimatı ve ekip koordinasyonunu sağlama"
+        },
+        "ersham": {
+          "name": "Ersham",
+          "title": "Yaratıcı Başkan",
+          "description": "İnovatif kullanıcı deneyimleri ve yaratıcı çözümler tasarlama"
+        },
+        "saleem": {
+          "name": "Saleem",
+          "title": "İK Müdürü",
+          "description": "Yetenekli ekip kültürümüzü oluşturma ve besleme"
+        }
+      }
+    },
+    "companyStats": {
+      "experience": {
+        "value": "50+",
+        "label": "Birleşik Deneyim Yılı"
+      },
+      "projects": {
+        "value": "500+",
+        "label": "Teslim Edilen Proje"
+      },
+      "satisfaction": {
+        "value": "95%",
+        "label": "Müşteri Memnuniyeti"
+      },
+      "support": {
+        "value": "7/24",
+        "label": "Destek Mevcut"
+      }
+    },
+    "testimonials": {
+      "title": "Müşteri Yorumları",
+      "subtitle": "Gerçek fotoğraflar ve sonuçlarla müşteri başarı hikayelerini gösterin. Kişisel ve hedef kitlenize uygun tutun.",
+      "items": {
+        "sarah": {
+          "quote": "AI SPARK SALES AGENT müşteri adayı değerlendirme sürecimizi dönüştürdü. Sadece 3 ayda %20 dönüşüm oranından %65'e çıktık.",
+          "name": "Sarah Johnson",
+          "title": "CEO, TechStart Inc.",
+          "rating": 5
+        },
+        "michael": {
+          "quote": "AI ajanlar randevu planlamamızı kusursuz şekilde idare ediyor. Ekibimiz artık takvim yönetmek yerine anlaşma kapatmaya odaklanabiliyor.",
+          "name": "Michael Chen",
+          "title": "Satış Müdürü, RealEstate Pro",
+          "rating": 5
+        },
+        "emily": {
+          "quote": "AI SPARK SALES AGENT'i uyguladığımızdan beri hasta memnuniyeti %40 arttı. Hastalarımız anında, kişiselleştirilmiş desteği seviyor.",
+          "name": "Emily Rodriguez",
+          "title": "Kurucu, HealthCare Plus",
+          "rating": 5
+        }
+      }
+    },
+    "ctaBanner": {
+      "title": "İşinizi Dönüştürmeye Hazır mısınız?",
+      "subtitle": "'Ücretsiz Dene' veya 'Demo Rezervasyonu Yap' gibi eylem odaklı CTA'ları kısa bir fayda ile kullanın (örn. 'Haftada 10+ saat tasarruf et').",
+      "button": "Ücretsiz Dene - Haftada 10+ Saat Tasarruf Et"
+    },
+    "faq": {
+      "title": "Sık Sorulan Sorular",
+      "subtitle": "Yaygın soruları basitçe yanıtlayın. Fiyatlandırma, kurulum veya özellikler hakkındaki şüpheleri gidermeye odaklanın.",
+      "items": {
+        "howItWorks": {
+          "question": "AI SPARK SALES AGENT nasıl çalışır?",
+          "answer": "AI SPARK SALES AGENT, mükameleri otomatik olarak idare eden, müşteri adaylarını değerlendiren ve randevuları planlayan akıllı ses ajanları oluşturmak için gelişmiş AI teknolojisi kullanır."
+        },
+        "customization": {
+          "question": "AI ajanını özelleştirebilir miyim?",
+          "answer": "Evet! Ajanın sesini, metinlerini, akışlarını ve hatta en iyi sonuçları elde etmek için belirli sektörünüze göre eğitilmesini özelleştirebilirsiniz."
+        },
+        "languages": {
+          "question": "Hangi diller destekleniyor?",
+          "answer": "Yerel aksanlarla 95+ dil destekliyoruz, bu da küresel müşterilere kolayca ulaşmanızı sağlar."
+        },
+        "cost": {
+          "question": "Maliyeti nedir?",
+          "answer": "Planlarımız 1,500 AED/ay ile başlar ve tek seferlik kurulum ücreti 10,000 AED'dir. Gizli ücret yoktur."
+        },
+        "freeTrial": {
+          "question": "Ücretsiz deneme var mı?",
+          "answer": "Evet! Taahhütsüz 14 günlük ücretsiz deneme sunuyoruz. Tüm özellikleri deneyin ve sonuçları kendiniz görün."
+        }
+      }
     }
   },
   "faq": {
