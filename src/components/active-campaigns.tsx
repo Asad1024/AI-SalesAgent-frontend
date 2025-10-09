@@ -40,7 +40,7 @@ export default function ActiveCampaigns() {
 
   const getProgressPercentage = (campaign: Campaign) => {
     if (campaign.totalLeads === 0) return 0;
-    return Math.round((campaign.completedCalls / campaign.totalLeads) * 100);
+    return Math.round((campaign.completedCalls / campaign.totalLeads) * 100); 
   };
 
   const getSuccessRate = (campaign: Campaign) => {
