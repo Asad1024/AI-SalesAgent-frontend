@@ -245,34 +245,36 @@ export default function HomeOption2() {
 
   const pricingPlans = [
     {
-      name: t('home.pricing.basic.name'),
-      price: '$150',
-      period: '/mo',
-      description: t('home.pricing.basic.description'),
+      name: 'Essential Support',
+      price: 'AED 1,500',
+      period: '/month',
+      description: 'Perfect for businesses getting started with AI calling',
       features: [
-        '100 calls per month',
-        '1 AI agent',
-        t('home.pricing.basic.features.0'),
-        t('home.pricing.basic.features.1')
+        '24x7 uptime monitoring and incident alerts',
+        'Up to 4 hours/month of flow tweaks or prompt changes',
+        'Unused time rolls over for 60 days',
+        'Monthly performance report with actionable insights',
+        'Email support with next-business-day SLA'
       ],
-      cta: t('home.pricing.basic.cta'),
+      cta: 'Get Started',
       popular: false
     },
     {
-      name: t('home.pricing.pro.name'),
-      price: '$150',
-      period: '/mo',
-      description: t('home.pricing.pro.description'),
+      name: 'Premium Support',
+      price: 'AED 3,000',
+      period: '/month',
+      description: 'For businesses requiring advanced optimization and priority support',
       features: [
-        '500 calls per month',
-        '3 AI agents',
-        t('home.pricing.pro.features.0'),
-        t('home.pricing.pro.features.1'),
-        t('home.pricing.pro.features.2')
+        'Everything in Essential plus:',
+        'Up to 10 hours/month of prompt/flow optimization',
+        'Strategy session to review metrics and roadmap',
+        'Priority support queue with same-business-day responses',
+        'Early-access testing of lower-cost voice models',
+        '30-day notice for package changes'
       ],
-      cta: t('home.pricing.pro.cta'),
+      cta: 'Get Started',
       popular: true,
-      limited: true
+      limited: false
     }
   ];
 
@@ -949,10 +951,10 @@ export default function HomeOption2() {
               🎬 LIVE DEMOS
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200">
-              See Spark AI in Action
+              {t('home.demo.title')}
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-400">
-              Watch our AI voice agents handle real phone calls across different industries. No scripts, no pre-recorded responses - just pure AI intelligence.
+              {t('home.demo.subtitle')}
             </p>
           </div>
 
@@ -965,16 +967,16 @@ export default function HomeOption2() {
                     <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
                       <Play className="w-10 h-10 ml-1" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-2">Live AI Call Demo</h3>
-                    <p className="text-white/80 mb-6">Watch our AI agent handle a real customer service call</p>
+                    <h3 className="text-2xl font-bold mb-2">{t('home.demo.liveDemo')}</h3>
+                    <p className="text-white/80 mb-6">{t('home.demo.watchDescription')}</p>
                     <Button className="bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 px-8 py-3 text-lg font-semibold">
                       <Play className="mr-2 w-5 h-5" />
-                      Play Full Demo
+                      {t('home.demo.playFullDemo')}
                     </Button>
                   </div>
                 </div>
                 <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold animate-pulse">
-                  🔴 LIVE
+                  🔴 {t('home.demo.live')}
                 </div>
               </div>
             </div>
@@ -984,31 +986,31 @@ export default function HomeOption2() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {[
               {
-                title: t('home.demoFeatures.customerSupport.title'),
-                industry: "E-commerce",
-                duration: "2:30 min",
-                description: "AI agent handles order tracking, returns, and customer inquiries with natural conversation flow.",
+                title: t('home.demo.categories.customerSupport.title'),
+                industry: t('home.demo.categories.customerSupport.industry'),
+                duration: t('home.demo.categories.customerSupport.duration'),
+                description: t('home.demo.categories.customerSupport.description'),
                 icon: Headphones,
                 color: "from-blue-500 to-purple-500",
-                features: (t('home.demoFeatures.customerSupport.features', { returnObjects: true }) as string[])
+                features: (t('home.demo.categories.customerSupport.features', { returnObjects: true }) as string[])
               },
               {
-                title: t('home.demoFeatures.appointmentBooking.title'),
-                industry: t('home.demoFeatures.appointmentBooking.industry'),
-                duration: "1:45 min", 
-                description: "Automated scheduling for dental clinics, beauty salons, and service providers with calendar sync.",
+                title: t('home.demo.categories.appointmentBooking.title'),
+                industry: t('home.demo.categories.appointmentBooking.industry'),
+                duration: t('home.demo.categories.appointmentBooking.duration'),
+                description: t('home.demo.categories.appointmentBooking.description'),
                 icon: Calendar,
                 color: "from-blue-500 to-purple-500",
-                features: ["Calendar Integration", "Smart Scheduling", "Reminder Calls"]
+                features: (t('home.demo.categories.appointmentBooking.features', { returnObjects: true }) as string[])
               },
               {
-                title: "Sales & Lead Generation",
-                industry: "Real Estate",
-                duration: "3:15 min",
-                description: "AI agent qualifies leads, books appointments, and follows up with prospects automatically.",
+                title: t('home.demo.categories.salesGeneration.title'),
+                industry: t('home.demo.categories.salesGeneration.industry'),
+                duration: t('home.demo.categories.salesGeneration.duration'),
+                description: t('home.demo.categories.salesGeneration.description'),
                 icon: TrendingUp,
                 color: "from-blue-500 to-purple-500",
-                features: ["Lead Qualification", "Follow-up Automation", "CRM Integration"]
+                features: (t('home.demo.categories.salesGeneration.features', { returnObjects: true }) as string[])
               }
             ].map((demo, index) => {
               const Icon = demo.icon;
@@ -1063,9 +1065,9 @@ export default function HomeOption2() {
 
           {/* Call-to-Action */}
           <div className="text-center bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-white animate-fade-in-up animate-delay-800 mx-2 sm:mx-0">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight">Ready to See Your AI Agent in Action?</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight">{t('home.aiSalesTeam.readyToSee')}</h3>
             <p className="text-lg sm:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
-              Book a personalized demo and watch our AI handle your specific use case in real-time.
+              {t('home.aiSalesTeam.bookDemo')}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Button 
@@ -1108,8 +1110,32 @@ export default function HomeOption2() {
               Pricing
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-              Make the decision easy. Present clear plans, simple pricing, and strong reasons to act now.
+              Transparent pricing with no hidden costs. Choose the support package that fits your needs.
             </p>
+          </div>
+
+          {/* Setup Fee and AI Usage */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="bg-white dark:bg-slate-700/80 dark:backdrop-blur-sm rounded-2xl p-8 border-2 border-slate-200 dark:border-slate-600/50">
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">One-time Setup Fee</h3>
+                <div className="mb-4">
+                  <span className="text-4xl font-bold text-slate-900 dark:text-white">AED 10,000</span>
+                </div>
+                <p className="text-slate-600 dark:text-slate-400 mb-6">Per agent setup and configuration</p>
+              </div>
+            </div>
+            
+            <div className="bg-white dark:bg-slate-700/80 dark:backdrop-blur-sm rounded-2xl p-8 border-2 border-slate-200 dark:border-slate-600/50">
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">AI Usage Fees</h3>
+                <div className="mb-4">
+                  <span className="text-4xl font-bold text-slate-900 dark:text-white">AED 0.51 - 0.66</span>
+                  <span className="text-slate-600 dark:text-slate-400">/minute</span>
+                </div>
+                <p className="text-slate-600 dark:text-slate-400 mb-6">Billed to the exact second (covers voice generation, real-time transcription, and LLM processing)</p>
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -1165,10 +1191,10 @@ export default function HomeOption2() {
               LET'S CONNECT
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
-              Book a free consultation with our AI experts
+              {t('home.consultation.title')}
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-              Get personalized advice on how AI voice agents can transform your business
+              {t('home.consultation.subtitle')}
             </p>
           </div>
 
@@ -1181,18 +1207,18 @@ export default function HomeOption2() {
                   <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl font-bold text-white">AI</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">AI Expert Team</h3>
-                  <p className="text-slate-600 dark:text-slate-400">Spark AI Specialists</p>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('home.consultation.expertTeam')}</h3>
+                  <p className="text-slate-600 dark:text-slate-400">{t('home.consultation.specialists')}</p>
                 </div>
 
                 {/* Call Details */}
                 <div className="space-y-6">
                   <div>
-                    <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">AI Agent Discovery Call</h4>
+                    <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{t('home.consultation.discoveryCall')}</h4>
                     <div className="flex items-center space-x-4 text-slate-600 dark:text-slate-400">
                       <div className="flex items-center space-x-2">
                         <Clock className="w-5 h-5" />
-                        <span>30 min</span>
+                        <span>{t('home.consultation.duration')}</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Video className="w-5 h-5" />
@@ -1203,31 +1229,25 @@ export default function HomeOption2() {
 
                   <div className="bg-white dark:bg-slate-600 rounded-xl p-6">
                     <p className="text-slate-700 dark:text-slate-300 font-medium mb-4">
-                      Schedule a free discovery call with our AI experts!
+                      {t('home.consultation.description')}
                     </p>
                     
                     <div className="mb-4">
-                      <h5 className="font-semibold text-slate-900 dark:text-white mb-2">We'll cover:</h5>
+                      <h5 className="font-semibold text-slate-900 dark:text-white mb-2">{t('home.consultation.weWillCover')}</h5>
                       <ul className="space-y-1 text-slate-600 dark:text-slate-400">
-                        <li className="flex items-center">
-                          <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                          Your business needs and challenges
-                        </li>
-                        <li className="flex items-center">
-                          <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                          Custom AI strategy for your industry
-                        </li>
-                        <li className="flex items-center">
-                          <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                          Implementation roadmap and timeline
-                        </li>
+                        {(t('home.consultation.features', { returnObjects: true }) as string[]).map((feature, index) => (
+                          <li key={index} className="flex items-center">
+                            <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                            {feature}
+                          </li>
+                        ))}
                       </ul>
                     </div>
 
                     <div className="border-t border-slate-200 dark:border-slate-500 pt-4">
-                      <h5 className="font-semibold text-slate-900 dark:text-white mb-2">Hear it from others:</h5>
+                      <h5 className="font-semibold text-slate-900 dark:text-white mb-2">{t('home.consultation.hearFromOthers')}</h5>
                       <blockquote className="text-slate-600 dark:text-slate-400 italic">
-                        "The AI experts at Spark AI were professional and attentive during our consultation. They created an amazing AI voice agent strategy for our business that increased our conversion rate by 300%."
+                        {t('home.consultation.testimonial')}
                       </blockquote>
                       <cite className="text-sm text-slate-500 dark:text-slate-400 mt-2 block">
                         - Sarah Johnson, CEO TechStart Inc.
@@ -1268,10 +1288,10 @@ export default function HomeOption2() {
               🏆 TRUSTED BY INDUSTRY LEADERS
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200 leading-tight">
-              Why top companies choose Spark AI
+              {t('home.whyChoose.title')}
             </h2>
             <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-400 px-4">
-              Join 500+ companies that trust Spark AI to transform their customer engagement and drive unprecedented growth
+              {t('home.whyChoose.subtitle')}
             </p>
           </div>
 
@@ -1287,11 +1307,11 @@ export default function HomeOption2() {
                     <th className="text-center py-4 sm:py-6 lg:py-8 px-3 sm:px-6 lg:px-8">
                       <div className="inline-flex items-center justify-center w-24 sm:w-32 lg:w-36 h-10 sm:h-12 lg:h-14 bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-lg sm:rounded-xl shadow-lg dark:shadow-2xl">
                         <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white mr-1 sm:mr-2" />
-                        <span className="text-white font-bold text-xs sm:text-sm lg:text-lg">SPARK AI</span>
+                        <span className="text-white font-bold text-xs sm:text-sm lg:text-lg">{t('home.whyChoose.comparison.ourPlatform')}</span>
                       </div>
                     </th>
                     <th className="text-center py-4 sm:py-6 lg:py-8 px-3 sm:px-6 lg:px-8 text-sm sm:text-base lg:text-lg font-semibold text-slate-600 dark:text-slate-400">
-                      Other AI Platforms
+                      {t('home.whyChoose.comparison.otherPlatforms')}
                     </th>
                   </tr>
                 </thead>
@@ -1458,11 +1478,10 @@ export default function HomeOption2() {
               🤖 AI SALES TEAM
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200">
-              Meet Your New AI Sales Team
+              {t('home.aiSalesTeam.title')}
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-400">
-              Spark AI creates intelligent voice agents that sound human, think strategically, 
-              and work tirelessly to grow your business 24/7.
+              {t('home.aiSalesTeam.subtitle')}
             </p>
           </div>
 
@@ -1731,7 +1750,7 @@ export default function HomeOption2() {
                 <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
                   <Sparkles className="h-5 w-5 text-white" />
                 </div>
-                <span className="text-xl font-bold">Spark AI</span>
+                <span className="text-xl font-bold">AI SPARK SALES AGENT</span>
               </div>
               <p className="text-slate-400 mb-6 max-w-md">
                 {t('footer.companyDescription')}
