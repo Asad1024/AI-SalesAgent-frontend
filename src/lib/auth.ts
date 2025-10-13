@@ -3,6 +3,7 @@ import { User } from '../types';
 export interface AuthResponse {
   message: string;
   user?: Omit<User, 'passwordHash'>;
+  token?: string;
 }
 
 export interface AuthError {
@@ -29,10 +30,18 @@ class AuthService {
       throw new Error('failed');
     }
 
+    if (data.token) {
+      localStorage.setItem('auth-token', data.token);
+    }
+
+    if (data.user) {
+      localStorage.setItem('user', JSON.stringify(data.user));
+    }
+
     return data;
   }
 
-  async login(email: string, password: string): Promise<AuthResponse & { token?: string }> {
+  async login(email: string, password: string): Promise<AuthResponse> {
     // Demo login for development/testing
     if (email === 'admin@example.com' && password === 'admin123') {
       const demoUser = {
@@ -62,7 +71,7 @@ class AuthService {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error('Login failed');
+      throw new Error('failed');
     }
 
     if (data.token) {
