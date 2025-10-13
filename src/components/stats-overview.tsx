@@ -150,17 +150,17 @@ export default function StatsOverview() {
       color: "from-pink-600 to-purple-500",
       bgColor: "from-pink-50 to-purple-50",
       darkBgColor: "from-pink-900/20 to-purple-900/20",
-      description: "Total call duration",
+      description: t('dashboard.totalCallDuration'),
       chartData: Array.from({ length: 12 }, (_, i) => Math.max(0, animatedValues.totalMinutes + Math.floor(Math.random() * 50) - 25))
     },
   ];
 
   // Chat animation data
   const chatMessages = [
-    { id: 1, user: "John D.", message: "Great call quality!", time: "2 min ago", status: "positive" },
-    { id: 2, user: "Sarah M.", message: "Very professional", time: "5 min ago", status: "positive" },
-    { id: 3, user: "Mike R.", message: "Excellent follow-up", time: "8 min ago", status: "positive" },
-    { id: 4, user: "Lisa K.", message: "Perfect timing", time: "12 min ago", status: "positive" }
+    { id: 1, user: "John D.", message: t('dashboard.chatMessages.greatCallQuality'), time: "2 min ago", status: "positive" },
+    { id: 2, user: "Sarah M.", message: t('dashboard.chatMessages.veryProfessional'), time: "5 min ago", status: "positive" },
+    { id: 3, user: "Mike R.", message: t('dashboard.chatMessages.excellentFollowUp'), time: "8 min ago", status: "positive" },
+    { id: 4, user: "Lisa K.", message: t('dashboard.chatMessages.perfectTiming'), time: "12 min ago", status: "positive" }
   ];
 
   return (
@@ -229,13 +229,13 @@ export default function StatsOverview() {
                   <BarChart3 className="h-5 w-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Performance Trends</h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">Last 12 hours</p>
+                  <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">{t('dashboard.performanceTrends')}</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">{t('dashboard.last12Hours')}</p>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
-                <span className="text-sm text-purple-600 dark:text-purple-400 font-medium">Live</span>
+                <span className="text-sm text-purple-600 dark:text-purple-400 font-medium">{t('dashboard.live')}</span>
               </div>
             </div>
             
@@ -268,13 +268,13 @@ export default function StatsOverview() {
                   <MessageCircle className="h-5 w-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Live Feedback</h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">Recent call reviews</p>
+                  <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">{t('dashboard.liveFeedback')}</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">{t('dashboard.recentCallReviews')}</p>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
-                <span className="text-sm text-purple-600 dark:text-purple-400 font-medium">Active</span>
+                <span className="text-sm text-purple-600 dark:text-purple-400 font-medium">{t('dashboard.active')}</span>
               </div>
             </div>
             
