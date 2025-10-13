@@ -399,7 +399,7 @@ export const api = {
   // POST requests
   post: async (endpoint: string, data: any) => {
     console.log('API POST request to:', `${BASE_URL}${endpoint}`);
-    console.log('API POST data:', data);
+
     const response = await fetch(`${BASE_URL}${endpoint}`, {
       method: 'POST',
       headers: getAuthHeaders(),
