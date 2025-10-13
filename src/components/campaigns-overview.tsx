@@ -6,9 +6,11 @@ import { Progress } from "@/components/ui/progress";
 import { Play, Pause, Square, Eye, TrendingUp, Users, Phone, Clock } from "lucide-react";
 import { api, type Campaign } from "@/lib/api";
 import { useLocation } from "wouter";
+import { useTranslation } from "react-i18next";
 
 export default function CampaignsOverview() {
   const [, setLocation] = useLocation();
+  const { t } = useTranslation();
 
   const { data: campaignsData, isLoading } = useQuery({
     queryKey: ["/api/campaigns"],
@@ -70,7 +72,7 @@ export default function CampaignsOverview() {
       <div className="space-y-6">
         <div className="text-center py-8">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
-          <p className="mt-2 text-sm text-muted-foreground">Loading campaigns...</p>
+          <p className="mt-2 text-sm text-muted-foreground">{t('dashboard.loadingCampaigns')}</p>
         </div>
       </div>
     );
@@ -88,7 +90,7 @@ export default function CampaignsOverview() {
               </div>
               <div>
                 <p className="text-2xl font-bold text-foreground">{stats.total}</p>
-                <p className="text-sm text-muted-foreground">Total Campaigns</p>
+                <p className="text-sm text-muted-foreground">{t('dashboard.totalCampaigns')}</p>
               </div>
             </div>
           </CardContent>
@@ -102,7 +104,7 @@ export default function CampaignsOverview() {
               </div>
               <div>
                 <p className="text-2xl font-bold text-foreground">{stats.active}</p>
-                <p className="text-sm text-muted-foreground">Active</p>
+                <p className="text-sm text-muted-foreground">{t('dashboard.active')}</p>
               </div>
             </div>
           </CardContent>
@@ -116,7 +118,7 @@ export default function CampaignsOverview() {
               </div>
               <div>
                 <p className="text-2xl font-bold text-foreground">{stats.completed}</p>
-                <p className="text-sm text-muted-foreground">Completed</p>
+                <p className="text-sm text-muted-foreground">{t('common.completed')}</p>
               </div>
             </div>
           </CardContent>
@@ -130,7 +132,7 @@ export default function CampaignsOverview() {
               </div>
               <div>
                 <p className="text-2xl font-bold text-foreground">{stats.totalCalls}</p>
-                <p className="text-sm text-muted-foreground">Total Calls</p>
+                <p className="text-sm text-muted-foreground">{t('dashboard.totalCalls')}</p>
               </div>
             </div>
           </CardContent>
@@ -140,7 +142,7 @@ export default function CampaignsOverview() {
       {/* Recent Campaigns */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h3 className="text-xl font-semibold text-foreground">Recent Campaigns</h3>
+          <h3 className="text-xl font-semibold text-foreground">{t('dashboard.recentCampaigns')}</h3>
           <Button 
             variant="outline" 
             size="sm"
@@ -148,7 +150,7 @@ export default function CampaignsOverview() {
             className="flex items-center space-x-2"
           >
             <Eye className="h-4 w-4" />
-            <span>View All</span>
+            <span>{t('dashboard.viewAll')}</span>
           </Button>
         </div>
 
@@ -156,13 +158,13 @@ export default function CampaignsOverview() {
           <Card className="border border-border bg-card/50 backdrop-blur-sm">
             <CardContent className="p-8 text-center">
               <Users className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-foreground mb-2">No Campaigns Yet</h3>
-              <p className="text-muted-foreground mb-4">Create your first AI voice calling campaign to get started.</p>
+              <h3 className="text-lg font-semibold text-foreground mb-2">{t('dashboard.noCampaignsYet')}</h3>
+              <p className="text-muted-foreground mb-4">{t('dashboard.createNewCampaign')}</p>
               <Button 
                 onClick={() => setLocation('/campaigns/new')}
                 className="bg-primary hover:bg-primary/90"
               >
-                Create Campaign
+                {t('dashboard.createCampaign')}
               </Button>
             </CardContent>
           </Card>
