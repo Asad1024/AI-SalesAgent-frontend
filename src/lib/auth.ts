@@ -12,7 +12,6 @@ export interface AuthError {
 
 class AuthService {
   private baseUrl = 'https://aisparksalesagent-backend.onrender.com/api/auth';
-// private baseUrl = 'http://localhost:8000/api/auth';
 
   async register(email: string, password: string, confirmPassword: string): Promise<AuthResponse> {
     const response = await fetch(`${this.baseUrl}/register`, {
@@ -27,7 +26,7 @@ class AuthService {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.message || 'Registration failed');
+      throw new Error('failed');
     }
 
     return data;
@@ -43,7 +42,6 @@ class AuthService {
         updatedAt: new Date(),
       };
       
-      // Store demo user in localStorage for demo purposes
       localStorage.setItem('demo-user', JSON.stringify(demoUser));
       
       return {
@@ -64,7 +62,7 @@ class AuthService {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.message || 'Login failed');
+      throw new Error('Login failed');
     }
 
     if (data.token) {
@@ -90,7 +88,6 @@ class AuthService {
       });
 
     } catch (error) {
-      console.warn('Logout API call failed, but local data cleared');
     }
   }
 
@@ -124,7 +121,7 @@ class AuthService {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.message || 'Profile update failed');
+      throw new Error('failed');
     }
 
     return data;
@@ -143,12 +140,12 @@ class AuthService {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.message || 'Password change failed');
+      throw new Error('failed');
     }
   }
 
   async checkStatus(): Promise<{ authenticated: boolean; user?: Omit<User, 'passwordHash'> }> {
-    // Check for demo user first
+
     const demoUser = localStorage.getItem('demo-user');
     if (demoUser) {
       try {
@@ -167,7 +164,6 @@ class AuthService {
         const user = JSON.parse(storedUser);
         return { authenticated: true, user };
       } catch (error) {
-        console.error('Error parsing stored user:', error);
         localStorage.removeItem('auth-token');
         localStorage.removeItem('user');
       }
@@ -209,16 +205,13 @@ class AuthService {
       return data;
     } catch (error) {
       if (token && storedUser) {
-        console.warn('Backend not available, using cached auth data');
         try {
           const user = JSON.parse(storedUser);
           return { authenticated: true, user };
         } catch (e) {
-          // Ignore parse error
         }
       }
       
-      console.warn('Backend not available and no cached auth');
       return { authenticated: false };
     }
   }
