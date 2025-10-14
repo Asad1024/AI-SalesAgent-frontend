@@ -3,6 +3,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useToast } from '@/hooks/use-toast';
 import { api } from '@/lib/api';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'wouter';
 import { 
   FileText, 
   Bot, 
@@ -40,6 +41,7 @@ interface Campaign {
 }
 
 export default function CampaignManagement({ campaignId }: CampaignManagementProps) {
+  const [, setLocation] = useLocation();
   const [currentStep, setCurrentStep] = useState(campaignId ? 3 : 1);
   const [currentCampaign, setCurrentCampaign] = useState<any>(null);
   const [isCreatingCampaign, setIsCreatingCampaign] = useState(false);
@@ -65,12 +67,27 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
   const [csvLeads, setCsvLeads] = useState<any[]>([]);
   const [editingLeadIndex, setEditingLeadIndex] = useState<number | null>(null);
   const [editedPhone, setEditedPhone] = useState('');
+  const [editedName, setEditedName] = useState('');
+  const [editedLastName, setEditedLastName] = useState('');
+  const [editedEmail, setEditedEmail] = useState('');
   const [selectedScript, setSelectedScript] = useState('friendly');
   const [customScript, setCustomScript] = useState('');
   const [campaignControlStatus, setCampaignControlStatus] = useState<'stopped' | 'running' | 'paused'>('stopped');
 
   const { toast } = useToast();
   const { t, i18n } = useTranslation();
+  const currentLanguage = i18n?.language || 'en';
+  const normalizedLanguage = currentLanguage.split('-')[0].toLowerCase();
+  useEffect(() => {
+    const handleLanguageChange = (lng: string) => {
+    };
+    
+    i18n?.on('languageChanged', handleLanguageChange);
+    
+    return () => {
+      i18n?.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n, normalizedLanguage]);
   const queryClient = useQueryClient();
 
   // Preset conversation scripts
@@ -145,7 +162,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
   const campaigns = campaignsData || [];
 
   // Fetch voices from backend
-  const { data: voices = [] } = useQuery({
+  const { data: voices = [], isLoading: voicesLoading, error: voicesError } = useQuery({
     queryKey: ['/api/voices'],
     queryFn: () => api.getVoices(),
   });
@@ -422,17 +439,24 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
     });
   };
 
-  // Handle editing a lead's phone number
-  const handleEditLead = (index: number, currentPhone: string) => {
+  const handleEditLead = (index: number, lead: any) => {
     setEditingLeadIndex(index);
-    setEditedPhone(currentPhone);
+    setEditedPhone(lead.contactNo);
+    setEditedName(lead.firstName);
+    setEditedLastName(lead.lastName || '');
+    setEditedEmail(lead.email || '');
   };
 
-  // Save edited phone number
-  const handleSaveLeadEdit = () => {
-    if (editingLeadIndex !== null && editedPhone.trim()) {
+  const handleSaveLeadEdit = async () => {
+    if (editingLeadIndex !== null && editedPhone.trim() && editedName.trim()) {
       const updatedLeads = [...csvLeads];
-      updatedLeads[editingLeadIndex].contactNo = editedPhone.trim();
+      const leadToUpdate = updatedLeads[editingLeadIndex];
+      
+      leadToUpdate.firstName = editedName.trim();
+      leadToUpdate.lastName = editedLastName.trim();
+      leadToUpdate.email = editedEmail.trim();
+      leadToUpdate.contactNo = editedPhone.trim();
+      
       setCsvLeads(updatedLeads);
 
       // Update campaign state
@@ -443,19 +467,42 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
         });
       }
 
+      if (currentCampaign && currentCampaign.id) {
+        try {
+          await api.updateCampaignLeads(currentCampaign.id, updatedLeads);
+          toast({
+            title: "Updated",
+            description: "Updated.",
+          });
+        } catch (error) {
+          console.error('Error');
+          toast({
+            title: "Failed",
+            description: "Failed.",
+            variant: "destructive",
+          });
+        }
+      } else {
+        toast({
+          title: "Updated",
+          description: "Updated.",
+        });
+      }
+
       setEditingLeadIndex(null);
       setEditedPhone('');
-
-      toast({
-        title: "Updated",
-        description: "Phone number has been updated.",
-      });
+      setEditedName('');
+      setEditedLastName('');
+      setEditedEmail('');
     }
   };
 
   const handleCancelEdit = () => {
     setEditingLeadIndex(null);
     setEditedPhone('');
+    setEditedName('');
+    setEditedLastName('');
+    setEditedEmail('');
   };
 
   const handleDeleteLead = (index: number) => {
@@ -860,15 +907,40 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
 
   // Filter voices based on search term
   const filteredVoices = voices.filter((voice: any) => {
-    if (!voiceSearchTerm.trim()) return true;
-    const searchLower = voiceSearchTerm.toLowerCase();
-    return (
-      voice.name?.toLowerCase().includes(searchLower) ||
-      voice.description?.toLowerCase().includes(searchLower) ||
-      voice.labels?.accent?.toLowerCase().includes(searchLower) ||
-      voice.labels?.gender?.toLowerCase().includes(searchLower) ||
-      voice.labels?.age?.toLowerCase().includes(searchLower)
-    );
+    if (voiceSearchTerm.trim()) {
+      const searchLower = voiceSearchTerm.toLowerCase();
+      const matchesSearch = (
+        voice.name?.toLowerCase().includes(searchLower) ||
+        voice.description?.toLowerCase().includes(searchLower) ||
+        voice.labels?.accent?.toLowerCase().includes(searchLower) ||
+        voice.labels?.gender?.toLowerCase().includes(searchLower) ||
+        voice.labels?.age?.toLowerCase().includes(searchLower)
+      );
+      if (!matchesSearch) return false;
+    }
+    
+    const voiceLanguage = voice.language?.toLowerCase() || '';
+    const voiceLabels = voice.labels || {};
+    const languageKeywords = {
+      'tr': ['turkish', 'türkçe', 'istanbul', 'ankara', 'izmir'],
+      'ar': ['arabic', 'عربي', 'arab', 'saudi', 'dubai', 'uae'],
+      'en': ['english', 'american', 'british', 'australian', 'canadian'],
+      'az': ['azerbaijani', 'azərbaycan', 'baku']
+    };
+    
+    const currentLangKeywords = languageKeywords[normalizedLanguage as keyof typeof languageKeywords] || [];
+    
+    const matchesLanguage = 
+      voiceLanguage === normalizedLanguage ||
+      voiceLanguage.includes(normalizedLanguage) ||
+      currentLangKeywords.some(keyword => 
+        voiceLanguage.includes(keyword) ||
+        voiceLabels.accent?.toLowerCase().includes(keyword) ||
+        voiceLabels.description?.toLowerCase().includes(keyword) ||
+        voice.description?.toLowerCase().includes(keyword)
+      );
+    
+    return matchesLanguage;
   });
 
   // Show loading state only when editing an existing campaign
@@ -960,8 +1032,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   <div
                     key={campaign.id}
                     onClick={() => {
-                      setCurrentCampaign(campaign);
-                      setCurrentStep(3);
+                      setLocation(`/campaigns/${campaign.id}/edit`);
                     }}
                     className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
                   >
@@ -1792,50 +1863,82 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                           </button>
                         </div>
                         <div className="flex-1">
-                          <div className="flex items-center space-x-2">
-                            <p className="font-medium text-gray-900">{lead.firstName}</p>
-                            {lead.lastName && (
-                              <p className="text-sm text-gray-600">{lead.lastName}</p>
-                            )}
-                          </div>
                           {editingLeadIndex === index ? (
-                            <div className="flex items-center space-x-2 mt-1">
-                              <input
-                                type="tel"
-                                value={editedPhone}
-                                onChange={(e) => setEditedPhone(e.target.value)}
-                                className="flex-1 px-2 py-1 text-sm border border-gray-300 rounded focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-                                placeholder="+971xxxxxxxx"
-                              />
-                              <button
-                                onClick={handleSaveLeadEdit}
-                                className="px-2 py-1 text-xs bg-green-600 text-white rounded hover:bg-green-700"
-                              >
-                                Save
-                              </button>
-                              <button
-                                onClick={handleCancelEdit}
-                                className="px-2 py-1 text-xs bg-gray-500 text-white rounded hover:bg-gray-600"
-                              >
-                                Cancel
-                              </button>
+                            <div className="space-y-2">
+                              <div className="flex items-center space-x-2">
+                                <input
+                                  type="text"
+                                  value={editedName}
+                                  onChange={(e) => setEditedName(e.target.value)}
+                                  className="flex-1 px-2 py-1 text-sm border border-gray-300 rounded focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                                  placeholder="First Name"
+                                />
+                                <input
+                                  type="text"
+                                  value={editedLastName}
+                                  onChange={(e) => setEditedLastName(e.target.value)}
+                                  className="flex-1 px-2 py-1 text-sm border border-gray-300 rounded focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                                  placeholder="Last Name (optional)"
+                                />
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <input
+                                  type="tel"
+                                  value={editedPhone}
+                                  onChange={(e) => setEditedPhone(e.target.value)}
+                                  className="flex-1 px-2 py-1 text-sm border border-gray-300 rounded focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                                  placeholder="+971xxxxxxxx"
+                                />
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <input
+                                  type="email"
+                                  value={editedEmail}
+                                  onChange={(e) => setEditedEmail(e.target.value)}
+                                  className="flex-1 px-2 py-1 text-sm border border-gray-300 rounded focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                                  placeholder="Email (optional)"
+                                />
+                              </div>
+                              {/* Action Buttons */}
+                              <div className="flex items-center space-x-2">
+                                <button
+                                  onClick={handleSaveLeadEdit}
+                                  className="px-2 py-1 text-xs bg-green-600 text-white rounded hover:bg-green-700"
+                                >
+                                  Save
+                                </button>
+                                <button
+                                  onClick={handleCancelEdit}
+                                  className="px-2 py-1 text-xs bg-gray-500 text-white rounded hover:bg-gray-600"
+                                >
+                                  Cancel
+                                </button>
+                              </div>
                             </div>
                           ) : (
-                            <div className="flex items-center space-x-2 mt-1">
-                              <p className="text-sm text-gray-500">{lead.contactNo}</p>
-                              <button
-                                onClick={() => handleEditLead(index, lead.contactNo)}
-                                className="px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition-colors"
-                              >
-                                Edit
-                              </button>
-                              {lead.originalPhone && lead.originalPhone !== lead.contactNo && (
-                                <span className="text-xs text-orange-600">(Modified)</span>
+                            <div>
+                              <div className="flex items-center space-x-2">
+                                <p className="font-medium text-gray-900">{lead.firstName}</p>
+                                {lead.lastName && (
+                                  <p className="text-sm text-gray-600">{lead.lastName}</p>
+                                )}
+                              </div>
+                              <div className="flex items-center space-x-2 mt-1">
+                                <p className="text-sm text-gray-500">{lead.contactNo}</p>
+                                <button
+                                  onClick={() => handleEditLead(index, lead)}
+                                  className="px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition-colors"
+                                >
+                                  Edit
+                                </button>
+                                {lead.originalPhone && lead.originalPhone !== lead.contactNo && (
+                                  <span className="text-xs text-orange-600">(Modified)</span>
+                                )}
+                              </div>
+                              {lead.email && (
+                                <p className="text-xs text-gray-400 mt-1">{lead.email}</p>
                               )}
                             </div>
-                          )}
-                          {lead.email && (
-                            <p className="text-xs text-gray-400 mt-1">{lead.email}</p>
                           )}
                         </div>
                       </div>

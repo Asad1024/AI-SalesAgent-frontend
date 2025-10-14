@@ -146,7 +146,7 @@
     "selectCampaign": "Select Your Campaign",
     "campaignSelection": "Campaign Selection",
     "createNewCampaign": "Create a new campaign or select an existing one",
-    "createNewCampaignButton": "+ Create New Campaign",
+    "createNewCampaignButton": "Create New Campaign",
      "existingCampaigns": "Existing Campaigns",
      "viewAllCampaigns": "View All Campaigns",
      "noExistingCampaigns": "No existing campaigns found",

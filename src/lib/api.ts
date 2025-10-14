@@ -642,6 +642,25 @@ export const api = {
     return handleResponse(response);
   },
 
+  updateCampaignLeads: async (campaignId: number, leads: any[]) => {
+    const response = await fetch(`${BASE_URL}/api/campaigns/${campaignId}/leads`, {
+      method: 'PUT',
+      headers: getAuthHeaders(),
+      credentials: 'include',
+      body: JSON.stringify({ leads }),
+    });
+    return handleResponse(response);
+  },
+
+  fixCallLogs: async (campaignId: number) => {
+    const response = await fetch(`${BASE_URL}/api/campaigns/${campaignId}/fix-call-logs`, {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      credentials: 'include',
+    });
+    return handleResponse(response);
+  },
+
   deleteCampaign: async (campaignId: number) => {
     try {
       const response = await fetch(`${BASE_URL}/api/campaigns/${campaignId}`, {
