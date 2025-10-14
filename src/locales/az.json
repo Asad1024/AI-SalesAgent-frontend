@@ -1,16 +1,16 @@
 {
   "common": {
     "cancel": "Ləğv et",
-    "save": "Saxla",
+    "save": "Yadda saxla",
     "delete": "Sil",
     "edit": "Redaktə et",
     "create": "Yarat",
     "update": "Yenilə",
-    "confirm": "Təsdiq et",
+    "confirm": "Təsdiqlə",
     "close": "Bağla",
     "loading": "Yüklənir...",
     "error": "Xəta",
-    "success": "Uğurlu",
+    "success": "Uğur",
     "warning": "Xəbərdarlıq",
     "info": "Məlumat",
     "yes": "Bəli",
@@ -19,7 +19,7 @@
     "back": "Geri",
     "next": "Növbəti",
     "previous": "Əvvəlki",
-    "search": "Axtarış",
+    "search": "Axtar",
     "filter": "Filtr",
     "clear": "Təmizlə",
     "refresh": "Yenilə",
@@ -27,705 +27,469 @@
     "download": "Endir",
     "export": "İxrac et",
     "import": "İdxal et",
-    "required": "Tələb olunur",
+    "required": "Vacib",
     "optional": "İstəyə bağlı",
     "name": "Ad",
     "description": "Təsvir",
     "status": "Status",
     "active": "Aktiv",
-    "inactive": "Qeyri-aktiv",
+    "inactive": "Passiv",
     "completed": "Tamamlandı",
-    "pending": "Gözləyir",
+    "pending": "Gözləmədə",
     "paused": "Dayandırılıb",
     "pause": "Dayandır",
     "resume": "Davam et",
-    "draft": "Layihə",
+    "draft": "Qaralama",
     "settings": "Ayarlar",
-    "logout": "Çıxış",
-    "login": "Giriş",
-    "register": "Qeydiyyat",
+    "logout": "Çıxış et",
+    "login": "Daxil ol",
+    "register": "Qeydiyyatdan keç",
     "email": "E-poçt",
     "password": "Şifrə",
-    "confirmPassword": "Şifrəni təsdiq et",
+    "confirmPassword": "Şifrəni təsdiqlə",
     "user": "İstifadəçi",
+    "darkMode": "Qaranlıq rejim",
+    "lightMode": "İşıqlı rejim",
+    "switchToDark": "Qaranlıq rejimə keç",
+    "switchToLight": "İşıqlı rejimə keç",
     "admin": "Admin",
-    "administrator": "Administrator"
+    "administrator": "İdarəçi",
+    "signIn": "Daxil ol",
+    "getStarted": "Başlayın",
+    "startFreeTrial": "Pulsuz sınağa başla",
+    "watchDemo": "Demonu izlə",
+    "scheduleDemo": "Demo planlaşdır",
+    "about": "Haqqında",
+    "contact": "Əlaqə",
+    "features": "Xüsusiyyətlər",
+    "pricing": "Qiymət",
+    "home": "Ana səhifə",
+    "dashboard": "İdarə paneli",
+    "campaigns": "Kampaniyalar",
+    "voices": "Səslər",
+    "analytics": "Analitika"
   },
   "auth": {
-    "title": "AI Səs Zəngli",
-    "subtitle": "Satış Avtomatlaşdırması",
-    "signIn": "Giriş",
+    "title": "Süni İntellektlə Səsli Zəng",
+    "subtitle": "Satış avtomatlaşdırması",
+    "signIn": "Daxil ol",
     "signUp": "Qeydiyyat",
-    "createAccount": "Hesab Yarat",
-    "welcomeBack": "Səs kampaniya panelınıza xoş gəlmisiniz",
+    "createAccount": "Hesab yarat",
+    "welcomeBack": "Səsli kampaniya panelinizə xoş gəldiniz",
     "createAccountPrompt": "Başlamaq üçün hesabınızı yaradın",
-    "enterCredentials": "Panelinizə daxil olmaq üçün məlumatlarınızı daxil edin",
-    "fillDetails": "Yeni hesab yaratmaq üçün məlumatlarınızı doldurun",
-    "emailPlaceholder": "sizin@email.com",
+    "enterCredentials": "Panelə giriş üçün məlumatlarınızı daxil edin",
+    "fillDetails": "Yeni hesab yaratmaq üçün məlumatları doldurun",
+    "emailPlaceholder": "your@email.com",
     "passwordPlaceholder": "Şifrənizi daxil edin",
-    "confirmPasswordPlaceholder": "Şifrənizi təsdiq edin",
+    "confirmPasswordPlaceholder": "Şifrəni təsdiqləyin",
     "signingIn": "Daxil olunur...",
     "creatingAccount": "Hesab yaradılır...",
     "dontHaveAccount": "Hesabınız yoxdur?",
     "alreadyHaveAccount": "Artıq hesabınız var?",
     "createOneHere": "Burada yaradın",
-    "signInHere": "Burada daxil olun",
+    "signInHere": "Buradan daxil olun",
     "passwordRequirements": "Şifrə tələbləri:",
-    "passwordRequirementsText": "Ən azı 8 simvol böyük, kiçik hərf və rəqəmlərlə.",
-    "validationError": "Doğrulama Xətası",
-    "emailPasswordRequired": "E-poçt və şifrə tələb olunur",
-    "passwordsDoNotMatch": "Şifrələr uyğun gəlmir",
+    "passwordRequirementsText": "Ən azı 8 simvol, böyük-kiçik hərf və rəqəm olmalıdır.",
+    "validationError": "Doğrulama xətası",
+    "emailPasswordRequired": "E-poçt və şifrə vacibdir",
+    "passwordsDoNotMatch": "Şifrələr uyğun deyil",
     "welcomeMessage": "Xoş gəldiniz!",
     "loginSuccessMessage": "Uğurla daxil oldunuz.",
     "accountCreatedMessage": "Hesab yaradıldı!",
-    "accountCreatedSuccessMessage": "Hesabınız yaradıldı və artıq daxil olmusunuz.",
-    "loginFailed": "Giriş uğursuz",
-    "registrationFailed": "Qeydiyyat uğursuz",
+    "accountCreatedSuccessMessage": "Hesabınız yaradıldı və daxil oldunuz.",
+    "loginFailed": "Giriş alınmadı",
+    "registrationFailed": "Qeydiyyat uğursuz oldu",
     "errorOccurred": "Xəta baş verdi. Zəhmət olmasa yenidən cəhd edin.",
-    "checkingAuthentication": "Doğrulama yoxlanılır..."
+    "checkingAuthentication": "Autentifikasiya yoxlanılır...",
+    "tryDemoAccount": "Demo hesabı sına",
+    "demoCredentials": "Demo məlumatları"
   },
   "navigation": {
-    "dashboard": "Panel",
+    "dashboard": "İdarə paneli",
     "campaigns": "Kampaniyalar",
     "voices": "Səslər",
     "analytics": "Analitika",
-    "aiPowered": "AI ilə Gücləndirilmiş",
-    "voiceConversations": "Səs Söhbətləri",
-    "home": "Ana Səhifə",
+    "aiPowered": "Sİ ilə gücləndirilib",
+    "voiceConversations": "Səsli söhbətlər",
+    "home": "Ana səhifə",
     "features": "Xüsusiyyətlər",
     "benefits": "Faydalar",
-    "pricing": "Qiymətləndirmə",
+    "pricing": "Qiymət",
     "about": "Haqqında",
     "contact": "Əlaqə",
-    "signIn": "Daxil Ol",
-    "getStarted": "Başla"
+    "signIn": "Daxil ol",
+    "getStarted": "Başlayın"
   },
   "dashboard": {
-    "title": "Panel",
-    "welcomeMessage": "Xoş gəldiniz! AI səs kampaniyalarınızı idarə edin",
-    "campaignStatistics": "Kampaniya Statistikası",
-    "liveData": "Canlı Məlumat",
-    "campaignManagement": "Kampaniya İdarəetməsi",
-    "changeCampaign": "Kampaniya Dəyiş",
-    "voiceSelection": "Səs Seçimi",
-    "leadsManagement": "Müştəri İdarəetməsi",
-    "campaignLaunch": "Kampaniya Başlatma",
-    "notifications": "Bildirişlər",
-    "noNotifications": "Bildiriş yoxdur",
-    "markAllAsRead": "Hamısını oxunmuş kimi işarələ",
-    "clearAll": "Hamısını Təmizlə",
-    "knowledgeBase": "Bilgi Bazası",
-    "uploadPdfFiles": "AI agentinizi təlim etmək üçün PDF fayllarını yükləyin.",
-    "aiConfiguration": "AI Konfiqurasiyası",
-    "setupAiAgent": "AI agentinizin şəxsiyyətini və davranışını təyin edin.",
-    "aiVoiceSelection": "AI Səs Seçimi",
+    "title": "İdarə paneli",
+    "welcomeMessage": "Xoş gəldiniz! Sİ səsli kampaniyalarınızı idarə edin",
+    "campaignStatistics": "Kampaniya statistikası",
+    "liveData": "Canlı məlumatlar",
+    "campaignManagement": "Kampaniya idarəetməsi",
+    "changeCampaign": "Kampaniyanı dəyiş",
+    "voiceSelection": "Səs seçimi",
+    "leadsManagement": "Potensialların idarə edilməsi",
+    "knowledgeBase": "Bilik bazası",
+    "uploadPdfFiles": "Sİ agentinizi öyrətmək üçün PDF faylları yükləyin.",
+    "aiConfiguration": "Sİ konfiqurasiyası",
+    "setupAiAgent": "Sİ agentinizin xarakter və davranışını tənzimləyin.",
+    "aiVoiceSelection": "Sİ səs seçimi",
     "chooseFromPremium": "Premium və ya xüsusi səslərdən seçin.",
     "uploadAndManageLeads": "Zəng siyahılarınızı yükləyin və idarə edin.",
-    "knowledgeBaseRequired": "Bilgi Bazası Tələb Olunur",
-    "knowledgeBaseUploaded": "Bilgi Bazası Yükləndi"
-  },
-  "campaigns": {
-    "title": "Kampaniya İdarəetməsi",
-    "subtitle": "AI səs zəng kampaniyalarınızı yaradın və idarə edin",
-    "newCampaign": "Yeni Kampaniya",
-    "createFirstCampaign": "İlk Kampaniyanızı Yaradın",
-    "noCampaignsYet": "Hələ Kampaniya Yoxdur",
-    "noCampaignsMessage": "Avtomatik əlaqə yaratmaq üçün ilk AI səs zəng kampaniyanızı yaradın.",
-    "editCampaign": "Kampaniya Redaktə et",
-    "createNewCampaign": "Yeni Kampaniya Yarat",
-    "campaignName": "Kampaniya Adı",
-    "campaignNamePlaceholder": "Kampaniya adını daxil edin",
-    "updating": "Yenilənir...",
-    "updateCampaign": "Kampaniya Yenilə",
-    "createCampaign": "Kampaniya Yarat",
-    "deleteCampaign": "Kampaniya Sil",
-    "confirmDeleteTitle": "Kampaniya Sil",
-    "confirmDeleteMessage": "Bu kampaniyanı silmək istədiyinizə əminsiniz? Bu əməliyyat geri qaytarıla bilməz.",
-    "deleting": "Silinir...",
-    "campaignUpdated": "Kampaniya Yeniləndi",
-    "campaignUpdateSuccess": "Kampaniya uğurla yeniləndi.",
-    "updateFailed": "Yeniləmə Uğursuz",
-    "failedToUpdateCampaign": "Kampaniyanı yeniləmək alınmadı",
-    "campaignCreated": "Kampaniya Yaradıldı",
-    "campaignCreatedSuccess": "Kampaniya uğurla yaradıldı.",
-    "creationFailed": "Yaratma Uğursuz",
-    "failedToCreateCampaign": "Kampaniyanı yaratmaq alınmadı",
-    "campaignDeleted": "Kampaniya Silindi",
-    "campaignDeletedSuccess": "Kampaniya uğurla silindi.",
-    "deleteFailed": "Silmə Uğursuz",
-    "failedToDeleteCampaign": "Kampaniyanı silmək alınmadı",
-    "invalidFile": "Yanlış Fayl",
-    "uploadCsvFile": "Zəhmət olmasa CSV fayl yükləyin",
-    "viewDetails": "Təfərrüatları Gör",
-    "progress": "Tərəqqi",
-    "totalLeads": "Toplam Müştəri",
-    "completedCalls": "Tamamlanan Zənglər",
-    "totalCalls": "Toplam Zənglər",
-    "successfulCalls": "Uğurlu Zənglər",
-    "successRate": "Uğur Dərəcəsi",
-    "completed": "Tamamlandı",
-    "failed": "Uğursuz",
-    "calling": "Zəng edir",
-    "pending": "Gözləyir",
-    "createdOn": "Yaradılma Tarixi",
-    "lastActivity": "Son Aktivlik"
-  },
-  "campaignDetails": {
-    "title": "Kampaniya Təfərrüatları və Söhbətlər",
-    "backToCampaigns": "Kampaniyalara Qayıt",
-    "campaignOverview": "Kampaniya Ümumi Baxış",
-    "callLogs": "Zəng Qeydləri",
-    "testCalls": "Test Zəngləri",
-    "actions": "Əməliyyatlar",
-    "campaignCalls": "Kampaniya Zəngləri",
-    "conversations": "Söhbətlər",
-    "lead": "Müştəri",
-    "phoneNumber": "Telefon Nömrəsi",
-    "duration": "Müddət",
-    "callDate": "Zəng Tarixi",
-    "status": "Status",
-    "audio": "Səs",
-    "playAudio": "Səs Oynat",
-    "downloadAudio": "Səs Endir",
-    "audioNotAvailable": "Səs mövcud deyil",
-    "noCallsYet": "Hələ Zəng Yoxdur",
-    "noCallsMessage": "Kampaniya başladıqdan sonra zəng qeydləri burada görünəcək.",
-    "noTestCalls": "Hələ Test Zəngləri Yoxdur",
-    "noTestCallsMessage": "Bu kampaniya üçün edilmiş test zəngləri səs qeydləri ilə burada görünəcək.",
-    "noConversations": "Hələ Söhbətlər Yoxdur",
-    "noConversationsMessage": "Bu kampaniya üçün zənglər edildikdən sonra söhbətlər burada görünəcək.",
-    "campaignCallLogs": "Kampaniya Zəng Qeydləri",
-    "testBadge": "TEST",
-    "minutes": "dəqiqə",
-    "seconds": "saniyə",
-    "autoRefreshOn": "Avto-yeniləmə AÇIQ",
-    "autoRefreshOff": "Avto-yeniləmə BAĞLI",
-    "recentCallStatus": "Son Zəng Statusu",
-    "liveStatusUpdates": "Canlı status yeniləmələri"
-  },
-  "analytics": {
-    "title": "Analitika",
-    "subtitle": "Kampaniyalarınızın performansını və məlumatlarını izləyin",
-    "last24Hours": "Son 24 saat",
-    "last7Days": "Son 7 gün",
-    "last30Days": "Son 30 gün",
-    "last90Days": "Son 90 gün",
-    "export": "İxrac et",
-    "totalCampaigns": "Toplam Kampaniya",
-    "activeCampaigns": "Aktiv Kampaniyalar",
-    "totalCalls": "Toplam Zənglər",
-    "successRate": "Uğur Dərəcəsi",
-    "campaignPerformance": "Kampaniya Performansı",
-    "noCampaignData": "Kampaniya Məlumatı Yoxdur",
-    "noCampaignDataMessage": "Performans analitikasını burada görmək üçün kampaniyalar yaradın.",
-    "campaign": "Kampaniya",
-    "status": "Status",
-    "totalLeads": "Toplam Müştəri",
-    "completed": "Tamamlandı",
-    "created": "Yaradıldı",
-    "callVolume": "Zəng Həcmi",
-    "callVolumeChart": "Zəng həcmi qrafiki",
-    "chartVisualization": "Qrafik vizualizasiyası burada görünəcək",
-    "successRateTrend": "Uğur Dərəcəsi Trenди",
-    "successRateTrendChart": "Uğur dərəcəsi trenди",
-    "trendVisualization": "Trend vizualizasiyası burada görünəcək",
-    "averageCallDuration": "Orta Zəng Müddəti",
-    "averageCallDurationValue": "2.4d",
-    "perCallAverage": "Zəng başına orta",
-    "peakHours": "Pik Saatlar",
-    "peakHoursValue": "14-16",
-    "bestCallTimes": "Ən yaxşı zəng vaxtları",
-    "dailyAverage": "Gündəlik Orta",
-    "callsPerDay": "Gündə zəng sayı"
-  },
-  "voiceSelection": {
-    "title": "AI Səs Seçimi",
-    "subtitle": "Premium və ya fərdi səslərdən seçin",
-    "voiceLibrary": "Səs Kitabxanası",
-    "cloneVoice": "Səs Klonu",
-    "noVoicesAvailable": "Səs Mövcud Deyil",
-    "noVoicesMessage": "İlk fərdi səsinizi yaratmaq üçün səs nümunəsi yükləyin.",
-    "createCustomVoice": "Fərdi Səs Yarat",
-    "uploadVoiceSample": "Səs Nümunəsi Yüklə",
-    "uploadPrompt": "Səs faylınızı bura sürüyün və ya klikləyin",
-    "supportedFormats": "MP3, WAV, M4A faylları dəstəklənir • Yüksək keyfiyyətli səs ən yaxşı nəticə verir",
-    "voiceCloningTips": "Səs Klonlama Məsləhətləri",
-    "tip1": "Aydın, yüksək keyfiyyətli səs istifadə edin (ən azı 1 dəqiqə)",
-    "tip2": "Arxa fon səsi və musiqidən çəkinin",
-    "tip3": "Müxtəlif emosiya və tonları daxil edin",
-    "tip4": "Düzgün tələffüzlə təbii danışın",
-    "voiceName": "Səs Adı",
-    "voiceNamePlaceholder": "Bu səs üçün ad daxil edin",
-    "voiceDescription": "Təsvir (istəyə bağlı)",
-    "voiceDescriptionPlaceholder": "Bu səsi təsvir edin",
-    "createVoice": "Səs Yarat",
-    "creating": "Yaradılır...",
-    "custom": "Fərdi",
-    "noPreviewAvailable": "Ön Baxış Mövcud Deyil",
-    "noPreviewMessage": "Bu səs üçün ön baxış mövcud deyil.",
-    "playbackError": "Oynatma Xətası",
-    "playbackErrorMessage": "{voiceName} üçün ön baxış oynadılmadı",
-    "validationError": "Doğrulama Xətası",
-    "enterVoiceName": "Zəhmət olmasa səs adını daxil edin.",
-    "noAudioFile": "Səs fayl tapılmadı. Zəhmət olmasa yenidən yükləməyə çalışın.",
-    "invalidFile": "Yanlış Fayl",
-    "uploadAudioFile": "Zəhmət olmasa səs fayl yükləyin (MP3, WAV, M4A).",
-    "fileTooLarge": "Fayl Çox Böyükdür",
-    "fileTooLargeMessage": "Səs fayl 10MB-dan kiçik olmalıdır.",
-    "voicesRefreshed": "Səslər Yeniləndi",
-    "voicesRefreshedMessage": "Səs kitabxanası yeniləndi",
-    "refreshFailed": "Yeniləmə Uğursuz",
-    "refreshFailedMessage": "Səsləri yeniləmək alınmadı",
-    "voiceCloneSuccess": "Səs Klonu Uğurla Yaradıldı",
-    "voiceCloneSuccessMessage": "{voiceName} səs kitabxanasına əlavə edildi.",
-    "voiceCloneFailed": "Səs Klonu Uğursuz",
-    "voiceCloneFailedMessage": "Səs klonu yaradılmadı"
-  },
-  "campaignSetup": {
-    "title": "AI Konfiqurasiya",
-    "subtitle": "AI agentinizin şəxsiyyətini və davranışını təyin edin",
-    "firstPrompt": "İlk Mesaj",
-    "systemPersona": "Sistem Şəxsiyyəti (Sabit)",
-    "systemPersonaNote": "Sistem şəxsiyyəti optimal performans üçün əvvəlcədən konfiqurasiya edilib.",
-    "knowledgeBase": "Bilik Bazası",
-    "knowledgeBaseSubtitle": "AI agentiniz üçün təlim sənədləri yükləyin",
-    "uploadKnowledgeBase": "Bilik Bazası Yüklə",
-    "uploadPdfPrompt": "PDF faylınızı bura sürüyün və ya klikləyin",
-    "pdfSupport": "PDF faylları dəstəklənir • Təlim sənədləri, məhsul kataloqları, FAQ",
-    "knowledgeBaseTips": "Bilik Bazası Məsləhətləri",
-    "kbTip1": "Ətraflı məhsul və ya xidmət sənədləri yükləyin",
-    "kbTip2": "Tez-tez verilən suallar və cavabları daxil edin",
-    "kbTip3": "Məlumatın aktual və dəqiq olmasını təmin edin",
-    "kbTip4": "Ən yaxşı nəticə üçün aydın, yaxşı strukturlaşdırılmış məzmun istifadə edin",
-    "currentKnowledgeBase": "Cari Bilik Bazası",
-    "uploadNew": "Yeni Yüklə",
-    "uploading": "Yüklənir...",
-    "processing": "Emal edilir...",
-    "uploadSuccess": "Yükləmə uğurlu!",
-    "uploadFailed": "Yükləmə uğursuz",
-    "uploadFailedMessage": "Bilik bazasını yükləmək alınmadı",
-    "savingChanges": "Dəyişikliklər saxlanılır...",
-    "changesSaved": "Dəyişikliklər uğurla saxlanıldı!"
-  },
-  "leadsUpload": {
-    "title": "Müştəri İdarəetməsi",
-    "subtitle": "Zəng siyahılarınızı yükləyin və idarə edin",
-    "uploadCsv": "CSV Fayl Yüklə",
-    "requiredColumns": "Tələb olunan sütunlar: first_name, last_name, contact_no",
-    "uploading": "Yüklənir...",
-    "noCampaign": "Kampaniya Yoxdur",
-    "createCampaignFirst": "Zəhmət olmasa əvvəlcə kampaniya yaradın və ya seçin.",
-    "noLeads": "Müştəri Yoxdur",
-    "noLeadsToDelete": "Silinəcək müştəri yoxdur.",
-    "confirmDeleteLeads": "{count} yüklənmiş müştərini silmək istədiyinizə əminsiniz? Bu əməliyyat geri qaytarıla bilməz.",
-    "leadsUploaded": "Müştərilər Yükləndi",
-    "leadsUploadedSuccess": "{count} müştəri uğurla yükləndi!",
-    "leadsDeleted": "Müştərilər Silindi",
-    "leadsDeletedSuccess": "Bütün müştərilər uğurla silindi.",
-    "uploadFailed": "Yükləmə Uğursuz",
-    "uploadFailedMessage": "Müştəriləri yükləmək alınmadı",
-    "deleteFailed": "Silmə Uğursuz",
-    "deleteFailedMessage": "Müştəriləri silmək alınmadı",
-    "invalidCsv": "Yanlış CSV",
-    "csvFormatError": "CSV formatı yanlışdır. Zəhmət olmasa tələb olunan sütunları yoxlayın.",
-    "deleteAllLeads": "Bütün Müştəriləri Sil",
-    "leadPreview": "Müştəri Ön Baxış",
-    "firstName": "Ad",
-    "lastName": "Soyad",
-    "contactNumber": "Əlaqə Nömrəsi",
-    "noLeadsUploaded": "Hələ müştəri yüklənməyib",
-    "uploadCsvToSeePreview": "Müştəri ön baxışını burada görmək üçün CSV fayl yükləyin.",
-    "csvTooLarge": "CSV fayl 5MB-dan kiçik olmalıdır.",
-    "contacts": "əlaqə",
-    "deleting": "Silinir...",
-    "moreContacts": "daha çox əlaqə..."
-  },
-  "campaignActions": {
-    "title": "Kampaniya Başlatma",
-    "testCall": "Test Zəng",
-    "testCallSubtitle": "Hər şeyin işlədiyini yoxlamaq üçün test zəng edin",
-    "phoneNumberPlaceholder": "Telefon nömrəsi daxil edin",
-    "startTestCall": "Test Zəng Başlat",
-    "startingCall": "Zəng başladılır...",
-    "launchCampaign": "Kampaniya Başlat",
-    "launchCampaignSubtitle": "Yüklənmiş müştərilərinizi zəngləməyə başla",
-    "startCampaign": "Kampaniya Başlat",
-    "startingCampaign": "Kampaniya başladılır...",
-    "pauseCampaign": "Kampaniya Dayandır",
-    "pausingCampaign": "Kampaniya dayandırılır...",
-    "resumeCampaign": "Kampaniya Davam Et",
-    "resumingCampaign": "Kampaniya davam etdirilir...",
-    "campaignRequirements": "Kampaniya Tələbləri:",
-    "initialMessage": "İlk Mesaj",
-    "voiceSelection": "Səs Seçimi",
-    "knowledgeBase": "Bilik Bazası",
-    "leadsCSV": "Müştəri CSV",
-    "set": "Təyin edildi",
-    "complete": "Tamamlandı",
-    "uploaded": "Yükləndi",
-    "leads": "müştəri",
-    "testCallSuccess": "Test Zəng Başladı",
-    "testCallSuccessMessage": "Test zəng uğurla başladıldı.",
-    "testCallFailed": "Test Zəng Uğursuz",
-    "testCallFailedMessage": "Test zəng başlatmaq alınmadı",
-    "campaignLaunched": "Kampaniya Başladı",
-    "campaignLaunchedMessage": "Kampaniya uğurla başladı.",
-    "launchFailed": "Başlatma Uğursuz",
-    "launchFailedMessage": "Kampaniyanı başlatmaq alınmadı",
-    "campaignPaused": "Kampaniya Dayandırıldı",
-    "campaignPausedMessage": "Kampaniya uğurla dayandırıldı.",
-    "pauseFailed": "Dayandırma Uğursuz",
-    "pauseFailedMessage": "Kampaniyanı dayandırmaq alınmadı",
-    "campaignResumed": "Kampaniya Davam Etdi",
-    "campaignResumedMessage": "Kampaniya uğurla davam etdirildi.",
-    "resumeFailed": "Davam Etdirmə Uğursuz",
-    "resumeFailedMessage": "Kampaniyanı davam etdirmək alınmadı",
-    "enterPhoneNumber": "Zəhmət olmasa telefon nömrəsi daxil edin",
-    "allRequirementsMet": "Bütün tələblər yerinə yetirildi - başlatmaya hazırdır!",
-    "completeRequirements": "Başlatmadan əvvəl zəhmət olmasa bütün tələbləri tamamlayın."
-  },
-  "stats": {
-    "aiCallsMade": "AI Zəngləri Edildi",
-    "happyCustomers": "Məmnun Müştərilər",
-    "languagesSupported": "Dəstəklənən Dillər",
-    "uptime": "İş Vaxtı",
-    "activeCampaigns": "Aktiv Kampaniyalar",
-    "callsToday": "Bugünkü Zənglər",
-    "successRate": "Uğur Dərəcəsi",
-    "connectionFailures": "Əlaqə Uğursuzluqları",
-    "totalCallMinutes": "Toplam Zəng Dəqiqəsi",
-    "avgCallDuration": "Ortalama Zəng Müddəti",
-    "totalCampaigns": "Toplam Kampaniya",
-    "completedCalls": "Tamamlanan Zənglər",
-    "noStatisticsSelected": "Statistika Seçilməyib",
-    "noStatisticsMessage": "Hansı statistikaları göstərmək istədiyinizi seçmək üçün Panel Ayarlarına gedin.",
-    "vsLastPeriod": "əvvəlki dövrlə müqayisə",
-    "selected": "seçildi"
-  },
-  "settings": {
-    "dashboardSettings": "Panel Ayarları",
-    "dashboardStatistics": "Panel Statistikası",
-    "refreshInterval": "Yeniləmə İntervalı",
-    "seconds": "saniyə",
-    "displayOptions": "Görüntü Seçimləri",
-    "showAnimations": "Animasiyaları Göstər",
-    "compactView": "Kompakt Görünüş",
-    "resetToDefaults": "Varsayılanlara Qaytar",
-    "settingsSaved": "Ayarlar Saxlanıldı",
-    "settingsSavedMessage": "Panel ayarları uğurla saxlanıldı.",
-    "settingsReset": "Ayarlar Sıfırlandı",
-    "settingsResetMessage": "Panel ayarları varsayılanlara qaytarıldı."
-  },
-  "notifications": {
-    "campaignSelected": "Kampaniya Seçildi",
-    "campaignSelectedMessage": "İndi \"{campaignName}\" üzərində işləyirsiniz",
-    "campaignComplete": "Kampaniya Tamamlandı",
-    "campaignCompleteMessage": "\"{campaignName}\" kampaniyası {successfulCalls}/{totalCalls} uğurlu zənglə tamamlandı",
-    "campaignUpdate": "Kampaniya Yeniləmə",
-    "campaignUpdateMessage": "\"{campaignName}\" kampaniyası indiyə qədər {completedCalls} zəng etdi",
-    "voiceSelected": "Səs Seçildi",
-    "voiceSelectedMessage": "\"{voiceName}\" səsi seçildi",
-    "leadsUploaded": "Müştərilər Yükləndi",
-    "leadsUploadedMessage": "{count} müştəri uğurla yükləndi",
-    "testCallCompleted": "Test Zəng Tamamlandı",
-    "testCallCompletedMessage": "{phoneNumber} nömrəsinə test zəng uğurla tamamlandı",
-    "campaignLaunched": "Kampaniya Başladı",
-    "campaignLaunchedMessage": "\"{campaignName}\" kampaniyası başladıldı"
-  },
-  "campaignSelector": {
-    "title": "Kampaniya Seçimi",
-    "subtitle": "Yeni kampaniya yaradın və ya mövcud olanı seçin",
-    "createNewCampaign": "Yeni Kampaniya Yarat",
-    "enterCampaignName": "Kampaniya adını daxil edin",
-    "creating": "Yaradılır...",
-    "createCampaign": "Kampaniya Yarat",
-    "existingCampaigns": "Mövcud Kampaniyalar",
-    "noExistingCampaigns": "Mövcud kampaniya tapılmadı",
-    "campaignCreated": "Kampaniya Yaradıldı",
-    "campaignCreatedSuccess": "Yeni kampaniya uğurla yaradıldı.",
-    "campaignSelected": "Kampaniya Seçildi",
-    "campaignSelectedSuccess": "Kampaniya uğurla yükləndi.",
-    "validationError": "Təsdiqləmə Xətası",
-    "enterCampaignNameError": "Zəhmət olmasa kampaniya adını daxil edin",
-    "createFailed": "Kampaniyanın yaradılması uğursuz oldu",
-    "selectFailed": "Kampaniyanın seçilməsi uğursuz oldu"
-  },
-  "campaignActions": {
-    "title": "Kampaniya Başlatma",
-    "subtitle": "Kampaniyanızı test edin və başladın",
-    "testSingleCall": "Tək Zəng Testi",
-    "firstNameOptional": "Ad (istəyə bağlı)",
-    "phoneNumberPlaceholder": "+1 (555) 123-4567",
-    "testCall": "Test Zəng",
-    "calling": "Zəng edilir...",
-    "completed": "Tamamlandı",
-    "failed": "Uğursuz",
-    "makingTestCall": "Test zəng edilir...",
-    "completeRequiredSteps": "Test zəngləri aktivləşdirmək üçün bütün tələb olunan addımları tamamlayın:",
-    "setInitialMessage": "İlk mesajı təyin edin",
-    "selectVoice": "Səs seçin",
-    "uploadKnowledgeBase": "Bilik bazasını yükləyin",
-    "uploadLeadsCSV": "Müştəri CSV-ni yükləyin",
-    "launchCampaign": "Kampaniya Başlat",
-    "startCampaign": "Kampaniya Başlat",
-    "startingCampaign": "Kampaniya Başladılır...",
-    "campaignRequirements": "Kampaniya Tələbləri:",
-    "initialMessage": "İlk Mesaj",
-    "voiceSelection": "Səs Seçimi",
-    "knowledgeBase": "Bilik Bazası",
-    "leadsCSV": "Müştəri CSV",
-    "set": "Təyin edildi",
-    "required": "Tələb olunur",
-    "complete": "Tamamlandı",
-    "uploaded": "Yükləndi",
-    "leads": "müştəri",
-    "testCallSuccessful": "Test Zəng Uğurlu",
-    "testCallSuccessMessage": "Test zəng uğurla tamamlandı.",
-    "testCallFailed": "Test Zəng Uğursuz",
-    "testCallFailedMessage": "Test zəng uğursuz oldu.",
-    "phoneNumberRequired": "Telefon Nömrəsi Tələb Olunur",
-    "enterPhoneNumber": "Zəhmət olmasa test zəng üçün telefon nömrəsi daxil edin.",
-    "noCampaign": "Kampaniya Yoxdur",
-    "createCampaignFirst": "Zəhmət olmasa əvvəlcə kampaniya yaradın.",
-    "cannotStartCampaign": "Kampaniya Başladıla Bilməz",
-    "cannotStartCampaignMessage": "Kampaniyanı başlatmadan əvvəl səs seçdiyinizə və müştəriləri yüklədiyinizə əmin olun.",
-    "campaignStarted": "Kampaniya Başladıldı",
-    "campaignStartedMessage": "Kampaniya uğurla başladıldı.",
-    "campaignStartFailed": "Kampaniya Başlatma Uğursuz",
-    "campaignStartFailedMessage": "Kampaniyanın başladılması uğursuz oldu."
-  },
-  "errors": {
-    "somethingWentWrong": "Nəsə səhv oldu",
-    "tryAgainLater": "Zəhmət olmasa sonra yenidən cəhd edin",
-    "networkError": "Şəbəkə xətası baş verdi",
-    "serverError": "Server xətası baş verdi",
-    "validationFailed": "Doğrulama uğursuz",
-    "unauthorizedAccess": "İcazəsiz giriş",
-    "notFound": "Tapılmadı",
-    "requestTimeout": "Sorğu vaxt aşımı",
-    "unknownError": "Naməlum xəta baş verdi"
-  },
-  "dashboard": {
-    "title": "Panel",
-    "welcomeMessage": "Xoş gəldiniz! AI səs kampaniyalarınızı idarə edin",
-    "campaignStatistics": "Kampaniya Statistikası",
-    "liveData": "Canlı Məlumat",
-    "campaignManagement": "Kampaniya İdarəetməsi",
-    "changeCampaign": "Kampaniya Dəyiş",
-    "voiceSelection": "Səs Seçimi",
-    "leadsManagement": "Müştəri İdarəetməsi",
-    "campaignLaunch": "Kampaniya Başlatma",
+    "knowledgeBaseRequired": "Bilik bazası tələb olunur",
+    "knowledgeBaseUploaded": "Bilik bazası yükləndi",
+    "campaignLaunch": "Kampaniyanın başlanması",
     "notifications": "Bildirişlər",
     "noNotifications": "Bildiriş yoxdur",
-    "markAllAsRead": "Hamısını oxunmuş kimi işarələ",
-    "clearAll": "Hamısını təmizlə",
-    "selectCampaign": "Kampanyanızı Seçin",
-    "campaignSelection": "Kampaniya Seçimi",
+    "markAllAsRead": "Hamısını oxunmuş et",
+    "clearAll": "Hamısını sil",
+    "selectCampaign": "Kampaniyanızı seçin",
+    "campaignSelection": "Kampaniya seçimi",
     "createNewCampaign": "Yeni kampaniya yaradın və ya mövcud olanı seçin",
-    "createNewCampaignButton": "+ Yeni Kampaniya Yarat",
-    "existingCampaigns": "Mövcud Kampaniyalar",
+    "createNewCampaignButton": "+ Yeni kampaniya yarat",
+    "existingCampaigns": "Mövcud kampaniyalar",
+    "viewAllCampaigns": "Bütün kampaniyalara bax",
     "noExistingCampaigns": "Mövcud kampaniya tapılmadı",
-    "performanceOverview": "Performans Ümumi Baxış",
-    "activeCampaigns": "Aktiv Kampaniyalar",
+    "performanceOverview": "Performans icmalı",
+    "activeCampaigns": "Aktiv kampaniyalar",
     "currentlyRunningCampaigns": "Hal-hazırda işləyən kampaniyalar",
-    "callsToday": "Bugünkü Zənglər",
-    "totalCallsMadeToday": "Bugün edilən ümumi zənglər",
-    "successRate": "Uğur Dərəcəsi",
-    "overallCampaignSuccess": "Ümumi kampaniya uğuru",
-    "totalMinutes": "Ümumi Dəqiqələr",
+    "callsToday": "Bu gün zənglər",
+    "totalCallsMadeToday": "Bu gün edilən zənglərin sayı",
+    "successRate": "Uğur faizi",
+    "overallCampaignSuccess": "Kampaniyanın ümumi uğuru",
+    "totalMinutes": "Ümumi dəqiqə",
     "totalCallDuration": "Ümumi zəng müddəti",
-    "performanceTrends": "Performans Trendləri",
+    "performanceTrends": "Performans meylləri",
     "last12Hours": "Son 12 saat",
     "live": "Canlı",
-    "liveFeedback": "Canlı Geri Bildirim",
-    "recentCallReviews": "Son zəng qiymətləndirmələri",
+    "liveFeedback": "Canlı rəy",
+    "recentCallReviews": "Son zəng rəyləri",
     "active": "Aktiv",
     "greatCallQuality": "Əla zəng keyfiyyəti!",
     "veryProfessional": "Çox peşəkar",
     "positive": "Müsbət",
-    "minutesAgo": "dəqiqə əvvəl",
-    "launchCampaign": "Kampaniya Başlat",
-    "startNewAICalling": "Yeni AI zəngi başlat",
-    "viewAnalytics": "Analitikaları Görüntülə",
+    "minutesAgo": "dəq əvvəl",
+    "launchCampaign": "Kampaniyanı başlat",
+    "startNewAICalling": "Yeni Sİ zəngi başlat",
+    "viewAnalytics": "Analitikaya bax",
     "detailedReports": "Ətraflı hesabatlar",
-    "optimize": "Optimize Et",
-    "aiSuggestions": "AI təklifləri"
+    "optimize": "Optimallaşdır",
+    "aiSuggestions": "Sİ tövsiyələri"
   },
   "hero": {
-    "title": "Satışlarınızı AI Səs Zəkası ilə Dönüştürün",
-    "subtitle": "Potensial müştəriləri keyfiyyətləndirən, görüşləri planlayan və 7/24 müqavilə bağlayan insan kimi AI ajanları ilə satış zənglərinizi avtomatlaşdırın. Satış avtomatlaşdırmasının gələcəyini təcrübə edin.",
-    "startFreeTrial": "Pulsuz Sınaq Başlat",
-    "watchDemo": "Demo İzlə",
+    "title": "Sİ Səs Zəkası ilə Satışlarınızı Dəyişin",
+    "subtitle": "İnsan kimi danışan Sİ agentlərlə satış zənglərinizi avtomatlaşdırın; potensialları qiymətləndirin, görüşlər təyin edin və 7/24 sövdələşmələri bağlayın. Satış avtomatlaşdırmasının gələcəyini yaşayın.",
+    "startFreeTrial": "Pulsuz sınağa başla",
+    "watchDemo": "Demonu izlə",
     "tagline": "AI SPARK SALES AGENT"
   },
+  "stats": {
+    "aiCallsMade": "Sİ tərəfindən edilən zənglər",
+    "happyCustomers": "Məmnun müştərilər",
+    "languagesSupported": "Dəstəklənən dillər",
+    "uptime": "Uptime"
+  },
   "features": {
+    "title": "Müasir satışlar üçün güclü xüsusiyyətlər",
+    "subtitle": "Satış prosesinizi avtomatlaşdırmaq və işinizi Sİ ilə miqyaslamaq üçün lazım olan hər şey",
     "aiVoiceCalling": {
-      "title": "AI Səs Zəngləri",
-      "description": "İnsan kimi səs çıxaran və müştəriləri çevirən ağıllı səs ajanları",
-      "stats": "27%+ AOV Artımı"
+      "title": "Sİ səsli zəng",
+      "description": "Təbii danışıqla dönüşüm yaradan, insan kimi səslənən ağıllı səs agentləri",
+      "stats": "%27+ AOV artımı"
     },
     "voiceCloning": {
-      "title": "Səs Klonlama",
-      "description": "Brend şəxsiyyətinizə uyğun fərdi AI səsləri yaradın",
-      "stats": "95+ Səs Seçimi"
+      "title": "Səs klonlama",
+      "description": "Brendinizin üslubuna və tonuna uyğun xüsusi Sİ səsləri yaradın",
+      "stats": "95+ səs seçimi"
+    },
+    "multiLanguageSupport": {
+      "title": "Çoxdilli dəstək",
+      "description": "Anadilli söhbətlər və mədəni həssaslıqla qlobal auditoriyaya çatın",
+      "stats": "95+ dil"
     },
     "multiLanguage": {
-      "title": "Çoxdilli Dəstək",
-      "description": "Ana dil söhbətləri ilə qlobal auditoriyaya çatın",
-      "stats": "95+ Dil"
+      "title": "Çoxdilli dəstək",
+      "description": "Anadilli söhbətlər və mədəni həssaslıqla qlobal auditoriyaya çatın",
+      "stats": "95+ dil"
+    },
+    "arabicSupport": {
+      "title": "Ərəb dili dəstəyi",
+      "description": "Regional ləhcələrlə yerli ərəb dili dəstəyi",
+      "stats": "4 ləhcə"
     },
     "availability": {
-      "title": "7/24 Mövcudluq",
-      "description": "Gecə-gündüz AI ajanları ilə heç vaxt müştəri qaçırmayın",
-      "stats": "Həmişə Onlayn"
+      "title": "7/24 mövcudluq",
+      "description": "Dayanmadan işləyən Sİ agentləri ilə heç bir potensialı qaçırmayın",
+      "stats": "Həmişə onlayn"
     },
     "analytics": {
-      "title": "Real-Vaxt Analitikası",
-      "description": "Performansı izləyin və kampaniyaları dərhal optimallaşdırın",
-      "stats": "Canlı İçgörülər"
+      "title": "Real-time analitika",
+      "description": "Performansı izləyin və canlı baxışlarla kampaniyaları optimallaşdırın",
+      "stats": "Canlı baxışlar"
     },
     "leadQualification": {
-      "title": "Ağıllı Müştəri Keyfiyyətləndirməsi",
-      "description": "Yüksək dəyərli perspektivləri avtomatik olaraq müəyyən edin və prioritetləşdirin",
-      "stats": "94% Dəqiqlik"
-    },
-    "globalReach": {
-      "title": "Qlobal Çatış",
-      "description": "Yerli ekspertizlə dünya miqyasında perspektivlərlə əlaqə qurun",
-      "stats": "150+ Ölkə"
-    },
-    "personalization": {
-      "title": "Fərdiləşdirilmiş Söhbətlər",
-      "description": "Perspektiv davranışı və üstünlüklərinə əsaslanan söhbətləri uyğunlaşdırın",
-      "stats": "Fərdi Toxunuş"
+      "title": "Ağıllı potensial qiymətləndirmə",
+      "description": "Sİ dəqiqliyi ilə yüksək dəyərli potensialları avtomatik aşkarlayın və prioritetləşdirin",
+      "stats": "%94 dəqiqlik"
     }
   },
-  "testimonials": {
-    "title": "Müştərilərimiz Nə Deyir",
-    "subtitle": "AI Satış Zəng Ajanından istifadə edən minlərlə satış komandasına qoşulun"
+  "experience": {
+    "title": "Sİ səs agentlərimizi sınayın",
+    "subtitle": "Fərqli sahələrdə Sİ zəng agentlərimizi yoxlayın və biznesinizi necə dəyişdirdiyini görün",
+    "selectIndustry": "Sahənizi seçin",
+    "chooseAgent": "Sİ agentinizi seçin",
+    "tryCall": "Zəngi sına",
+    "industryInsights": "Sahə baxışları",
+    "useCases": "İstifadə ssenariləri",
+    "keyBenefits": "Əsas faydalar",
+    "agentProfile": "Agent profili",
+    "experience": "Təcrübə",
+    "languages": "Dillər",
+    "successRate": "Uğur faizi",
+    "industryPerformance": "Sahə üzrə performans metrikləri",
+    "exploreMore": "Daha çox sahəyə bax"
+  },
+  "sectors": {
+    "banking": {
+      "name": "Bankçılıq və maliyyə",
+      "description": "Müştəri xidməti, kredit müraciətləri və maliyyə məsləhəti üçün Sİ agentlər",
+      "useCases": ["Müştəri dəstəyi", "Kredit müraciətləri", "Hesab idarəetməsi", "İnvestisiya məsləhəti"],
+      "benefits": ["7/24 maliyyə dəstəyi", "Uyğunluğun monitorinqi", "Çoxdilli bankçılıq", "Fırıldaqçılığın aşkarlanması"],
+      "stats": "Kredit emalında %85 daha sürətli"
+    },
+    "healthcare": {
+      "name": "Səhiyyə",
+      "description": "Pasiyent görüş planlaşdırma, sağlamlıq xatırlatmaları və tibbi dəstək",
+      "useCases": ["Görüş planlaşdırma", "Sağlamlıq xatırlatmaları", "Tele-tibbi dəstək", "Sığortanın təsdiqi"],
+      "benefits": ["Gəlməmə hallarının azalması", "HIPAA uyğun", "Çoxdilli dəstək", "Təcili bildirişlər"],
+      "stats": "Qaçırılan görüşlərdə %60 azalma"
+    },
+    "education": {
+      "name": "Təhsil",
+      "description": "Tələbə qəbulu, kurs məlumatı və akademik dəstək",
+      "useCases": ["Tələbə qəbulu", "Kurs qeydiyyatı", "Akademik məsləhət", "Valideynlərlə əlaqə"],
+      "benefits": ["Avtomatik qeydiyyat", "Çoxdilli təhsil", "İrəliləyişin izlənməsi", "Valideyn iştirakı"],
+      "stats": "Qəbul göstəricilərində %40 artım"
+    },
+    "realEstate": {
+      "name": "Daşınmaz əmlak",
+      "description": "Əmlak sorğuları, görüş planlaşdırma və bazar yeniləmələri",
+      "useCases": ["Əmlak sorğuları", "Baxış planlaşdırma", "Bazar yeniləmələri", "Müştəri izləmə"],
+      "benefits": ["Potensial qiymətləndirmə", "Avtomatik göstərişlər", "Bazar intellekti", "Müştəri saxlama"],
+      "stats": "3 dəfə daha çox ixtisaslı potensial"
+    },
+    "retail": {
+      "name": "Pərakəndə və e-ticarət",
+      "description": "Müştəri dəstəyi, sifariş izləmə və məhsul tövsiyələri",
+      "useCases": ["Müştəri dəstəyi", "Sifariş izləmə", "Məhsul tövsiyələri", "Qaytarma emalı"],
+      "benefits": ["7/24 alış-veriş dəstəyi", "Fərdiləşdirilmiş tövsiyələr", "Çoxkanallı dəstək", "Anbar idarəetməsi"],
+      "stats": "Orta sifariş dəyərində %35 artım"
+    },
+    "automotive": {
+      "name": "Avtomotiv",
+      "description": "Servis görüşləri, nəqliyyat vasitəsi sorğuları və diler dəstəyi",
+      "useCases": ["Servis görüşləri", "Avtomobil sorğuları", "Ehtiyat hissə mövcudluğu", "Test sürüşü planlaşdırma"],
+      "benefits": ["Servis xatırlatmaları", "Ehtiyat hissə anbarı", "Zəmanət dəstəyi", "Müştəri saxlama"],
+      "stats": "Servis bronunda %50 sürətlənmə"
+    },
+    "travel": {
+      "name": "Səyahət və qonaqpərvərlik",
+      "description": "Rezervasiya yardımı, səyahət məlumatı və müştəri xidməti",
+      "useCases": ["Rezervasiya yardımı", "Səyahət məlumatı", "Otel rezervasiyaları", "Müştəri dəstəyi"],
+      "benefits": ["Çoxdilli səyahət", "Real-time yeniləmələr", "Fərdiləşdirilmiş tövsiyələr", "Təcili dəstək"],
+      "stats": "Rezervasiya konversiyalarında %45 artım"
+    },
+    "technology": {
+      "name": "Texnologiya",
+      "description": "Texniki dəstək, məhsul demoları və satış yardımı",
+      "useCases": ["Texniki dəstək", "Məhsul demoları", "Satış yardımı", "Onboarding"],
+      "benefits": ["7/24 texniki dəstək", "Çoxdilli dəstək", "Məhsul təlimi", "Potensial qiymətləndirmə"],
+      "stats": "Məsələ həllində %70 sürətlənmə"
+    }
+  },
+  "agents": {
+    "sarah": {
+      "name": "Sarah",
+      "role": "Müştəri xidməti mütəxəssisi",
+      "specialties": ["Müştəri dəstəyi", "Problem həlli", "Məhsul məlumatı"],
+      "experience": "5+ il müştəri xidmətində",
+      "languages": ["İngilis", "İspan", "Fransız"],
+      "successRate": "%94 müştəri məmnuniyyəti"
+    },
+    "mike": {
+      "name": "Mike",
+      "role": "Satış nümayəndəsi",
+      "specialties": ["Potensial qiymətləndirmə", "Satış demoları", "Etirazların idarəsi"],
+      "experience": "7+ il satışda",
+      "languages": ["İngilis", "Alman", "İtalyan"],
+      "successRate": "%27 daha yüksək konversiya"
+    },
+    "emma": {
+      "name": "Emma",
+      "role": "Texniki dəstək",
+      "specialties": ["Texniki problemlər", "Məhsul təlimi", "Troubleshooting"],
+      "experience": "6+ il texniki dəstəkdə",
+      "languages": ["İngilis", "Portuqal", "Flemenk"],
+      "successRate": "İlk zəngdə %89 həll"
+    },
+    "david": {
+      "name": "David",
+      "role": "Görüş planlayıcı",
+      "specialties": ["Planlaşdırma", "Təqvim idarəetməsi", "Xatırlatmalar"],
+      "experience": "4+ il planlaşdırmada",
+      "languages": ["İngilis", "Ərəb", "Rus"],
+      "successRate": "%95 görüş tamamlanması"
+    },
+    "lisa": {
+      "name": "Lisa",
+      "role": "Maliyyə məsləhətçisi",
+      "specialties": ["İnvestisiya məsləhəti", "Kredit müraciətləri", "Maliyyə planlama"],
+      "experience": "8+ il maliyyədə",
+      "languages": ["İngilis", "Mandarin", "Yapon"],
+      "successRate": "%92 müştəri saxlama"
+    },
+    "alex": {
+      "name": "Alex",
+      "role": "Səhiyyə koordinatoru",
+      "specialties": ["Görüş planlaşdırma", "Sığorta təsdiqi", "Pasiyent qayğısı"],
+      "experience": "6+ il səhiyyədə",
+      "languages": ["İngilis", "İspan", "Koreya"],
+      "successRate": "%88 pasiyent məmnuniyyəti"
+    }
+  },
+  "callForm": {
+    "title": "Sİ zəng təcrübəsi",
+    "fullName": "Ad Soyad",
+    "emailAddress": "E-poçt ünvanı",
+    "phoneNumber": "Telefon nömrəsi",
+    "enterFullName": "Ad soyadınızı daxil edin",
+    "enterEmail": "E-poçtunuzu daxil edin",
+    "enterPhone": "Telefon nömrənizi daxil edin",
+    "weWillCall": "Sizi bu nömrədən zəng edəcəyik:",
+    "initiatingCall": "Zəng başlanır...",
+    "getAiCallExperience": "Sİ zəng təcrübəsi əldə et",
+    "callDescription": "Sİ agentimiz təcrübəni göstərmək üçün sizi 2–3 dəqiqə ərzində zəng edəcək"
   },
   "pricing": {
-    "title": "Səs AI Çıxış Agentı - Qiymətləndirmə",
-    "subtitle": "Gizli xərclər olmadan şəffaf qiymətləndirmə. Ehtiyaclarınıza uyğun dəstək paketini seçin.",
-    "mostPopular": "Ən Populyar",
+    "title": "Səsli Sİ Outbound Agent — Qiymət",
+    "subtitle": "Gizli ödənişsiz şəffaf qiymət. Ehtiyacınıza uyğun dəstək paketini seçin.",
+    "mostPopular": "Ən populyar",
     "setupFee": {
-      "title": "Bir Dəfəlik Quraşdırma Haqqı",
-      "price": "AED 10,000",
-      "description": "Agent başına quraşdırma və konfiqurasiya"
+      "title": "Bir dəfəlik quraşdırma haqqı",
+      "price": "AED 10.000",
+      "description": "Agent başına quraşdırma və tənzimləmə"
     },
     "aiUsage": {
-      "title": "AI İstifadə Haqları",
-      "price": "AED 0.51 - 0.66",
+      "title": "Sİ istifadə haqqı",
+      "price": "AED 0,51 - 0,66",
       "period": "/dəqiqə",
-      "description": "Dəqiq saniyəyə qədər hesablanır (səs yaradılması, real vaxt transkripsiyası və LLM emalı daxildir)"
+      "description": "Saniyəsinə qədər hesablanır (səs sintezi, real-time transkripsiya və LLM emalı daxil)"
     },
     "essential": {
-      "name": "Əsas Dəstək",
-      "price": "AED 1,500",
+      "name": "Essential dəstək",
+      "price": "AED 1.500",
       "period": "/ay",
-      "description": "AI zənglə başlayan bizneslər üçün mükəmməl",
+      "description": "Sİ zənglərinə yeni başlayan bizneslər üçün ideal",
       "features": [
-        "7/24 iş vaxtı monitorinqi və hadisə xəbərdarlıqları",
-        "Ayda 4 saata qədər axın düzəlişləri və ya prompt dəyişiklikləri",
-        "İstifadə olunmamış vaxt 60 gün ərzində köçürülür",
-        "Fəaliyyət məqsədli məlumatlarla aylıq performans hesabatı",
+        "7/24 uptime monitorinqi və hadisə bildirişləri",
+        "Ayda 4 saata qədər axın və ya prompt düzəlişi",
+        "İstifadə olunmayan müddət 60 günə keçir",
+        "Fəaliyyətə yönəlik fikirlərlə aylıq performans hesabatı",
         "Növbəti iş günü SLA ilə e-poçt dəstəyi"
       ]
     },
     "premium": {
-      "name": "Premium Dəstək",
-      "price": "AED 3,000",
+      "name": "Premium dəstək",
+      "price": "AED 3.000",
       "period": "/ay",
-      "description": "Təkmilləşdirilmiş optimallaşdırma və prioritet dəstək tələb edən bizneslər üçün",
+      "description": "Gelişmiş optimizasiya və prioritet dəstək istəyən bizneslər üçün",
       "features": [
-        "Əsas paketdəki hər şey üstəgəl:",
-        "Ayda 10 saata qədər prompt/axın optimallaşdırması",
-        "Metrikaları və yol xəritəsini nəzərdən keçirmək üçün strategiya sessiyası",
-        "Eyni iş günü cavablarla prioritet dəstək növbəsi",
-        "Aşağı maliyyətli səs modellərinin erkən giriş testi",
-        "Paket dəyişiklikləri üçün 30 günlük bildiriş"
+        "Essential-dakı hər şeyə əlavə:",
+        "Ayda 10 saata qədər prompt/axın optimizasiyası",
+        "Metriklər və yol xəritəsi üçün strategiya sessiyası",
+        "Eyni iş günü cavabla prioritet dəstək növbəsi",
+        "Aşağı xərcli səs modellərinin erkən testləri",
+        "Paket dəyişiklikləri üçün 30 gün əvvəl xəbərdarlıq"
       ]
     },
     "notes": {
-      "vat": "BƏƏ 5% ƏDV müvafiq yerlərdə tətbiq olunur",
-      "optimization": "Agentınızı daha böyük miqyaslı modellərlə yüksəldir və qənaətləri ötürürük - kilidli ölçülü tariflər yoxdur"
+      "vat": "Tətbiq edildikdə BƏƏ 5% ƏDV əlavə olunur",
+      "optimization": "Agentinizi daha böyük modellərlə yeniləyir və qənaəti sizə ötürürük — sabit ölçülü tariflər yoxdur"
     }
   },
-  "stats": {
-    "activeCampaigns": "Aktiv Kampaniyalar",
-    "callsToday": "Bugünkü Zənglər",
-    "successRate": "Uğur Dərəcəsi",
-    "connectionFailures": "Əlaqə Uğursuzluqları",
-    "totalCallMinutes": "Ümumi Zəng Dəqiqəsi",
-    "avgCallDuration": "Orta Zəng Müddəti",
-    "totalCampaigns": "Ümumi Kampaniya",
-    "completedCalls": "Tamamlanan Zənglər"
-  },
-  "sectors": {
-    "title": "Sənayələr",
-    "subtitle": "AI Səs Ajanlarımız müxtəlif sənayələrdə uğur qazanır"
-  },
-  "agents": {
-    "title": "AI Səs Ajanları",
-    "subtitle": "Müxtəlif sənayələr üçün xüsusi təlim keçmiş ağıllı ajanlar"
-  },
-  "experience": {
-    "title": "Təcrübə Zonası",
-    "subtitle": "AI Səs Ajanlarımızın gücünü özünüz təcrübə edin"
-  },
-  "callForm": {
-    "title": "Pulsuz Demo Zəngi Təyin Edin",
-    "subtitle": "AI Səs Ajanımızın sizin biznesiniz üçün necə işləyəcəyini görün",
-    "name": "Ad",
-    "email": "E-poçt",
-    "phone": "Telefon",
-    "company": "Şirkət",
-    "scheduleCall": "Zəng Təyin Et",
-    "namePlaceholder": "Tam adınız",
-    "emailPlaceholder": "sizin@email.com",
-    "phonePlaceholder": "+971 50 123 4567",
-    "companyPlaceholder": "Şirkət adınız"
-  },
   "cta": {
-    "title": "Satışlarınızı Dönüştürməyə Hazırsınız?",
-    "subtitle": "Zəng prosesini avtomatlaşdırmaq üçün AI Satış Zəng Ajanından istifadə edən minlərlə satış komandasına qoşulun",
-    "startFreeTrial": "Pulsuz Sınaq Başlat",
-    "scheduleDemo": "Demo Təyin Et"
+    "title": "Satışlarınızı dəyişməyə hazırsınız?",
+    "subtitle": "Zəng prosesini avtomatlaşdırmaq üçün Sİ Satış Zəng Agentindən istifadə edən minlərlə satış komandasına qoşulun",
+    "startFreeTrial": "Pulsuz sınağa başla",
+    "scheduleDemo": "Demo planlaşdır"
   },
   "footer": {
-    "companyDescription": "İnsan gibi səs çıxarıb 7/24 müştəri dönüşümü təmin edən AI dəstəkli səs ajanları ilə satış prosesinizi dönüştürün.",
-    "address": "Office 705, New Century City Tower, Port Saeed, Dubai, BAE",
+    "companyDescription": "İnsan kimi səslənən və 7/24 potensialları konvert edən Sİ güclü səs agentləri ilə satış prosesinizi dəyişin.",
+    "address": "Ofis 705, New Century City Tower, Port Saeed, Dubay, BƏƏ",
     "email": "contactus@sparkai.ae",
     "phone": "+971503519350",
     "product": "Məhsul",
     "company": "Şirkət",
     "features": "Xüsusiyyətlər",
-    "pricing": "Qiymətləndirmə",
+    "pricing": "Qiymət",
     "api": "API",
-    "integrations": "İnteqrasiyalar",
+    "integrations": "Inteqrasiyalar",
     "about": "Haqqında",
-    "blog": "Blog",
+    "blog": "Bloq",
     "careers": "Karyera",
     "contact": "Əlaqə",
-    "privacyPolicy": "Gizlilik Siyasəti",
-    "termsOfService": "Xidmət Şərtləri",
-    "cookiePolicy": "Çərəz Siyasəti",
-    "voiceLibrary": "Səs Kitabxanası",
-    "helpCenter": "Yardım Mərkəzi",
+    "privacyPolicy": "Məxfilik siyasəti",
+    "termsOfService": "Xidmət şərtləri",
+    "cookiePolicy": "Kuki siyasəti",
+    "voiceLibrary": "Səs kitabxanası",
+    "helpCenter": "Kömək mərkəzi",
     "copyright": "© 2024 AI SPARK SALES AGENT. Bütün hüquqlar qorunur."
   },
+  "language": {
+    "switchTo": "Keç: ",
+    "currentLanguage": "Cari dil",
+    "selectLanguage": "Dil seçin"
+  },
+  "signup": {
+    "title": "Hesab yarat",
+    "subtitle": "SparkAI-ya qoşulun və Sİ satış yolculuğunuza başlayın",
+    "emailLabel": "E-poçt ünvanı",
+    "emailPlaceholder": "E-poçtunuzu daxil edin",
+    "passwordLabel": "Şifrə",
+    "passwordPlaceholder": "Şifrə yaradın",
+    "confirmPasswordLabel": "Şifrəni təsdiqlə",
+    "confirmPasswordPlaceholder": "Şifrəni təsdiqləyin",
+    "createAccount": "Hesab yarat",
+    "creatingAccount": "Hesab yaradılır...",
+    "alreadyHaveAccount": "Artıq hesabınız var?",
+    "signInHere": "Buradan daxil olun",
+    "accountCreated": "Hesab yaradıldı!",
+    "welcomeMessage": "SparkAI-a xoş gəldiniz! Panelə yönləndirilirsiniz...",
+    "floatingElements": {
+      "aiVoiceCalls": "Sİ səsli zənglər",
+      "smartAgents": "Ağıllı agentlər",
+      "realTimeChat": "Real-time çat",
+      "analytics": "Analitika"
+    },
+    "features": {
+      "lightningFastSetup": "Çox sürətli quraşdırma",
+      "enterpriseSecurity": "Müəssisə səviyyəli təhlükəsizlik",
+      "multiLanguageSupport": "Çoxdilli dəstək",
+      "advancedAnalytics": "Qabaqcıl analitika"
+    }
+  },
   "contact": {
-    "emailSupport": "E-poçt Dəstəyi",
-    "phoneSupport": "Telefon Dəstəyi",
-    "bookCall": "Zəng Planla",
-    "getHelpEmail": "24 saat ərzində e-poçt vasitəsilə kömək alın",
+    "emailSupport": "E-poçt dəstəyi",
+    "phoneSupport": "Telefon dəstəyi",
+    "bookCall": "Zəng sifariş et",
+    "getHelpEmail": "24 saat ərzində e-poçtla kömək alın",
     "speakTeam": "Komandamızla birbaşa danışın",
-    "scheduleCall": "Komandamızla kəşf zəngi planlayın",
-    "scheduleNow": "İndi Planla",
-    "officeLocations": "Ofis Məkanları",
-    "visitOffices": "Dubai ofisimizi ziyarət edin və ya onlayn əlaqə qurun.",
-    "sendMessage": "Bizə Mesaj Göndərin",
-    "fillForm": "Aşağıdakı formu doldurun, 24 saat ərzində sizə geri dönəcəyik.",
+    "scheduleCall": "Komandamızla kəşf zəngi planlaşdırın",
+    "scheduleNow": "İndi planlaşdır",
+    "officeLocations": "Ofis ünvanları",
+    "visitOffices": "Bizi Dubay ofisimizdə ziyarət edin və ya onlayn yazın.",
+    "sendMessage": "Bizə mesaj göndərin",
+    "fillForm": "Formu doldurun, 24 saat ərzində geri dönək.",
     "name": "Ad",
     "email": "E-poçt",
     "company": "Şirkət",
@@ -733,1081 +497,1370 @@
     "subject": "Mövzu",
     "message": "Mesaj",
     "selectSubject": "Mövzu seçin",
-    "salesInquiry": "Satış Sorğusu",
-    "technicalSupport": "Texniki Dəstək",
+    "salesInquiry": "Satış müraciəti",
+    "technicalSupport": "Texniki dəstək",
     "partnership": "Tərəfdaşlıq",
-    "demoRequest": "Demo Tələbi",
-    "generalQuestion": "Ümumi Sual",
+    "demoRequest": "Demo sorğusu",
+    "generalQuestion": "Ümumi sual",
     "yourFullName": "Tam adınız",
-    "yourEmail": "e-poçtunuz@email.com",
+    "yourEmail": "your@email.com",
     "yourCompany": "Şirkət adınız",
-    "yourPhone": "+971503519350",
-    "tellUsProject": "Layihəniz və ya sualınız haqqında bizə məlumat verin...",
+    "yourPhone": "+971 4 123 4567",
+    "tellUsProject": "Layihəniz və ya sualınız barədə yazın...",
     "sending": "Göndərilir...",
-    "sendMessage": "Mesaj Göndər",
-    "messageSent": "Mesaj Göndərildi!",
-    "thankYouReaching": "Əlaqə qurduğunuz üçün təşəkkür edirik. Tezliklə sizə geri dönəcəyik.",
-    "whyChooseSupport": "Niyə Dəstəyimizi Seçməlisiniz?",
-    "committedExceptional": "Uğur qazanmağınıza kömək etmək üçün fövqəladə dəstək təmin etməyə sadiqik",
-    "support24": "7/24 Dəstək",
-    "roundClockAssistance": "Bütün ehtiyaclarınız üçün günün hər saatı yardım",
-    "expertTeam": "Ekspert Komanda",
-    "aiSpecialists": "AI mütəxəssisləri və satış peşəkarları",
-    "securePrivate": "Təhlükəsiz və Şəxsi",
-    "dataProtected": "Məlumatlarınız müəssisə səviyyəsində təhlükəsizliklə qorunur",
-    "fastResponse": "Sürətli Cavab",
+    "sendMessage": "Mesajı göndər",
+    "messageSent": "Mesaj göndərildi!",
+    "thankYouReaching": "Bizimlə əlaqə saxladığınız üçün təşəkkürlər. Tezliklə geri dönəcəyik.",
+    "whyChooseSupport": "Niyə dəstəyimizi seçməlisiniz?",
+    "committedExceptional": "Uğurunuz üçün müstəsna dəstək verməyə sadiqik",
+    "support24": "7/24 dəstək",
+    "roundClockAssistance": "Bütün ehtiyaclarınız üçün fasiləsiz yardım",
+    "expertTeam": "Mütəxəssis komanda",
+    "aiSpecialists": "Sİ mütəxəssisləri və satış peşəkarları",
+    "securePrivate": "Təhlükəsiz və məxfi",
+    "dataProtected": "Məlumatlarınız müəssisə səviyyəli təhlükəsizliklə qorunur",
+    "fastResponse": "Sürətli cavab",
     "averageResponse": "Orta cavab müddəti 2 saatdan az",
-    "faq": "Tez-tez Verilən Suallar",
-    "quickAnswers": "Tez-tez verilən suallara sürətli cavablar",
-    "readyGetStarted": "Başlamağa Hazırsınız?",
-    "joinThousands": "Satış proseslərini dönüştürmək üçün Spark AI istifadə edən minlərlə biznesə qoşulun"
-  },
-  "language": {
-    "selectLanguage": "Dil Seç",
-    "english": "İngiliscə",
-    "azerbaijani": "Azərbaycanca",
-    "languageChanged": "Dil Dəyişdirildi",
-    "languageChangedMessage": "Dil {language} olaraq dəyişdirildi"
-  },
-  "signup": {
-    "title": "Hesab Yarat",
-    "subtitle": "SparkAI-ə qoşulun və AI satış səyahətinizə başlayın",
-    "emailLabel": "E-poçt Ünvanı",
-    "emailPlaceholder": "E-poçtunuzu daxil edin",
-    "passwordLabel": "Şifrə",
-    "passwordPlaceholder": "Şifrə yaradın",
-    "confirmPasswordLabel": "Şifrəni Təsdiqlə",
-    "confirmPasswordPlaceholder": "Şifrənizi təsdiqləyin",
-    "createAccount": "Hesab Yarat",
-    "creatingAccount": "Hesab Yaradılır...",
-    "alreadyHaveAccount": "Artıq hesabınız var?",
-    "signInHere": "Buradan daxil olun",
-    "accountCreated": "Hesab Yaradıldı!",
-    "welcomeMessage": "SparkAI-yə xoş gəlmisiniz! İdarəetmə panelinizə yönləndirilirsiniz...",
-    "floatingElements": {
-      "aiVoiceCalls": "AI Səsli Zənglər",
-      "smartAgents": "Ağıllı Ajanlar",
-      "realTimeChat": "Real-vaxt Söhbət",
-      "analytics": "Analitika"
-    },
-    "features": {
-      "lightningFastSetup": "Şimşək Sürətli Quraşdırma",
-      "enterpriseSecurity": "Korporativ Təhlükəsizlik",
-      "multiLanguageSupport": "Çoxdilli Dəstək",
-      "advancedAnalytics": "Təkmilləşdirilmiş Analitika"
-    }
+    "faq": "Tez-tez verilən suallar",
+    "quickAnswers": "Yayğın suallara sürətli cavablar",
+    "readyGetStarted": "Başlamağa hazırsınız?",
+    "joinThousands": "Satış prosesini dəyişmək üçün AI SPARK SALES AGENT-dən istifadə edən minlərlə biznesə qoşulun"
   },
   "home": {
+    "title": "Sİ Səsli Satış Agentı",
+    "subtitle": "Ağıllı səs avtomatlaşdırması ilə satışlarınızı dəyişin",
     "hero": {
-      "title": "Həqiqətən Dönüşən AI Satış Zəngləri",
-      "subtitle": "Qaçırılan zənglər səbəbindən müştəri namizədlərini itirməyi dayandırın. AI ajanlarımız 7/24 insan kimi səs çıxaran satış zəngləri edir, müştəri namizədlərini keyfiyyətləndirir və avtomatik olaraq görüşlər planlayır. Həftədə 10+ saat qənaət edərkən dönüşümləri %300 artırın.",
-      "startFreeTrial": "Pulsuz Sınaq Başlat",
-      "seeInAction": "Spark AI-nı Fəaliyyətdə Görün",
-      "watchDescription": "AI ajanımızın real müştəri zənglərini təbii söhbət və ağıllı cavablarla necə idarə etdiyini izləyin",
-      "tryLiveDemo": "Canlı Demo Sınaq",
+      "title": "Biznesinizi Sİ səs agentləri ilə dəyişin",
+      "subtitle": "Artıq zəng qaçırmayın. Sİ agentlərimiz potensialları qiymətləndirir, görüşlər təyin edir və dönüşüm yaradan dəstək göstərir.",
+      "startFreeTrial": "Pulsuz sınağa başla",
+      "seeInAction": "AI SPARK SALES AGENT-i işdə görün",
+      "watchDescription": "Sİ agentimizin real müştəri zənglərini təbii dialoqla necə idarə etdiyini izləyin",
+      "tryLiveDemo": "Canlı demonu sına",
       "enterPhoneNumber": "Telefon nömrənizi daxil edin",
-      "playDemoVideo": "Demo Videosunu Oynat",
-      "tryForFree": "Pulsuz Sınaq - Həftədə 10+ Saat Qənaət Et",
-      "tryInteractiveDemo": "İnteraktiv Demo Sınaq",
+      "playDemoVideo": "Demo videonu aç",
+      "getFreeDemoCall": "Pulsuz demo zəngi al",
+      "selectYourIndustry": "Sahənizi seçin",
+      "yourName": "Adınız",
+      "phoneNumber": "Telefon nömrəsi",
       "stats": {
         "successRate": "%98",
-        "successRateLabel": "Uğur Dərəcəsi",
+        "successRateLabel": "Uğur faizi",
         "availability": "7/24",
         "availabilityLabel": "Mövcudluq",
         "languages": "100+",
-        "languagesLabel": "Dil"
+        "languagesLabel": "Dillər"
+      }
+    },
+    "problem": {
+      "title": "Qaçırılan zənglər = Qaçırılan gəlir",
+      "subtitle": "Qaçan hər zəng şirkətinizə zərərdir. Hər zəngi 7/24/365 cavablayın.",
+      "tag": "7/24 zəng idarəetməsi",
+      "problemTitle": "Problem",
+      "solutionTitle": "Həll",
+      "problemDescription": "Təkrarlanan zənglər sizi yorur?",
+      "solutionDescription": "Zəngləri Sİ Səs Agentləri ilə avtomatlaşdırın",
+      "problems": [
+        "Daha çox potensial istəyirsiniz?",
+        "Yüksək zəng həcmi ilə çətinlik çəkirsiniz?",
+        "Vacib işlərdən yayındırılırsınız?",
+        "Miqyaslana bilən, 7/24 həll axtarırsınız?"
+      ],
+      "solutions": [
+        "Sİ agentlər 7/24 hər potensialı tutur",
+        "Limitsiz zəngləri eyni anda idarə edin",
+        "Yüksək dəyərli işlərə fokuslanın",
+        "Əlavə işçi almadan miqyaslanın"
+      ],
+      "problemCards": {
+        "outOfHours": "İş saatı xaricində zənglər",
+        "unqualified": "Uyğunsuz potensiallar",
+        "canceledTasks": "Yarımçıq qalan işlər",
+        "missedCalls": "Qaçırılan zənglər"
+      },
+      "solutionCards": {
+        "availability": "7/24 mövcudluq",
+        "qualifiedLeads": "İxtisaslı potensiallar",
+        "freedUpTasks": "Boşalan işlər",
+        "noMissedCalls": "Qaçırılan zəng yoxdur"
+      }
+    },
+    "solutionsSection": {
+      "title": "Güclü Sİ həlləri",
+      "subtitle": "Real nəticə verən qabaqcıl texnologiya ilə biznesinizi dəyişin.",
+      "tag": "🚀 HƏLLƏR",
+      "solutions": {
+        "customerSupport": {
+          "title": "Müştəri dəstəyi",
+          "description": "Heç vaxt yuxulamayan 7/24 avtomatik xidmət"
+        },
+        "leadQualification": {
+          "title": "Potensial qiymətləndirmə",
+          "description": "Sİ əsaslı skorlaşdırma və niteləmə"
+        },
+        "salesAutomation": {
+          "title": "Satış avtomatlaşdırması",
+          "description": "Müştəriyə çevirən avtomatik izləmələr"
+        }
+      }
+    },
+    "benefitsSection": {
+      "tag": "✨ FAYDALAR",
+      "title": "Niyə bizi seçirlər?",
+      "subtitle": "Rəqiblərdən fərqləndirən üstünlüklərimizi yaşayın"
+    },
+    "howItWorks": {
+      "tag": "🔄 NECƏ İŞLƏYİR",
+      "title": "Sadə 3 addım",
+      "subtitle": "Sürətli quraşdırma ilə dəqiqələr içində başlayın"
+    },
+    "industriesSection": {
+      "title": "Sənayelər üzrə etibar",
+      "subtitle": "Səhiyyədən daşınmaz əmlaka — Sİ agentlərimiz sahənizin tələblərinə uyğunlaşır"
+    },
+    "demoSection": {
+      "tag": "🎬 CANLI DEMOLAR",
+      "title": "Sİ Səs Agentini iş başında görün",
+      "subtitle": "Sİ güclü səs agentlərimizin müxtəlif sahələrdə real telefon danışığını necə idarə etdiyini izləyin. Skript yoxdur, yazı yoxdur — təkcə saf Sİ intellekti.",
+      "watchDemo": "Demonu izlə",
+      "bookLiveDemo": "Canlı demo sifariş et",
+      "tryFreeCall": "Pulsuz zəngi sına",
+      "liveDemo": {
+        "title": "Canlı Sİ zəng demosu",
+        "subtitle": "Sİ agentimiz real müştəri xidməti zəngini necə idarə edir — izləyin.",
+        "playAllDemo": "🎬 Bütün demoları oynat",
+        "live": "🔴 CANLI"
+      },
+      "demos": {
+        "ecommerce": {
+          "title": "Müştəri dəstəyi demosu — E-ticarət",
+          "duration": "⏱️ 2:30 dəq",
+          "description": "Sİ agent sifariş izləmə, qaytarma və sualları təbii axınla idarə edir.",
+          "features": [
+            "Sifariş izləmə",
+            "Qaytarma emalı",
+            "Müştəri sualları"
+          ],
+          "watchDemo": "👉 Demoya bax"
+        },
+        "healthcare": {
+          "title": "Görüş planlaşdırma demosu — Səhiyyə",
+          "duration": "⏱️ 3:15 dəq",
+          "description": "Sİ agent potensialları qiymətləndirir, görüşlər yaradır və avtomatik izləyir.",
+          "features": [
+            "Potensial qiymətləndirmə",
+            "Görüş planlaşdırma",
+            "Avtomatik izləmə"
+          ],
+          "watchDemo": "👉 Demoya bax"
+        },
+        "realEstate": {
+          "title": "Satış və potensial yaratma — Daşınmaz əmlak",
+          "duration": "⏱️ 4:20 dəq",
+          "description": "Sİ agent yeni potensiallar yaradır, niteləyir və baxış görüşləri planlaşdırır.",
+          "features": [
+            "Potensial yaratma",
+            "Potensial qiymətləndirmə",
+            "Baxış planlaşdırma"
+          ],
+          "watchDemo": "👉 Demoya bax"
+        }
+      },
+      "conclusion": "Bu demolar Sİ-nin real dialoqlarda necə təbii və effektiv işlədiyini göstərir — təcrübəli çağrı mərkəzi agenti kimi, ancaq fasiləsiz və limitsiz güclə."
+    },
+    "pricingSection": {
+      "tag": "💰 QİYMƏT",
+      "title": "Şəffaf qiymət, gizli ödəniş yoxdur",
+      "subtitle": "Gizli xərcsiz şəffaf qiymət. Ehtiyacınıza uyğun dəstək paketini seçin.",
+      "setupFee": {
+        "title": "Bir dəfəlik quraşdırma haqqı",
+        "amount": "AED 10.000",
+        "description": "Agent başına quraşdırma və tənzimləmə"
+      },
+      "usageFee": {
+        "title": "Sİ istifadə haqqı",
+        "amount": "AED 0,51 - 0,66",
+        "unit": "/dəqiqə",
+        "description": "Saniyəsinə qədər hesablanır (səs, transkripsiya və LLM emalı)"
+      },
+      "supportPackages": "Dəstək paketləri:",
+      "limited": "Məhdud"
+    },
+    "teamSection": {
+      "tag": "👥 SPARK AI KOMANDASI",
+      "title": "Yeni satış komandanızla tanış olun",
+      "subtitle": "AI SPARK SALES AGENT – insan kimi danışan, strateji düşünən və 7/24 işləyən səsli satış komandanız.",
+      "getDemoCall": "60 saniyədə demo zəngi alın!",
+      "enterInfo": "Ad – Telefon – Sahə məlumatınızı daxil edin.",
+      "guarantees": {
+        "secure": "✅ 100% Təhlükəsiz",
+        "setup": "⚙️ 60 san quraşdırma",
+        "noCard": "💳 Kart tələb olunmur"
+      },
+      "stats": {
+        "experience": "Ümumi 50+ il təcrübə",
+        "projects": "500+ layihə təhvili",
+        "satisfaction": "%95 müştəri məmnuniyyəti",
+        "support": "7/24 dəstək"
+      }
+    },
+    "testimonialsSection": {
+      "tag": "⭐ RƏYLƏR",
+      "title": "Müştərilərimiz nə deyir",
+      "subtitle": "AI SPARK SALES AGENT istifadə edən bizneslərdən real nəticələr"
+    },
+    "faqSection": {
+      "tag": "❓ SSS",
+      "title": "Tez-tez verilən suallar",
+      "subtitle": "Yayğın suallara sürətli cavablar",
+      "questions": {
+        "howItWorks": "AI SPARK SALES AGENT necə işləyir?",
+        "customize": "Sİ agentimi fərdiləşdirə bilərəm?",
+        "languages": "HansI dillər dəstəklənir?",
+        "pricing": "Qiymət necə işləyir?",
+        "freeTrial": "Pulsuz sınaq var?"
+      },
+      "answers": {
+        "freeTrial": "Bəli, 14 günlük pulsuz sınaq mövcuddur."
+      }
+    },
+    "footerSection": {
+      "office": "Ofis: New Century City Tower, Port Saeed, Dubay, BƏƏ",
+      "email": "E-poçt: contactus@sparkai.ae",
+      "phone": "Telefon: +971 503519350",
+      "security": "SSL Təhlükəsiz · GDPR uyğun · 4.9/5 reytinq",
+      "copyright": "© 2024 AI SPARK SALES AGENT. Bütün hüquqlar qorunur.",
+      "privacyPolicy": "Məxfilik siyasəti",
+      "termsOfService": "Xidmət şərtləri",
+      "cookiePolicy": "Kuki siyasəti"
+    },
+    "benefits": {
+      "title": "Niyə Sİ zəng sistemimizi seçməlisiniz",
+      "subtitle": "Sİ ilə biznesinizi dəyişin",
+      "moreSalesCalls": {
+        "title": "%300 daha çox satış zəngi",
+        "description": "Artıq potensial qaçırmayın. Sİ agentlər 7/24 zəng edir — siz yatarkən belə çatımı %300 artırır.",
+        "stats": "%300 artım"
+      },
+      "availability": {
+        "title": "7/24 mövcudluq",
+        "description": "Fasiləsiz işləyən Sİ agentlərlə zəng qaçırmayın"
+      },
+      "lightningFast": {
+        "title": "Çox sürətli",
+        "description": "Anında cavab və dərhal qiymətləndirmə"
+      },
+      "scalableTeam": {
+        "title": "Miqyaslana bilən komanda",
+        "description": "Əlavə işçi almadan limitsiz zəngləri paralel idarə edin"
+      },
+      "dataDriven": {
+        "title": "Məlumat yönümlü",
+        "description": "Real-time analitika və performans baxışları"
+      },
+      "uploadData": {
+        "title": "Məlumatınızı yükləyin",
+        "description": "Sadəcə kontakt siyahınızı yükləyin, qalanını Sİ etsin"
+      },
+      "industries": {
+        "healthcare": "Səhiyyə",
+        "ecommerce": "E-ticarət",
+        "realEstate": "Daşınmaz əmlak",
+        "education": "Təhsil",
+        "automotive": "Avtomotiv",
+        "legal": "Hüquq",
+        "restaurant": "Restoran",
+        "services": "Xidmətlər"
+      },
+      "solutions": {
+        "customerSupport": {
+          "title": "Müştəri dəstəyi",
+          "description": "Heç vaxt yuxulamayan 7/24 avtomatik xidmət"
+        },
+        "leadQualification": {
+          "title": "Potensial qiymətləndirmə",
+          "description": "Sİ əsaslı skorlaşdırma və niteləmə"
+        },
+        "salesAutomation": {
+          "title": "Satış avtomatlaşdırması",
+          "description": "Müştəriyə çevirən avtomatik izləmələr"
+        }
+      }
+    },
+    "industries": {
+      "healthcare": "Səhiyyə",
+      "ecommerce": "E-ticarət",
+      "realEstate": "Daşınmaz əmlak",
+      "education": "Təhsil",
+      "automotive": "Avtomotiv",
+      "legal": "Hüquq",
+      "restaurant": "Restoran",
+      "services": "Xidmətlər"
+    },
+    "solutions": {
+      "customerSupport": {
+        "title": "Müştəri dəstəyi",
+        "description": "Heç vaxt yuxulamayan 7/24 avtomatik xidmət"
+      },
+      "leadQualification": {
+        "title": "Potensial qiymətləndirmə",
+        "description": "Sİ əsaslı skorlaşdırma və niteləmə"
+      },
+      "salesAutomation": {
+        "title": "Satış avtomatlaşdırması",
+        "description": "Müştəriyə çevirən avtomatik izləmələr"
+      }
+    },
+    "features": {
+      "availability": {
+        "title": "7/24 mövcudluq",
+        "description": "Fasiləsiz işləyən Sİ agentlərlə zəng qaçırmayın"
+      },
+      "lightningFast": {
+        "title": "Çox sürətli",
+        "description": "Anında cavab və dərhal qiymətləndirmə"
+      },
+      "scalableTeam": {
+        "title": "Miqyaslana bilən komanda",
+        "description": "Əlavə işçi olmadan limitsiz zənglər"
+      },
+      "dataDriven": {
+        "title": "Məlumat yönümlü",
+        "description": "Real-time analitika və performans baxışları"
+      },
+      "uploadData": {
+        "title": "Məlumatınızı yükləyin",
+        "description": "Biznes məlumatlarınızı, skriptləri və bilik bazasını əlavə edin"
+      },
+      "trainAi": {
+        "title": "Sİ-nizi öyrədin",
+        "description": "Sİ səsinizi, tonunuzu və proseslərinizi öyrənir"
+      },
+      "goLive": {
+        "title": "Yayına verin",
+        "description": "Sİ agentinizlə zəng qəbuluna və etməyə başlayın"
+      }
+    },
+    "pricing": {
+      "basic": {
+        "name": "Basic",
+        "description": "Başlayan kiçik bizneslər üçün ideal",
+        "features": [
+          "Əsas analitika",
+          "E-poçt dəstəyi"
+        ],
+        "cta": "Başlayın"
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Böyüyən bizneslər üçün inkişaf etmiş xüsusiyyətlər",
+        "features": [
+          "Qabaqcıl analitika",
+          "Prioritet dəstək",
+          "Xüsusi inteqrasiyalar"
+        ],
+        "cta": "Başlayın"
+      }
+    },
+    "demos": {
+      "customerSupport": {
+        "title": "Müştəri dəstəyi demosu",
+        "description": "Sİ-nin müştəri suallarını necə dərhal həll etdiyini görün."
+      },
+      "appointmentBooking": {
+        "title": "Görüş bronu demosu",
+        "description": "Sİ agentimizin görüşləri necə planlaşdırdığını və təqvimləri idarə etdiyini izləyin.",
+        "industry": "Səhiyyə"
+      },
+      "salesQualification": {
+        "title": "Satış niteləmə demosu",
+        "description": "Sİ-nin potensialları necə niteləyib avtomatik görüş təyin etdiyini yaşayın."
+      }
+    },
+    "faqs": {
+      "howItWorks": {
+        "question": "AI SPARK SALES AGENT necə işləyir?",
+        "answer": "AI SPARK SALES AGENT inkişaf etmiş təbii dil emalı və maşın öyrənməsi ilə zəngləri idarə edən, potensialı qiymətləndirən və avtomatik görüş alan ağıllı səs agentləri yaradır."
+      },
+      "customization": {
+        "question": "Sİ agenti fərdiləşdirə bilərəm?",
+        "answer": "Bəli! Biznes məlumatlarınız, skriptləriniz və bilik bazanızla Sİ-ni öyrədə bilərsiniz. Sİ səsinizi, tonunuzu və proseslərinizi mənimsəyir."
+      },
+      "languages": {
+        "question": "HansI dillər dəstəklənir?",
+        "answer": "AI SPARK SALES AGENT 100+ dili təbii aksentlərlə dəstəkləyir. Hətta öz səsinizi klonlaya bilərsiniz."
+      },
+      "pricing": {
+        "question": "Nə qədərdir?",
+        "answer": "Əsas plan 100 zənglə ayda 150$-dan başlayır. Daha yüksək həcm və funksiyalar üçün Pro plan mövcuddur."
+      },
+      "freeTrial": {
+        "question": "Pulsuz sınaq var?",
+        "answer": "Bəli! Kart tələb etmədən 14 günlük pulsuz sınaq veririk. Öhdəlik olmadan bütün xüsusiyyətləri test edin."
+      }
+    },
+    "callForm": {
+      "callInitiated": "Zəng başladı!",
+      "callDescription": "Sİ agentimiz imkanlarımızı göstərmək üçün qısa müddətdə sizi zəng edəcək."
+    },
+    "companies": {
+      "trustedBy": "Aparıcı şirkətlərin etibar etdiyi"
+    },
+    "industryUseCases": {
+      "healthcare": "Görüş planlaşdırma, xatırlatmalar və dəstək",
+      "ecommerce": "Sifariş izləmə, qaytarma və müştəri dəstəyi",
+      "realEstate": "Potensial qiymətləndirmə, əmlak sorğuları və planlaşdırma",
+      "education": "Tələbə dəstəyi, qeydiyyat və məlumatlandırma",
+      "automotive": "Servis görüşləri, satış izləmə və dəstək",
+      "legal": "Müştəri qəbulu, görüş planlaşdırma və fayl yeniləmələri",
+      "restaurant": "Rezervasiyalar, sifarişlər və müştəri xidməti",
+      "services": "Görüş alma, izləmə və dəstək"
+    },
+    "demoFeatures": {
+      "customerSupport": {
+        "title": "Müştəri dəstəyi",
+        "features": ["7/24 mövcudluq", "Çoxdilli dəstək", "CRM inteqrasiyası"]
+      },
+      "appointmentBooking": {
+        "title": "Görüş alma",
+        "industry": "Səhiyyə"
       }
     },
     "benefits": {
-      "moreSalesCalls": {
-        "title": "%300 Daha Çox Satış Zəngi",
-        "description": "Bir daha heç vaxt müştəri namizədini qaçırmayın. AI ajanlar 7/24 zəng edir, siz yatarkən belə, çatışınızı %300 artırır.",
-        "stats": "%300 artım"
-      },
       "saveTime": {
-        "title": "Həftədə 10+ Saat Qənaət",
-        "description": "Soyuq zənglərdə saatlar sərf etməyi dayandırın. AI bütün prosesi idarə edərkən siz müqavilə bağlamağa diqqət yetirin.",
+        "title": "Həftədə 10+ saat qənaət",
+        "description": "Soyuq zənglərə saatlar sərf etməyin. Sİ prosesi idarə etsin, siz bağlamaya fokuslanın.",
         "stats": "10+ saat qənaət"
       },
       "qualityLeads": {
-        "title": "Daha Yüksək Keyfiyyətli Müştəri Namizədləri",
-        "description": "AI sizinlə danışmadan əvvəl müştəri namizədlərini keyfiyyətləndirir, beləliklə siz yalnız satın almağa hazır isti namizədlərlə vaxt sərf edirsiniz.",
-        "stats": "%85 keyfiyyətli"
+        "title": "Daha keyfiyyətli potensiallar",
+        "description": "Sİ, görüşdən əvvəl potensialları niteləyir; siz yalnız almaya hazır olanlarla danışırsınız.",
+        "stats": "%85 ixtisaslı"
       },
       "analytics": {
-        "title": "Real-Vaxt Analitikası",
-        "description": "Hər zəngi, dönüşümü və ROI-ni real vaxtda izləyin. Nəyin işlədiyini və nəyin işləmədiyini dəqiq bilin.",
-        "stats": "Real-vaxt məlumatı"
+        "title": "Real-time analitika",
+        "description": "Hər zəngi, dönüşümü və ROI-ni real vaxtda izləyin. Nəyin işlədiyini anında görün.",
+        "stats": "Real-time data"
       },
       "multiLanguage": {
-        "title": "Çoxdilli Dəstək",
-        "description": "95+ dili sərbəst danışan AI ajanlarla qlobal bazarlara çatın, dil maneələrini aradan qaldırın.",
+        "title": "Çoxdilli dəstək",
+        "description": "95+ dili səlis danışan Sİ agentlərlə qlobal bazarlara çıxın.",
         "stats": "95+ dil"
       },
       "humanLike": {
-        "title": "İnsan Kimi Söhbətlər",
-        "description": "Tamamilə təbii səs çıxaran təkmilləşmiş AI. Müştəri namizədləri maşınla danışdıqlarını başa düşə bilmirlər.",
+        "title": "İnsan kimi dialoqlar",
+        "description": "Tamamilə təbii səslənən inkişaf etmiş Sİ. Qarşı tərəfin Sİ ilə danışdığını anlamaq demək olar ki, mümkün deyil.",
         "stats": "%99 təbii"
       }
     },
     "pricing": {
       "starter": {
-        "name": "Başlanğıc",
+        "name": "Starter",
         "period": "/ay",
-        "description": "Başlayan kiçik komandalar üçün mükəmməl",
+        "description": "Başlayan kiçik komandalar üçün ideal",
         "features": {
-          "feature1": "Ayda 1.000 zəngə qədər",
-          "feature2": "Əsas AI səs ajanı",
+          "feature1": "Ayla 1.000 zəngədək",
+          "feature2": "Əsas Sİ səs agenti",
           "feature3": "E-poçt dəstəyi",
           "feature4": "Əsas analitika",
           "feature5": "CRM inteqrasiyası"
         }
       },
       "professional": {
-        "name": "Peşəkar",
+        "name": "Professional",
         "period": "/ay",
         "description": "Böyüyən bizneslər üçün ən populyar",
         "features": {
-          "feature1": "Ayda 10.000 zəngə qədər",
-          "feature2": "Təkmilləşmiş AI səs ajanı",
+          "feature1": "Aylıq 10.000 zəngədək",
+          "feature2": "Qabaqcıl Sİ səs agenti",
           "feature3": "Prioritet dəstək",
-          "feature4": "Təkmilləşmiş analitika",
+          "feature4": "Qabaqcıl analitika",
           "feature5": "Çoxlu CRM inteqrasiyası",
-          "feature6": "Fərdi səs klonlama",
-          "feature7": "A/B testi"
+          "feature6": "Xüsusi səs klonlama",
+          "feature7": "A/B testləri"
         }
       }
     },
     "demo": {
-      "aiSalesAgent": "AI Satış Ajanı",
-      "sparkAICalling": "Spark AI Zəng Sistemi",
-      "connected": "Bağlandı",
-      "callAnalytics": "Zəng Analitikası",
+      "aiSalesAgent": "Sİ Satış Agentı",
+      "sparkAICalling": "AI SPARK SALES AGENT Sistemi",
+      "connected": "Qoşuldu",
+      "callAnalytics": "Zəng analitikası",
       "duration": "Müddət",
-      "sentiment": "Hiss",
+      "sentiment": "Ruh hali",
       "conversion": "Dönüşüm",
-      "callScript": "Salam John! Spark AI-dan zəng edirəm. Satış avtomatlaşdırma həllərimizə baxdığınızı gördüm..."
-    },
-    "testimonials": {
-      "detailed": {
-        "testimonial1": "Cəmi 3 ayda satışlarımızı %340 artırdıq. AI o qədər təbii səs çıxarır ki, müştəri namizədləri insan olmadığını başa düşə bilmirlər. ROI dərhal oldu.",
-        "testimonial2": "Soyuq zənglərdə həftədə 20 saat qənaət etdik. Komandamız indi müştəri namizədi axtarmaq əvəzinə müqavilə bağlamağa diqqət yetirir. Oyun dəyişdirici!",
-        "testimonial3": "Startup kimi satış komandası təmin edə bilmirdik. Bu AI ajan ən yaxşı satış nümayəndəmiz oldu, dəyərin çox kiçik hissəsinə 7/24 işləyir."
-      }
-    },
-    "consultation": {
-      "title": "AI mütəxəssislərimizlə pulsuz məsləhət alın",
-      "subtitle": "AI səs ajanlarının biznesinizi necə dönüşdürə biləcəyi barədə fərdi məsləhət alın",
-      "expertTeam": "AI Ekspert Komandası",
-      "specialists": "AI Səs Mütəxəssisləri",
-      "discoveryCall": "AI Ajan Kəşf Zəngi",
-      "duration": "30 dəq",
-      "description": "AI mütəxəssislərimizlə pulsuz kəşf zəngi planlayın!",
-      "features": [
-        "Sənayəniz üçün fərdi AI strategiyası",
-        "Fərdi tətbiq planı",
-        "ROI proqnozları və zaman cədvəli",
-        "Pulsuz məsləhət və quraşdırma rəhbərliyi"
-      ],
-      "testimonial": "AI SPARK SALES AGENT-dəki AI mütəxəssisləri məsləhətimiz zamanı peşəkar və diqqətli idilər. Biznesimiz üçün dönüşüm dərəcəmizi %300 artıran möcüzəli AI səs ajanı strategiyası yaratdılar.",
-      "weWillCover": "Əhatə edəcəyimiz məsələlər:",
-      "hearFromOthers": "Başqalarından dinləyin:"
-    },
-    "whyChoose": {
-      "title": "Nə üçün aparıcı şirkətlər AI SPARK SALES AGENT-i seçir",
-      "subtitle": "Müştəri qarşılıqlı əlaqəsini dönüşdürmək və misli görünməz böyümə təmin etmək üçün AI SPARK SALES AGENT-ə etibar edən 500+ şirkətə qoşulun",
-      "comparison": {
-        "ourPlatform": "AI SPARK SALES AGENT",
-        "otherPlatforms": "Digər AI Platformları"
-      }
-    },
-    "aiSalesTeam": {
-      "title": "Yeni AI Satış Komandanızla Tanış Olun",
-      "subtitle": "AI SPARK SALES AGENT, insan kimi səs çıxaran, strategik düşünən və biznesinizi böyütmək üçün 7/24 yorulmadan işləyən ağıllı səs ajanları yaradır.",
-      "readyToSee": "AI Ajanınızı Fəaliyyətdə Görməyə Hazırsınız?",
-      "bookDemo": "Fərdi demo planlayın və AI-mızın xüsusi istifadə halınızı real vaxtda necə idarə etdiyini izləyin."
+      "callScript": "Salam, John! AI SPARK SALES AGENT-dən zəng edirəm. Satış avtomatlaşdırma həllərimizə baxdığınızı gördüm..."
     },
     "solutionsSection": {
-      "title": "Güclü AI Həlləri",
-      "subtitle": "Həqiqi nəticələr verən son texnoloji AI texnologiyası ilə biznesinizi dönüşdürün."
-    },
-    "solutions": {
-      "customerSupport": {
-        "title": "Müştəri Dəstəyi",
-        "description": "Heç vaxt yatmayan 7/24 avtomatik müştəri xidməti"
-      },
-      "leadQualification": {
-        "title": "Müştəri Namizədi Keyfiyyətləndirmə",
-        "description": "AI dəstəkli müştəri namizədi qiymətləndirmə və keyfiyyətləndirmə"
-      },
-      "salesAutomation": {
-        "title": "Satış Avtomatlaşdırması",
-        "description": "Müştəri namizədlərini müştəriyə çevirən avtomatik takipler"
-      }
-    },
-    "features": {
-      "availability": {
-        "title": "7/24 Mövcudluq",
-        "description": "AI ajanlar 7/24 işləyir"
-      },
-      "lightningFast": {
-        "title": "Şimşək Sürəti",
-        "description": "2 saniyədən az müddətdə ani cavab"
-      },
-      "scalableTeam": {
-        "title": "Ölçənəbilən Komanda",
-        "description": "Eyni zamanda minlərlə zəngi idarə edir"
-      },
-      "dataDriven": {
-        "title": "Məlumat Əsaslı",
-        "description": "Performansı optimallaşdırmaq üçün təkmilləşmiş analitika"
-      },
-      "uploadData": {
-        "title": "Məlumat Yüklə",
-        "description": "Əlaqə siyahınızı yükləyin və ya CRM-inizi bağlayın"
-      },
-      "trainAi": {
-        "title": "AI Təlim Ver",
-        "description": "AI-ı məhsul və xidmətlərinizdə təlim verin"
-      },
-      "goLive": {
-        "title": "Canlıya Al",
-        "description": "Avtomatik zəngləri başladın və satışlarınızı artırın"
-      }
-    },
-    "industries": {
-      "healthcare": "Sağlamlıq",
-      "ecommerce": "E-ticarət",
-      "realEstate": "Daşınmaz əmlak",
-      "education": "Təhsil",
-      "automotive": "Avtomobil",
-      "legal": "Hüquq",
-      "restaurant": "Restoran",
-      "services": "Xidmətlər"
-    },
-    "industryUseCases": {
-      "healthcare": "Görüş planlama, dərman xatırlatmaları, xəstə dəstəyi",
-      "ecommerce": "Sifariş izləmə, qaytarma emalı, müştəri dəstəyi",
-      "realEstate": "Müştəri keyfiyyətləndirmə, baxış planlama, satış takibi",
-      "education": "Qeydiyyat, akademik məsləhət, tələbə dəstəyi",
-      "automotive": "Müştəri xidmətləri, texniki xidmət planlama, satış takibi",
-      "legal": "Hüquqi məsləhət, görüş planlama, müştəri dəstəyi",
-      "restaurant": "Masa rezervasiyası, çatdırılma sifarişləri, müştəri dəstəyi",
-      "services": "Müştəri keyfiyyətləndirmə, görüş planlama, satış takibi"
-    },
-    "testimonials": {
-      "sarah": {
-        "name": "Sarah Əhməd",
-        "content": "Cəmi 3 ayda satışlarımızı %340 artırdıq. AI o qədər təbii səs çıxarır ki, müştəri namizədləri insan olmadığını başa düşə bilmirlər."
-      },
-      "michael": {
-        "name": "Məhəmməd Əli",
-        "role": "Satış Müdiri, Təkmilləşmiş Texnologiya Şirkəti",
-        "content": "Soyuq zənglərdə həftədə 20 saat qənaət etdik. Komandamız indi müştəri namizədi axtarmaq əvəzinə müqavilə bağlamağa diqqət yetirir."
-      },
-      "emily": {
-        "name": "Fatimə Həsən",
-        "role": "Qurucu, Sürətli Böyümə Şirkəti",
-        "content": "Startup kimi satış komandası təmin edə bilmirdik. Bu AI ajan ən yaxşı satış nümayəndəmiz oldu, 7/24 işləyir və çox az dəyərə."
-      }
-    },
-    "demos": {
-      "customerSupport": {
-        "title": "Müştəri Dəstəyi",
-        "description": "AI ajan müştəri sorğularını və dəstək tələblərini idarə edir"
-      },
-      "appointmentBooking": {
-        "title": "Görüş Planlama",
-        "description": "Ağıllı xatırlatmalarla avtomatik görüş planlama",
-        "industry": "Sağlamlıq"
-      },
-      "salesQualification": {
-        "title": "Satış Keyfiyyətləndirmə",
-        "description": "Müştəri namizədlərini avtomatik olaraq keyfiyyətləndirmə və qiymətləndirmə"
-      }
-    },
-    "faqs": {
-      "howItWorks": {
-        "question": "AI SPARK SALES AGENT necə işləyir?",
-        "answer": "AI SPARK SALES AGENT, müştəri zənglərini idarə edə bilən, müştəri namizədlərini keyfiyyətləndirə bilən və avtomatik olaraq görüş planlaya bilən ağıllı səs ajanları yaratmaq üçün təkmilləşmiş təbii dil emalı və maşın öyrənməsi istifadə edir."
-      },
-      "customization": {
-        "question": "AI ajanı fərdiləşdirə bilərəm?",
-        "answer": "Bəli! AI-ı biznes məlumatlarınız, ssenariləriniz və bilik bazanızla təlim verə bilərsiniz. AI səsinizi, tonunuzu və biznes proseslərinizi öyrənəcək."
-      },
-      "languages": {
-        "question": "Hansı dillər dəstəklənir?",
-        "answer": "AI SPARK SALES AGENT təbii səsli və aksanlı 100-dən çox dili dəstəkləyir. Fərdi təcrübə üçün öz səsinizi də klonlaya bilərsiniz."
-      },
-      "pricing": {
-        "question": "Dəyəri nə qədərdir?",
-        "answer": "Qiymətləndirməmiz 100 zəngli Əsas plan üçün ayda 150$-dan başlayır. Həmçinin təkmilləşmiş xüsusiyyətlər və daha yüksək zəng həcmi ilə Pro plan təklif edirik."
-      },
-      "freeTrial": {
-        "question": "Pulsuz sınaq var mı?",
-        "answer": "Bəli! Öhdəliksiz 14 günlük pulsuz sınaq təklif edirik. Bütün xüsusiyyətləri sınayın və nəticələri özünüz görün."
-      }
-    },
-    "companies": {
-      "trustedBy": "Aparıcı şirkətlər tərəfindən güvənilir"
+      "title": "Güclü Sİ həlləri",
+      "subtitle": "Real nəticə verən qabaqcıl Sİ ilə biznesinizi dəyişin"
     },
     "demo": {
-      "title": "AI SPARK SALES AGENT-i Fəaliyyətdə Görün",
-      "subtitle": "AI səs ajanlarımızın müxtəlif sənayələrdə real telefon zənglərini necə idarə etdiyini izləyin. Skript yoxdur, əvvəlcədən qeyd edilmiş cavablar yoxdur - yalnız saf AI zəkası.",
-      "liveDemo": "Canlı AI Zəng Demo",
-      "watchDescription": "AI ajanımızın real müştəri xidməti zəngini necə idarə etdiyini izləyin",
-      "playFullDemo": "Tam Demo Oynat",
+      "title": "Sİ Səs Agentini iş başında görün",
+      "subtitle": "Sİ səs agentlərimizin müxtəlif sahələrdə real telefon danışığını necə idarə etdiyini izləyin. Skript yoxdur, yazı yoxdur — təkcə saf Sİ intellekti.",
+      "liveDemo": "Canlı Sİ zəng demosu",
+      "watchDescription": "Sİ agentimizin real müştəri xidməti zəngini necə idarə etdiyini izləyin",
+      "playFullDemo": "Tam demonu oynat",
       "live": "CANLI",
       "categories": {
         "customerSupport": {
-          "title": "Müştəri Dəstəyi Demo",
+          "title": "Müştəri dəstəyi demosu",
           "industry": "E-ticarət",
           "duration": "2:30 dəq",
-          "description": "AI ajan sifariş izləmə, qaytarma və müştəri sorğularını təbii söhbət axını ilə idarə edir.",
-          "features": ["Sifariş İzləmə", "Qaytarma Emalı", "Müştəri Sorğuları"]
+          "description": "Sİ agent sifariş izləmə, qaytarma və sualları təbii axınla idarə edir.",
+          "features": ["Sifariş izləmə", "Qaytarma emalı", "Müştəri sualları"]
         },
         "appointmentBooking": {
-          "title": "Görüş Planlama Demo",
-          "industry": "Sağlamlıq",
+          "title": "Görüş alma demosu",
+          "industry": "Səhiyyə",
           "duration": "3:15 dəq",
-          "description": "AI ajan müştəri namizədlərini keyfiyyətləndirir, görüşləri planlayır və namizədlərlə avtomatik olaraq təqib edir.",
-          "features": ["Müştəri Namizədi Keyfiyyətləndirmə", "Görüş Planlama", "Təqib Avtomatlaşdırması"]
+          "description": "Sİ agent potensialları niteləyir, görüş alır və avtomatik izləyir.",
+          "features": ["Potensial qiymətləndirmə", "Görüş alma", "Avtomatik izləmə"]
         },
         "salesGeneration": {
-          "title": "Satış və Müştəri Namizədi Yaratma",
+          "title": "Satış və potensial yaratma",
           "industry": "Daşınmaz əmlak",
           "duration": "4:20 dəq",
-          "description": "AI ajan müştəri namizədləri yaradır, namizədləri keyfiyyətləndirir və əmlak baxışlarını planlayır.",
-          "features": ["Müştəri Namizədi Yaratma", "Namizəd Keyfiyyətləndirmə", "Baxış Planlama"]
+          "description": "Sİ agent potensial yaradır, niteləyir və göstəriş planlayır.",
+          "features": ["Potensial yaratma", "Aday niteləmə", "Göstəriş planlama"]
         }
       }
     },
-    "pricing": {
-      "title": "Qiymətləndirmə",
-      "subtitle": "Gizli xərclər olmadan şəffaf qiymətləndirmə. Ehtiyaclarınıza uyğun dəstək paketini seçin.",
-      "setupFee": {
-        "title": "Bir Dəfəlik Quraşdırma Haqqı",
-        "price": "10,000 AED",
-        "description": "Agent başına quraşdırma və konfiqurasiya"
-      },
-      "usageFees": {
-        "title": "AI İstifadə Haqları",
-        "price": "0.51 - 0.66 AED/dəqiqə",
-        "description": "Dəqiq saniyəyə qədər hesablanır (səs yaradılması, real vaxt transkripsiyası və LLM emalını əhatə edir)"
-      },
-      "essential": {
-        "name": "Əsas Dəstək",
-        "price": "1,500 AED",
-        "period": "/ay",
-        "description": "AI zəngləri ilə başlayan bizneslər üçün mükəmməl",
-        "features": [
-          "24x7 iş vaxtı monitorinqi və hadisə xəbərdarlıqları",
-          "Ayda 4 saata qədər axın dəyişiklikləri və ya prompt dəyişiklikləri",
-          "İstifadə olunmayan vaxt 60 gün ərzində köçürülür",
-          "Hərəkətə keçirilə bilən məlumatlarla aylıq performans hesabatı",
-          "Növbəti iş günü SLA ilə e-poçt dəstəyi"
-        ]
-      },
-      "premium": {
-        "name": "Premium Dəstək",
-        "price": "3,000 AED",
-        "period": "/ay",
-        "description": "Qabaqcıl optimallaşdırma və prioritet dəstək tələb edən bizneslər üçün",
-        "features": [
-          "Əsasda olan hər şey üstəlik:",
-          "Ayda 10 saata qədər prompt/axın optimallaşdırması",
-          "Metrikaları və yol xəritəsini nəzərdən keçirmək üçün strategiya sessiyası",
-          "Eyni iş günü cavablarla prioritet dəstək növbəsi",
-          "Aşağı maliyyətli səs modellərinin erkən giriş testi",
-          "Paket dəyişiklikləri üçün 30 gün əvvəlcədən bildiriş"
-        ]
-      },
-      "getStarted": "Başlayın",
-      "trustedBy": "Dünya miqyasında 500+ şirkət tərəfindən güvənilir"
+    "consultation": {
+      "title": "Sİ mütəxəssislərimizlə pulsuz konsultasiya planlaşdırın",
+      "subtitle": "Sİ səs agentlərinin biznesinizi necə dəyişəcəyinə dair fərdiləşdirilmiş məsləhət alın",
+      "expertTeam": "Sİ ekspert komandası",
+      "specialists": "Sİ səs mütəxəssisləri",
+      "discoveryCall": "Sİ agenti üzrə kəşf zəngi",
+      "duration": "30 dəq",
+      "description": "Sİ mütəxəssislərimizlə pulsuz kəşf zəngi planlaşdırın!",
+      "features": [
+        "Sahənizə uyğun Sİ strategiyası",
+        "Fərdiləşdirilmiş tətbiq planı",
+        "ROI proqnozları və zaman xətti",
+        "Pulsuz konsultasiya və quraşdırma bələdçisi"
+      ],
+      "testimonial": "AI SPARK SALES AGENT-dəki Sİ ekspertləri peşəkar və diqqətli idi. Konversiyanı %300 artıran əla Sİ səs agent strategiyası hazırladılar.",
+      "weWillCover": "Müzakirə edəcəyimiz mövzular:",
+      "hearFromOthers": "Başqalarının rəyləri:"
+    },
+    "whyChoose": {
+      "title": "Aparıcı şirkətlər niyə AI SPARK SALES AGENT-i seçir",
+      "subtitle": "Müştəri əlaqəsini dəyişmək və misilsiz böyümə üçün AI SPARK SALES AGENT-ə güvənən 500+ şirkətə qoşulun",
+      "comparison": {
+        "ourPlatform": "AI SPARK SALES AGENT",
+        "otherPlatforms": "Digər Sİ platformaları"
+      }
     },
     "featureComparison": {
-      "badge": "Sənaye Liderləri Tərəfindən Güvənilir",
-      "title": "Nə üçün Aparıcı Şirkətlər AI SPARK SALES AGENT-i Seçir",
-      "subtitle": "Müştəri qarşılıqlı əlaqəsini dəyişdirmək və misli görünməmiş böyümə təmin etmək üçün AI SPARK SALES AGENT-ə güvənən 500+ şirkətə qoşulun",
+      "badge": "Sənaye liderlərinin etibarı",
+      "title": "Aparıcı şirkətlər niyə AI SPARK SALES AGENT-i seçir",
+      "subtitle": "Müştəri əlaqəsini dəyişmək və böyüməni sürətləndirmək üçün AI SPARK SALES AGENT-ə güvənən 500+ şirkətə qoşulun",
       "features": {
         "advancedVoice": {
-          "name": "Qabaqcıl AI Səs Texnologiyası",
-          "description": "Ən son təbii dil emalı"
+          "name": "Qabaqcıl Sİ səs texnologiyası",
+          "description": "Müasir təbii dil emalı"
         },
         "customerSupport": {
-          "name": "7/24 Müştəri Dəstəyi",
-          "description": "Fasiləsiz mövcudluq və monitorinq"
+          "name": "7/24 müştəri dəstəyi",
+          "description": "Fasiləsiz əlçatanlıq və monitorinq"
         },
         "voiceCloning": {
-          "name": "Fərdi Səs Klonlama",
-          "description": "Şəxsi marka səsi yaratma"
+          "name": "Xüsusi səs klonlama",
+          "description": "Fərdi brend səsi"
         },
         "multiLanguage": {
-          "name": "Çoxdilli Dəstək",
+          "name": "Çoxdilli dəstək",
           "description": "Yerli aksentlərlə 95+ dil"
         },
         "realTimeAnalytics": {
-          "name": "Real Vaxt Analitikası",
-          "description": "Hərtərəfli performans məlumatları"
+          "name": "Real-time analitika",
+          "description": "Əhatəli performans baxışları"
         },
         "enterpriseSecurity": {
-          "name": "Korporativ Təhlükəsizlik",
-          "description": "Uçdan-uça şifrələmə ilə SOC 2 uyğun"
+          "name": "Müəssisə təhlükəsizliyi",
+          "description": "Uçdan-uca şifrələmə ilə SOC 2 uyğunluq"
         },
         "easyIntegration": {
-          "name": "Asan İnteqrasiya",
+          "name": "Asan inteqrasiya",
           "description": "Mövcud sistemlərlə problemsiz API inteqrasiyası"
         },
         "dedicatedManager": {
-          "name": "Xüsusi Hesab Meneceri",
-          "description": "Şəxsi dəstək və optimallaşdırma"
+          "name": "Fərdi hesab meneceri",
+          "description": "Şəxsi dəstək və optimizasiya"
         }
       },
       "sparkAI": "AI SPARK SALES AGENT",
-      "otherPlatforms": "Digər AI Platformları"
+      "otherPlatforms": "Digər Sİ platformaları"
     },
     "featureHighlights": {
       "enterpriseSecurity": {
-        "title": "Korporativ Təhlükəsizlik",
-        "description": "Hərbi səviyyəli şifrələmə ilə SOC 2 uyğun"
+        "title": "Müəssisə təhlükəsizliyi",
+        "description": "Hərbi səviyyəli şifrələmə ilə SOC 2 uyğunluğu"
       },
       "provenResults": {
-        "title": "Sübut Edilmiş Nəticələr",
-        "description": "Müştəri namizədi çevrilmə dərəcələrində orta hesabla %300 artım"
+        "title": "Sübut olunmuş nəticələr",
+        "description": "Potensial dönüşümlərində orta hesabla %300 artım"
       },
       "fiveStarSupport": {
-        "title": "5 Ulduzlu Dəstək",
-        "description": "%99.9 iş vaxtı ilə 24/7 xüsusi dəstək"
+        "title": "5 ulduzlu dəstək",
+        "description": "7/24 fərdi dəstək və %99.9 uptime"
       }
     },
     "ctaBanner": {
       "title": "Sənaye liderlərinə qoşulmağa hazırsınız?",
-      "subtitle": "Fortune 500 şirkətlərinin müştəri qarşılıqlı əlaqəsini dəyişdirməsinə kömək edən eyni AI texnologiyasını təcrübə edin",
-      "startFreeTrial": "Pulsuz Sınaq Başlat →",
-      "bookDemoCall": "Demo Zəng Rezervasiyası",
-      "trustedBy": "Dünya miqyasında 500+ şirkət tərəfindən güvənilir"
+      "subtitle": "Fortune 500 şirkətlərinin istifadə etdiyi eyni Sİ texnologiyasını yaşayın",
+      "startFreeTrial": "Pulsuz sınağa başla →",
+      "bookDemoCall": "Demo zəngi sifariş et",
+      "trustedBy": "Dünyada 500+ şirkətin etibar etdiyi"
     },
     "aiSalesTeam": {
-      "badge": "AI SATIŞ KOMANDASI",
-      "title": "Yeni AI Satış Komandanızla Tanış Olun",
-      "subtitle": "AI SPARK SALES AGENT, insan kimi səs çıxaran, strategik düşünən və işinizi 24/7 böyütmək üçün yorulmadan işləyən ağıllı səs ajanları yaradır.",
+      "badge": "Sİ SATIŞ KOMANDASI",
+      "title": "Yeni Sİ satış komandanızla tanış olun",
+      "subtitle": "AI SPARK SALES AGENT insan kimi səslənən, strateji düşünən və biznesinizi 7/24 böyüdən ağıllı səs agentləri yaradır.",
+      "readyToSee": "Sİ agentinizi iş başında görməyə hazırsınız?",
+      "bookDemo": "Fərdiləşdirilmiş demo sifariş edin və Sİ-nin konkret halınızı real vaxtda necə idarə etdiyini izləyin.",
       "demoForm": {
-        "title": "Sehri Təcrübə Edin – Sənayənizə Xüsusi Pulsuz AI Demo Zəngi Alın",
-        "description": "AI ajanımız yalnız **60 saniyə** ərzində sizi zəng edərək, sənayənizə və istifadə halınıza xüsusi real müştəri söhbətlərini necə idarə etdiyini göstərəcək. Müştəri namizədlərini necə keyfiyyətləndirdiyini, sualları necə cavablandırdığını və çevrilməni necə artırdığını - avtomatik olaraq təcrübə edin.",
+        "title": "Sehrə şahid olun – Sektora uyğun pulsuz Sİ demo zəngi alın",
+        "description": "Sİ agentimiz cəmi **60 saniyəyə** zəng edərək sahənizə uyğun real müştəri danışıqlarını necə idarə etdiyini göstərəcək. Potensialı necə nitelədiyini, suallara necə cavab verdiyini və dönüşümü necə artırdığını — avtomatik — yaşayın.",
         "fields": {
           "name": "Adınız",
           "namePlaceholder": "Tam adınızı daxil edin",
-          "phone": "Telefon Nömrəsi",
+          "phone": "Telefon nömrəsi",
           "phonePlaceholder": "+971 00 000 0000",
-          "industry": "Sənayəniz",
-          "industryPlaceholder": "Sənayənizi seçin"
+          "industry": "Sahəniz",
+          "industryPlaceholder": "Sahənizi seçin"
         },
-        "submitButton": "Pulsuz Demo Zəngi Al",
+        "submitButton": "Pulsuz demo zəngi al",
         "assurances": {
-          "secure": "%100 Təhlükəsiz",
-          "setup": "60 Saniyə Quraşdırma",
-          "noCard": "Kredit Kartı Tələb Olunmur"
+          "secure": "100% Təhlükəsiz",
+          "setup": "60 saniyədə quraşdırma",
+          "noCard": "Kart tələb olunmur"
         }
       }
     },
     "featuresBenefits": {
       "availability": {
-        "title": "7/24 Mövcudluq",
-        "description": "AI satış komandanız heç vaxt yatmır, həftə sonları işləyir və bayramları avtomatik olaraq idarə edir."
+        "title": "7/24 mövcudluq",
+        "description": "Sİ satış komandanız yatmır, həftəsonu işləyir və bayramları avtomatik idarə edir."
       },
       "leadQualification": {
-        "title": "Müştəri Namizədi Keyfiyyətləndirmə",
-        "description": "Yüksək dəyərli müştəri namizədlərini dərhal müəyyən edən ağıllı müştəri namizədi qiymətləndirmə və keyfiyyətləndirmə."
+        "title": "Potensial qiymətləndirmə",
+        "description": "Yüksək dəyərli potensialları dərhal müəyyən edən ağıllı skorlaşdırma."
       },
       "conversionOptimization": {
-        "title": "Çevrilmə Optimallaşdırması",
-        "description": "Hər zənglə çevrilmə dərəcələrini yaxşılaşdırmaq üçün davamlı öyrənmə və optimallaşdırma."
+        "title": "Dönüşüm optimizasiyası",
+        "description": "Hər zənglə dönüşümü artırmaq üçün davamlı öyrənmə və optimizasiya."
       }
     },
     "teamSection": {
-      "badge": "AI SPARK SALES AGENT-İN ARXASINDAKİLƏR",
+      "badge": "AI SPARK SALES AGENT-İN ARXASINDA KİMLƏR VAR",
       "title": "Komandamızla tanış olun",
-      "subtitle": "AI SPARK SALES AGENT-in inqilabi səs ajanı texnologiyasının arxasındakı mütəxəssislər",
+      "subtitle": "AI SPARK SALES AGENT-in inqilabi səs agenti texnologiyasının arxasındakı mütəxəssislər",
       "members": {
         "jay": {
           "name": "Jay Sir",
-          "title": "CEO / Təsisçi",
-          "description": "AI innovasiyası və biznes böyüməsini idarə edən vizioner lider"
+          "title": "CEO / Qurucu",
+          "description": "Sİ innovasiyasını və biznes böyüməsini idarə edən vizyoner lider"
         },
         "tooba": {
           "name": "Tooba",
-          "title": "AI Rəhbəri",
-          "description": "AI strategiyası və maşın öyrənməsi tətbiqini rəhbərlik etmə"
+          "title": "Sİ rəhbəri",
+          "description": "Sİ strategiyası və maşın öyrənməsinə rəhbərlik edir"
         },
         "sagar": {
           "name": "Sagar",
-          "title": "AI Strateqisti",
-          "description": "AI həlləri və strategik texnologiya planlaşdırmasında ekspert"
+          "title": "Sİ strateqi",
+          "description": "Sİ həlləri və strateji texnologiya planlamasında ekspert"
         },
         "ananya": {
           "name": "Ananya",
-          "title": "Layihə Meneceri",
-          "description": "Problemsiz layihə təhvilini və komanda koordinasiyasını təmin etmə"
+          "title": "Layihə meneceri",
+          "description": "Kəsintisiz layihə təhvili və komanda koordinasiyasını təmin edir"
         },
         "ersham": {
           "name": "Ersham",
-          "title": "Yaradıcı Rəhbər",
-          "description": "İnnovativ istifadəçi təcrübələri və yaradıcı həllər dizayn etmə"
+          "title": "Yaradıcı direktor",
+          "description": "Yenilikçi istifadəçi təcrübələri və kreativ həllər dizayn edir"
         },
         "saleem": {
           "name": "Saleem",
-          "title": "HR Meneceri",
-          "description": "İstedadlı komanda mədəniyyətimizi qurma və böyütmə"
+          "title": "HR meneceri",
+          "description": "İstedadlı komanda mədəniyyətimizi qurur və inkişaf etdirir"
         }
       }
     },
     "companyStats": {
       "experience": {
         "value": "50+",
-        "label": "Birləşmiş Təcrübə İli"
+        "label": "Ümumi təcrübə ili"
       },
       "projects": {
         "value": "500+",
-        "label": "Təhvil Verilən Layihə"
+        "label": "Təhvil verilən layihə"
       },
       "satisfaction": {
         "value": "95%",
-        "label": "Müştəri Məmnuniyyəti"
+        "label": "Müştəri məmnuniyyəti"
       },
       "support": {
-        "value": "7/24",
-        "label": "Dəstək Mövcuddur"
-      }
-    },
-    "testimonials": {
-      "title": "Müştəri Rəyləri",
-      "subtitle": "Həqiqi şəkillər və nəticələrlə müştəri uğur hekayələrini göstərin. Şəxsi və hədəf auditoriyanıza uyğun saxlayın.",
-      "items": {
-        "sarah": {
-          "quote": "AI SPARK SALES AGENT müştəri namizədi keyfiyyətləndirmə prosesimizi dəyişdirdi. Sadəcə 3 ayda %20 çevrilmə dərəcəsindən %65-ə çıxdıq.",
-          "name": "Sarah Johnson",
-          "title": "CEO, TechStart Inc.",
-          "rating": 5
-        },
-        "michael": {
-          "quote": "AI ajanlar görüş planlamamızı mükəmməl şəkildə idarə edir. Komandamız indi təqvim idarə etmək əvəzinə müqavilə bağlamağa diqqət edə bilir.",
-          "name": "Michael Chen",
-          "title": "Satış Direktoru, RealEstate Pro",
-          "rating": 5
-        },
-        "emily": {
-          "quote": "AI SPARK SALES AGENT-i tətbiq etdiyimizdən bəri xəstə məmnuniyyəti %40 artdı. Xəstələrimiz ani, şəxsi dəstəyi sevir.",
-          "name": "Emily Rodriguez",
-          "title": "Təsisçi, HealthCare Plus",
-          "rating": 5
-        }
+        "value": "24/7",
+        "label": "Dəstək mövcuddur"
       }
     },
     "ctaBanner": {
-      "title": "Biznesinizi Dəyişdirməyə Hazırsınız?",
-      "subtitle": "'Pulsuz Sınayın' və ya 'Demo Rezervasiyası Edin' kimi hərəkət yönümlü CTA-ları qısa fayda ilə istifadə edin (məs. 'Həftədə 10+ saat qənaət edin').",
-      "button": "Pulsuz Sınayın - Həftədə 10+ Saat Qənaət Edin"
+      "title": "Biznesinizi dəyişməyə hazırsınız?",
+      "subtitle": "“Pulsuz sına” və ya “Demo sifariş et” kimi hərəkətverici CTA-lardan qısa fayda ilə istifadə edin (məs., “Həftədə 10+ saat qənaət”).",
+      "button": "Pulsuz sına — həftədə 10+ saat qənaət"
     },
     "faq": {
-      "title": "Tez-tez Verilən Suallar",
-      "subtitle": "Ümumi sualları sadəcə cavablandırın. Qiymətləndirmə, quraşdırma və ya xüsusiyyətlər haqqında şübhələri aradan qaldırmağa diqqət edin.",
+      "title": "SSS",
+      "subtitle": "Yayğın suallara sadə cavablar. Qiymət, quraşdırma və xüsusiyyətlərlə bağlı şübhələri aradan qaldırın.",
       "items": {
         "howItWorks": {
           "question": "AI SPARK SALES AGENT necə işləyir?",
-          "answer": "AI SPARK SALES AGENT, zəngləri avtomatik idarə edən, müştəri namizədlərini keyfiyyətləndirən və görüşləri planlayan ağıllı səs ajanları yaratmaq üçün qabaqcıl AI texnologiyasından istifadə edir."
+          "answer": "AI SPARK SALES AGENT zəngləri avtomatik idarə edən, potensialları niteləyən və görüş planlayan ağıllı səs agentləri yaratmaq üçün inkişaf etmiş Sİ-dən istifadə edir."
         },
         "customization": {
-          "question": "AI ajanını fərdiləşdirə bilərəm?",
-          "answer": "Bəli! Ajanın səsini, mətnlərini, axınlarını və hətta ən yaxşı nəticələr əldə etmək üçün müəyyən sənayənizə görə təlimini fərdiləşdirə bilərsiniz."
+          "question": "Sİ agenti fərdiləşdirə bilərəm?",
+          "answer": "Bəli! Agentin səsini, skriptlərini, axınlarını fərdiləşdirə və sahənizə uyğun öyrədə bilərsiniz."
         },
         "languages": {
-          "question": "Hansı dillər dəstəklənir?",
-          "answer": "Yerli aksentlərlə 95+ dil dəstəkləyirik, bu da qlobal müştərilərə asanlıqla çatmağınızı təmin edir."
+          "question": "HansI dillər dəstəklənir?",
+          "answer": "95+ dili yerli aksentlərlə dəstəkləyirik; qlobal müştərilərə asan çıxış."
         },
         "cost": {
-          "question": "Qiyməti nə qədərdir?",
-          "answer": "Planlarımız 1,500 AED/ay ilə başlayır və bir dəfəlik quraşdırma haqqı 10,000 AED-dir. Gizli haqq yoxdur."
+          "question": "Nə qədərdir?",
+          "answer": "Planlarımız ayda 1.500 AED-dən başlayır, bir dəfəlik 10.000 AED quraşdırma haqqı var. Gizli ödəniş yoxdur."
         },
         "freeTrial": {
-          "question": "Pulsuz sınaq var mı?",
-          "answer": "Bəli! Öhdəliksiz 14 günlük pulsuz sınaq təklif edirik. Bütün xüsusiyyətləri sınayın və nəticələri özünüz görün."
+          "question": "Pulsuz sınaq var?",
+          "answer": "Bəli! 14 günlük pulsuz sınaq təklif edirik; öhdəlik yoxdur. Bütün xüsusiyyətləri sınayın və nəticəni görün."
         }
       }
-    }
-  },
-  "chat": {
-    "welcomeMessage": "Salam! 👋 AI səsli zəng konusunda sizə kömək etmək üçün buradayam. Bu gün sizə necə kömək edə bilərəm?",
-    "chatWithUs": "Bizimlə söhbət et",
-    "aiSalesSupport": "AI Satış Dəstəyi",
-    "onlineNow": "İndi onlayn",
-    "typeMessage": "Mesajınızı yazın...",
-    "call": "Zəng et",
-    "email": "E-poçt",
-    "schedule": "Planla",
-    "quickQuestions": "Sürətli suallar:",
-    "quickReplies": {
-      "cost": "Nə qədər tutur?",
-      "freeTrial": "Pulsuz sınaya bilərəm?",
-      "howItWorks": "Necə işləyir?",
-      "demo": "Demo var?"
     },
-    "responses": {
-      "pricing": "💰 AI səsli zəng xidmətimiz agent başına 10,000 AED bir dəfəlik quraşdırma haqqı ilə başlayır, aylıq dəstək paketləri 1,500 AED/ay (Əsas) və ya 3,000 AED/ay (Premium) ilə başlayır. AI istifadəsi dəqiqə başına 0.51-0.66 AED ilə hesablanır. Qiymətləndirmə seçimlərini müzakirə etmək üçün sizi zəng etməyimi istəyirsiniz?",
-      "freeTrial": "🎯 AI səs texnologiyamızı birbaşa təcrübə etmək üçün pulsuz məsləhət və demo zəng təklif edirik. Kredit kartı tələb olunmur! Sadəcə 'demo üçün məni zəng et' deyin və sizin üçün fərdiləşdirilmiş demo zəng təşkil edəcəyəm.",
-      "demo": "Sizə göstərməyi çox istəyirəm! AI-miz 7/24 təbii səsli zənglər edir, müştəri namizədlərini keyfiyyətləndirir və avtomatik olaraq görüşlər planlayır. İndi interaktiv demomuzu sınaya və ya fərdiləşdirilmiş demo zəngi planlaya bilərəm. Hansı daha yaxşı gəlir?",
-      "setup": "Başlamaq çox asandır! Sadəcə əlaqə siyahınızı yükləyin, AI səsinizi seçin və başladın. Quraşdırma sadəcə 5 dəqiqə çəkir və pulsuz onboarding təmin edirik. Sizə rəhbərlik etməyimi istəyirsiniz?",
-      "default": "Bu əla sualdır! Sizə fərdiləşdirilmiş cavab verə biləcək AI zəng ekspertlərimizdən biri ilə sizi bağlayım. Bu vaxtda pulsuz sınağımızı sınaya və ya demomuzu yoxlaya bilərsiniz. Hansını üstün tutursunuz?"
-    },
-    "clearChat": "Söhbəti Təmizlə",
-    "backToMain": "Əsas Səhifəyə Qayıt"
-  },
-  "exitIntent": {
-    "title": "Gözlə! Qaçırma! 🚨",
-    "subtitle": "İlk 3 ayınızda 50% ENDİRİM + PULSUZ quraşdırma alın (Dəyər: $500)",
-    "benefits": {
-      "save": "İlk 3 ayda $1,500+ qənaət edin",
-      "setup": "Pulsuz peşəkar quraşdırma ($500 dəyərində)",
-      "trial": "14 günlük pulsuz sınaq daxildir",
-      "guarantee": "30 günlük pul geri qaytarma zəmanəti"
-    },
-    "emailLabel": "Bu təklifi tələb etmək üçün e-poçtunuzu daxil edin:",
-    "emailPlaceholder": "sizin@email.com",
-    "claimButton": "50% Endirimimi Tələb Et",
-    "privacy": "🔒 Gizliliyinizə hörmət edirik. Heç vaxt spam yox. İstədiyiniz zaman abunəlikdən çıxın.",
-    "success": {
-      "title": "🎉 İçəridəsən!",
-      "message": "Eksklüziv 50% endirim kodunuz üçün e-poçtunuzu yoxlayın. Bu təklif 24 saat ərzində bitir!",
-      "button": "Pulsuz Sınağımı Başlat"
-    }
-  },
-  "faq": {
-    "title": "Tez-tez Verilən Suallar",
-    "subtitle": "Yayğın sualları sadəcə cavablandırın. Qiymətləndirmə, quraşdırma və ya xüsusiyyətlər haqqında şübhələri aradan qaldırmağa diqqət yetirin.",
-    "items": {
-      "cost": {
-        "question": "Başlamaq nə qədər tutur?",
-        "answer": "Başlanğıc planımız sadəcə 97$/ay və quraşdırma haqqı yoxdur. Həmçinin sistemi risk olmadan sınaya bilməyiniz üçün 14 günlük pulsuz sınaq təklif edirik. Bundan əlavə, hazırda ilk 3 ayınızda 50% endirim təklif edirik!"
-      },
-      "setup": {
-        "question": "Quraşdırma nə qədər çəkir?",
-        "answer": "Quraşdırma sadəcə 5 dəqiqə çəkir! Sadəcə əlaqə siyahınızı yükləyin, AI səsinizi seçin və hazırsınız. Komandamız ən yaxşı nəticələri əldə etməyinizi təmin etmək üçün pulsuz onboarding təmin edir."
-      },
-      "natural": {
-        "question": "AI təbii səs çıxarır?",
-        "answer": "Bəli! AI-miz tamamilə insan kimi səs çıxaran təkmilləşmiş səs sintezi texnologiyasından istifadə edir. Müştəri namizədlərinin 99%-i AI ilə danışdıqlarını başa düşə bilmirlər. Şəxsi toxunuş üçün öz səsinizi belə klonlaya bilərsiniz."
-      },
-      "satisfaction": {
-        "question": "Məmnun qalmazsam nə olar?",
-        "answer": "30 günlük pul geri qaytarma zəmanəti təklif edirik. Nəticələrdən tamamilə məmnun qalmazsanız, sual vermədən pulunuzu geri qaytarırıq. Nəticələri sevəcəyinizə əminik!"
-      },
-      "integration": {
-        "question": "Mövcud CRM-im ilə inteqrasiya edə bilərəm?",
-        "answer": "Əlbəttə! Salesforce, HubSpot, Pipedrive və daha çoxu daxil olmaqla bütün böyük CRM-lərlə inteqrasiya edirik. Bütün zəng məlumatları və müştəri namizədləri mövcud sisteminizə avtomatik olaraq sinxronizasiya olunur."
-      }
-    }
-  },
-  "process": {
-    "title": "Necə İşləyir",
-    "subtitle": "Həllinizin tətbiqinin asan olduğunu göstərin. Prosesi 3 sadə addımda təsvir edin.",
-    "steps": {
-      "step1": {
-        "title": "Müştəri Namizədlərinizi Yükləyin",
-        "description": "Sadəcə əlaqə siyahınızı yükləyin və ya CRM-inizi bağlayın. Sistemimiz avtomatik olaraq müştəri namizədlərinizi idxal edir və təşkil edir."
-      },
-      "step2": {
-        "title": "AI Zənglər Edir",
-        "description": "AI ajanlarımız müştəri namizədlərinizi zəng edir, onları keyfiyyətləndirir və görüşlər planlayır. Bütün söhbətlər təbii və maraqlıdır."
-      },
-      "step3": {
-        "title": "Daha Çox Müqavilə Bağlayın",
-        "description": "Keyfiyyətli müştəri namizədlərinə diqqət yetirin və daha çox müqavilə bağlayın. Hər zəng və dönüşüm haqqında ətraflı hesabatlar alın."
-      }
-      }
-    },
-    "industries": {
-      "healthcare": "Səhiyyə",
-      "ecommerce": "E-ticarət", 
-      "realEstate": "Daşınmaz əmlak",
-      "education": "Təhsil",
-      "automotive": "Avtomobil",
-      "legal": "Hüquq",
-      "restaurant": "Restoran",
-      "services": "Xidmətlər"
-    },
-    "solutions": {
-      "customerSupport": {
-        "title": "Müştəri Dəstəyi",
-        "description": "Heç vaxt yatmayan 24/7 avtomatik müştəri xidməti"
-      },
-      "leadQualification": {
-        "title": "Müştəri Namizədi Keyfiyyətləndirmə", 
-        "description": "AI dəstəkli müştəri namizədi qiymətləndirmə və keyfiyyətləndirmə"
-      },
-      "salesAutomation": {
-        "title": "Satış Avtomatlaşdırması",
-        "description": "Müştəri namizədlərini müştəriyə çevirən avtomatik təqib"
-      }
-    },
-    "features": {
-      "availability": {
-        "title": "24/7 Əlçatanlıq",
-        "description": "7/24 AI ajanlarla bir daha heç vaxt zəng qaçırmayın"
-      },
-      "lightningFast": {
-        "title": "İldırım Sürəti",
-        "description": "Ani cavablar və təcili müştəri namizədi keyfiyyətləndirmə"
-      },
-      "scalableTeam": {
-        "title": "Ölçənəbilən Komanda",
-        "description": "İşə almadan eyni vaxtda limitsiz zəng edin"
-      },
-      "dataDriven": {
-        "title": "Məlumat Əsaslı",
-        "description": "Real-vaxt analitikası və performans məlumatları"
-      },
-      "uploadData": {
-        "title": "Məlumatlarınızı Yükləyin",
-        "description": "Biznes məlumatlarınızı, skriptlərinizi və bilik bazanızı əlavə edin"
-      },
-      "trainAi": {
-        "title": "AI-nızı Öyrədin",
-        "description": "AI-mız səsinizi, tonunuzu və biznes proseslərinizi öyrənir"
-      },
-      "goLive": {
-        "title": "Canlı Yayıma Keçin",
-        "description": "AI ajanınızla zəng almağı və etməyi başlayın"
-      }
-    },
-    "pricing": {
-      "basic": {
-        "name": "Əsas",
-        "description": "Başlayan kiçik bizneslər üçün mükəmməl",
-        "features": [
-          "Əsas analitika",
-          "E-poçt dəstəyi"
-        ],
-        "cta": "Başla"
-      },
-      "pro": {
-        "name": "Professional",
-        "description": "Böyüyən bizneslər üçün təkmilləşmiş xüsusiyyətlər",
-        "features": [
-          "Təkmilləşmiş analitika",
-          "Prioritet dəstəyi", 
-          "Xüsusi inteqrasiyalar"
-        ],
-        "cta": "Başla"
-      }
+    "cta": {
+      "title": "Satış zənglərinizi 10x artırmağa hazırsınız?",
+      "subtitle": "Həftədə 10+ saat qənaət edib dönüşümü %300 artıran 500+ şirkətə qoşulun. Pulsuz sınağa bu gün başlayın.",
+      "tryFree": "Pulsuz sına — həftədə 10+ saat qənaət",
+      "bookDemo": "Demo sifariş et",
+      "guarantee": "✅ 14 gün pulsuz sınaq • ✅ Kart tələb olunmur • ✅ 30 gün pulun geri qaytarılması zəmanəti"
     },
     "testimonials": {
       "sarah": {
         "name": "Sarah Johnson",
-        "content": "Spark AI müştəri namizədi keyfiyyətləndirmə prosesimizi dəyişdi. Yalnız 3 ayda %20-dən %65-ə dönüşüm nisbətinə çıxdıq."
+        "content": "AI SPARK SALES AGENT potensial niteləmə prosesimizi dəyişdi. 3 ayda %20-dən %65-ə qalxdıq."
       },
       "michael": {
         "name": "Michael Chen",
-        "role": "Satış Direktoru, RealEstate Pro",
-        "content": "AI ajanlar görüş planlamamızı mükəmməl şəkildə idarə edir. Komandamız indi təqvim idarə etmək əvəzinə müqavilə bağlamağa diqqət yetirə bilir."
+        "role": "Satış direktoru, RealEstate Pro",
+        "content": "Sİ agentlər görüş planlaşdırmanı qüsursuz idarə edir. Komandamız təqvim yox, bağlamaya fokuslanır."
       },
       "emily": {
-        "name": "Emily Rodriguez", 
+        "name": "Emily Rodriguez",
         "role": "Təsisçi, HealthCare Plus",
-        "content": "Spark AI tətbiq etdiyimizdən bəri xəstə məmnuniyyəti %40 artdı. Xəstələrimiz ani, fərdiləşdirilmiş dəstəyi sevir."
+        "content": "AI SPARK SALES AGENT-dən sonra pasiyent məmnuniyyəti %40 artdı. Pasiyentlərimiz ani, fərdi dəstəyi sevir."
       }
     },
-    "demos": {
-      "customerSupport": {
-        "title": "Müştəri Dəstəyi Demo",
-        "description": "AI-mızın müştəri sorğularını necə idarə etdiyini və problemləri ani necə həll etdiyini görün."
+    "ctaSection": {
+      "title": "Biznesinizi dəyişməyə hazırsınız?",
+      "subtitle": "“Pulsuz sına” və ya “Demo sifariş et” kimi hərəkətverici CTA-lardan qısa fayda ilə istifadə edin (məs., “Həftədə 10+ saat qənaət”).",
+      "button": "Pulsuz sına — həftədə 10+ saat qənaət"
+    },
+    "faqSection": {
+      "title": "SSS",
+      "subtitle": "Yayğın suallara sadə cavablar. Qiymət, quraşdırma və xüsusiyyətlərlə bağlı şübhələri aradan qaldırın."
+    },
+    "teamSection": {
+      "badge": "AI SPARK SALES AGENT-İN ARXASINDA KİMLƏR VAR",
+      "title": "Komandamızla tanış olun",
+      "subtitle": "AI SPARK SALES AGENT-in inqilabi səs agenti texnologiyasının arxasındakı mütəxəssislər"
+    },
+    "aiDemoCall": {
+      "title": "Sehrə şahid olun – Sektora uyğun pulsuz Sİ demo zəngi alın",
+      "description": "Sİ agentimiz cəmi **60 saniyəyə** zəng edib sahənizə və istifadə ssenarinizə uyğun real müştəri danışıqlarını necə idarə etdiyini göstərəcək. Potensialları necə nitelədiyini, suallara necə cavab verdiyini və dönüşümü necə artırdığını — avtomatik — yaşayın.",
+      "form": {
+        "nameLabel": "Adınız",
+        "namePlaceholder": "Tam adınızı daxil edin",
+        "phoneLabel": "Telefon nömrəsi",
+        "phonePlaceholder": "+971 00 000 0000",
+        "industryLabel": "Sahəniz",
+        "industryPlaceholder": "Sahənizi seçin",
+        "submitButton": "Pulsuz demo zəngi al"
       },
-      "appointmentBooking": {
-        "title": "Görüş Rezervasiyası Demo",
-        "description": "AI ajanımızın görüşləri necə planladığını və təqvimləri problemsiz necə idarə etdiyini izləyin.",
-        "industry": "Səhiyyə"
-      },
-      "salesQualification": {
-        "title": "Satış Keyfiyyətləndirmə Demo",
-        "description": "AI-mızın müştəri namizədlərini necə keyfiyyətləndirdiyini və görüşləri avtomatik necə planladığını təcrübə edin."
+      "assurances": {
+        "secure": "100% Təhlükəsiz",
+        "setup": "60 saniyədə quraşdırma",
+        "noCard": "Kart tələb olunmur"
       }
     },
-    "solutionsSection": {
-      "title": "Güclü AI Həlləri",
-      "subtitle": "Həqiqi nəticələr verən kəskin AI texnologiyası ilə biznesinizi dönüştürün"
-    },
-    "faqs": {
-      "howItWorks": {
-        "question": "Spark AI necə işləyir?",
-        "answer": "Spark AI müştəri zənglərini idarə edə bilən, müştəri namizədlərini keyfiyyətləndirən və avtomatik olaraq görüş planlayan ağıllı səs ajanları yaratmaq üçün təkmilləşmiş təbii dil emalı və maşın öyrənməsi istifadə edir."
+    "aiSalesFeatures": {
+      "availability": {
+        "title": "7/24 mövcudluq",
+        "description": "Sİ satış komandanız yatmır, həftəsonu işləyir və bayramları avtomatik idarə edir."
       },
-      "customization": {
-        "question": "AI ajanını fərdiləşdirə bilərəm?",
-        "answer": "Bəli! AI-nı biznes məlumatlarınız, skriptləriniz və bilik bazanızla öyrədə bilərsiniz. AI səsinizi, tonunuzu və biznes proseslərinizi öyrənəcək."
+      "leadQualification": {
+        "title": "Potensial qiymətləndirmə",
+        "description": "Yüksək dəyərli potensialları dərhal müəyyən edən ağıllı skorlaşdırma."
       },
-      "languages": {
-        "question": "Hansı dillər dəstəklənir?",
-        "answer": "Spark AI təbii səsli və aksanlı 100-dən çox dili dəstəkləyir. Fərdiləşdirilmiş təcrübə üçün öz səsinizi də klonlaya bilərsiniz."
-      },
-      "pricing": {
-        "question": "Qiyməti nə qədərdir?",
-        "answer": "Qiymətlərimiz 100 zəng ilə Əsas plan üçün ayda 150$-dan başlayır. Həmçinin təkmilləşmiş xüsusiyyətlər və daha yüksək zəng həcmləri ilə Pro plan da təklif edirik."
-      },
-      "freeTrial": {
-        "question": "Pulsuz sınaq var?",
-        "answer": "Bəli! Kredit kartı tələb etməyən 14 günlük pulsuz sınaq təklif edirik. Bütün xüsusiyyətləri sınaqdan keçirə bilər və öhdəlik götürmədən əvvəl nəticələri görə bilərsiniz."
+      "conversionOptimization": {
+        "title": "Dönüşüm optimizasiyası",
+        "description": "Hər zənglə dönüşümü artırmaq üçün davamlı öyrənmə və optimizasiya."
       }
     },
-    "callForm": {
-      "callInitiated": "Zəng Başladıldı!",
-      "callDescription": "AI ajanımız bacarıqlarımızı nümayiş etdirmək üçün tezliklə sizi zəng edəcək."
-    },
-    "companies": {
-      "trustedBy": "Aparıcı şirkətlər tərəfindən güvənilir"
-    },
-    "industryUseCases": {
-      "healthcare": "Görüş planlama, xəstə xatırlatmaları və dəstək",
-      "ecommerce": "Sifariş izləmə, qaytarma və müştəri dəstəyi", 
-      "realEstate": "Müştəri namizədi keyfiyyətləndirmə, əmlak sorğuları və planlama",
-      "education": "Tələbə dəstəyi, qeydiyyat və məlumat",
-      "automotive": "Xidmət görüşləri, satış təqibləri və dəstək",
-      "legal": "Müvəkkil qəbulu, görüş planlama və iş yeniləmələri",
-      "restaurant": "Rezervasiyalar, sifarişlər və müştəri xidməti",
-      "services": "Görüş rezervasiyası, təqiblər və dəstək"
-    },
-    "demoFeatures": {
-      "customerSupport": {
-        "title": "Müştəri Dəstəyi",
-        "features": ["24/7 Əlçatanlıq", "Çoxdilli Dəstək", "CRM İnteqrasiyası"]
+    "teamMembers": {
+      "jay": {
+        "name": "Jay Sir",
+        "title": "CEO / Qurucu",
+        "description": "Sİ innovasiyası və biznes böyüməsini idarə edən vizyoner lider"
       },
-      "appointmentBooking": {
-        "title": "Görüş Rezervasiyası",
-        "industry": "Səhiyyə"
+      "tooba": {
+        "name": "Tooba",
+        "title": "Sİ rəhbəri",
+        "description": "Sİ strategiyasına və maşın öyrənməsinə rəhbərlik edir"
+      },
+      "sagar": {
+        "name": "Sagar",
+        "title": "Sİ strateqi",
+        "description": "Sİ həlləri və strateji planlamada ekspert"
+      },
+      "ananya": {
+        "name": "Ananya",
+        "title": "Layihə meneceri",
+        "description": "Kəsintisiz layihə təhvili və komanda koordinasiyasını təmin edir"
+      },
+      "ersham": {
+        "name": "Ersham",
+        "title": "Yaradıcı rəhbər",
+        "description": "Yenilikçi istifadəçi təcrübələri və kreativ həllər dizayn edir"
+      },
+      "saleem": {
+        "name": "Saleem",
+        "title": "HR meneceri",
+        "description": "İstedadlı komanda mədəniyyətimizi qurur və inkişaf etdirir"
       }
     },
+    "teamStats": {
+      "experience": "Birləşik təcrübə illəri",
+      "projects": "Təhvil verilən layihələr",
+      "satisfaction": "Müştəri məmnuniyyəti",
+      "support": "Dəstək mövcuddur"
+    },
+    "whyChoose": {
+      "comparison": {
+        "title": "Açar xüsusiyyətlər və faydalar",
+        "ourPlatform": "AI SPARK SALES AGENT",
+        "otherPlatforms": "Digər Sİ platformaları",
+        "features": {
+          "advancedAI": {
+            "title": "Qabaqcıl Sİ səs texnologiyası",
+            "description": "Ən son təbii dil emalı"
+          },
+          "customerSupport": {
+            "title": "7/24 müştəri dəstəyi",
+            "description": "Fasiləsiz əlçatanlıq və monitorinq"
+          },
+          "voiceCloning": {
+            "title": "Xüsusi səs klonlama",
+            "description": "Fərdi brend səsi"
+          },
+          "multiLanguage": {
+            "title": "Çoxdilli dəstək",
+            "description": "Yerli aksentlərlə 95+ dil"
+          },
+          "realTimeAnalytics": {
+            "title": "Real-time analitika",
+            "description": "Əhatəli performans baxışları"
+          },
+          "enterpriseSecurity": {
+            "title": "Müəssisə təhlükəsizliyi",
+            "description": "SOC 2 uyğun, uçdan-uca şifrələmə"
+          },
+          "easyIntegration": {
+            "title": "Asan inteqrasiya",
+            "description": "Mövcud sistemlərlə problemsiz API inteqrasiyası"
+          },
+          "dedicatedManager": {
+            "title": "Fərdi hesab meneceri",
+            "description": "Şəxsi dəstək və optimizasiya"
+          }
+        }
+      }
+    },
+    "pricingPlans": {
+      "essential": {
+        "name": "Əsas dəstək",
+        "price": "AED 1,500",
+        "period": "/ay",
+        "description": "Sİ zənglərinə başlayan bizneslər üçün əladır",
+        "features": {
+          "monitoring": "7/24 uptime monitorinqi və hadisə bildirişləri",
+          "tweaks": "Ayda 4 saata qədər axın/prompt düzəlişi",
+          "rollover": "İstifadə olunmayan vaxt 60 gün ərzində keçər",
+          "report": "Fəaliyyətə yönəlik fikirlərlə aylıq performans hesabatı",
+          "email": "Növbəti iş günü SLA ilə e-poçt dəstəyi"
+        },
+        "cta": "Başla"
+      },
+      "premium": {
+        "name": "Premium dəstək",
+        "price": "AED 3,000",
+        "period": "/ay",
+        "description": "Gelişmiş optimizasiya və prioritet dəstək tələb edən bizneslər üçün",
+        "features": {
+          "everything": "Əsas paketdəki hər şey, üstəlik:",
+          "optimization": "Ayda 10 saata qədər prompt/axın optimizasiyası",
+          "strategy": "Metrik və yol xəritəsi üçün strategiya sessiyası",
+          "priority": "Eyni iş günü cavabla prioritet dəstək növbəsi",
+          "earlyAccess": "Aşağı xərcli səs modellərinə erkən çıxış testləri",
+          "notice": "Paket dəyişiklikləri üçün 30 günlük xəbərdarlıq"
+        },
+        "cta": "Başla"
+      }
+    },
+    "consultationSection": {
+      "badge": "ƏLAQƏ QURaq"
+    }
+  },
+  "chat": {
+    "welcomeMessage": "👋 Salam! Mən Sarah, Sİ Satış Köməkçinizəm. Sİ səsli zəng xidmətimizlə bağlı suallarınıza kömək edə bilərəm və ya texnologiyamızı göstərmək üçün sizi indi zəng edə bilərəm! Nə barədə məlumat istəyirsiniz?",
+    "chatWithUs": "Bizimlə söhbət edin",
+    "aiSalesSupport": "Sarah - Sİ Satış Köməkçisi",
+    "onlineNow": "Onlayn və zəngə hazır",
+    "typeMessage": "Mesaj yazın və ya 'demo üçün zəng et' deyin...",
+    "call": "Zəng et",
+    "email": "E-poçt",
+    "schedule": "Planlaşdır",
+    "quickQuestions": "Sürətli suallar:",
+    "quickReplies": {
+      "cost": "💰 Qiymət nədir?",
+      "freeTrial": "🎯 Pulsuz sınaq var?",
+      "howItWorks": "⚡ Necə işləyir?",
+      "demo": "📞 Demo üçün məni zəng et!"
+    },
+    "responses": {
+      "pricing": "💰 Sİ səsli zəng xidmətimizin hər agent üçün bir dəfəlik 10.000 AED quraşdırma haqqı var; aylıq dəstək paketləri Essential üçün 1.500 AED/ay, Premium üçün 3.000 AED/ay-dan başlayır. Sİ istifadəsi dəqiqə başına 0,51–0,66 AED-dir. Qiymət seçimlərini danışmaq üçün sizi zəng edim?",
+      "freeTrial": "🎯 Sİ səs texnologiyamızı birbaşa yaşamaq üçün pulsuz konsultasiya və demo zəngi təklif edirik. Kart tələb olunmur! 'Demo üçün zəng et' deyin, sizə fərdiləşdirilmiş demo ayırım.",
+      "demo": "⚡ Sİ-miz potensiallarınıza təbii səslə zəng edir, etirazları idarə edir və görüş alır — tam insan kimidir! Bunu hiss etməyin ən yaxşı yolu demo zəngidir. İndi zəng edim?",
+      "setup": "🚀 Başlamaq çox asandır! Kontakt siyahınızı yükləyin, Sİ səsini seçin və skripti fərdiləşdirin. Sİ bir neçə dəqiqəyə zəng etməyə başlayır. Canlı demo ilə hər şeyi birlikdə keçə bilərik — zəng edim?",
+      "default": "🤖 Əla sual! Sİ səsli zəng texnologiyamızı daha yaxşı tanımağınıza şad olaram. Ən yaxşı yol onu birbaşa yaşamaqdır. Fərdiləşdirilmiş demo üçün zəng edim?"
+    },
+    "freeDemoCall": "Pulsuz demo zəngi quraşdırması",
+    "yourName": "Adınız",
+    "phoneNumber": "Telefon nömrəsi (məs., +1234567890)",
+    "selectIndustry": "Sahənizi seçin",
+    "companyName": "Şirkət adı (isteğe bağlı)",
+    "scheduleDemoCall": "Demo zəngini planlaşdır",
+    "scheduling": "Planlaşdırılır...",
+    "callScheduled": "🎉 Əla! Pulsuz demo zənginizi planladım. Sİ-miz sizi növbəti 5 dəqiqə ərzində {{phone}} nömrəsindən zəng edəcək. Zəng {{industry}} həlləri barədə olacaq. Hazır olun! 📞✨",
+    "voiceInput": "Səsli daxilolma",
+    "listenToMessage": "Mesaja qulaq as",
+    "stopSpeaking": "Oxunu dayandır",
+    "aiVoice": "Sİ səsi",
+    "clearChat": "Söhbəti təmizlə",
+    "backToMain": "Ana səhifəyə dön"
+  },
+  "exitIntent": {
+    "title": "Gözləyin! Bunu qaçırmayın! 🚨",
+    "subtitle": "İlk 3 ay 50% ENDİRİM + PULSUZ quraşdırma (Dəyər: $500)",
     "benefits": {
-    "title": "AI Zəng Sistemimizi Niyə Seçməlisiniz",
-    "subtitle": "Məhsulunuzun əsas üstünlüklərini vurğulayın - 7/24 funksionallıq, problemsiz inteqrasiya və üstün səmərəlilik.",
+      "save": "İlk 3 ayda $1,500+ qənaət",
+      "setup": "$500 dəyərində pulsuz peşəkar quraşdırma",
+      "trial": "14 günlük pulsuz sınaq daxildir",
+      "guarantee": "30 gün pulun geri qaytarılması zəmanəti"
+    },
+    "emailLabel": "Bu təklifi almaq üçün e-poçtunuzu daxil edin:",
+    "emailPlaceholder": "your@email.com",
+    "claimButton": "⟪50% Endirimimi Al⟫",
+    "privacy": "🔒 Məxfiliyə hörmət edirik. Spam yoxdur. İstənilən vaxt abunəliyi dayandıra bilərsiniz.",
+    "success": {
+      "title": "🎉 Təbriklər!",
+      "message": "Xüsusi 50% endirim kodu üçün e-poçtunuzu yoxlayın. Təklif 24 saata bitir!",
+      "button": "Pulsuz sınağa başla"
+    }
+  },
+  "faq": {
+    "title": "Tez-tez verilən suallar",
+    "subtitle": "Yayğın suallara sadə cavablar. Qiymət, quraşdırma və xüsusiyyətlərlə bağlı şübhələri aradan qaldırın.",
+    "items": {
+      "cost": {
+        "question": "Başlamaq nə qədər xərc tələb edir?",
+        "answer": "Starter planımız aylıq cəmi $97-dir və quraşdırma haqqı yoxdur. Sistemi risksiz sınaqdan keçirmək üçün 14 günlük pulsuz sınaq da var. Üstəlik, hazırda ilk 3 ay 50% endirim təklif edirik!"
+      },
+      "setup": {
+        "question": "Quraşdırma nə qədər çəkir?",
+        "answer": "Cəmi 5 dəqiqə! Kontakt siyahınızı yükləyin, Sİ səsini seçin və hazırsınız. Ən yaxşı nəticə üçün pulsuz onbordinq edirik."
+      },
+      "natural": {
+        "question": "Sİ təbii səslənirmi?",
+        "answer": "Bəli! İnkişaf etmiş səs sintezi tam insan kimidir. Namizədlərin 99%-i Sİ ilə danışdıqlarını anlamır. Hətta öz səsinizi klonlayıb fərdi etmə də mümkündür."
+      },
+      "satisfaction": {
+        "question": "Məmnun qalmasam?",
+        "answer": "30 gün pulun geri qaytarılması zəmanəti veririk. Tam məmnun qalmasanız, şərtsiz geri ödəyirik. Nəticələri sevəcəyinizə əminik!"
+      },
+      "integration": {
+        "question": "Mövcud CRM-imlə inteqrasiya olur?",
+        "answer": "Tamamilə! Salesforce, HubSpot, Pipedrive və digər əsas CRM-lərlə inteqrasiyamız var. Bütün zəng məlumatları və potensiallar avtomatik sinxronlaşır."
+      }
+    }
+  },
+  "process": {
+    "title": "Necə işləyir",
+    "subtitle": "Həllinizin tətbiqinin nə qədər asan olduğunu göstərin. Prosesi 3 sadə addımda izah edin.",
+    "steps": {
+      "step1": {
+        "title": "Potensiallarınızı yükləyin",
+        "description": "Kontakt siyahınızı yükləyin və ya CRM-i qoşun. Sistemimiz namizədləri avtomatik idxal edib təşkil edir."
+      },
+      "step2": {
+        "title": "Sİ zəng edir",
+        "description": "Sİ agentlər namizədləri zəng edir, niteləyir və görüşlər planlayır. Danışıqlar təbii və interaktivdir."
+      },
+      "step3": {
+        "title": "Daha çox sövdələşmə bağlayın",
+        "description": "Yalnız ixtisaslı potensiallara fokuslanın. Hər zəng və dönüşüm üzrə detallı hesabatlar alın."
+      }
+    }
+  },
+  "benefits": {
+    "title": "Niyə Sİ zəng sistemimizi seçməlisiniz",
+    "subtitle": "Məhsulunuzun əsas üstünlüklərini vurğulayın — 7/24 işləmə, problemsiz inteqrasiya və yüksək səmərəlilik.",
     "availability": {
-      "title": "7/24 Əlçatanlıq",
-      "description": "AI satış ajanınız heç vaxt yatmır, heç vaxt fasilə vermir və heç vaxt zəngi qaçırmır. Hər fürsəti tutmaq üçün 7/24 işləyin.",
+      "title": "7/24 mövcudluq",
+      "description": "Sİ satış agentiniz yatmır, fasilə vermir və zəngləri qaçırmır — hər fürsəti tutur.",
       "stats": {
         "value": "7/24",
-        "label": "Həmişə Əlçatan"
+        "label": "Həmişə əlçatan"
       }
     },
     "integration": {
-      "title": "Problemsiz İnteqrasiya",
-      "description": "Mövcud CRM-iniz, e-poçt alətləriniz və satış proseslərinizlə işləyir. Mövcud iş axınında heç bir pozuntu olmaz.",
+      "title": "Problemsiz inteqrasiya",
+      "description": "Mövcud CRM, e-poçt alətləri və satış proseslərinizlə uyumludur. İş axınınızı pozmur.",
       "stats": {
-        "value": "5 Dəq",
-        "label": "Quraşdırma Vaxtı"
+        "value": "5 dəq",
+        "label": "Quraşdırma vaxtı"
       }
     },
     "efficiency": {
-      "title": "Üstün Səmərəlilik",
-      "description": "Eyni vaxtda 10 dəfə daha çox zəng edin. AI təkrarlanan işləri həll edərkən siz müqavilə bağlamağa diqqət yetirin.",
+      "title": "Yüksək səmərəlilik",
+      "description": "Eyni vaxtda 10 dəfə çox zəng edin. Təkrarlanan işi Sİ görür, siz bağlamaya fokuslanın.",
       "stats": {
         "value": "10x",
-        "label": "Daha Səmərəli"
+        "label": "Daha səmərəli"
       }
     }
   },
   "campaigns": {
     "title": "Kampaniyalar",
     "subtitle": "Bütün səsli zəng kampaniyalarınızı idarə edin",
-    "createNew": "Yeni Kampaniya Yarat",
-    "createFirst": "İlk Kampaniyanızı Yaradın",
+    "createNew": "Yeni kampaniya yarat",
+    "createFirst": "İlk kampaniyanızı yaradın",
     "noCampaigns": "Kampaniya tapılmadı",
     "noCampaignsDesc": "Yeni kampaniya yaradaraq başlayın.",
-    "searchPlaceholder": "Kampaniyaları axtarın...",
+    "searchPlaceholder": "Kampaniyalarda axtar...",
     "loading": "Kampaniyalar yüklənir...",
     "active": "Aktiv",
-    "paused": "Dayandırıldı",
-    "draft": "Layihə",
+    "paused": "Dayandırılıb",
+    "draft": "Qaralama",
     "completed": "Tamamlandı",
-    "totalLeads": "Ümumi Potensial Müştəri",
-    "completedCalls": "Tamamlanan Zənglər",
-    "successfulCalls": "Uğurlu Zənglər",
-    "failedCalls": "Uğursuz Zənglər",
-    "averageDuration": "Orta Müddət",
-    "createdAt": "Yaradılıb",
+    "totalLeads": "Ümumi potensial",
+    "completedCalls": "Tamamlanan zənglər",
+    "successfulCalls": "Uğurlu zənglər",
+    "failedCalls": "Uğursuz zənglər",
+    "averageDuration": "Orta müddət",
+    "createdAt": "Yaradılma",
     "actions": "Əməliyyatlar",
     "view": "Bax",
-    "edit": "Redaktə Et",
+    "edit": "Redaktə et",
     "delete": "Sil",
     "start": "Başlat",
     "pause": "Dayandır",
-    "resume": "Davam Et"
+    "resume": "Davam et"
   },
   "campaignDetails": {
-    "title": "Kampaniya Təfərrüatları",
-    "subtitle": "Kampaniya Təfərrüatları və Söhbətlər",
-    "backToCampaigns": "Kampaniyalara Qayıt",
+    "title": "Kampaniya detalları",
+    "subtitle": "Kampaniya detalları və söhbətlər",
+    "backToCampaigns": "Kampaniyalara qayıt",
     "loading": "Kampaniya yüklənir...",
-    "error": "Kampaniya yüklənə bilmədi",
+    "error": "Kampaniya yüklənmədi",
     "stats": {
-      "totalLeads": "Ümumi Potensial Müştəri",
+      "totalLeads": "Ümumi potensial",
       "completed": "Tamamlandı",
-      "calling": "Zəng Edilir",
+      "calling": "Zəng edilir",
       "failed": "Uğursuz",
-      "pending": "Gözləyir"
+      "pending": "Gözləmədə"
     },
     "leads": {
-      "title": "Potensial Müştərilər",
+      "title": "Potensiallar",
       "firstName": "Ad",
       "lastName": "Soyad",
-      "contactNo": "Əlaqə Nömrəsi",
+      "contactNo": "Əlaqə nömrəsi",
       "status": "Status"
     },
     "callLogs": {
-      "title": "Zəng Qeydləri",
-      "phoneNumber": "Telefon Nömrəsi",
+      "title": "Zəng jurnalı",
+      "phoneNumber": "Telefon nömrəsi",
       "status": "Status",
       "duration": "Müddət",
-      "createdAt": "Yaradılma Tarixi",
+      "createdAt": "Yaradılma",
       "actions": "Əməliyyatlar",
-      "viewConversation": "Söhbəti Bax"
+      "viewConversation": "Söhbətə bax"
     },
     "conversation": {
-      "title": "Zəng Transkripsiyası",
-      "subtitle": "{{phoneNumber}} ilə {{date}} tarixində edilən söhbət",
-      "loading": "Transkripsiya yüklənir...",
-      "noTranscription": "Bu zəng üçün transkripsiya mövcud deyil.",
+      "title": "Zəng transkripti",
+      "subtitle": "{{date}} tarixində {{phoneNumber}} ilə söhbət",
+      "loading": "Transkript yüklənir...",
+      "noTranscription": "Bu zəng üçün transkript yoxdur.",
       "speaker": "Danışan",
-      "message": "Mesaj"
+      "message": "İsmarış"
     }
   },
   "campaignCreation": {
-    "title": "Yeni Kampaniya Yarat",
-    "subtitle": "AI səsli zəng kampaniyanızı qurun",
-    "step1": "Kampaniya Təfərrüatları",
-    "step2": "Səs Seçimi",
-    "step3": "Potensial Müştəri Yüklə",
-    "step4": "Nəzərdən Keçir və Başlat",
-    "campaignName": "Kampaniya Adı",
+    "title": "Yeni kampaniya yarat",
+    "subtitle": "Sİ səsli zəng kampaniyanızı qurun",
+    "step1": "Kampaniya detalları",
+    "step2": "Səs seçimi",
+    "step3": "Potensialları yüklə",
+    "step4": "Yoxla və başlat",
+    "campaignName": "Kampaniya adı",
     "campaignNamePlaceholder": "Kampaniya adını daxil edin",
-    "firstPrompt": "İlk Mesaj",
-    "firstPromptPlaceholder": "AI-nızın deyəcəyi ilk mesajı daxil edin",
-    "systemPersona": "Sistem Şəxsiyyəti",
-    "systemPersonaPlaceholder": "AI-nızın şəxsiyyətini və davranışını təyin edin",
+    "firstPrompt": "İlk prompt",
+    "firstPromptPlaceholder": "Sİ-nizin deyəcəyi ilk ismarışı yazın",
+    "systemPersona": "Sistem personası",
+    "systemPersonaPlaceholder": "Sİ-nin xarakter və davranışını təsvir edin",
     "next": "Növbəti",
     "previous": "Əvvəlki",
-    "create": "Kampaniya Yarat",
-    "creating": "Kampaniya Yaradılır...",
+    "create": "Kampaniya yarat",
+    "creating": "Kampaniya yaradılır...",
     "success": "Kampaniya uğurla yaradıldı!"
   },
   "voices": {
-    "title": "Səs Seçimi",
-    "subtitle": "Kampaniyanız üçün mükəmməl səsi seçin",
-    "premade": "Hazır Səslər",
-    "cloned": "Klonlanmış Səslər",
-    "select": "Səs Seç",
+    "title": "Səs kitabxanası",
+    "subtitle": "Kampaniyalar üçün səsləri idarə edin və klonlayın",
+    "searchPlaceholder": "Səslərdə axtar...",
+    "cloneVoice": "Səsi klonla",
+    "premade": "Hazır səslər",
+    "cloned": "Klonlanmış səslər",
+    "select": "Səsi seç",
     "selected": "Seçildi",
-    "preview": "Önizləmə",
-    "settings": "Səs Tənzimləmələri",
-    "stability": "Sabitlik",
-    "similarity": "Bənzərlik Artırma",
-    "style": "Stil",
-    "speakerBoost": "Danışan Artırma",
-    "cloneVoice": "Səs Klonla",
-    "uploadAudio": "Səs Faylı Yüklə",
-    "voiceName": "Səs Adı",
+    "preview": "Önizlə",
+    "settings": "Səs ayarları",
+    "stability": "Stabillik",
+    "similarity": "Oxşarlıq gücləndirməsi",
+    "style": "Üslub",
+    "speakerBoost": "Danışan gücləndirmə",
+    "uploadAudio": "Səs faylı yüklə",
+    "voiceName": "Səs adı",
     "voiceNamePlaceholder": "Səs adını daxil edin",
     "description": "Təsvir",
     "descriptionPlaceholder": "Səs təsvirini daxil edin"
   },
   "leads": {
-    "title": "Potensial Müştəri Yüklə",
-    "subtitle": "Zəng etməyə başlamaq üçün əlaqə siyahınızı yükləyin",
-    "dragDrop": "CSV faylınızı buraya sürükləyin və buraxın və ya baxmaq üçün klikləyin",
-    "supportedFormats": "Dəstəklənən formatlar: CSV",
+    "title": "Potensialları yükləyin",
+    "subtitle": "Zəngə başlamaq üçün kontakt siyahınızı yükləyin",
+    "dragDrop": "CSV faylınızı buraya atın və ya seçmək üçün klikləyin",
+    "supportedFormats": "Dəstəklənən format: CSV",
     "uploading": "Yüklənir...",
-    "processing": "Potensial müştərilər emal olunur...",
-    "success": "Potensial müştərilər uğurla yükləndi!",
-    "error": "Potensial müştərilər yüklənə bilmədi",
+    "processing": "Potensiallar emal edilir...",
+    "success": "Potensiallar uğurla yükləndi!",
+    "error": "Potensiallar yüklənmədi",
     "preview": "Önizləmə",
-    "totalLeads": "Ümumi Potensial Müştəri",
-    "validLeads": "Etibarlı Potensial Müştəri",
-    "invalidLeads": "Etibarsız Potensial Müştəri",
+    "totalLeads": "Ümumi potensial",
+    "validLeads": "Düzgün potensiallar",
+    "invalidLeads": "Yanlış potensiallar",
     "firstName": "Ad",
     "lastName": "Soyad",
     "phone": "Telefon",
     "email": "E-poçt",
     "company": "Şirkət",
     "remove": "Sil",
-    "confirm": "Yükləməni Təsdiq Et"
+    "confirm": "Yükləməni təsdiqlə"
   },
   "analytics": {
     "title": "Analitika",
-    "subtitle": "Kampaniya performansınızı izləyin",
-    "overview": "Ümumi Baxış",
+    "subtitle": "Kampaniyalarınızın performansını və baxışları izləyin",
+    "export": "İxrac et",
+    "timeRange": {
+      "24h": "Son 24 saat",
+      "7d": "Son 7 gün",
+      "30d": "Son 30 gün",
+      "90d": "Son 90 gün"
+    },
+    "cards": {
+      "totalCampaigns": "Ümumi kampaniyalar",
+      "activeCampaigns": "Aktiv kampaniyalar",
+      "totalCalls": "Ümumi zənglər",
+      "successRate": "Uğur faizi"
+    },
+    "overview": "İcmal",
     "campaigns": "Kampaniyalar",
     "calls": "Zənglər",
-    "leads": "Potensial Müştərilər",
-    "conversions": "Çevrilmələr",
-    "activeCampaigns": "Aktiv Kampaniyalar",
-    "callsToday": "Bu Günkü Zənglər",
-    "successRate": "Uğur Dərəcəsi",
-    "totalMinutes": "Ümumi Dəqiqələr",
-    "totalCalls": "Ümumi Zənglər",
-    "successfulCalls": "Uğurlu Zənglər",
-    "failedCalls": "Uğursuz Zənglər",
-    "averageCallDuration": "Orta Zəng Müddəti",
-    "conversionRate": "Çevrilmə Dərəcəsi",
-    "totalLeads": "Ümumi Potensial Müştəri",
-    "qualifiedLeads": "Keyfiyyətli Potensial Müştəri",
-    "appointmentsBooked": "Randevu Alınan",
+    "leads": "Potensiallar",
+    "conversions": "Dönüşümlər",
+    "callsToday": "Bu gün zənglər",
+    "totalMinutes": "Ümumi dəqiqə",
+    "totalCalls": "Ümumi zənglər",
+    "successfulCalls": "Uğurlu zənglər",
+    "failedCalls": "Uğursuz zənglər",
+    "averageCallDuration": "Orta zəng müddəti",
+    "conversionRate": "Dönüşüm faizi",
+    "totalLeads": "Ümumi potensial",
+    "qualifiedLeads": "İxtisaslı potensiallar",
+    "appointmentsBooked": "Görüşlər",
     "revenue": "Gəlir",
-    "costPerCall": "Zəng Başına Xərc",
-    "roi": "İnvestisiya Qaytarılması",
-    "timeframe": "Vaxt Çərçivəsi",
-    "last7Days": "Son 7 Gün",
-    "last30Days": "Son 30 Gün",
-    "last90Days": "Son 90 Gün",
-    "custom": "Xüsusi Aralıq"
+    "costPerCall": "Zəng başına xərc",
+    "roi": "ROI",
+    "timeframe": "Zaman aralığı",
+    "last7Days": "Son 7 gün",
+    "last30Days": "Son 30 gün",
+    "last90Days": "Son 90 gün",
+    "custom": "Xüsusi aralıq"
   },
   "sidebar": {
-    "dashboard": "İdarə Paneli",
+    "dashboard": "İdarə paneli",
     "campaigns": "Kampaniyalar",
     "voices": "Səslər",
     "analytics": "Analitika",
-    "settings": "Tənzimləmələr",
-    "logout": "Çıxış",
-    "newCampaign": "Yeni Kampaniya",
-    "activeCampaigns": "Aktiv Kampaniyalar",
-    "totalCalls": "Ümumi Zənglər",
-    "successRate": "Uğur Dərəcəsi"
+    "settings": "Ayarlar",
+    "logout": "Çıxış et",
+    "newCampaign": "Yeni kampaniya",
+    "activeCampaigns": "Aktiv kampaniyalar",
+    "totalCalls": "Ümumi zənglər",
+    "successRate": "Uğur faizi"
   },
   "notifications": {
     "title": "Bildirişlər",
     "noNotifications": "Bildiriş yoxdur",
-    "markAllRead": "Hamısını oxunmuş kimi işarələ",
-    "campaignStarted": "Kampaniya uğurla başladıldı",
+    "markAllRead": "Hamısını oxunmuş et",
+    "campaignStarted": "Kampaniya uğurla başladı",
     "campaignPaused": "Kampaniya dayandırıldı",
     "campaignCompleted": "Kampaniya tamamlandı",
-    "newLead": "Yeni potensial müştəri əlavə edildi",
+    "newLead": "Yeni potensial əlavə olundu",
     "callCompleted": "Zəng tamamlandı",
     "systemUpdate": "Sistem yeniləməsi mövcuddur"
   },
   "errors": {
-    "generic": "Nəsə səhv getdi. Zəhmət olmasa yenidən cəhd edin.",
-    "network": "Şəbəkə xətası. Zəhmət olmasa bağlantınızı yoxlayın.",
-    "unauthorized": "Bu əməliyyatı yerinə yetirmək üçün icazəniz yoxdur.",
-    "notFound": "İstənilən resurs tapılmadı.",
-    "validation": "Zəhmət olmasa girişinizi yoxlayın və yenidən cəhd edin.",
-    "server": "Server xətası. Zəhmət olmasa daha sonra yenidən cəhd edin.",
-    "timeout": "Sorğu vaxtı bitdi. Zəhmət olmasa yenidən cəhd edin.",
-    "fileUpload": "Fayl yüklənə bilmədi. Zəhmət olmasa yenidən cəhd edin.",
-    "invalidFile": "Etibarsız fayl formatı. Zəhmət olmasa etibarlı fayl yükləyin.",
-    "fileTooLarge": "Fayl çox böyükdür. Zəhmət olmasa daha kiçik fayl yükləyin."
+    "generic": "Nəsə yanlış getdi. Yenidən cəhd edin.",
+    "network": "Şəbəkə xətası. Bağlantınızı yoxlayın.",
+    "unauthorized": "Bu əməliyyat üçün səlahiyyətiniz yoxdur.",
+    "notFound": "Tələb olunan resurs tapılmadı.",
+    "validation": "Məlumatlarınızı yoxlayıb yenidən cəhd edin.",
+    "server": "Server xətası. Bir az sonra yenidən cəhd edin.",
+    "timeout": "Sorğu vaxtı bitdi. Yenidən cəhd edin.",
+    "fileUpload": "Fayl yüklənmədi. Yenidən cəhd edin.",
+    "invalidFile": "Yanlış fayl formatı. Düzgün fayl yükləyin.",
+    "fileTooLarge": "Fayl çox böyükdür. Daha kiçik fayl yükləyin."
   },
   "success": {
     "campaignCreated": "Kampaniya uğurla yaradıldı!",
     "campaignUpdated": "Kampaniya uğurla yeniləndi!",
     "campaignDeleted": "Kampaniya uğurla silindi!",
-    "leadsUploaded": "Potensial müştərilər uğurla yükləndi!",
+    "leadsUploaded": "Potensiallar uğurla yükləndi!",
     "voiceCloned": "Səs uğurla klonlandı!",
-    "settingsUpdated": "Tənzimləmələr uğurla yeniləndi!",
+    "settingsUpdated": "Ayarlar uğurla yeniləndi!",
     "callScheduled": "Zəng uğurla planlaşdırıldı!",
-    "dataExported": "Məlumat uğurla ixrac edildi!"
+    "dataExported": "Məlumatlar uğurla ixrac olundu!"
+  },
+  "dialer": {
+    "aiSalesAgent": "Sİ Satış Agentı",
+    "sparkAISystem": "AI SPARK SALES AGENT Sistemi",
+    "dialing": "Zəng edilir...",
+    "connecting": "Qoşulur...",
+    "connected": "Qoşuldu",
+    "readyToCall": "Zəngə hazır",
+    "duration": "Müddət",
+    "quality": "Keyfiyyət",
+    "excellent": "Əla",
+    "sentiment": "Ruh hali",
+    "positive": "Müsbət"
+  },
+  "stats": {
+    "activeCampaigns": "Aktiv kampaniyalar",
+    "callsToday": "Bu gün zənglər",
+    "successRate": "Uğur faizi",
+    "languages": "Dillər"
+  },
+  "progress": "{total} xüsusiyyətdən",
+  "campaignWorkflow": {
+    "title": "Kampaniyalar necə işləyir",
+    "subtitle": "Sİ səsli zəng kampaniyalarınızı yaratmaq və başlatmaq üçün bu sadə addımları izləyin",
+    "workflowTitle": "Kampaniya iş axını",
+    "step": "Addım",
+    "startFirstCampaign": "İlk kampaniyanıza başlayın",
+    "step1": {
+      "title": "Kampaniya yarat",
+      "description": "Səsli zəng kampaniyanızı qurun",
+      "details": [
+        "Kampaniya adı və təsvirini daxil edin",
+        "Açılış mesajınızı yazın",
+        "Sİ personanı tənzimləyin",
+        "Kampaniya hədəflərini təyin edin"
+      ],
+      "features": [
+        "Kampaniya quraşdırması",
+        "Mesaj yaradılması",
+        "Sİ konfiqurasiyası"
+      ]
+    },
+    "step2": {
+      "title": "Potensialları yükləyin",
+      "description": "Kontakt siyahınızı əlavə edin",
+      "details": [
+        "Kontaktları olan CSV faylı yükləyin",
+        "Sahələri xəritələyin (ad, telefon, e-poçt)",
+        "Telefon nömrələrini doğrulayın",
+        "Potensial məlumatlarını önizləyin"
+      ],
+      "features": [
+        "CSV yükləmə",
+        "Sahə xəritələmə",
+        "Məlumat doğrulama"
+      ]
+    },
+    "step3": {
+      "title": "Sİ-ni konfiqurasiya edin",
+      "description": "Səsi və bilik bazasını tənzimləyin",
+      "details": [
+        "Sİ səsini seçin (ElevenLabs)",
+        "Bilik bazası sənədlərini yükləyin",
+        "Dialoq axınını tənzimləyin",
+        "Zəng parametrlərini qurun"
+      ],
+      "features": [
+        "Səs seçimi",
+        "Bilik bazası",
+        "Sİ quraşdırması"
+      ]
+    },
+    "step4": {
+      "title": "Test edin və başladın",
+      "description": "Test edin və kampaniyanı işə salın",
+      "details": [
+        "Quraşdırmanı doğrulamaq üçün test zəngləri edin",
+        "Kampaniya ayarlarını gözdən keçirin",
+        "Kampaniya icrasını başladın",
+        "Zəng gedişatını izləyin"
+      ],
+      "features": [
+        "Test zəngləri",
+        "Kampaniyanın başlanması",
+        "İrəliləyişin izlənməsi"
+      ]
+    },
+    "step5": {
+      "title": "Nəticələri izləyin",
+      "description": "Kampaniya performansını izləyin",
+      "details": [
+        "Zəng statistikalarını görüntüləyin",
+        "Uğur faizlərini analiz edin",
+        "Zəng yazılarını gözdən keçirin",
+        "Nəticələri ixrac edin"
+      ],
+      "features": [
+        "Analitika",
+        "Zəng jurnalları",
+        "Performans hesabatları"
+      ]
+    }
   }
-} 
+}

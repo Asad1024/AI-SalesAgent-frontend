@@ -245,34 +245,34 @@ export default function HomeOption2() {
 
   const pricingPlans = [
     {
-      name: 'Essential Support',
-      price: 'AED 1,500',
-      period: '/month',
-      description: 'Perfect for businesses getting started with AI calling',
+      name: t('home.pricingPlans.essential.name'),
+      price: t('home.pricingPlans.essential.price'),
+      period: t('home.pricingPlans.essential.period'),
+      description: t('home.pricingPlans.essential.description'),
       features: [
-        '24x7 uptime monitoring and incident alerts',
-        'Up to 4 hours/month of flow tweaks or prompt changes',
-        'Unused time rolls over for 60 days',
-        'Monthly performance report with actionable insights',
-        'Email support with next-business-day SLA'
+        t('home.pricingPlans.essential.features.monitoring'),
+        t('home.pricingPlans.essential.features.tweaks'),
+        t('home.pricingPlans.essential.features.rollover'),
+        t('home.pricingPlans.essential.features.report'),
+        t('home.pricingPlans.essential.features.email')
       ],
-      cta: 'Get Started',
+      cta: t('home.pricingPlans.essential.cta'),
       popular: false
     },
     {
-      name: 'Premium Support',
-      price: 'AED 3,000',
-      period: '/month',
-      description: 'For businesses requiring advanced optimization and priority support',
+      name: t('home.pricingPlans.premium.name'),
+      price: t('home.pricingPlans.premium.price'),
+      period: t('home.pricingPlans.premium.period'),
+      description: t('home.pricingPlans.premium.description'),
       features: [
-        'Everything in Essential plus:',
-        'Up to 10 hours/month of prompt/flow optimization',
-        'Strategy session to review metrics and roadmap',
-        'Priority support queue with same-business-day responses',
-        'Early-access testing of lower-cost voice models',
-        '30-day notice for package changes'
+        t('home.pricingPlans.premium.features.everything'),
+        t('home.pricingPlans.premium.features.optimization'),
+        t('home.pricingPlans.premium.features.strategy'),
+        t('home.pricingPlans.premium.features.priority'),
+        t('home.pricingPlans.premium.features.earlyAccess'),
+        t('home.pricingPlans.premium.features.notice')
       ],
-      cta: 'Get Started',
+      cta: t('home.pricingPlans.premium.cta'),
       popular: true,
       limited: false
     }
@@ -399,11 +399,11 @@ export default function HomeOption2() {
               ) : (
                 <div className="flex space-x-2">
                   <Link href="/login">
-                    <Button variant="ghost">Login</Button>
+                    <Button variant="ghost">{t('common.login')}</Button>
                   </Link>
                   <Link href="/signup">
                     <Button className="bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 hover:from-blue-600 hover:via-purple-600 hover:to-purple-700 text-white">
-                      Sign Up
+                      {t('common.register')}
                     </Button>
                   </Link>
                 </div>
@@ -574,10 +574,10 @@ export default function HomeOption2() {
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-500 rounded-full flex items-center justify-center mr-3 sm:mr-4">
                   <X className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Problem</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">{t('home.problem.problemTitle')}</h3>
               </div>
               <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 mb-8">
-                Overwhelmed by repetitive calls?
+                {t('home.problem.problemDescription')}
               </p>
               
               <div className="space-y-4 mb-8">
@@ -597,28 +597,28 @@ export default function HomeOption2() {
                   <div className="bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm/80 dark:backdrop-blur-sm rounded-xl p-4 shadow-lg dark:shadow-2xl dark:shadow-2xl transform rotate-2 border dark:border-slate-700/50">
                     <div className="flex items-center space-x-2 mb-2">
                       <Clock className="w-5 h-5 text-red-500" />
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Out-of-hours calls</span>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('home.problem.problemCards.outOfHours')}</span>
                     </div>
                     <div className="text-2xl font-bold text-red-500">7</div>
                   </div>
                   <div className="bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm/80 dark:backdrop-blur-sm rounded-xl p-4 shadow-lg dark:shadow-2xl dark:shadow-2xl transform -rotate-1 mt-4 border dark:border-slate-700/50">
                     <div className="flex items-center space-x-2 mb-2">
                       <Users className="w-5 h-5 text-red-500" />
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Unqualified leads</span>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('home.problem.problemCards.unqualified')}</span>
                     </div>
                     <div className="text-2xl font-bold text-red-500">32</div>
                   </div>
                   <div className="bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm/80 dark:backdrop-blur-sm rounded-xl p-4 shadow-lg dark:shadow-2xl dark:shadow-2xl transform rotate-1 -mt-2 border dark:border-slate-700/50">
                     <div className="flex items-center space-x-2 mb-2">
                       <BarChart3 className="w-5 h-5 text-red-500" />
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Canceled tasks</span>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('home.problem.problemCards.canceledTasks')}</span>
                     </div>
                     <div className="text-2xl font-bold text-red-500">12</div>
                   </div>
                   <div className="bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm/80 dark:backdrop-blur-sm rounded-xl p-4 shadow-lg dark:shadow-2xl dark:shadow-2xl transform -rotate-2 mt-2 border dark:border-slate-700/50">
                     <div className="flex items-center space-x-2 mb-2">
                       <Phone className="w-5 h-5 text-red-500" />
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Missed calls</span>
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('home.problem.problemCards.missedCalls')}</span>
                     </div>
                     <div className="text-2xl font-bold text-red-500">7</div>
                   </div>
@@ -632,10 +632,10 @@ export default function HomeOption2() {
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-500 rounded-full flex items-center justify-center mr-3 sm:mr-4">
                   <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Solution</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">{t('home.problem.solutionTitle')}</h3>
               </div>
               <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 mb-8">
-                Automate calls with AI Voice Agents
+                {t('home.problem.solutionDescription')}
               </p>
               
               <div className="space-y-4 mb-8">
@@ -656,28 +656,28 @@ export default function HomeOption2() {
                 <div className="bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm/80 dark:backdrop-blur-sm rounded-xl p-4 shadow-lg dark:shadow-2xl dark:shadow-2xl border dark:border-slate-700/50">
                   <div className="flex items-center space-x-2 mb-2">
                     <Settings className="w-5 h-5 text-green-500" />
-                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">24/7 Availability</span>
+                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('home.problem.solutionCards.availability')}</span>
                   </div>
                   <div className="text-2xl font-bold text-green-500">✓</div>
                 </div>
                 <div className="bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm/80 dark:backdrop-blur-sm rounded-xl p-4 shadow-lg dark:shadow-2xl dark:shadow-2xl border dark:border-slate-700/50">
                   <div className="flex items-center space-x-2 mb-2">
                     <Users className="w-5 h-5 text-green-500" />
-                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Qualified leads</span>
+                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('home.problem.solutionCards.qualifiedLeads')}</span>
                   </div>
                   <div className="text-2xl font-bold text-green-500">41</div>
                 </div>
                 <div className="bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm/80 dark:backdrop-blur-sm rounded-xl p-4 shadow-lg dark:shadow-2xl dark:shadow-2xl border dark:border-slate-700/50">
                   <div className="flex items-center space-x-2 mb-2">
                     <TrendingUp className="w-5 h-5 text-green-500" />
-                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Freed-up tasks</span>
+                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('home.problem.solutionCards.freedUpTasks')}</span>
                   </div>
                   <div className="text-2xl font-bold text-green-500">17</div>
                 </div>
                 <div className="bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm/80 dark:backdrop-blur-sm rounded-xl p-4 shadow-lg dark:shadow-2xl dark:shadow-2xl border dark:border-slate-700/50">
                   <div className="flex items-center space-x-2 mb-2">
                     <Phone className="w-5 h-5 text-green-500" />
-                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">No missed calls</span>
+                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('home.problem.solutionCards.noMissedCalls')}</span>
                   </div>
                   <div className="text-2xl font-bold text-green-500">0</div>
                 </div>
@@ -747,7 +747,7 @@ export default function HomeOption2() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white text-sm font-semibold mb-4 animate-fade-in-up">
-              🚀 SOLUTIONS
+              {t('home.solutionsSection.tag')}
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200">
               {t('home.solutionsSection.title')}
@@ -813,13 +813,13 @@ export default function HomeOption2() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <div className="inline-block px-6 py-2 bg-gradient-to-r from-brand-500 to-brand-600 rounded-full text-white text-sm font-semibold mb-4 animate-fade-in-up">
-              ✨ BENEFITS
+              {t('home.benefitsSection.tag')}
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-brand-600 via-brand-700 to-brand-600 bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200 px-4">
-              Why Choose Us?
+              {t('home.benefitsSection.title')}
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-400 px-4">
-              Experience the advantages that set us apart from the competition
+              {t('home.benefitsSection.subtitle')}
             </p>
           </div>
 
@@ -857,13 +857,13 @@ export default function HomeOption2() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white text-sm font-semibold mb-4 animate-fade-in-up">
-              🔄 HOW IT WORKS
+              {t('home.howItWorks.tag')}
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200">
-              Simple 3-Step Process
+              {t('home.howItWorks.title')}
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-400">
-              Get started in minutes with our streamlined implementation process
+              {t('home.howItWorks.subtitle')}
             </p>
           </div>
 
@@ -908,10 +908,10 @@ export default function HomeOption2() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6 animate-fade-in-up">
-              Trusted Across Industries
+              {t('home.industriesSection.title')}
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-200">
-              From healthcare to real estate, our AI agents adapt to your industry's unique needs
+              {t('home.industriesSection.subtitle')}
             </p>
           </div>
 
@@ -948,7 +948,7 @@ export default function HomeOption2() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white text-sm font-semibold mb-4 animate-fade-in-up">
-              🎬 LIVE DEMOS
+              {t('home.demoSection.tag')}
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200">
               {t('home.demo.title')}
@@ -1052,7 +1052,7 @@ export default function HomeOption2() {
                       
                       <Button variant="outline" className="w-full group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-500 group-hover:text-white group-hover:border-transparent transition-all duration-300">
                         <Play className="mr-2 w-4 h-4" />
-                        Watch Demo
+                        {t('home.demoSection.watchDemo')}
                       </Button>
                     </div>
                     
@@ -1076,7 +1076,7 @@ export default function HomeOption2() {
               >
                 <span className="relative z-10 flex items-center justify-center">
                   <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
-                  Book Live Demo
+                  {t('home.demoSection.bookLiveDemo')}
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Button>
@@ -1087,7 +1087,7 @@ export default function HomeOption2() {
               >
                 <span className="relative z-10 flex items-center justify-center">
                   <Phone className="mr-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
-                  Try Free Call
+                  {t('home.demoSection.tryFreeCall')}
                 </span>
                 <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Button>
@@ -1107,10 +1107,10 @@ export default function HomeOption2() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
-              Pricing
+              {t('home.pricingSection.title')}
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-              Transparent pricing with no hidden costs. Choose the support package that fits your needs.
+              {t('home.pricingSection.subtitle')}
             </p>
           </div>
 
@@ -1118,22 +1118,22 @@ export default function HomeOption2() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div className="bg-white dark:bg-slate-700/80 dark:backdrop-blur-sm rounded-2xl p-8 border-2 border-slate-200 dark:border-slate-600/50">
               <div className="text-center">
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">One-time Setup Fee</h3>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('home.pricingSection.setupFee.title')}</h3>
                 <div className="mb-4">
-                  <span className="text-4xl font-bold text-slate-900 dark:text-white">AED 10,000</span>
+                  <span className="text-4xl font-bold text-slate-900 dark:text-white">{t('home.pricingSection.setupFee.amount')}</span>
                 </div>
-                <p className="text-slate-600 dark:text-slate-400 mb-6">Per agent setup and configuration</p>
+                <p className="text-slate-600 dark:text-slate-400 mb-6">{t('home.pricingSection.setupFee.description')}</p>
               </div>
             </div>
             
             <div className="bg-white dark:bg-slate-700/80 dark:backdrop-blur-sm rounded-2xl p-8 border-2 border-slate-200 dark:border-slate-600/50">
               <div className="text-center">
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">AI Usage Fees</h3>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('home.pricingSection.usageFee.title')}</h3>
                 <div className="mb-4">
-                  <span className="text-4xl font-bold text-slate-900 dark:text-white">AED 0.51 - 0.66</span>
-                  <span className="text-slate-600 dark:text-slate-400">/minute</span>
+                  <span className="text-4xl font-bold text-slate-900 dark:text-white">{t('home.pricingSection.usageFee.amount')}</span>
+                  <span className="text-slate-600 dark:text-slate-400">{t('home.pricingSection.usageFee.unit')}</span>
                 </div>
-                <p className="text-slate-600 dark:text-slate-400 mb-6">Billed to the exact second (covers voice generation, real-time transcription, and LLM processing)</p>
+                <p className="text-slate-600 dark:text-slate-400 mb-6">{t('home.pricingSection.usageFee.description')}</p>
               </div>
             </div>
           </div>
@@ -1146,7 +1146,7 @@ export default function HomeOption2() {
                 {plan.limited && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <span className="bg-red-500 text-white px-4 py-1 rounded-full text-sm font-medium">
-                      Limited
+                      {t('home.pricingSection.limited')}
                     </span>
                   </div>
                 )}
@@ -1188,7 +1188,7 @@ export default function HomeOption2() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-block bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
-              LET'S CONNECT
+              {t('home.consultationSection.badge')}
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
               {t('home.consultation.title')}
@@ -1302,7 +1302,7 @@ export default function HomeOption2() {
                 <thead>
                   <tr className="border-b border-slate-200 dark:border-slate-600/50 bg-gradient-to-r from-slate-50 to-blue-50 dark:from-slate-700 dark:to-slate-600">
                     <th className="text-left py-4 sm:py-6 lg:py-8 px-3 sm:px-6 lg:px-8 text-sm sm:text-base lg:text-lg font-bold text-slate-900 dark:text-white">
-                      Key Features & Benefits
+                      {t('home.whyChoose.comparison.title')}
                     </th>
                     <th className="text-center py-4 sm:py-6 lg:py-8 px-3 sm:px-6 lg:px-8">
                       <div className="inline-flex items-center justify-center w-24 sm:w-32 lg:w-36 h-10 sm:h-12 lg:h-14 bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-lg sm:rounded-xl shadow-lg dark:shadow-2xl">
@@ -1318,50 +1318,50 @@ export default function HomeOption2() {
                 <tbody>
                   {[
                     {
-                      feature: 'Advanced AI Voice Technology',
-                      description: 'State-of-the-art natural language processing',
+                      feature: t('home.whyChoose.comparison.features.advancedAI.title'),
+                      description: t('home.whyChoose.comparison.features.advancedAI.description'),
                       spark: true,
                       others: false
                     },
                     {
-                      feature: '24/7 Customer Support',
-                      description: 'Round-the-clock availability and monitoring',
+                      feature: t('home.whyChoose.comparison.features.customerSupport.title'),
+                      description: t('home.whyChoose.comparison.features.customerSupport.description'),
                       spark: true,
                       others: false
                     },
                     {
-                      feature: 'Custom Voice Cloning',
-                      description: 'Personalized brand voice creation',
+                      feature: t('home.whyChoose.comparison.features.voiceCloning.title'),
+                      description: t('home.whyChoose.comparison.features.voiceCloning.description'),
                       spark: true,
                       others: false
                     },
                     {
-                      feature: 'Multi-language Support',
-                      description: '95+ languages with native accents',
+                      feature: t('home.whyChoose.comparison.features.multiLanguage.title'),
+                      description: t('home.whyChoose.comparison.features.multiLanguage.description'),
                       spark: true,
                       others: false
                     },
                     {
-                      feature: 'Real-time Analytics',
-                      description: 'Comprehensive performance insights',
+                      feature: t('home.whyChoose.comparison.features.realTimeAnalytics.title'),
+                      description: t('home.whyChoose.comparison.features.realTimeAnalytics.description'),
                       spark: true,
                       others: false
                     },
                     {
-                      feature: 'Enterprise Security',
-                      description: 'SOC 2 compliant with end-to-end encryption',
+                      feature: t('home.whyChoose.comparison.features.enterpriseSecurity.title'),
+                      description: t('home.whyChoose.comparison.features.enterpriseSecurity.description'),
                       spark: true,
                       others: false
                     },
                     {
-                      feature: 'Easy Integration',
-                      description: 'Seamless API integration with existing systems',
+                      feature: t('home.whyChoose.comparison.features.easyIntegration.title'),
+                      description: t('home.whyChoose.comparison.features.easyIntegration.description'),
                       spark: true,
                       others: false
                     },
                     {
-                      feature: 'Dedicated Account Manager',
-                      description: 'Personal support and optimization',
+                      feature: t('home.whyChoose.comparison.features.dedicatedManager.title'),
+                      description: t('home.whyChoose.comparison.features.dedicatedManager.description'),
                       spark: true,
                       others: false
                     }
@@ -1495,20 +1495,20 @@ export default function HomeOption2() {
             {[
               {
                 icon: Users,
-                title: '24/7 Availability',
-                description: 'Your AI sales team never sleeps, works weekends, and handles holidays automatically.',
+                title: t('home.aiSalesFeatures.availability.title'),
+                description: t('home.aiSalesFeatures.availability.description'),
                 color: 'from-blue-500 to-cyan-500'
               },
               {
                 icon: Target,
-                title: 'Lead Qualification',
-                description: 'Intelligent lead scoring and qualification that identifies high-value prospects instantly.',
+                title: t('home.aiSalesFeatures.leadQualification.title'),
+                description: t('home.aiSalesFeatures.leadQualification.description'),
                 color: 'from-cyan-500 to-teal-500'
               },
               {
                 icon: TrendingUp,
-                title: 'Conversion Optimization',
-                description: 'Continuous learning and optimization to improve conversion rates with every call.',
+                title: t('home.aiSalesFeatures.conversionOptimization.title'),
+                description: t('home.aiSalesFeatures.conversionOptimization.description'),
                 color: 'from-teal-500 to-green-500'
               }
             ].map((feature, index) => {
@@ -1539,59 +1539,59 @@ export default function HomeOption2() {
         <div className="max-w-7xl mx-auto relative z-10">
            <div className="text-center mb-16">
              <div className="inline-block bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-4 text-reveal">
-               WHO IS BEHIND SPARK AI
+               {t('home.teamSection.badge')}
              </div>
              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6 text-reveal">
-               Meet our team
+               {t('home.teamSection.title')}
              </h2>
              <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto text-reveal">
-               The experts behind Spark AI's revolutionary voice agent technology
+               {t('home.teamSection.subtitle')}
              </p>
            </div>
 
            <div className="team-container">
              {[
                {
-                 name: 'Jay Sir',
-                 title: 'CEO / Founder',
+                 name: t('home.teamMembers.jay.name'),
+                 title: t('home.teamMembers.jay.title'),
                  image: '/images/JAY.png',
                  color: 'from-blue-500 to-purple-500',
-                 description: 'Visionary leader driving AI innovation and business growth'
+                 description: t('home.teamMembers.jay.description')
                },
                {
-                 name: 'Tooba',
-                 title: 'Head of AI',
+                 name: t('home.teamMembers.tooba.name'),
+                 title: t('home.teamMembers.tooba.title'),
                  image: '/images/Tooba.png',
                  color: 'from-blue-500 to-purple-500',
-                 description: 'Leading AI strategy and machine learning implementation'
+                 description: t('home.teamMembers.tooba.description')
                },
                {
-                 name: 'Sagar',
-                 title: 'AI Strategist',
+                 name: t('home.teamMembers.sagar.name'),
+                 title: t('home.teamMembers.sagar.title'),
                  image: '/images/Sagar.png',
                  color: 'from-blue-500 to-purple-500',
-                 description: 'Expert in AI solutions and strategic technology planning'
+                 description: t('home.teamMembers.sagar.description')
                },
                {
-                 name: 'Ananya',
-                 title: 'Project Manager',
+                 name: t('home.teamMembers.ananya.name'),
+                 title: t('home.teamMembers.ananya.title'),
                  image: '/images/Ananya.png',
                  color: 'from-blue-500 to-purple-500',
-                 description: 'Ensuring seamless project delivery and team coordination'
+                 description: t('home.teamMembers.ananya.description')
                },
                {
-                 name: 'Ersham',
-                 title: 'Creative Head',
+                 name: t('home.teamMembers.ersham.name'),
+                 title: t('home.teamMembers.ersham.title'),
                  image: '/images/Ersham.png',
                  color: 'from-blue-500 to-purple-500',
-                 description: 'Designing innovative user experiences and creative solutions'
+                 description: t('home.teamMembers.ersham.description')
                },
                {
-                 name: 'Saleem',
-                 title: 'HR Manager',
+                 name: t('home.teamMembers.saleem.name'),
+                 title: t('home.teamMembers.saleem.title'),
                  image: '/images/Saleem.png',
                  color: 'from-blue-500 to-purple-500',
-                 description: 'Building and nurturing our talented team culture'
+                 description: t('home.teamMembers.saleem.description')
                }
              ].map((member, index) => (
                <div key={index} className="team-card group bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm rounded-2xl shadow-lg dark:shadow-2xl border border-slate-200 dark:border-slate-600/50">
@@ -1622,19 +1622,19 @@ export default function HomeOption2() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
               <div className="text-center">
                 <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">50+</div>
-                <div className="text-slate-600 dark:text-slate-400">Years Combined Experience</div>
+                <div className="text-slate-600 dark:text-slate-400">{t('home.teamStats.experience')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">500+</div>
-                <div className="text-slate-600 dark:text-slate-400">Projects Delivered</div>
+                <div className="text-slate-600 dark:text-slate-400">{t('home.teamStats.projects')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">95%</div>
-                <div className="text-slate-600 dark:text-slate-400">Client Satisfaction</div>
+                <div className="text-slate-600 dark:text-slate-400">{t('home.teamStats.satisfaction')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">24/7</div>
-                <div className="text-slate-600 dark:text-slate-400">Support Available</div>
+                <div className="text-slate-600 dark:text-slate-400">{t('home.teamStats.support')}</div>
               </div>
             </div>
           </div>
@@ -1685,17 +1685,17 @@ export default function HomeOption2() {
         <div className="max-w-4xl mx-auto text-center relative z-10 px-4">
           <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-3xl p-6 sm:p-8 lg:p-12 text-white animate-ai-glow">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 leading-tight">
-              Ready to Transform Your Business?
+              {t('home.ctaSection.title')}
             </h2>
             <p className="text-lg sm:text-xl mb-8 opacity-90 px-2">
-              Use action-driven CTAs like 'Try for Free' or 'Book a Demo' with a short benefit (e.g., 'Save 10+ hours a week').
+              {t('home.ctaSection.subtitle')}
             </p>
             <Link href="/login">
             <Button 
               size="lg" 
               className="bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto"
             >
-              Try for Free - Save 10+ Hours/Week
+              {t('home.ctaSection.button')}
               <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
             </Link>
@@ -1708,10 +1708,10 @@ export default function HomeOption2() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
-              FAQ
+              {t('home.faqSection.title')}
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-              Answer common questions simply. Focus on removing doubts about pricing, setup, or features.
+              {t('home.faqSection.subtitle')}
             </p>
           </div>
 

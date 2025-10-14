@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Phone, Clock, CreditCard, Shield, Loader2, CheckCircle2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { api } from '@/lib/api';
+import { useTranslation } from 'react-i18next';
 
 interface AIDemoCallProps {
   className?: string;
@@ -84,6 +85,7 @@ const INDUSTRIES = [
 ];
 
 export default function AIDemoCall({ className = "" }: AIDemoCallProps) {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -260,23 +262,22 @@ export default function AIDemoCall({ className = "" }: AIDemoCallProps) {
           <Phone className="w-8 h-8 text-white" />
         </div>
         <CardTitle className="text-2xl font-bold text-slate-900 dark:text-white">
-          Experience the Magic – Get a Free AI Demo Call Tailored to Your Industry
+          {t('home.aiDemoCall.title')}
         </CardTitle>
       </CardHeader>
       
       <CardContent>
-        <p className="text-slate-600 dark:text-slate-400 text-justify mb-6">
-          Our AI agent will call you in just <strong>60 seconds</strong> to showcase how it handles real customer conversations, specific to your industry and use case. Experience how it qualifies leads, answers questions, and boosts conversion — automatically.
+        <p className="text-slate-600 dark:text-slate-400 text-justify mb-6" dangerouslySetInnerHTML={{ __html: t('home.aiDemoCall.description') }}>
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Name Field */}
           <div>
-            <Label htmlFor="name">Your Name</Label>
+            <Label htmlFor="name">{t('home.aiDemoCall.form.nameLabel')}</Label>
             <Input
               id="name"
               type="text"
-              placeholder="Enter your full name"
+              placeholder={t('home.aiDemoCall.form.namePlaceholder')}
               value={formData.name}
               onChange={(e) => handleInputChange('name', e.target.value)}
               required
@@ -285,11 +286,11 @@ export default function AIDemoCall({ className = "" }: AIDemoCallProps) {
 
           {/* Phone Field */}
           <div>
-            <Label htmlFor="phone">Phone Number</Label>
+            <Label htmlFor="phone">{t('home.aiDemoCall.form.phoneLabel')}</Label>
             <Input
               id="phone"
               type="tel"
-              placeholder="+971 00 000 0000"
+              placeholder={t('home.aiDemoCall.form.phonePlaceholder')}
               value={formData.phone}
               onChange={(e) => handleInputChange('phone', e.target.value)}
               required
@@ -298,13 +299,13 @@ export default function AIDemoCall({ className = "" }: AIDemoCallProps) {
 
           {/* Industry Field */}
           <div>
-            <Label htmlFor="industry">Your Industry</Label>
+            <Label htmlFor="industry">{t('home.aiDemoCall.form.industryLabel')}</Label>
             <Select
               value={formData.industry}
               onValueChange={(value) => handleInputChange('industry', value)}
             >
               <SelectTrigger>
-                <SelectValue placeholder="Select your industry" />
+                <SelectValue placeholder={t('home.aiDemoCall.form.industryPlaceholder')} />
               </SelectTrigger>
               <SelectContent>
                 {loadingIndustries ? (
@@ -357,7 +358,7 @@ export default function AIDemoCall({ className = "" }: AIDemoCallProps) {
             ) : (
               <>
                 <Phone className="w-4 h-4 mr-2" />
-                Get Free Demo Call
+                {t('home.aiDemoCall.form.submitButton')}
               </>
             )}
           </Button>
@@ -367,15 +368,15 @@ export default function AIDemoCall({ className = "" }: AIDemoCallProps) {
         <div className="flex items-center justify-center space-x-6 mt-6 text-sm text-slate-500 dark:text-slate-400">
           <div className="flex items-center">
             <Shield className="w-4 h-4 mr-1 text-green-500" />
-            100% Secure
+            {t('home.aiDemoCall.assurances.secure')}
           </div>
           <div className="flex items-center">
             <Clock className="w-4 h-4 mr-1 text-blue-500" />
-            60 Second Setup
+            {t('home.aiDemoCall.assurances.setup')}
           </div>
           <div className="flex items-center">
             <CreditCard className="w-4 h-4 mr-1 text-purple-500" />
-            No Credit Card Required
+            {t('home.aiDemoCall.assurances.noCard')}
           </div>
         </div>
       </CardContent>
