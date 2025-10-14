@@ -1185,7 +1185,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                           updateAIConfigWithScript('initialMessage', fullValue);
                         }}
                         className="absolute inset-0 w-full px-2 py-1.5 text-xs bg-transparent border-none outline-none text-transparent caret-black dark:caret-white"
-                        placeholder="Override the script's opening message (optional)..."
+                        placeholder=""
                         style={{ paddingLeft: '60px' }}
                       />
                     </div>
