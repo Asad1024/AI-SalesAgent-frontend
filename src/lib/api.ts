@@ -109,7 +109,6 @@ export interface ExperienceCallRequest {
 }
 
 const BASE_URL = 'https://aisparksalesagent-backend.onrender.com';
-// const BASE_URL = 'http://localhost:8000';
 
 async function handleResponse(response: Response) {
   const data = await response.json();
@@ -383,6 +382,13 @@ export const api = {
         }
       ];
     }),
+
+  refreshConversation: (conversationId: string) =>
+    fetch(`${BASE_URL}/api/conversations/${conversationId}/refresh`, {
+        method: 'POST',
+        headers: getAuthHeaders(),
+        credentials: 'include'
+    }).then(handleResponse),
   
   getKnowledgeBase: () => 
     fetch(`${BASE_URL}/api/knowledge-base`, {
@@ -392,8 +398,6 @@ export const api = {
 
   // POST requests
   post: async (endpoint: string, data: any) => {
-    console.log('API POST request to:', `${BASE_URL}${endpoint}`);
-    console.log('API POST data:', data);
     const response = await fetch(`${BASE_URL}${endpoint}`, {
       method: 'POST',
       headers: getAuthHeaders(),

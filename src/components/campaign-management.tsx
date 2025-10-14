@@ -18,7 +18,9 @@ import {
   FileIcon,
   Rocket,
   Phone,
-  Trash2
+  Trash2,
+  Square,
+  RotateCcw
 } from 'lucide-react';
 
 interface CampaignManagementProps {
@@ -65,6 +67,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
   const [editedPhone, setEditedPhone] = useState('');
   const [selectedScript, setSelectedScript] = useState('friendly');
   const [customScript, setCustomScript] = useState('');
+  const [campaignControlStatus, setCampaignControlStatus] = useState<'stopped' | 'running' | 'paused'>('stopped');
 
   const { toast } = useToast();
   const { t, i18n } = useTranslation();
@@ -744,6 +747,75 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       };
       
       startCampaignMutation.mutate(campaignData);
+      setCampaignControlStatus('running');
+    }
+  };
+
+  const handleStopCampaign = () => {
+    if (currentCampaign?.id) {
+      const confirmMessage = `Are you sure you want to stop the campaign "${currentCampaign.name}"?\n\nThis will:\n- Stop all ongoing calls\n- Prevent new calls from starting\n- Keep campaign data intact`;
+      
+      if (window.confirm(confirmMessage)) {
+        api.post(`/campaigns/${currentCampaign.id}/stop`, {})
+          .then(() => {
+            setCampaignControlStatus('stopped');
+            toast({
+              title: "Stopped",
+              description: "stopped.",
+            });
+          })
+          .catch((error) => {
+            toast({
+              title: "Error",
+              description: "Error.",
+              variant: "destructive"
+            });
+          });
+      }
+    }
+  };
+
+  const handlePauseCampaign = () => {
+    if (currentCampaign?.id) {
+      const confirmMessage = `Are you sure you want to pause the campaign "${currentCampaign.name}"?\n\nThis will:\n- Pause ongoing calls\n- Prevent new calls from starting\n- Allow resuming later`;
+      
+      if (window.confirm(confirmMessage)) {
+        api.post(`/campaigns/${currentCampaign.id}/pause`, {})
+          .then(() => {
+            setCampaignControlStatus('paused');
+            toast({
+              title: "Paused",
+              description: "paused.",
+            });
+          })
+          .catch((error) => {
+            toast({
+              title: "Error",
+              description: "Error.",
+              variant: "destructive"
+            });
+          });
+      }
+    }
+  };
+
+  const handleResumeCampaign = () => {
+    if (currentCampaign?.id) {
+      api.post(`/campaigns/${currentCampaign.id}/resume`, {})
+        .then(() => {
+          setCampaignControlStatus('running');
+          toast({
+            title: "Resumed",
+            description: "resumed.",
+          });
+        })
+        .catch((error) => {
+          toast({
+            title: "Error",
+            description: "Error.",
+            variant: "destructive"
+          });
+        });
     }
   };
 
@@ -879,9 +951,9 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
           </div>
 
           <div className="mt-8">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Existing Campaigns</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('dashboard.existingCampaigns')}</h3>
             {campaigns.length === 0 ? (
-              <p className="text-gray-500 text-center py-8">No existing campaigns found.</p>
+              <p className="text-gray-500 text-center py-8">{t('dashboard.noExistingCampaigns')}</p>
             ) : (
               <div className="space-y-2">
                 {campaigns.map((campaign: any) => (
@@ -1401,29 +1473,91 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
 
             {/* Launch Campaign */}
             <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Launch Campaign</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Campaign Control</h3>
               
-              <button
-                onClick={handleLaunchCampaign}
-                disabled={!completionStatus.launch || startCampaignMutation.isPending}
-                className={`w-full flex items-center justify-center space-x-2 px-6 py-4 rounded-lg text-lg font-medium transition-colors mb-6 ${
-                  completionStatus.launch && !startCampaignMutation.isPending
-                    ? 'bg-purple-600 text-white hover:bg-purple-700'
-                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                }`}
-              >
-                {startCampaignMutation.isPending ? (
-                  <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                    <span>Starting Campaign...</span>
-                  </>
-                ) : (
-                  <>
-                <Play className="h-5 w-5" />
-                <span>Start Campaign</span>
-                  </>
-                )}
-              </button>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+                <button
+                  onClick={handleLaunchCampaign}
+                  disabled={!completionStatus.launch || startCampaignMutation.isPending || campaignControlStatus === 'running'}
+                  className={`flex items-center justify-center space-x-2 px-4 py-3 rounded-lg font-medium transition-colors ${
+                    completionStatus.launch && !startCampaignMutation.isPending && campaignControlStatus !== 'running'
+                      ? 'bg-green-600 text-white hover:bg-green-700'
+                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  }`}
+                >
+                  {startCampaignMutation.isPending ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                      <span>Starting...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Play className="h-4 w-4" />
+                      <span>Start</span>
+                    </>
+                  )}
+                </button>
+                <button
+                  onClick={campaignControlStatus === 'paused' ? handleResumeCampaign : handlePauseCampaign}
+                  disabled={campaignControlStatus === 'stopped'}
+                  className={`flex items-center justify-center space-x-2 px-4 py-3 rounded-lg font-medium transition-colors ${
+                    campaignControlStatus === 'stopped'
+                      ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      : campaignControlStatus === 'paused'
+                      ? 'bg-blue-600 text-white hover:bg-blue-700'
+                      : 'bg-yellow-600 text-white hover:bg-yellow-700'
+                  }`}
+                >
+                  {campaignControlStatus === 'paused' ? (
+                    <>
+                      <RotateCcw className="h-4 w-4" />
+                      <span>Resume</span>
+                    </>
+                  ) : (
+                    <>
+                      <Pause className="h-4 w-4" />
+                      <span>Pause</span>
+                    </>
+                  )}
+                </button>
+
+                <button
+                  onClick={handleStopCampaign}
+                  disabled={campaignControlStatus === 'stopped'}
+                  className={`flex items-center justify-center space-x-2 px-4 py-3 rounded-lg font-medium transition-colors ${
+                    campaignControlStatus === 'stopped'
+                      ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      : 'bg-red-600 text-white hover:bg-red-700'
+                  }`}
+                >
+                  <Square className="h-4 w-4" />
+                  <span>Stop</span>
+                </button>
+              </div>
+
+              <div className="mb-4">
+                <div className="flex items-center space-x-2">
+                  <div className={`w-3 h-3 rounded-full ${
+                    campaignControlStatus === 'running' ? 'bg-green-500' :
+                    campaignControlStatus === 'paused' ? 'bg-yellow-500' :
+                    'bg-gray-400'
+                  }`}></div>
+                  <span className="text-sm font-medium text-gray-700">
+                    Status: {campaignControlStatus === 'running' ? 'Running' : 
+                            campaignControlStatus === 'paused' ? 'Paused' : 'Stopped'}
+                  </span>
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <button
+                  onClick={() => window.location.href = '/campaigns'}
+                  className="w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-lg font-medium transition-colors bg-purple-600 text-white hover:bg-purple-700"
+                >
+                  <Users className="h-4 w-4" />
+                  <span>View Existing Campaigns</span>
+                </button>
+              </div>
               
               <div>
                 <h4 className="text-sm font-medium text-gray-700 mb-3">

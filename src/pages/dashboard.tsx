@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "wouter";
 import Sidebar from "@/components/sidebar";
 import StatsOverview from "@/components/stats-overview";
 import CampaignSetup from "@/components/campaign-setup";
@@ -25,6 +26,7 @@ import CampaignsOverview from "@/components/campaigns-overview";
 
 export default function Dashboard() {
   const { t } = useTranslation();
+  const [, setLocation] = useLocation();
   const [currentCampaign, setCurrentCampaign] = useState<any>(null);
   const [selectedVoiceId, setSelectedVoiceId] = useState<string>("");
   const [uploadedLeads, setUploadedLeads] = useState<any[]>([]);
@@ -148,7 +150,7 @@ export default function Dashboard() {
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-6 sm:h-8 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
                   <h3 className="text-xl sm:text-2xl font-bold text-brand-800 dark:text-brand-200">
-                    Select Your Campaign
+                    {t('dashboard.selectCampaign')}
                   </h3>
                 </div>
                 <CampaignSelector onCampaignSelect={handleCampaignUpdate} />
@@ -159,7 +161,7 @@ export default function Dashboard() {
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-6 sm:h-8 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
                   <h3 className="text-xl sm:text-2xl font-bold text-brand-800 dark:text-brand-200">
-                    Campaign Configuration
+                    {t('dashboard.campaignConfiguration')}
                   </h3>
                 </div>
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-8">
@@ -192,7 +194,7 @@ export default function Dashboard() {
               <div className="flex items-center space-x-3">
                 <Zap className="h-6 w-6 text-brand-500 animate-pulse" />
                 <h3 className="text-2xl font-bold text-brand-800 dark:text-brand-200">
-                  Performance Overview
+                  {t('dashboard.performanceOverview')}
                 </h3>
               </div>
               <StatsOverview />
@@ -224,7 +226,7 @@ export default function Dashboard() {
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-8 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
                   <h3 className="text-2xl font-bold text-brand-800 dark:text-brand-200">
-                    Launch & Monitor
+                    {t('dashboard.launchAndMonitor')}
                   </h3>
                 </div>
                 <CampaignActions 

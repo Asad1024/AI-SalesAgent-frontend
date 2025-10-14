@@ -125,15 +125,14 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
   if (error) return <div className="flex h-screen items-center justify-center"><p>Error loading campaign details.</p></div>;
 
   const { campaign, leads, callLogs, stats } = data;
-  const completedCallsProgress = campaign.totalLeads > 0 ? (campaign.completedCalls / campaign.totalLeads) * 100 : 0;
+  const completedCallsProgress = campaign.totalLeads > 0 ? (stats.completed / campaign.totalLeads) * 100 : 0;
   
-  // Calculate stats from campaign data if stats object is not properly structured
   const campaignStats = {
-    totalLeads: campaign.totalLeads || 0,
-    completed: campaign.completedCalls || 0,
-    calling: 0, // Demo data doesn't have active calls
-    failed: campaign.failedCalls || 0,
-    pending: (campaign.totalLeads || 0) - (campaign.completedCalls || 0) - (campaign.failedCalls || 0)
+    totalLeads: stats.totalLeads || 0,
+    completed: stats.completed || 0,
+    calling: stats.calling || 0,
+    failed: stats.failed || 0,
+    pending: stats.pending || 0
   };
 
   return (
@@ -176,7 +175,7 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
             <CardContent>
               <div className="flex justify-between items-center text-sm text-brand-600 dark:text-brand-400">
                 <p>Completed Calls</p>
-                <p>{campaign.completedCalls} / {campaign.totalLeads}</p>
+                <p>{stats.completed} / {stats.totalLeads}</p>
               </div>
               <Progress value={completedCallsProgress} className="mt-2" />
             </CardContent>
@@ -279,11 +278,48 @@ function StatCard({ icon, title, value }: { icon: React.ReactNode; title: string
 
 function TranscriptionDialog({ log, open, onOpenChange }: { log: any, open: boolean, onOpenChange: (open: boolean) => void }) {
   const validConversationId = log?.elevenlabsConversationId && log.elevenlabsConversationId !== 'null' && log.elevenlabsConversationId !== 'undefined' ? log.elevenlabsConversationId : null;
-  const { data: conversationDetails, isLoading, error } = useQuery({
+  const { toast } = useToast();
+  
+  const { data: conversationDetails, isLoading, error, refetch } = useQuery({
     queryKey: ['/api/conversations', validConversationId],
     queryFn: () => api.getConversationDetails(validConversationId as string),
     enabled: !!validConversationId, // Only fetch when a valid id exists
   });
+
+  useEffect(() => {
+    if (open && validConversationId) {
+      refreshConversationData();
+    }
+  }, [open, validConversationId]);
+
+  const refreshConversationData = async () => {
+    if (!validConversationId) return;
+    
+    try {
+      const refreshResult = await api.refreshConversation(validConversationId);
+      
+      if (refreshResult.success) {
+        toast({
+          title: "Data Received",
+          description: "Updated.",
+        });
+        
+        await refetch();
+      } else {
+        toast({
+          title: "Failed",
+          description: "Failed",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Failed",
+        description: "Failed ",
+        variant: "destructive"
+      });
+    }
+  };
 
   if (!log) return null;
 

@@ -80,7 +80,7 @@ export default function CampaignSelector({ onCampaignSelect }: CampaignSelectorP
 
         {/* Existing Campaigns Section */}
         <div className="space-y-4">
-          <h4 className="font-medium text-sm text-muted-foreground">Existing Campaigns</h4>
+          <h4 className="font-medium text-sm text-muted-foreground">{t('dashboard.existingCampaigns')}</h4>
           {campaignsData?.campaigns?.length > 0 ? (
             <div className="space-y-2">
               {campaignsData.campaigns.map((campaign: any) => (
@@ -100,7 +100,7 @@ export default function CampaignSelector({ onCampaignSelect }: CampaignSelectorP
             </div>
           ) : (
             <p className="text-sm text-muted-foreground text-center py-4">
-              No existing campaigns found
+              {t('dashboard.noExistingCampaigns')}
             </p>
           )}
         </div>
