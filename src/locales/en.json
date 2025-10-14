@@ -151,28 +151,6 @@
     "viewAllCampaigns": "View All Campaigns",
     "noExistingCampaigns": "No existing campaigns found",
     "performanceOverview": "Performance Overview",
-    "campaignConfiguration": "Campaign Configuration",
-    "launchAndMonitor": "Launch & Monitor",
-    "totalMinutes": "Total Minutes",
-    "totalCallDuration": "Total call duration",
-    "performanceTrends": "Performance Trends",
-    "last12Hours": "Last 12 hours",
-    "live": "Live",
-    "liveFeedback": "Live Feedback",
-    "recentCallReviews": "Recent call reviews",
-    "active": "Active",
-    "totalCampaigns": "Total Campaigns",
-    "recentCampaigns": "Recent Campaigns",
-    "viewAll": "View All",
-    "noCampaignsYet": "No Campaigns Yet",
-    "createCampaign": "Create Campaign",
-    "loadingCampaigns": "Loading campaigns...",
-    "chatMessages": {
-      "greatCallQuality": "Great call quality!",
-      "veryProfessional": "Very professional",
-      "excellentFollowUp": "Excellent follow-up",
-      "perfectTiming": "Perfect timing"
-    },
     "activeCampaigns": "Active Campaigns",
     "currentlyRunningCampaigns": "Currently running campaigns",
     "callsToday": "Calls Today",
@@ -1365,10 +1343,6 @@
         "question": "Is there a free trial?",
         "answer": "Yes, a 14-day free trial is available."
       }
-    },
-    "whyChoose": {
-      "title": "Why top companies choose SPARK AI SALES AGENT",
-      "subtitle": "Join 500+ companies that trust SPARK AI SALES AGENT to transform customer engagement and drive unprecedented growth"
     }
   },
   "chat": {
