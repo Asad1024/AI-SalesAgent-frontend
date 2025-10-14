@@ -706,7 +706,7 @@
     "testimonialsSection": {
       "tag": "⭐ REFERANSLAR",
       "title": "Müşterilerimiz Ne Diyor",
-      "subtitle": "AI SPARK SALES AGENT kullanan işletmelerden gerçek sonuçlar"
+      "subtitle": "SPARK AI SALES AGENT kullanan işletmelerden gerçek sonuçlar"
     },
     "faqSection": {
       "tag": "❓ SSS",
@@ -1119,14 +1119,26 @@
     "ctaBanner": {
       "title": "Sektör liderlerine katılmaya hazır mısınız?",
       "subtitle": "Fortune 500 şirketlerinin müşteri etkileşimini dönüştürmek için kullandığı aynı YZ teknolojisini deneyimleyin",
-      "startFreeTrial": "Ücretsiz Denemeyi Başlat →",
+      "startFreeTrial": "Ücretsiz Denemeyi Başlat",
       "bookDemoCall": "Demo Görüşmesi Ayırt",
-      "trustedBy": "Dünya genelinde 500+ şirketin güvendiği"
+      "trustedBy": "Dünya genelinde 500+ şirketin güvendiği",
+      "enterpriseSecurity": {
+        "title": "Kurumsal Güvenlik",
+        "description": "Askerî düzey şifreleme ile SOC 2 uyumlu"
+      },
+      "provenResults": {
+        "title": "Kanıtlanmış Sonuçlar", 
+        "description": "Potansiyel dönüşüm oranlarında ortalama %300 artış"
+      },
+      "fiveStarSupport": {
+        "title": "5 Yıldızlı Destek",
+        "description": "7/24 özel destek ve %99,9 çalışma süresi"
+      }
     },
     "aiSalesTeam": {
       "badge": "YZ SATIŞ EKİBİ",
       "title": "Yeni YZ Satış Ekibinizle Tanışın",
-      "subtitle": "AI SPARK SALES AGENT, insan gibi seslenen, stratejik düşünen ve işinizi 7/24 büyüten akıllı sesli temsilciler oluşturur.",
+      "subtitle": "SPARK AI SALES AGENT, insan gibi seslenen, stratejik düşünen ve işinizi 7/24 büyüten akıllı sesli temsilciler oluşturur.",
       "readyToSee": "YZ Temsilcinizi İş Başında Görmeye Hazır mısınız?",
       "bookDemo": "Kişiselleştirilmiş bir demo ayırtın ve YZ’nin özel kullanım senaryonuzu gerçek zamanlı yönetmesini izleyin.",
       "demoForm": {
@@ -1258,17 +1270,17 @@
     "testimonials": {
       "sarah": {
         "name": "Sarah Johnson",
-        "content": "AI SPARK SALES AGENT potansiyel nitelendirme sürecimizi dönüştürdü. 3 ayda %20'den %65'e çıktık."
+        "content": "SPARK AI SALES AGENT potansiyel nitelendirme sürecimizi tamamen dönüştürdü. Sadece 3 ayda dönüşüm oranımızı %20'den %65'e çıkardık. Gerçekten inanılmaz!"
       },
       "michael": {
         "name": "Michael Chen",
         "role": "Satış Direktörü, RealEstate Pro",
-        "content": "YZ temsilciler randevu planlamayı kusursuz yönetiyor. Ekibimiz takvim yönetimi yerine anlaşma kapatmaya odaklanıyor."
+        "content": "YZ temsilcilerimiz randevu planlamayı mükemmel şekilde yönetiyor. Artık ekibimiz takvim yönetimi yerine gerçek anlaşmaları kapatmaya odaklanabiliyor. Verimliliğimiz %300 arttı!"
       },
       "emily": {
         "name": "Emily Rodriguez", 
         "role": "Kurucu, HealthCare Plus",
-        "content": "AI SPARK SALES AGENT'ten sonra hasta memnuniyeti %40 arttı. Hastalarımız anlık ve kişisel desteği seviyor."
+        "content": "SPARK AI SALES AGENT'i uyguladıktan sonra hasta memnuniyetimiz %40 arttı. Hastalarımız 7/24 anlık ve kişiselleştirilmiş desteği çok seviyor. Artık hiçbir çağrıyı kaçırmıyoruz!"
       }
     },
     "ctaSection": {
