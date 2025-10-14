@@ -646,7 +646,7 @@
           "title": "Appointment Scheduling Demo — Healthcare",
           "duration": "⏱️ 3:15 min",
           "description": "The AI agent qualifies prospects, creates appointments, and automatically follows up.",
-          "features": [
+        "features": [
             "Lead Qualification",
             "Appointment Scheduling",
             "Automatic Follow-up"
@@ -657,7 +657,7 @@
           "title": "Sales & Lead Generation — Real Estate",
           "duration": "⏱️ 4:20 min",
           "description": "The AI agent generates new leads, qualifies them, and schedules property viewing appointments.",
-          "features": [
+        "features": [
             "Lead Generation",
             "Lead Qualification",
             "Viewing Scheduling"
@@ -792,7 +792,7 @@
     },
     "industries": {
       "healthcare": "Healthcare",
-      "ecommerce": "E-commerce",
+      "ecommerce": "E-commerce", 
       "realEstate": "Real Estate",
       "education": "Education",
       "automotive": "Automotive",
@@ -806,7 +806,7 @@
         "description": "24/7 automated customer service that never sleeps"
       },
       "leadQualification": {
-        "title": "Lead Qualification",
+        "title": "Lead Qualification", 
         "description": "AI-powered lead scoring and qualification"
       },
       "salesAutomation": {
@@ -859,7 +859,7 @@
         "description": "Advanced features for growing businesses",
         "features": [
           "Advanced analytics",
-          "Priority support",
+          "Priority support", 
           "Custom integrations"
         ],
         "cta": "Get Started"
@@ -876,7 +876,7 @@
         "content": "The AI agents handle our appointment scheduling flawlessly. Our team now focuses on closing deals instead of managing calendars."
       },
       "emily": {
-        "name": "Emily Rodriguez",
+        "name": "Emily Rodriguez", 
         "role": "Founder, HealthCare Plus",
         "content": "Patient satisfaction increased by 40% after implementing AI SPARK SALES AGENT. Our patients love the instant, personalized support."
       }
@@ -1115,8 +1115,9 @@
     },
     "ctaBanner": {
       "title": "Ready to Transform Your Business?",
-      "subtitle": "Use action-driven CTAs like ‘Try for Free’ or ‘Book a Demo’ with a short benefit (e.g., ‘Save 10+ hours a week’).",
-      "button": "Try for Free — Save 10+ Hours/Week"
+      "subtitle": "Use action-driven CTAs like 'Try for Free' or 'Book a Demo' with a short benefit (e.g., 'Save 10+ hours a week').",
+      "button": "Try for Free — Save 10+ Hours/Week",
+      "trustedBy": "Trusted by 500+ companies worldwide"
     },
     "faq": {
       "title": "FAQ",
@@ -1152,17 +1153,19 @@
       "guarantee": "✅ 14-day free trial • ✅ No credit card required • ✅ 30-day money-back guarantee"
     },
     "testimonials": {
-      "sarah": {
-        "name": "Sarah Johnson",
+      "title": "Testimonials",
+      "subtitle": "Show customer success stories with real photos and results. Keep it personal and relatable to your audience.",
+        "sarah": {
+          "name": "Sarah Johnson",
         "content": "AI SPARK SALES AGENT transformed our lead qualification process. We went from 20% to 65% in just 3 months."
-      },
-      "michael": {
-        "name": "Michael Chen",
+        },
+        "michael": {
+          "name": "Michael Chen",
         "role": "Sales Director, RealEstate Pro",
         "content": "AI agents manage appointment scheduling flawlessly. Our team now focuses on closing deals instead of calendar management."
-      },
-      "emily": {
-        "name": "Emily Rodriguez",
+        },
+        "emily": {
+          "name": "Emily Rodriguez",
         "role": "Founder, HealthCare Plus",
         "content": "Patient satisfaction increased by 40% after AI SPARK SALES AGENT. Our patients love the instant, personalized support."
       }
@@ -1248,6 +1251,7 @@
       "support": "Support Available"
     },
     "whyChoose": {
+      "title": "Why Choose Our Us",
       "comparison": {
         "title": "Key Features & Benefits",
         "ourPlatform": "AI SPARK SALES AGENT",
@@ -1323,24 +1327,24 @@
       "badge": "LET'S CONNECT"
     },
     "faqs": {
-      "howItWorks": {
+        "howItWorks": {
         "question": "How does SPARK AI SALES AGENT work?",
         "answer": "SPARK AI SALES AGENT uses advanced AI to create intelligent voice agents that automatically handle calls, qualify leads, and schedule appointments."
-      },
-      "customization": {
+        },
+        "customization": {
         "question": "Can I customize my AI agent?",
         "answer": "Yes! You can customize the agent's voice, scripts, flows, and even train it for your specific industry."
-      },
-      "languages": {
-        "question": "What languages are supported?",
+        },
+        "languages": {
+          "question": "What languages are supported?",
         "answer": "We support 95+ languages with native accents so you can reach global customers easily."
       },
       "pricing": {
         "question": "How does pricing work?",
         "answer": "Our plans start from AED 1,500/month with a one-time setup fee of AED 10,000. No hidden fees."
-      },
-      "freeTrial": {
-        "question": "Is there a free trial?",
+        },
+        "freeTrial": {
+          "question": "Is there a free trial?",
         "answer": "Yes, a 14-day free trial is available."
       }
     }
@@ -1382,6 +1386,54 @@
     "aiVoice": "AI Voice",
     "clearChat": "Clear Chat",
     "backToMain": "Back to Main"
+  },
+  "calendly": {
+    "loading": "Loading...",
+    "bookConsultation": "Book Free Consultation",
+    "scheduleTitle": "Schedule Your Free Consultation",
+    "aiExpertTeam": "AI Expert Team",
+    "sparkAISpecialists": "Spark AI Specialists",
+    "duration": "30 min",
+    "webConferencing": "Web conferencing details provided upon confirmation",
+    "wellCover": "We'll cover:",
+    "topics": {
+      "businessNeeds": "Your business needs and challenges",
+      "customStrategy": "Custom AI strategy for your industry",
+      "roadmap": "Implementation roadmap and timeline"
+    },
+    "testimonial": {
+      "quote": "The AI experts at Spark AI were professional and attentive during our consultation. They created an amazing AI voice agent strategy for our business that increased our conversion rate by 300%.",
+      "author": "Sarah Johnson, CEO TechStart Inc."
+    },
+    "schedulingComplete": "Scheduling Complete",
+    "thankYou": "Thank you for scheduling! You should receive a confirmation email shortly.",
+    "notice": "Notice",
+    "basicLink": "Using basic scheduling link. Some features may be limited.",
+    "cantFindTime": "Can't find a time that works?",
+    "contactDirectly": "Contact us directly"
+  },
+  "badges": {
+    "trustedByLeaders": "🏆 TRUSTED BY INDUSTRY LEADERS"
+  },
+  "featureHighlights": {
+    "enterpriseSecurity": {
+      "title": "Enterprise Security",
+      "description": "SOC 2 compliant with military-grade encryption"
+    },
+    "provenResults": {
+      "title": "Proven Results",
+      "description": "Average 300% increase in lead conversion rates"
+    },
+    "fiveStarSupport": {
+      "title": "5-Star Support",
+      "description": "24/7 dedicated support with 99.9% uptime"
+    },
+    "cta": {
+      "title": "Ready to join industry leaders?",
+      "subtitle": "Experience the same AI technology that's helping Fortune 500 companies transform their customer engagement",
+      "startFreeTrial": "Start Free Trial",
+      "bookDemoCall": "Book Demo Call"
+    }
   },
   "exitIntent": {
     "title": "Wait! Don’t Miss Out! 🚨",
@@ -1606,7 +1658,7 @@
     "export": "Export",
     "timeRange": {
       "24h": "Last 24 hours",
-      "7d": "Last 7 days",
+      "7d": "Last 7 days", 
       "30d": "Last 30 days",
       "90d": "Last 90 days"
     },

@@ -1209,8 +1209,9 @@
     },
     "ctaBanner": {
       "title": "Biznesinizi dəyişməyə hazırsınız?",
-      "subtitle": "“Pulsuz sına” və ya “Demo sifariş et” kimi hərəkətverici CTA-lardan qısa fayda ilə istifadə edin (məs., “Həftədə 10+ saat qənaət”).",
-      "button": "Pulsuz sına — həftədə 10+ saat qənaət"
+      "subtitle": "\"Pulsuz sına\" və ya \"Demo sifariş et\" kimi hərəkətverici CTA-lardan qısa fayda ilə istifadə edin (məs., \"Həftədə 10+ saat qənaət\").",
+      "button": "Pulsuz sına — həftədə 10+ saat qənaət",
+      "trustedBy": "Dünya üzrə 500+ şirkət tərəfindən etibar edilir"
     },
     "faq": {
       "title": "SSS",
@@ -1246,6 +1247,8 @@
       "guarantee": "✅ 14 gün pulsuz sınaq • ✅ Kart tələb olunmur • ✅ 30 gün pulun geri qaytarılması zəmanəti"
     },
     "testimonials": {
+      "title": "Rəylər",
+      "subtitle": "Müştəri uğur hekayələrini real fotoğraf və nəticələrlə göstərin. Şəxsi və auditoriyanıza uyğun saxlayın.",
       "sarah": {
         "name": "Sarah Johnson",
         "content": "AI SPARK SALES AGENT potensial niteləmə prosesimizi dəyişdi. 3 ayda %20-dən %65-ə qalxdıq."
@@ -1458,6 +1461,54 @@
     "aiVoice": "Sİ səsi",
     "clearChat": "Söhbəti təmizlə",
     "backToMain": "Ana səhifəyə dön"
+  },
+  "calendly": {
+    "loading": "Yüklənir...",
+    "bookConsultation": "Pulsuz Məsləhət Sifariş Et",
+    "scheduleTitle": "Pulsuz Məsləhətinizi Planlaşdırın",
+    "aiExpertTeam": "Sİ Mütəxəssis Komandası",
+    "sparkAISpecialists": "Spark AI Mütəxəssisləri",
+    "duration": "30 dəq",
+    "webConferencing": "Veb-konfrans təfərrüatları təsdiqdən sonra təqdim olunur",
+    "wellCover": "Əhatə edəcəyimiz mövzular:",
+    "topics": {
+      "businessNeeds": "Biznesinizin ehtiyacları və çətinlikləri",
+      "customStrategy": "Sənayeniz üçün xüsusi Sİ strategiyası",
+      "roadmap": "Tətbiq yol xəritəsi və qrafik"
+    },
+    "testimonial": {
+      "quote": "Spark AI-dəki Sİ mütəxəssisləri məsləhətimiz zamanı peşəkar və diqqətli idilər. Onlar biznesimiz üçün dönüşüm nisbətini 300% artıran əla Sİ səs agenti strategiyası yaratdılar.",
+      "author": "Sarah Johnson, CEO TechStart Inc."
+    },
+    "schedulingComplete": "Planlaşdırma Tamamlandı",
+    "thankYou": "Planlaşdırdığınız üçün təşəkkür edirik! Tezliklə təsdiq e-poçtu alacaqsınız.",
+    "notice": "Bildiriş",
+    "basicLink": "Əsas planlaşdırma bağlantısı istifadə olunur. Bəzi xüsusiyyətlər məhdud ola bilər.",
+    "cantFindTime": "Uyğun vaxt tapa bilmirsiniz?",
+    "contactDirectly": "Birbaşa bizimlə əlaqə saxlayın"
+  },
+  "badges": {
+    "trustedByLeaders": "🏆 SƏNAYE LİDERLƏRİ TƏRƏFİNDƏN ETİBAR EDİLİR"
+  },
+  "featureHighlights": {
+    "enterpriseSecurity": {
+      "title": "Korporativ Təhlükəsizlik",
+      "description": "Hərbi dərəcəli şifrələmə ilə SOC 2 uyğunluğu"
+    },
+    "provenResults": {
+      "title": "Sübut Edilmiş Nəticələr",
+      "description": "Müştəri namizədi dönüşüm nisbətlərində ortalama 300% artım"
+    },
+    "fiveStarSupport": {
+      "title": "5 Ulduzlu Dəstək",
+      "description": "99.9% iş vaxtı ilə 7/24 xüsusi dəstək"
+    },
+    "cta": {
+      "title": "Sənaye liderlərinə qoşulmağa hazırsınız?",
+      "subtitle": "Fortune 500 şirkətlərinə müştəri əlaqəsini dəyişməyə kömək edən eyni Sİ texnologiyasını yaşayın",
+      "startFreeTrial": "Pulsuz Sınağa Başlayın",
+      "bookDemoCall": "Demo Zəngi Sifariş Et"
+    }
   },
   "exitIntent": {
     "title": "Gözləyin! Bunu qaçırmayın! 🚨",

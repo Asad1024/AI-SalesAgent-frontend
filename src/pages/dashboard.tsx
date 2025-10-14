@@ -187,17 +187,6 @@ export default function Dashboard() {
               </div>
             )}
 
-            {/* Enhanced Quick Stats */}
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <Zap className="h-6 w-6 text-brand-500 animate-pulse" />
-                <h3 className="text-2xl font-bold text-brand-800 dark:text-brand-200">
-                  Performance Overview
-                </h3>
-              </div>
-              <StatsOverview />
-            </div>
-
             {/* Existing Campaigns */}
             <div className="space-y-4">
               <div className="flex items-center justify-between">

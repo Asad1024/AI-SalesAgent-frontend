@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, Clock, User, CheckCircle, ExternalLink, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { api } from '@/lib/api';
+import { useTranslation } from 'react-i18next';
 
 interface CalendlySchedulingProps {
   userSlug?: string;
@@ -27,6 +28,7 @@ export default function CalendlyScheduling({
   const [isLoading, setIsLoading] = useState(false);
   const [schedulingLink, setSchedulingLink] = useState<string>('');
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   // Initialize Calendly scheduling link on mount
   useEffect(() => {
@@ -61,8 +63,8 @@ export default function CalendlyScheduling({
         setSchedulingLink(fallbackLink);
         
         toast({
-          title: "Notice",
-          description: "Using basic scheduling link. Some features may be limited.",
+          title: t('calendly.notice'),
+          description: t('calendly.basicLink'),
           variant: "default"
         });
       } finally {
@@ -86,8 +88,8 @@ export default function CalendlyScheduling({
           clearInterval(checkClosed);
           // Optionally refresh or update UI when popup is closed
           toast({
-            title: "Scheduling Complete",
-            description: "Thank you for scheduling! You should receive a confirmation email shortly.",
+            title: t('calendly.schedulingComplete'),
+            description: t('calendly.thankYou'),
           });
         }
       }, 1000);
@@ -134,12 +136,12 @@ export default function CalendlyScheduling({
         {isLoading ? (
           <>
             <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-            Loading...
+            {t('calendly.loading')}
           </>
         ) : (
           <>
             <Calendar className="w-4 h-4 mr-2" />
-            Book Free Consultation
+            {t('calendly.bookConsultation')}
           </>
         )}
       </Button>
@@ -150,7 +152,7 @@ export default function CalendlyScheduling({
           <DialogHeader>
             <DialogTitle className="flex items-center">
               <Calendar className="w-5 h-5 mr-2" />
-              Schedule Your Free Consultation
+              {t('calendly.scheduleTitle')}
             </DialogTitle>
           </DialogHeader>
           <div className="flex-1 min-h-0">
@@ -164,24 +166,24 @@ export default function CalendlyScheduling({
         <CardHeader className="pb-3">
           <CardTitle className="text-lg flex items-center text-blue-800">
             <User className="w-5 h-5 mr-2" />
-            AI Expert Team
-            <span className="ml-2 text-sm font-normal text-slate-600">Spark AI Specialists</span>
+            {t('calendly.aiExpertTeam')}
+            <span className="ml-2 text-sm font-normal text-slate-600">{t('calendly.sparkAISpecialists')}</span>
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
           <div className="flex items-center text-sm text-slate-600">
             <Clock className="w-4 h-4 mr-2 text-blue-500" />
-            <span className="font-medium">30 min</span>
-            <span className="ml-2">Web conferencing details provided upon confirmation</span>
+            <span className="font-medium">{t('calendly.duration')}</span>
+            <span className="ml-2">{t('calendly.webConferencing')}</span>
           </div>
           
           <div className="space-y-2">
-            <p className="font-medium text-slate-800">We'll cover:</p>
+            <p className="font-medium text-slate-800">{t('calendly.wellCover')}</p>
             <div className="space-y-1">
               {[
-                "Your business needs and challenges",
-                "Custom AI strategy for your industry", 
-                "Implementation roadmap and timeline"
+                t('calendly.topics.businessNeeds'),
+                t('calendly.topics.customStrategy'), 
+                t('calendly.topics.roadmap')
               ].map((item, index) => (
                 <div key={index} className="flex items-center text-sm text-slate-600">
                   <CheckCircle className="w-3 h-3 mr-2 text-green-500 flex-shrink-0" />
@@ -194,12 +196,10 @@ export default function CalendlyScheduling({
           {/* Testimonial */}
           <div className="mt-4 pt-3 border-t border-blue-200">
             <blockquote className="text-sm text-slate-600 italic">
-              "The AI experts at Spark AI were professional and attentive during our consultation. 
-              They created an amazing AI voice agent strategy for our business that increased our 
-              conversion rate by 300%."
+              "{t('calendly.testimonial.quote')}"
             </blockquote>
             <cite className="text-xs text-slate-500 mt-1 block">
-              - Sarah Johnson, CEO TechStart Inc.
+              - {t('calendly.testimonial.author')}
             </cite>
           </div>
         </CardContent>
