@@ -1170,20 +1170,23 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   </label>
                   <div className="relative">
                     <div className="w-full px-2 py-1.5 text-xs border border-brand-300 dark:border-brand-600 rounded-lg bg-white dark:bg-brand-800 min-h-[32px] flex items-center">
-                      <span className="text-gray-400 dark:text-gray-500">
+                      <span className="text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 px-1 py-0.5 rounded text-xs font-medium">
+                        FIRST NAME
+                      </span>
+                      <span className="text-gray-400 dark:text-gray-500 ml-1">
                         {(currentCampaign.aiConfig?.initialMessage || currentCampaign.firstPrompt || '').replace(/FIRST NAME/g, '')}
                       </span>
-                      {(currentCampaign.aiConfig?.initialMessage || currentCampaign.firstPrompt || '').includes('FIRST NAME') && (
-                        <span className="text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 px-1 py-0.5 rounded text-xs font-medium ml-1">
-                          FIRST NAME
-                        </span>
-                      )}
                       <input
                         type="text"
-                        value={currentCampaign.aiConfig?.initialMessage || currentCampaign.firstPrompt || ''}
-                        onChange={(e) => updateAIConfigWithScript('initialMessage', e.target.value)}
+                        value={(currentCampaign.aiConfig?.initialMessage || currentCampaign.firstPrompt || '').replace(/FIRST NAME/g, '')}
+                        onChange={(e) => {
+                          const newValue = e.target.value;
+                          const fullValue = newValue.trim() ? `FIRST NAME ${newValue}` : 'FIRST NAME';
+                          updateAIConfigWithScript('initialMessage', fullValue);
+                        }}
                         className="absolute inset-0 w-full px-2 py-1.5 text-xs bg-transparent border-none outline-none text-transparent caret-black dark:caret-white"
                         placeholder="Override the script's opening message (optional)..."
+                        style={{ paddingLeft: '60px' }}
                       />
                     </div>
                   </div>
