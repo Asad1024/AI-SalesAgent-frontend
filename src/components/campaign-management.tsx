@@ -803,7 +803,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       const confirmMessage = `Are you sure you want to stop the campaign "${currentCampaign.name}"?\n\nThis will:\n- Stop all ongoing calls\n- Prevent new calls from starting\n- Keep campaign data intact`;
       
       if (window.confirm(confirmMessage)) {
-        api.post(`/campaigns/${currentCampaign.id}/stop`, {})
+        api.post(`/api/campaigns/${currentCampaign.id}/stop`, {})
           .then(() => {
             setCampaignControlStatus('stopped');
             toast({
@@ -827,7 +827,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       const confirmMessage = `Are you sure you want to pause the campaign "${currentCampaign.name}"?\n\nThis will:\n- Pause ongoing calls\n- Prevent new calls from starting\n- Allow resuming later`;
       
       if (window.confirm(confirmMessage)) {
-        api.post(`/campaigns/${currentCampaign.id}/pause`, {})
+        api.post(`/api/campaigns/${currentCampaign.id}/pause`, {})
           .then(() => {
             setCampaignControlStatus('paused');
             toast({
@@ -1168,26 +1168,29 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   <label className="block text-xs font-medium text-brand-700 dark:text-brand-300 mb-1">
                     Initial Message (Override)
                   </label>
-                  <input
-                    type="text"
-                    value={currentCampaign.aiConfig?.initialMessage || currentCampaign.firstPrompt || ''}
-                    onChange={(e) => updateAIConfigWithScript('initialMessage', e.target.value)}
-                    className="w-full px-2 py-1.5 text-xs border border-brand-300 dark:border-brand-600 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-white dark:bg-brand-800"
-                    placeholder="Override the script's opening message (optional)..."
-                  />
+                  <div className="relative">
+                    <div className="w-full px-2 py-1.5 text-xs border border-brand-300 dark:border-brand-600 rounded-lg bg-white dark:bg-brand-800 min-h-[32px] flex items-center">
+                      <span className="text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 px-1 py-0.5 rounded text-xs font-medium">
+                        FIRST NAME
+                      </span>
+                      <span className="text-gray-400 dark:text-gray-500 ml-1">
+                        {(currentCampaign.aiConfig?.initialMessage || currentCampaign.firstPrompt || '').replace(/FIRST NAME/g, '')}
+                      </span>
+                      <input
+                        type="text"
+                        value={(currentCampaign.aiConfig?.initialMessage || currentCampaign.firstPrompt || '').replace(/FIRST NAME/g, '')}
+                        onChange={(e) => {
+                          const newValue = e.target.value;
+                          const fullValue = newValue.trim() ? `FIRST NAME ${newValue}` : 'FIRST NAME';
+                          updateAIConfigWithScript('initialMessage', fullValue);
+                        }}
+                        className="absolute inset-0 w-full px-2 py-1.5 text-xs bg-transparent border-none outline-none text-transparent caret-black dark:caret-white"
+                        placeholder=""
+                        style={{ paddingLeft: '60px' }}
+                      />
+                    </div>
+                  </div>
                   <p className="text-xs text-brand-500 dark:text-brand-400 mt-1">Leave empty to use the selected script's opening message.</p>
-                </div>
-                
-                <div>
-                  <label className="block text-xs font-medium text-brand-700 dark:text-brand-300 mb-1">
-                    System Persona (Fixed)
-                  </label>
-                  <textarea
-                    value={currentCampaign.aiConfig?.systemPersona || currentCampaign.systemPersona || ''}
-                    onChange={(e) => updateAIConfig('systemPersona', e.target.value)}
-                    rows={3}
-                    className="w-full px-2 py-1.5 text-xs border border-brand-300 dark:border-brand-600 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-white dark:bg-brand-800"
-                  />
                 </div>
                 
                 <button

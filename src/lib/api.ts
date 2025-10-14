@@ -488,7 +488,7 @@ export const api = {
   },
 
   startCampaign: async (campaignData: any) => {
-    const response = await fetch(`${BASE_URL}/api/start-campaign`, {
+    const response = await fetch(`${BASE_URL}/api/campaigns/start-campaign`, {
       method: 'POST',
       headers: getAuthHeaders(),
       credentials: 'include',
