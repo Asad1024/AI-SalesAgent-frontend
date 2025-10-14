@@ -10,6 +10,7 @@ import CampaignActions from "@/components/campaign-actions";
 import CampaignSelector from "@/components/campaign-selector";
 import AnimatedBanner from "@/components/animated-banner";
 import LanguageSwitcher from "@/components/language-switcher";
+import Logo from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Zap, Sun, Moon, Menu, Megaphone } from "lucide-react";
 import ThemeToggle from "@/components/theme-toggle";
@@ -125,20 +126,8 @@ export default function Dashboard() {
               
               <div className="space-y-1 sm:space-y-2">
                 <div className="flex items-center space-x-3">
-                  <div className="relative">
-                    <img 
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" 
-                      alt="AI Sales Agent" 
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-purple-200 dark:border-purple-700"
-                    />
-                    <div className="absolute -bottom-1 -right-1 w-3 h-3 sm:w-4 sm:h-4 bg-purple-500 border-2 border-white dark:border-slate-900 rounded-full"></div>
-                  </div>
-                  <div className="relative">
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold spark-gradient-text">
-                      {t('auth.title')}
-                    </h2>
-                    <Sparkles className="absolute -top-1 -right-3 sm:-top-2 sm:-right-6 h-4 w-4 sm:h-6 sm:w-6 text-yellow-500 animate-pulse" />
-                  </div>
+                  <Logo size="lg" showText={true} />
+                  <Sparkles className="h-6 w-6 text-yellow-500 animate-pulse" />
                 </div>
                 <p className="text-brand-600 dark:text-brand-400 text-sm sm:text-base lg:text-lg font-medium hidden sm:block">
                   {t('auth.subtitle')}

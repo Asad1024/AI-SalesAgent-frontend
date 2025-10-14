@@ -17,6 +17,7 @@ import { useTheme } from "@/hooks/use-theme";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import LanguageSwitcher from "./language-switcher";
+import Logo from "./logo";
 
 export default function Sidebar() {
   const { t } = useTranslation();
@@ -73,21 +74,12 @@ export default function Sidebar() {
       {/* Enhanced Brand */}
       <div className="p-8 border-b border-brand-200/50 dark:border-brand-800/50 bg-gradient-to-br from-brand-50/50 to-brand-100/50 dark:from-brand-900/20 dark:to-brand-800/20">
         <div className="flex items-center space-x-4">
-          <div className="relative">
-            <div className="w-12 h-12 bg-gradient-to-br from-brand-500 via-brand-400 to-brand-600 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              <Phone className="h-7 w-7 text-white" />
-            </div>
-            <Sparkles className="absolute -top-1 -right-1 h-4 w-4 text-yellow-500 animate-pulse" />
-          </div>
-          <div>
-            <h1 className="text-xl font-bold spark-gradient-text">
-              Spark AI
-            </h1>
-            <p className="text-sm text-brand-600 dark:text-brand-400 font-medium">
-              {t('navigation.aiPowered')}
-            </p>
-          </div>
+          <Logo size="md" showText={true} />
+          <Sparkles className="h-4 w-4 text-yellow-500 animate-pulse" />
         </div>
+        <p className="text-sm text-brand-600 dark:text-brand-400 font-medium mt-2">
+          {t('navigation.aiPowered')}
+        </p>
       </div>
 
       {/* Enhanced Navigation */}

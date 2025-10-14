@@ -41,8 +41,8 @@
     "resume": "Resume",
     "draft": "Draft",
     "settings": "Settings",
-    "logout": "Logout",
-    "login": "Login",
+    "logout": "Log Out",
+    "login": "Log In",
     "register": "Register",
     "email": "Email",
     "password": "Password",
@@ -70,7 +70,7 @@
     "analytics": "Analytics"
   },
   "auth": {
-    "title": "AI Voice Calling",
+    "title": "SPARK AI SALES AGENT",
     "subtitle": "Sales Automation",
     "signIn": "Sign In",
     "signUp": "Sign Up",
@@ -84,17 +84,17 @@
     "confirmPasswordPlaceholder": "Confirm your password",
     "signingIn": "Signing in...",
     "creatingAccount": "Creating account...",
-    "dontHaveAccount": "Don't have an account?",
+    "dontHaveAccount": "Don’t have an account?",
     "alreadyHaveAccount": "Already have an account?",
     "createOneHere": "Create one here",
     "signInHere": "Sign in here",
     "passwordRequirements": "Password requirements:",
-    "passwordRequirementsText": "At least 8 characters with uppercase, lowercase and numbers.",
+    "passwordRequirementsText": "At least 8 characters with uppercase, lowercase, and numbers.",
     "validationError": "Validation Error",
     "emailPasswordRequired": "Email and password are required",
     "passwordsDoNotMatch": "Passwords do not match",
     "welcomeMessage": "Welcome!",
-    "loginSuccessMessage": "Successfully signed in.",
+    "loginSuccessMessage": "Signed in successfully.",
     "accountCreatedMessage": "Account created!",
     "accountCreatedSuccessMessage": "Your account has been created and you are now signed in.",
     "loginFailed": "Login failed",
@@ -132,7 +132,7 @@
     "knowledgeBase": "Knowledge Base",
     "uploadPdfFiles": "Upload PDF files to train your AI agent.",
     "aiConfiguration": "AI Configuration",
-    "setupAiAgent": "Set up your AI agent's personality and behavior.",
+    "setupAiAgent": "Set up your AI agent’s personality and behavior.",
     "aiVoiceSelection": "AI Voice Selection",
     "chooseFromPremium": "Choose from premium or custom voices.",
     "uploadAndManageLeads": "Upload and manage your calling lists.",
@@ -226,22 +226,22 @@
     },
     "multiLanguageSupport": {
       "title": "Multi-Language Support",
-      "description": "Reach global audiences with native language conversations and cultural awareness",
+      "description": "Reach global audiences with native-language conversations and cultural awareness",
       "stats": "95+ Languages"
     },
     "multiLanguage": {
       "title": "Multi-Language Support",
-      "description": "Reach global audiences with native language conversations and cultural awareness",
+      "description": "Reach global audiences with native-language conversations and cultural awareness",
       "stats": "95+ Languages"
     },
     "arabicSupport": {
       "title": "Arabic Support",
-      "description": "Native Arabic language support with regional dialects",
+      "description": "Local Arabic language support with regional dialects",
       "stats": "4 Dialects"
     },
     "availability": {
       "title": "24/7 Availability",
-      "description": "Never miss a lead with round-the-clock AI agents working tirelessly",
+      "description": "Don’t miss a lead with tireless AI agents working nonstop",
       "stats": "Always Online"
     },
     "analytics": {
@@ -257,7 +257,7 @@
   },
   "experience": {
     "title": "Experience Our AI Voice Agents",
-    "subtitle": "Try our AI calling agents across different sectors and see how they can transform your business",
+    "subtitle": "Try our AI calling agents across industries and see how they can transform your business",
     "selectIndustry": "Select Your Industry",
     "chooseAgent": "Choose Your AI Agent",
     "tryCall": "Try Call",
@@ -344,7 +344,7 @@
       "specialties": ["Lead Qualification", "Sales Demos", "Objection Handling"],
       "experience": "7+ years in sales",
       "languages": ["English", "German", "Italian"],
-      "successRate": "27% higher conversion rates"
+      "successRate": "27% higher conversion"
     },
     "emma": {
       "name": "Emma",
@@ -365,7 +365,7 @@
     "lisa": {
       "name": "Lisa",
       "role": "Financial Advisor",
-      "specialties": ["Investment Advice", "Loan Applications", "Financial Planning"],
+      "specialties": ["Investment Advisory", "Loan Applications", "Financial Planning"],
       "experience": "8+ years in finance",
       "languages": ["English", "Mandarin", "Japanese"],
       "successRate": "92% client retention"
@@ -380,17 +380,17 @@
     }
   },
   "callForm": {
-    "title": "Experience AI Call",
+    "title": "AI Call Experience",
     "fullName": "Full Name",
     "emailAddress": "Email Address",
     "phoneNumber": "Phone Number",
     "enterFullName": "Enter your full name",
     "enterEmail": "Enter your email",
     "enterPhone": "Enter your phone number",
-    "weWillCall": "We'll call you at",
-    "initiatingCall": "Initiating Call...",
+    "weWillCall": "We’ll call you at",
+    "initiatingCall": "Initiating call...",
     "getAiCallExperience": "Get AI Call Experience",
-    "callDescription": "Our AI agent will call you within 2-3 minutes to demonstrate the experience"
+    "callDescription": "Our AI agent will call you within 2–3 minutes to demonstrate the experience"
   },
   "pricing": {
     "title": "Voice AI Outbound Agent - Pricing",
@@ -411,9 +411,9 @@
       "name": "Essential Support",
       "price": "AED 1,500",
       "period": "/month",
-      "description": "Perfect for businesses getting started with AI calling",
+      "description": "Ideal for businesses starting with AI calling",
       "features": [
-        "24x7 uptime monitoring and incident alerts",
+        "24/7 uptime monitoring and incident alerts",
         "Up to 4 hours/month of flow tweaks or prompt changes",
         "Unused time rolls over for 60 days",
         "Monthly performance report with actionable insights",
@@ -424,7 +424,7 @@
       "name": "Premium Support",
       "price": "AED 3,000",
       "period": "/month",
-      "description": "For businesses requiring advanced optimization and priority support",
+      "description": "For businesses wanting advanced optimization and priority support",
       "features": [
         "Everything in Essential plus:",
         "Up to 10 hours/month of prompt/flow optimization",
@@ -436,39 +436,12 @@
     },
     "notes": {
       "vat": "UAE 5% VAT applies where relevant",
-      "optimization": "We upgrade your agent with larger-scale models and pass savings on - no lock-in metered rates"
-    }
-  },
-  "testimonials": {
-    "title": "What Our Customers Say",
-    "subtitle": "Real stories from sales teams who transformed their business with AI Sales Calling Agent",
-    "keyResults": "Key Results",
-    "leadIncrease": "40% Lead Increase",
-    "marketGrowth": "300% Market Growth",
-    "customerSatisfaction": "95% Customer Satisfaction",
-    "availability": "24/7 Availability",
-    "sarah": {
-      "name": "Sarah Johnson",
-      "role": "Sales Director",
-      "company": "TechFlow Solutions",
-      "content": "Spark AI's AI Sales Calling Agent transformed our sales process. We've seen a 40% increase in qualified leads and our team can focus on closing deals instead of cold calling."
-    },
-    "ahmed": {
-      "name": "Ahmed Al-Rashid",
-      "role": "Marketing Manager",
-      "company": "Global Connect",
-      "content": "The Arabic language support is incredible. Our Middle Eastern market response has increased by 300% since implementing Spark AI's AI Sales Calling Agent."
-    },
-    "maria": {
-      "name": "Maria Rodriguez",
-      "role": "VP of Sales",
-      "company": "InnovateCorp",
-      "content": "The voice cloning feature is game-changing. Our customers can't tell they're talking to an AI. Conversion rates have never been higher."
+      "optimization": "We upgrade your agent with larger-scale models and pass savings on — no locked-in metered rates"
     }
   },
   "cta": {
     "title": "Ready to Transform Your Sales?",
-    "subtitle": "Join thousands of sales teams already using AI Sales Calling Agent to automate their calling process",
+    "subtitle": "Join thousands of sales teams already using the AI Sales Calling Agent to automate their calling process",
     "startFreeTrial": "Start Free Trial",
     "scheduleDemo": "Schedule Demo"
   },
@@ -538,7 +511,7 @@
     "officeLocations": "Office Locations",
     "visitOffices": "Visit us at our Dubai office or reach out online.",
     "sendMessage": "Send Us a Message",
-    "fillForm": "Fill out the form below and we'll get back to you within 24 hours.",
+    "fillForm": "Fill out the form below and we’ll get back to you within 24 hours.",
     "name": "Name",
     "email": "Email",
     "company": "Company",
@@ -559,9 +532,9 @@
     "sending": "Sending...",
     "sendMessage": "Send Message",
     "messageSent": "Message Sent!",
-    "thankYouReaching": "Thank you for reaching out. We'll get back to you soon.",
+    "thankYouReaching": "Thank you for reaching out. We’ll get back to you soon.",
     "whyChooseSupport": "Why Choose Our Support?",
-    "committedExceptional": "We're committed to providing exceptional support to help you succeed",
+    "committedExceptional": "We’re committed to providing exceptional support to help you succeed",
     "support24": "24/7 Support",
     "roundClockAssistance": "Round-the-clock assistance for all your needs",
     "expertTeam": "Expert Team",
@@ -580,13 +553,17 @@
     "subtitle": "Transform your sales with intelligent voice automation",
     "hero": {
       "title": "Transform Your Business with AI Voice Agents",
-      "subtitle": "Never miss another call. Our AI agents work 24/7 to qualify leads, book appointments, and provide customer support that converts.",
+      "subtitle": "Never miss another call. Our AI agents qualify leads, book appointments, and deliver customer support that converts.",
       "startFreeTrial": "Start Free Trial",
       "seeInAction": "See AI SPARK SALES AGENT in Action",
-      "watchDescription": "Watch our AI agent handle real customer calls with natural conversation and intelligent responses",
+      "watchDescription": "Watch our AI agent handle real customer calls with natural conversation",
       "tryLiveDemo": "Try Live Demo",
       "enterPhoneNumber": "Enter your phone number",
       "playDemoVideo": "Play Demo Video",
+      "getFreeDemoCall": "Get Free Demo Call",
+      "selectYourIndustry": "Select Your Industry",
+      "yourName": "Your Name",
+      "phoneNumber": "Phone Number",
       "stats": {
         "successRate": "98%",
         "successRateLabel": "Success Rate",
@@ -600,10 +577,14 @@
       "title": "Missed Calls = Missed Revenue",
       "subtitle": "Every missed call costs your company money. Answer every call 24/7/365.",
       "tag": "24/7 Call Handling",
+      "problemTitle": "Problem",
+      "solutionTitle": "Solution",
+      "problemDescription": "Overwhelmed by repetitive calls?",
+      "solutionDescription": "Automate calls with AI Voice Agents",
       "problems": [
         "Want to get more leads?",
         "Struggling with high call volume?",
-        "Distracted from important tasks?",
+        "Pulled away from important tasks?",
         "Looking for a scalable, 24/7 solution?"
       ],
       "solutions": [
@@ -611,19 +592,184 @@
         "Handle unlimited calls simultaneously",
         "Focus on high-value activities",
         "Scale without hiring more staff"
-      ]
+      ],
+      "problemCards": {
+        "outOfHours": "Out-of-hours calls",
+        "unqualified": "Unqualified leads",
+        "canceledTasks": "Interrupted tasks",
+        "missedCalls": "Missed calls"
+      },
+      "solutionCards": {
+        "availability": "24/7 Availability",
+        "qualifiedLeads": "Qualified leads",
+        "freedUpTasks": "Freed-up tasks",
+        "noMissedCalls": "No missed calls"
+      }
+    },
+    "solutionsSection": {
+      "title": "Powerful AI Solutions",
+      "subtitle": "Transform your business with cutting-edge technology that delivers real results.",
+      "tag": "🚀 SOLUTIONS",
+      "solutions": {
+        "customerSupport": {
+          "title": "Customer Support",
+          "description": "24/7 automated customer service that never sleeps"
+        },
+        "leadQualification": {
+          "title": "Lead Qualification",
+          "description": "AI-powered lead scoring and qualification"
+        },
+        "salesAutomation": {
+          "title": "Sales Automation",
+          "description": "Automated follow-ups that convert prospects to customers"
+        }
+      }
+    },
+    "benefitsSection": {
+      "tag": "✨ BENEFITS",
+      "title": "Why Choose Us?",
+      "subtitle": "Experience the advantages that set us apart from the competition"
+    },
+    "howItWorks": {
+      "tag": "🔄 HOW IT WORKS",
+      "title": "Simple 3-Step Process",
+      "subtitle": "Get started in minutes with our streamlined setup"
+    },
+    "industriesSection": {
+      "title": "Trusted Across Industries",
+      "subtitle": "From healthcare to real estate, our AI agents adapt to your industry’s unique needs"
+    },
+    "demoSection": {
+      "tag": "🎬 LIVE DEMOS",
+      "title": "See AI Voice Agent in Action",
+      "subtitle": "Watch how our AI-powered voice agents handle real phone conversations across industries. No scripts, no pre-recorded responses — just pure AI intelligence.",
+      "watchDemo": "Watch Demo",
+      "bookLiveDemo": "Book Live Demo",
+      "tryFreeCall": "Try Free Call",
+      "liveDemo": {
+        "title": "Live AI Call Demo",
+        "subtitle": "Watch how our AI agent handles a real customer service call.",
+        "playAllDemo": "🎬 Play All Demos",
+        "live": "🔴 LIVE"
+      },
+      "demos": {
+        "ecommerce": {
+          "title": "Customer Support Demo — E-commerce",
+          "duration": "⏱️ 2:30 min",
+          "description": "The AI agent manages order tracking, returns, and customer inquiries with a natural conversation flow.",
+          "features": [
+            "Order Tracking",
+            "Return Processing",
+            "Customer Inquiries"
+          ],
+          "watchDemo": "👉 Watch Demo"
+        },
+        "healthcare": {
+          "title": "Appointment Scheduling Demo — Healthcare",
+          "duration": "⏱️ 3:15 min",
+          "description": "The AI agent qualifies prospects, creates appointments, and automatically follows up.",
+          "features": [
+            "Lead Qualification",
+            "Appointment Scheduling",
+            "Automatic Follow-up"
+          ],
+          "watchDemo": "👉 Watch Demo"
+        },
+        "realEstate": {
+          "title": "Sales & Lead Generation — Real Estate",
+          "duration": "⏱️ 4:20 min",
+          "description": "The AI agent generates new leads, qualifies them, and schedules property viewing appointments.",
+          "features": [
+            "Lead Generation",
+            "Lead Qualification",
+            "Viewing Scheduling"
+          ],
+          "watchDemo": "👉 Watch Demo"
+        }
+      },
+      "conclusion": "These demos show how naturally and effectively AI works in real conversations — like an experienced call center agent, but with uninterrupted, unlimited capacity."
+    },
+    "pricingSection": {
+      "tag": "💰 PRICING",
+      "title": "Transparent Pricing, No Hidden Fees",
+      "subtitle": "Transparent pricing with no hidden costs. Choose the support package that fits your needs.",
+      "setupFee": {
+        "title": "One-time Setup Fee",
+        "amount": "AED 10,000",
+        "description": "Per agent setup and configuration"
+      },
+      "usageFee": {
+        "title": "AI Usage Fees",
+        "amount": "AED 0.51 - 0.66",
+        "unit": "/minute",
+        "description": "Billed to the exact second (covers voice generation, real-time transcription, and LLM processing)"
+      },
+      "supportPackages": "Support Packages:",
+      "limited": "Limited"
+    },
+    "teamSection": {
+      "tag": "👥 SPARK AI TEAM",
+      "title": "Meet Your New Sales Team",
+      "subtitle": "AI SPARK SALES AGENT – your voice sales team that talks like humans, thinks strategically, and works 24/7.",
+      "getDemoCall": "Get a demo call in 60 seconds!",
+      "enterInfo": "Enter your Name – Phone – Industry.",
+      "guarantees": {
+        "secure": "✅ 100% Secure",
+        "setup": "⚙️ 60 Sec Setup",
+        "noCard": "💳 No Credit Card Required"
+      },
+      "stats": {
+        "experience": "50+ years total experience",
+        "projects": "500+ projects delivered",
+        "satisfaction": "95% customer satisfaction",
+        "support": "24/7 support"
+      }
+    },
+    "testimonialsSection": {
+      "tag": "⭐ TESTIMONIALS",
+      "title": "What Our Clients Say",
+      "subtitle": "Real results from businesses using AI SPARK SALES AGENT"
+    },
+    "faqSection": {
+      "tag": "❓ FAQ",
+      "title": "Frequently Asked Questions",
+      "subtitle": "Quick answers to common questions",
+      "questions": {
+        "howItWorks": "How does SPARK AI SALES AGENT work?",
+        "customize": "Can I customize my AI agent?",
+        "languages": "What languages are supported?",
+        "pricing": "How does pricing work?",
+        "freeTrial": "Is there a free trial?"
+      },
+      "answers": {
+        "howItWorks": "SPARK AI SALES AGENT uses advanced AI to create intelligent voice agents that automatically handle calls, qualify leads, and schedule appointments.",
+        "customize": "Yes! You can customize the agent's voice, scripts, flows, and even train it for your specific industry.",
+        "languages": "We support 95+ languages with native accents so you can reach global customers easily.",
+        "pricing": "Our plans start from AED 1,500/month with a one-time setup fee of AED 10,000. No hidden fees.",
+        "freeTrial": "Yes, a 14-day free trial is available."
+      }
+    },
+    "footerSection": {
+      "office": "Office: New Century City Tower, Port Saeed, Dubai, UAE",
+      "email": "Email: contactus@sparkai.ae",
+      "phone": "Phone: +971 503519350",
+      "security": "SSL Secure · GDPR Compliant · 4.9/5 Rating",
+      "copyright": "© 2024 AI SPARK SALES AGENT. All rights reserved.",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "cookiePolicy": "Cookie Policy"
     },
     "benefits": {
       "title": "Why Choose Our AI Calling System",
       "subtitle": "Transform your business with intelligent voice automation",
       "moreSalesCalls": {
         "title": "300% More Sales Calls",
-        "description": "Never miss another lead. AI agents make calls 24/7, even when you're sleeping, increasing your reach by 300%.",
+        "description": "Never miss another lead. AI agents make calls 24/7, increasing your reach by 300% even while you sleep.",
         "stats": "300% increase"
       },
       "availability": {
         "title": "24/7 Availability",
-        "description": "Never miss a call again with round-the-clock AI agents"
+        "description": "Never miss a call again with always-on AI agents"
       },
       "lightningFast": {
         "title": "Lightning Fast",
@@ -668,7 +814,7 @@
     },
     "industries": {
       "healthcare": "Healthcare",
-      "ecommerce": "E-commerce", 
+      "ecommerce": "E-commerce",
       "realEstate": "Real Estate",
       "education": "Education",
       "automotive": "Automotive",
@@ -682,7 +828,7 @@
         "description": "24/7 automated customer service that never sleeps"
       },
       "leadQualification": {
-        "title": "Lead Qualification", 
+        "title": "Lead Qualification",
         "description": "AI-powered lead scoring and qualification"
       },
       "salesAutomation": {
@@ -693,7 +839,7 @@
     "features": {
       "availability": {
         "title": "24/7 Availability",
-        "description": "Never miss a call again with round-the-clock AI agents"
+        "description": "Don’t miss calls with always-on AI agents"
       },
       "lightningFast": {
         "title": "Lightning Fast",
@@ -701,7 +847,7 @@
       },
       "scalableTeam": {
         "title": "Scalable Team",
-        "description": "Handle unlimited calls simultaneously without hiring"
+        "description": "Unlimited calls without additional staff"
       },
       "dataDriven": {
         "title": "Data Driven",
@@ -709,7 +855,7 @@
       },
       "uploadData": {
         "title": "Upload Your Data",
-        "description": "Add your business information, scripts, and knowledge base"
+        "description": "Add your business info, scripts, and knowledge base"
       },
       "trainAi": {
         "title": "Train Your AI",
@@ -735,7 +881,7 @@
         "description": "Advanced features for growing businesses",
         "features": [
           "Advanced analytics",
-          "Priority support", 
+          "Priority support",
           "Custom integrations"
         ],
         "cta": "Get Started"
@@ -744,244 +890,17 @@
     "testimonials": {
       "sarah": {
         "name": "Sarah Johnson",
-        "content": "AI SPARK SALES AGENT transformed our lead qualification process. We went from 20% conversion rate to 65% in just 3 months."
+        "content": "AI SPARK SALES AGENT transformed our lead qualification process. We went from a 20% conversion rate to 65% in just 3 months."
       },
       "michael": {
         "name": "Michael Chen",
         "role": "Sales Director, RealEstate Pro",
-        "content": "The AI agents handle our appointment scheduling flawlessly. Our team can now focus on closing deals instead of managing calendars."
+        "content": "The AI agents handle our appointment scheduling flawlessly. Our team now focuses on closing deals instead of managing calendars."
       },
       "emily": {
-        "name": "Emily Rodriguez", 
+        "name": "Emily Rodriguez",
         "role": "Founder, HealthCare Plus",
-        "content": "Patient satisfaction increased by 40% since implementing AI SPARK SALES AGENT. Our patients love the instant, personalized support."
-      }
-    },
-    "demos": {
-      "customerSupport": {
-        "title": "Customer Support Demo",
-        "description": "See how our AI handles customer inquiries and resolves issues instantly."
-      },
-      "appointmentBooking": {
-        "title": "Appointment Booking Demo",
-        "description": "Watch our AI agent schedule appointments and manage calendars seamlessly.",
-        "industry": "Healthcare"
-      },
-      "salesQualification": {
-        "title": "Sales Qualification Demo",
-        "description": "Experience how our AI qualifies leads and books meetings automatically."
-      }
-    },
-    "faqs": {
-      "howItWorks": {
-        "question": "How does AI SPARK SALES AGENT work?",
-        "answer": "AI SPARK SALES AGENT uses advanced natural language processing and machine learning to create intelligent voice agents that can handle customer calls, qualify leads, and book appointments automatically."
-      },
-      "customization": {
-        "question": "Can I customize the AI agent?",
-        "answer": "Yes! You can train the AI with your business information, scripts, and knowledge base. The AI will learn your voice, tone, and business processes."
-      },
-      "languages": {
-        "question": "What languages are supported?",
-        "answer": "AI SPARK SALES AGENT supports over 100 languages with natural-sounding voices and accents. You can also clone your own voice for a personalized experience."
-      },
-      "pricing": {
-        "question": "How much does it cost?",
-        "answer": "Our pricing starts at $150/month for the Basic plan with 100 calls. We also offer a Pro plan with advanced features and higher call volumes."
-      },
-      "freeTrial": {
-        "question": "Is there a free trial?",
-        "answer": "Yes! We offer a 14-day free trial with no credit card required. You can test all features and see the results before committing."
-      }
-    },
-    "callForm": {
-      "callInitiated": "Call Initiated!",
-      "callDescription": "Our AI agent will call you shortly to demonstrate our capabilities."
-    },
-    "companies": {
-      "trustedBy": "Trusted by leading companies"
-    },
-    "industryUseCases": {
-      "healthcare": "Appointment scheduling, patient reminders, and support",
-      "ecommerce": "Order tracking, returns, and customer support", 
-      "realEstate": "Lead qualification, property inquiries, and scheduling",
-      "education": "Student support, enrollment, and information",
-      "automotive": "Service appointments, sales follow-ups, and support",
-      "legal": "Client intake, appointment scheduling, and case updates",
-      "restaurant": "Reservations, orders, and customer service",
-      "services": "Appointment booking, follow-ups, and support"
-    },
-    "demoFeatures": {
-      "customerSupport": {
-        "title": "Customer Support",
-        "features": ["24/7 Availability", "Multi-language Support", "CRM Integration"]
-      },
-      "appointmentBooking": {
-        "title": "Appointment Booking",
-        "industry": "Healthcare"
-      }
-    },
-    "benefits": {
-      "saveTime": {
-        "title": "Save 10+ Hours Weekly",
-        "description": "Stop spending hours on cold calls. Our AI handles the entire process while you focus on closing deals.",
-        "stats": "10+ hours saved"
-      },
-      "qualityLeads": {
-        "title": "Higher Quality Leads",
-        "description": "AI qualifies prospects before you talk to them, so you only spend time on hot leads ready to buy.",
-        "stats": "85% qualified"
-      },
-      "analytics": {
-        "title": "Real-Time Analytics",
-        "description": "Track every call, conversion, and ROI in real-time. Know exactly what's working and what isn't.",
-        "stats": "Real-time data"
-      },
-      "multiLanguage": {
-        "title": "Multi-Language Support",
-        "description": "Reach global markets with AI agents that speak 95+ languages fluently, breaking down language barriers.",
-        "stats": "95+ languages"
-      },
-      "humanLike": {
-        "title": "Human-Like Conversations",
-        "description": "Advanced AI that sounds completely natural. Prospects can't tell they're talking to a machine.",
-        "stats": "99% natural"
-      }
-    },
-    "pricing": {
-      "starter": {
-        "name": "Starter",
-        "period": "/month",
-        "description": "Perfect for small teams getting started",
-        "features": {
-          "feature1": "Up to 1,000 calls/month",
-          "feature2": "Basic AI voice agent",
-          "feature3": "Email support",
-          "feature4": "Basic analytics",
-          "feature5": "CRM integration"
-        }
-      },
-      "professional": {
-        "name": "Professional",
-        "period": "/month",
-        "description": "Most popular for growing businesses",
-        "features": {
-          "feature1": "Up to 10,000 calls/month",
-          "feature2": "Advanced AI voice agent",
-          "feature3": "Priority support",
-          "feature4": "Advanced analytics",
-          "feature5": "Multi-CRM integration",
-          "feature6": "Custom voice cloning",
-          "feature7": "A/B testing"
-        }
-      }
-    },
-    "demo": {
-      "aiSalesAgent": "AI Sales Agent",
-      "sparkAICalling": "AI SPARK SALES AGENT System",
-      "connected": "Connected",
-      "callAnalytics": "Call Analytics",
-      "duration": "Duration",
-      "sentiment": "Sentiment",
-      "conversion": "Conversion",
-      "callScript": "Hi John! I'm calling from AI SPARK SALES AGENT. I noticed you've been looking at our sales automation solutions..."
-    },
-    "testimonials": {
-      "detailed": {
-        "testimonial1": "Increased our sales by 340% in just 3 months. The AI sounds so natural, prospects can't tell it's not human. ROI was immediate.",
-        "testimonial2": "Saved 20 hours per week on cold calling. Our team now focuses on closing deals instead of prospecting. Game changer!",
-        "testimonial3": "As a startup, we couldn't afford a sales team. This AI agent became our best salesperson, working 24/7 for a fraction of the cost."
-      }
-    },
-    "industries": {
-      "healthcare": "Healthcare",
-      "ecommerce": "E-commerce", 
-      "realEstate": "Real Estate",
-      "education": "Education",
-      "automotive": "Automotive",
-      "legal": "Legal",
-      "restaurant": "Restaurant",
-      "services": "Services"
-    },
-    "solutions": {
-      "customerSupport": {
-        "title": "Customer Support",
-        "description": "24/7 automated customer service that never sleeps"
-      },
-      "leadQualification": {
-        "title": "Lead Qualification", 
-        "description": "AI-powered lead scoring and qualification"
-      },
-      "salesAutomation": {
-        "title": "Sales Automation",
-        "description": "Automated follow-ups that convert prospects to customers"
-      }
-    },
-    "features": {
-      "availability": {
-        "title": "24/7 Availability",
-        "description": "Never miss a call again with round-the-clock AI agents"
-      },
-      "lightningFast": {
-        "title": "Lightning Fast",
-        "description": "Instant responses and immediate lead qualification"
-      },
-      "scalableTeam": {
-        "title": "Scalable Team",
-        "description": "Handle unlimited calls simultaneously without hiring"
-      },
-      "dataDriven": {
-        "title": "Data Driven",
-        "description": "Real-time analytics and performance insights"
-      },
-      "uploadData": {
-        "title": "Upload Your Data",
-        "description": "Add your business information, scripts, and knowledge base"
-      },
-      "trainAi": {
-        "title": "Train Your AI",
-        "description": "Our AI learns your voice, tone, and business processes"
-      },
-      "goLive": {
-        "title": "Go Live",
-        "description": "Start receiving and making calls with your AI agent"
-      }
-    },
-    "pricing": {
-      "basic": {
-        "name": "Basic",
-        "description": "Perfect for small businesses getting started",
-        "features": [
-          "Basic analytics",
-          "Email support"
-        ],
-        "cta": "Get Started"
-      },
-      "pro": {
-        "name": "Pro",
-        "description": "Advanced features for growing businesses",
-        "features": [
-          "Advanced analytics",
-          "Priority support", 
-          "Custom integrations"
-        ],
-        "cta": "Get Started"
-      }
-    },
-    "testimonials": {
-      "sarah": {
-        "name": "Sarah Johnson",
-        "content": "AI SPARK SALES AGENT transformed our lead qualification process. We went from 20% conversion rate to 65% in just 3 months."
-      },
-      "michael": {
-        "name": "Michael Chen",
-        "role": "Sales Director, RealEstate Pro",
-        "content": "The AI agents handle our appointment scheduling flawlessly. Our team can now focus on closing deals instead of managing calendars."
-      },
-      "emily": {
-        "name": "Emily Rodriguez", 
-        "role": "Founder, HealthCare Plus",
-        "content": "Patient satisfaction increased by 40% since implementing AI SPARK SALES AGENT. Our patients love the instant, personalized support."
+        "content": "Patient satisfaction increased by 40% after implementing AI SPARK SALES AGENT. Our patients love the instant, personalized support."
       }
     },
     "demos": {
@@ -1005,9 +924,9 @@
     },
     "demo": {
       "title": "See AI Voice Agent in Action",
-      "subtitle": "Watch our AI voice agents handle real phone calls across different industries. No scripts, no pre-recorded responses - just pure AI intelligence.",
+      "subtitle": "Watch our AI voice agents handle real phone calls across industries. No scripts, no pre-recorded responses — just pure AI intelligence.",
       "liveDemo": "Live AI Call Demo",
-      "watchDescription": "Watch our AI agent handle a real customer service call",
+      "watchDescription": "Watch how our AI agent handles a real customer service call",
       "playFullDemo": "Play Full Demo",
       "live": "LIVE",
       "categories": {
@@ -1015,22 +934,22 @@
           "title": "Customer Support Demo",
           "industry": "E-commerce",
           "duration": "2:30 min",
-          "description": "AI agent handles order tracking, returns, and customer inquiries with natural conversation flow.",
+          "description": "The AI agent handles order tracking, returns, and customer questions with a natural flow.",
           "features": ["Order Tracking", "Returns Processing", "Customer Inquiries"]
         },
         "appointmentBooking": {
           "title": "Appointment Booking Demo",
           "industry": "Healthcare",
           "duration": "3:15 min",
-          "description": "AI agent qualifies leads, books appointments, and follows up with prospects automatically.",
-          "features": ["Lead Qualification", "Appointment Booking", "Follow-up Automation"]
+          "description": "The AI agent qualifies leads, books appointments, and follows up automatically.",
+          "features": ["Lead Qualification", "Appointment Booking", "Automatic Follow-up"]
         },
         "salesGeneration": {
           "title": "Sales & Lead Generation",
           "industry": "Real Estate",
           "duration": "4:20 min",
-          "description": "AI agent generates leads, qualifies prospects, and schedules property viewings.",
-          "features": ["Lead Generation", "Prospect Qualification", "Viewing Scheduling"]
+          "description": "The AI agent generates leads, qualifies them, and schedules viewings.",
+          "features": ["Lead Generation", "Lead Qualification", "Viewing Scheduling"]
         }
       }
     },
@@ -1048,13 +967,13 @@
         "ROI projections and timeline",
         "Free consultation and setup guidance"
       ],
-      "testimonial": "The AI experts at AI SPARK SALES AGENT were professional and attentive during our consultation. They created an amazing AI voice agent strategy for our business that increased our conversion rate by 300%.",
-      "weWillCover": "We'll cover:",
+      "testimonial": "The AI experts at AI SPARK SALES AGENT were professional and attentive. They created a fantastic AI voice agent strategy that increased our conversion rate by 300%.",
+      "weWillCover": "We’ll cover:",
       "hearFromOthers": "Hear it from others:"
     },
     "whyChoose": {
       "title": "Why top companies choose AI SPARK SALES AGENT",
-      "subtitle": "Join 500+ companies that trust AI SPARK SALES AGENT to transform their customer engagement and drive unprecedented growth",
+      "subtitle": "Join 500+ companies that trust AI SPARK SALES AGENT to transform customer engagement and drive unprecedented growth",
       "comparison": {
         "ourPlatform": "AI SPARK SALES AGENT",
         "otherPlatforms": "Other AI Platforms"
@@ -1063,7 +982,7 @@
     "featureComparison": {
       "badge": "Trusted by Industry Leaders",
       "title": "Why top companies choose AI SPARK SALES AGENT",
-      "subtitle": "Join 500+ companies that trust AI SPARK SALES AGENT to transform their customer engagement and drive unprecedented growth",
+      "subtitle": "Join 500+ companies that trust AI SPARK SALES AGENT to transform customer engagement and accelerate growth",
       "features": {
         "advancedVoice": {
           "name": "Advanced AI Voice Technology",
@@ -1117,7 +1036,7 @@
     },
     "ctaBanner": {
       "title": "Ready to join industry leaders?",
-      "subtitle": "Experience the same AI technology that's helping Fortune 500 companies transform their customer engagement",
+      "subtitle": "Experience the same AI technology powering Fortune 500 customer engagement",
       "startFreeTrial": "Start Free Trial →",
       "bookDemoCall": "Book Demo Call",
       "trustedBy": "Trusted by 500+ companies worldwide"
@@ -1125,12 +1044,12 @@
     "aiSalesTeam": {
       "badge": "AI SALES TEAM",
       "title": "Meet Your New AI Sales Team",
-      "subtitle": "AI SPARK SALES AGENT creates intelligent voice agents that sound human, think strategically, and work tirelessly to grow your business 24/7.",
+      "subtitle": "AI SPARK SALES AGENT creates intelligent voice agents that sound human, think strategically, and work 24/7 to grow your business.",
       "readyToSee": "Ready to See Your AI Agent in Action?",
-      "bookDemo": "Book a personalized demo and watch our AI handle your specific use case in real-time.",
+      "bookDemo": "Book a personalized demo and watch our AI handle your specific use case in real time.",
       "demoForm": {
         "title": "Experience the Magic – Get a Free AI Demo Call Tailored to Your Industry",
-        "description": "Our AI agent will call you in just **60 seconds** to showcase how it handles real customer conversations, specific to your industry and use case. Experience how it qualifies leads, answers questions, and boosts conversion — automatically.",
+        "description": "Our AI agent will call you in just **60 seconds** to showcase real customer conversations tailored to your industry and use case. Experience how it qualifies leads, answers questions, and boosts conversion — automatically.",
         "fields": {
           "name": "Your Name",
           "namePlaceholder": "Enter your full name",
@@ -1154,7 +1073,7 @@
       },
       "leadQualification": {
         "title": "Lead Qualification",
-        "description": "Intelligent lead scoring and qualification that identifies high-value prospects instantly."
+        "description": "Intelligent scoring and qualification that identifies high-value prospects instantly."
       },
       "conversionOptimization": {
         "title": "Conversion Optimization",
@@ -1164,7 +1083,7 @@
     "teamSection": {
       "badge": "WHO IS BEHIND AI SPARK SALES AGENT",
       "title": "Meet our team",
-      "subtitle": "The experts behind AI SPARK SALES AGENT's revolutionary voice agent technology",
+      "subtitle": "The experts behind AI SPARK SALES AGENT’s revolutionary voice agent technology",
       "members": {
         "jay": {
           "name": "Jay Sir",
@@ -1174,7 +1093,7 @@
         "tooba": {
           "name": "Tooba",
           "title": "Head of AI",
-          "description": "Leading AI strategy and machine learning implementation"
+          "description": "Leads AI strategy and machine learning implementation"
         },
         "sagar": {
           "name": "Sagar",
@@ -1184,24 +1103,24 @@
         "ananya": {
           "name": "Ananya",
           "title": "Project Manager",
-          "description": "Ensuring seamless project delivery and team coordination"
+          "description": "Ensures seamless project delivery and team coordination"
         },
         "ersham": {
           "name": "Ersham",
-          "title": "Creative Head",
-          "description": "Designing innovative user experiences and creative solutions"
+          "title": "Creative Director",
+          "description": "Designs innovative user experiences and creative solutions"
         },
         "saleem": {
           "name": "Saleem",
           "title": "HR Manager",
-          "description": "Building and nurturing our talented team culture"
+          "description": "Builds and nurtures our talented team culture"
         }
       }
     },
     "companyStats": {
       "experience": {
         "value": "50+",
-        "label": "Years Combined Experience"
+        "label": "Total Years of Experience"
       },
       "projects": {
         "value": "500+",
@@ -1209,91 +1128,271 @@
       },
       "satisfaction": {
         "value": "95%",
-        "label": "Client Satisfaction"
+        "label": "Customer Satisfaction"
       },
       "support": {
         "value": "24/7",
         "label": "Support Available"
       }
     },
-    "testimonials": {
-      "title": "Testimonials",
-      "subtitle": "Show customer success stories with real photos and results. Keep it personal and relatable to your audience.",
-      "items": {
-        "sarah": {
-          "quote": "AI SPARK SALES AGENT transformed our lead qualification process. We went from 20% conversion rate to 65% in just 3 months.",
-          "name": "Sarah Johnson",
-          "title": "CEO, TechStart Inc.",
-          "rating": 5
-        },
-        "michael": {
-          "quote": "The AI agents handle our appointment scheduling flawlessly. Our team can now focus on closing deals instead of managing calendars.",
-          "name": "Michael Chen",
-          "title": "Sales Director, RealEstate Pro",
-          "rating": 5
-        },
-        "emily": {
-          "quote": "Patient satisfaction increased by 40% since implementing AI SPARK SALES AGENT. Our patients love the instant, personalized support.",
-          "name": "Emily Rodriguez",
-          "title": "Founder, HealthCare Plus",
-          "rating": 5
-        }
-      }
-    },
     "ctaBanner": {
       "title": "Ready to Transform Your Business?",
-      "subtitle": "Use action-driven CTAs like 'Try for Free' or 'Book a Demo' with a short benefit (e.g., 'Save 10+ hours a week').",
-      "button": "Try for Free - Save 10+ Hours/Week"
+      "subtitle": "Use action-driven CTAs like ‘Try for Free’ or ‘Book a Demo’ with a short benefit (e.g., ‘Save 10+ hours a week’).",
+      "button": "Try for Free — Save 10+ Hours/Week"
     },
     "faq": {
       "title": "FAQ",
-      "subtitle": "Answer common questions simply. Focus on removing doubts about pricing, setup, or features.",
+      "subtitle": "Answer common questions simply. Remove doubts about pricing, setup, or features.",
       "items": {
         "howItWorks": {
-          "question": "How does AI SPARK SALES AGENT work?",
-          "answer": "AI SPARK SALES AGENT uses advanced AI technology to create intelligent voice agents that handle calls automatically, qualify leads, and schedule appointments."
+          "question": "How does SPARK AI SALES AGENT work?",
+          "answer": "SPARK AI SALES AGENT uses advanced AI to create intelligent voice agents that automatically handle calls, qualify leads, and schedule appointments."
         },
         "customization": {
           "question": "Can I customize the AI agent?",
-          "answer": "Yes! You can customize the agent's voice, scripts, flows, and even train it on your specific industry for optimal results."
+          "answer": "Yes! You can customize the agent’s voice, scripts, flows, and even train it for your specific industry."
         },
         "languages": {
           "question": "What languages are supported?",
-          "answer": "We support 95+ languages with native accents, allowing you to reach global customers easily."
+          "answer": "We support 95+ languages with native accents so you can reach global customers easily."
         },
         "cost": {
           "question": "How much does it cost?",
-          "answer": "Our plans start from 1,500 AED/month with a one-time setup fee of 10,000 AED. No hidden fees."
+          "answer": "Our plans start from AED 1,500/month with a one-time setup fee of AED 10,000. No hidden fees."
         },
         "freeTrial": {
           "question": "Is there a free trial?",
-          "answer": "Yes! We offer a 14-day free trial with no commitment. Try all features and see results yourself."
+          "answer": "Yes! We offer a 14-day free trial with no commitment. Try all features and see the results yourself."
         }
       }
+    },
+    "cta": {
+      "title": "Ready to 10x Your Sales Calls?",
+      "subtitle": "Join 500+ companies already saving 10+ hours per week and increasing conversions by 300%. Start your free trial today.",
+      "tryFree": "Try for Free — Save 10+ Hours/Week",
+      "bookDemo": "Book a Demo",
+      "guarantee": "✅ 14-day free trial • ✅ No credit card required • ✅ 30-day money-back guarantee"
+    },
+    "testimonials": {
+      "sarah": {
+        "name": "Sarah Johnson",
+        "content": "AI SPARK SALES AGENT transformed our lead qualification process. We went from 20% to 65% in just 3 months."
+      },
+      "michael": {
+        "name": "Michael Chen",
+        "role": "Sales Director, RealEstate Pro",
+        "content": "AI agents manage appointment scheduling flawlessly. Our team now focuses on closing deals instead of calendar management."
+      },
+      "emily": {
+        "name": "Emily Rodriguez",
+        "role": "Founder, HealthCare Plus",
+        "content": "Patient satisfaction increased by 40% after AI SPARK SALES AGENT. Our patients love the instant, personalized support."
+      }
+    },
+    "ctaSection": {
+      "title": "Ready to Transform Your Business?",
+      "subtitle": "Use action-driven CTAs like ‘Try for Free’ or ‘Book a Demo’ with a short benefit (e.g., ‘Save 10+ hours a week’).",
+      "button": "Try for Free — Save 10+ Hours/Week"
+    },
+    "teamSection": {
+      "badge": "WHO IS BEHIND AI SPARK SALES AGENT",
+      "title": "Meet our team",
+      "subtitle": "The experts behind AI SPARK SALES AGENT’s revolutionary voice agent technology"
+    },
+    "aiDemoCall": {
+      "title": "Experience the Magic – Get a Free AI Demo Call Tailored to Your Industry",
+      "description": "Our AI agent will call you in just **60 seconds** to show how it handles real customer conversations tailored to your industry and use case. Experience how it qualifies leads, answers questions, and boosts conversion — automatically.",
+      "form": {
+        "nameLabel": "Your Name",
+        "namePlaceholder": "Enter full name",
+        "phoneLabel": "Phone Number",
+        "phonePlaceholder": "+971 00 000 0000",
+        "industryLabel": "Your Industry",
+        "industryPlaceholder": "Select your industry",
+        "submitButton": "Get Free Demo Call"
+      },
+      "assurances": {
+        "secure": "100% Secure",
+        "setup": "60 Second Setup",
+        "noCard": "No Credit Card Required"
+      }
+    },
+    "aiSalesFeatures": {
+      "availability": {
+        "title": "24/7 Availability",
+        "description": "Your AI sales team doesn’t sleep, works weekends, and handles holidays automatically."
+      },
+      "leadQualification": {
+        "title": "Lead Qualification",
+        "description": "Smart scoring and qualification that instantly identifies high-value prospects."
+      },
+      "conversionOptimization": {
+        "title": "Conversion Optimization",
+        "description": "Continuous learning and optimization to improve conversion rates with every call."
+      }
+    },
+    "teamMembers": {
+      "jay": {
+        "name": "Jay Sir",
+        "title": "CEO / Founder",
+        "description": "Visionary leader driving AI innovation and business growth"
+      },
+      "tooba": {
+        "name": "Tooba",
+        "title": "Head of AI",
+        "description": "Leads AI strategy and machine learning implementation"
+      },
+      "sagar": {
+        "name": "Sagar",
+        "title": "AI Strategist",
+        "description": "Expert in AI solutions and strategic technology planning"
+      },
+      "ananya": {
+        "name": "Ananya",
+        "title": "Project Manager",
+        "description": "Ensures seamless project delivery and team coordination"
+      },
+      "ersham": {
+        "name": "Ersham",
+        "title": "Creative Lead",
+        "description": "Designs innovative user experiences and creative solutions"
+      },
+      "saleem": {
+        "name": "Saleem",
+        "title": "HR Manager",
+        "description": "Builds and nurtures our talented team culture"
+      }
+    },
+    "teamStats": {
+      "experience": "Years Combined Experience",
+      "projects": "Projects Delivered",
+      "satisfaction": "Customer Satisfaction",
+      "support": "Support Available"
+    },
+    "whyChoose": {
+      "comparison": {
+        "title": "Key Features & Benefits",
+        "ourPlatform": "AI SPARK SALES AGENT",
+        "otherPlatforms": "Other AI Platforms",
+        "features": {
+          "advancedAI": {
+            "title": "Advanced AI Voice Technology",
+            "description": "Cutting-edge natural language processing"
+          },
+          "customerSupport": {
+            "title": "24/7 Customer Support",
+            "description": "Round-the-clock availability and monitoring"
+          },
+          "voiceCloning": {
+            "title": "Custom Voice Cloning",
+            "description": "Personalized brand voice creation"
+          },
+          "multiLanguage": {
+            "title": "Multi-language Support",
+            "description": "95+ languages with native accents"
+          },
+          "realTimeAnalytics": {
+            "title": "Real-time Analytics",
+            "description": "Comprehensive performance insights"
+          },
+          "enterpriseSecurity": {
+            "title": "Enterprise Security",
+            "description": "SOC 2 compliant, end-to-end encryption"
+          },
+          "easyIntegration": {
+            "title": "Easy Integration",
+            "description": "Seamless API integration with existing systems"
+          },
+          "dedicatedManager": {
+            "title": "Dedicated Account Manager",
+            "description": "Personal support and optimization"
+          }
+        }
+      }
+    },
+    "pricingPlans": {
+      "essential": {
+        "name": "Essential Support",
+        "price": "AED 1,500",
+        "period": "/month",
+        "description": "Perfect for businesses starting with AI calling",
+        "features": {
+          "monitoring": "24/7 uptime monitoring and incident alerts",
+          "tweaks": "Up to 4 hours/month of flow tweaks or prompt changes",
+          "rollover": "Unused time rolls over for 60 days",
+          "report": "Monthly performance report with actionable insights",
+          "email": "Email support with next-business-day SLA"
+        },
+        "cta": "Get Started"
+      },
+      "premium": {
+        "name": "Premium Support",
+        "price": "AED 3,000",
+        "period": "/month",
+        "description": "For businesses requiring advanced optimization and priority support",
+        "features": {
+          "everything": "Everything in Essential plus:",
+          "optimization": "Up to 10 hours/month of prompt/flow optimization",
+          "strategy": "Strategy session to review metrics and roadmap",
+          "priority": "Priority support queue with same-business-day responses",
+          "earlyAccess": "Early access testing of lower-cost voice models",
+          "notice": "30-day notice for package changes"
+        },
+        "cta": "Get Started"
+      }
+    },
+    "consultationSection": {
+      "badge": "LET'S CONNECT"
+    },
+    "faqs": {
+      "howItWorks": {
+        "question": "How does SPARK AI SALES AGENT work?",
+        "answer": "SPARK AI SALES AGENT uses advanced AI to create intelligent voice agents that automatically handle calls, qualify leads, and schedule appointments."
+      },
+      "customization": {
+        "question": "Can I customize my AI agent?",
+        "answer": "Yes! You can customize the agent's voice, scripts, flows, and even train it for your specific industry."
+      },
+      "languages": {
+        "question": "What languages are supported?",
+        "answer": "We support 95+ languages with native accents so you can reach global customers easily."
+      },
+      "pricing": {
+        "question": "How does pricing work?",
+        "answer": "Our plans start from AED 1,500/month with a one-time setup fee of AED 10,000. No hidden fees."
+      },
+      "freeTrial": {
+        "question": "Is there a free trial?",
+        "answer": "Yes, a 14-day free trial is available."
+      }
+    },
+    "whyChoose": {
+      "title": "Why top companies choose SPARK AI SALES AGENT",
+      "subtitle": "Join 500+ companies that trust SPARK AI SALES AGENT to transform customer engagement and drive unprecedented growth"
     }
   },
   "chat": {
-    "welcomeMessage": "👋 Hi! I'm Sarah, your AI Sales Assistant. I can help you with questions about our AI voice calling service, or I can call you directly to demonstrate our technology! What would you like to know?",
+    "welcomeMessage": "👋 Hi! I’m Sarah, your AI Sales Assistant. I can help with questions about our AI voice calling service, or I can call you directly to demonstrate our technology! What would you like to know?",
     "chatWithUs": "Chat with us",
     "aiSalesSupport": "Sarah - AI Sales Assistant",
-    "onlineNow": "Online & Ready to Call",
+    "onlineNow": "Online & ready to call",
     "typeMessage": "Type your message or say 'call me to demo'...",
     "call": "Call",
     "email": "Email",
     "schedule": "Schedule",
     "quickQuestions": "Quick questions:",
     "quickReplies": {
-      "cost": "💰 What's the cost?",
+      "cost": "💰 What’s the cost?",
       "freeTrial": "🎯 Free trial available?",
       "howItWorks": "⚡ How does it work?",
       "demo": "📞 Call me to demo!"
     },
     "responses": {
-      "pricing": "💰 Our AI voice calling service has a one-time setup fee of AED 10,000 per agent, with monthly support packages starting at AED 1,500/month (Essential) or AED 3,000/month (Premium). AI usage is billed at AED 0.51-0.66 per minute. Would you like me to call you to discuss pricing options?",
-      "freeTrial": "🎯 We offer a free consultation and demo call to experience our AI voice technology firsthand. No credit card required! Just say 'call me to demo' and I'll set up a personalized demo call for you.",
-      "demo": "⚡ Our AI makes natural-sounding phone calls to your leads, handles objections, and books appointments - all while sounding completely human! The best way to experience it is to receive a demo call. Would you like me to call you right now?",
-      "setup": "🚀 Getting started is super easy! Just upload your contact list, choose your AI voice, and customize your script. Our AI will start calling within minutes. I can walk you through the entire process with a live demo call - shall I call you?",
-      "default": "🤖 That's a great question! I'd love to help you learn more about our AI voice calling technology. The best way to understand how powerful it is would be to experience it firsthand. Would you like me to call you for a personalized demo?"
+      "pricing": "💰 Our AI voice calling service has a one-time setup fee of AED 10,000 per agent; monthly support packages start at AED 1,500/month (Essential) or AED 3,000/month (Premium). AI usage is billed at AED 0.51–0.66 per minute. Would you like me to call you to discuss pricing options?",
+      "freeTrial": "🎯 We offer a free consultation and demo call to experience our AI voice technology firsthand. No credit card required! Just say 'call me to demo' and I’ll set up a personalized demo call for you.",
+      "demo": "⚡ Our AI makes natural-sounding calls to your leads, handles objections, and books appointments — all while sounding human! The best way to experience it is to receive a demo call. Would you like me to call you right now?",
+      "setup": "🚀 Getting started is super easy! Upload your contact list, choose your AI voice, and customize your script. Our AI will start calling within minutes. I can walk you through everything with a live demo — shall I call you?",
+      "default": "🤖 Great question! I’d love to help you learn more about our AI voice calling tech. The best way to understand its power is to experience it firsthand. Want me to call you for a personalized demo?"
     },
     "freeDemoCall": "Free Demo Call Setup",
     "yourName": "Your Name",
@@ -1302,7 +1401,7 @@
     "companyName": "Company Name (Optional)",
     "scheduleDemoCall": "Schedule Demo Call",
     "scheduling": "Scheduling...",
-    "callScheduled": "🎉 Perfect! I've scheduled your free demo call. Our AI will call you at {{phone}} within the next 5 minutes. The call will be about {{industry}} solutions. Get ready to be amazed! 📞✨",
+    "callScheduled": "🎉 Perfect! I’ve scheduled your free demo call. Our AI will call you at {{phone}} within the next 5 minutes. The call will be about {{industry}} solutions. Get ready! 📞✨",
     "voiceInput": "Voice Input",
     "listenToMessage": "Listen to message",
     "stopSpeaking": "Stop Speaking",
@@ -1311,7 +1410,7 @@
     "backToMain": "Back to Main"
   },
   "exitIntent": {
-    "title": "Wait! Don't Miss Out! 🚨",
+    "title": "Wait! Don’t Miss Out! 🚨",
     "subtitle": "Get 50% OFF your first 3 months + FREE setup (Value: $500)",
     "benefits": {
       "save": "Save $1,500+ in the first 3 months",
@@ -1324,48 +1423,48 @@
     "claimButton": "Claim My 50% Discount",
     "privacy": "🔒 We respect your privacy. No spam, ever. Unsubscribe anytime.",
     "success": {
-      "title": "🎉 You're In!",
+      "title": "🎉 You’re In!",
       "message": "Check your email for your exclusive 50% discount code. This offer expires in 24 hours!",
       "button": "Start My Free Trial"
     }
   },
   "faq": {
     "title": "Frequently Asked Questions",
-    "subtitle": "Answer common questions simply. Focus on removing doubts about pricing, setup, or features.",
+    "subtitle": "Answer common questions simply. Remove doubts about pricing, setup, or features.",
     "items": {
       "cost": {
         "question": "How much does it cost to get started?",
-        "answer": "Our Starter plan is just $97/month with no setup fees. We also offer a 14-day free trial so you can test the system risk-free. Plus, we're currently offering 50% off your first 3 months!"
+        "answer": "Our plans start from AED 1,500/month with a one-time setup fee of AED 10,000. We also offer a 14-day free trial so you can test the system risk-free. No hidden fees!"
       },
       "setup": {
         "question": "How long does setup take?",
-        "answer": "Setup takes just 5 minutes! Simply upload your contact list, choose your AI voice, and you're ready to go. Our team provides free onboarding to ensure you get the best results."
+        "answer": "Setup takes just 5 minutes! Upload your contacts, choose your AI voice, and you’re ready. We provide free onboarding for the best results."
       },
       "natural": {
         "question": "Does the AI sound natural?",
-        "answer": "Yes! Our AI uses advanced voice synthesis technology that sounds completely human. 99% of prospects can't tell they're talking to an AI. You can even clone your own voice for a personal touch."
+        "answer": "Yes! Our advanced voice synthesis sounds completely human. 99% of prospects can’t tell they’re talking to AI. You can even clone your own voice for a personal touch."
       },
       "satisfaction": {
-        "question": "What if I'm not satisfied?",
-        "answer": "We offer a 30-day money-back guarantee. If you're not completely satisfied with the results, we'll refund your money, no questions asked. We're confident you'll love the results!"
+        "question": "What if I’m not satisfied?",
+        "answer": "We offer a 30-day money-back guarantee. If you’re not completely satisfied, we’ll refund you — no questions asked. We’re confident you’ll love the results!"
       },
       "integration": {
         "question": "Can I integrate with my existing CRM?",
-        "answer": "Absolutely! We integrate with all major CRMs including Salesforce, HubSpot, Pipedrive, and more. All call data and leads are automatically synced to your existing system."
+        "answer": "Absolutely! We integrate with all major CRMs including Salesforce, HubSpot, Pipedrive, and more. All call data and leads sync automatically to your system."
       }
     }
   },
   "process": {
     "title": "How It Works",
-    "subtitle": "Show that your solution is easy to implement. Describe the process in 3 simple steps.",
+    "subtitle": "Show how easy your solution is to implement. Describe the process in 3 simple steps.",
     "steps": {
       "step1": {
         "title": "Upload Your Leads",
-        "description": "Simply upload your contact list or connect your CRM. Our system automatically imports and organizes your prospects."
+        "description": "Upload your contact list or connect your CRM. Our system automatically imports and organizes prospects."
       },
       "step2": {
         "title": "AI Makes the Calls",
-        "description": "Our AI agents call your prospects, qualify them, and schedule meetings. All conversations are natural and engaging."
+        "description": "Our AI agents call your prospects, qualify them, and schedule meetings. Conversations are natural and engaging."
       },
       "step3": {
         "title": "Close More Deals",
@@ -1375,10 +1474,10 @@
   },
   "benefits": {
     "title": "Why Choose Our AI Calling System",
-    "subtitle": "Highlight your product's key advantages - 24/7 functionality, seamless integration, and superior efficiency.",
+    "subtitle": "Highlight your product’s key advantages — 24/7 functionality, seamless integration, and superior efficiency.",
     "availability": {
       "title": "24/7 Availability",
-      "description": "Your AI sales agent never sleeps, never takes breaks, and never misses a call. Work around the clock to capture every opportunity.",
+      "description": "Your AI sales agent doesn’t sleep, doesn’t take breaks, and never misses a call — capturing every opportunity around the clock.",
       "stats": {
         "value": "24/7",
         "label": "Always Available"
@@ -1394,7 +1493,7 @@
     },
     "efficiency": {
       "title": "Superior Efficiency",
-      "description": "Make 10x more calls in the same time. AI handles the repetitive work while you focus on closing deals.",
+      "description": "Make 10x more calls in the same time. AI handles repetitive work while you focus on closing.",
       "stats": {
         "value": "10x",
         "label": "More Efficient"
@@ -1458,10 +1557,10 @@
       "viewConversation": "View Conversation"
     },
     "conversation": {
-      "title": "Call Transcription",
+      "title": "Call Transcript",
       "subtitle": "Conversation with {{phoneNumber}} on {{date}}",
-      "loading": "Loading transcription...",
-      "noTranscription": "No transcription available for this call.",
+      "loading": "Loading transcript...",
+      "noTranscription": "No transcript available for this call.",
       "speaker": "Speaker",
       "message": "Message"
     }
@@ -1478,11 +1577,11 @@
     "firstPrompt": "First Prompt",
     "firstPromptPlaceholder": "Enter the first message your AI will say",
     "systemPersona": "System Persona",
-    "systemPersonaPlaceholder": "Define your AI's personality and behavior",
+    "systemPersonaPlaceholder": "Define your AI’s personality and behavior",
     "next": "Next",
     "previous": "Previous",
     "create": "Create Campaign",
-    "creating": "Creating Campaign...",
+    "creating": "Creating campaign...",
     "success": "Campaign created successfully!"
   },
   "voices": {
@@ -1500,7 +1599,6 @@
     "similarity": "Similarity Boost",
     "style": "Style",
     "speakerBoost": "Speaker Boost",
-    "cloneVoice": "Clone Voice",
     "uploadAudio": "Upload Audio File",
     "voiceName": "Voice Name",
     "voiceNamePlaceholder": "Enter voice name",
@@ -1534,7 +1632,7 @@
     "export": "Export",
     "timeRange": {
       "24h": "Last 24 hours",
-      "7d": "Last 7 days", 
+      "7d": "Last 7 days",
       "30d": "Last 30 days",
       "90d": "Last 90 days"
     },
@@ -1574,7 +1672,7 @@
     "voices": "Voices",
     "analytics": "Analytics",
     "settings": "Settings",
-    "logout": "Logout",
+    "logout": "Log Out",
     "newCampaign": "New Campaign",
     "activeCampaigns": "Active Campaigns",
     "totalCalls": "Total Calls",
@@ -1658,8 +1756,8 @@
       "title": "Upload Leads",
       "description": "Add your contact list",
       "details": [
-        "Upload CSV file with contacts",
-        "Map contact fields (name, phone, email)",
+        "Upload a CSV with contacts",
+        "Map fields (name, phone, email)",
         "Validate phone numbers",
         "Preview lead data"
       ],
