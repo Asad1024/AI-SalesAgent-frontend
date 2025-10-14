@@ -803,7 +803,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       const confirmMessage = `Are you sure you want to stop the campaign "${currentCampaign.name}"?\n\nThis will:\n- Stop all ongoing calls\n- Prevent new calls from starting\n- Keep campaign data intact`;
       
       if (window.confirm(confirmMessage)) {
-        api.post(`/campaigns/${currentCampaign.id}/stop`, {})
+        api.post(`/api/campaigns/${currentCampaign.id}/stop`, {})
           .then(() => {
             setCampaignControlStatus('stopped');
             toast({
@@ -827,7 +827,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       const confirmMessage = `Are you sure you want to pause the campaign "${currentCampaign.name}"?\n\nThis will:\n- Pause ongoing calls\n- Prevent new calls from starting\n- Allow resuming later`;
       
       if (window.confirm(confirmMessage)) {
-        api.post(`/campaigns/${currentCampaign.id}/pause`, {})
+        api.post(`/api/campaigns/${currentCampaign.id}/pause`, {})
           .then(() => {
             setCampaignControlStatus('paused');
             toast({

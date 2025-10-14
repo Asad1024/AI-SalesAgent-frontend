@@ -70,7 +70,7 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
     
     if (window.confirm(confirmMessage)) {
       try {
-        await api.post(`/campaigns/${campaign.id}/stop`, {});
+        await api.post(`/api/campaigns/${campaign.id}/stop`, {});
         toast({
           title: "Stopped",
           description: "stopped.",
@@ -91,7 +91,7 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
     
     if (window.confirm(confirmMessage)) {
       try {
-        await api.post(`/campaigns/${campaign.id}/pause`, {});
+        await api.post(`/api/campaigns/${campaign.id}/pause`, {});
         toast({
           title: "Paused",
           description: "paused.",
