@@ -70,7 +70,7 @@
     "analytics": "Analitik"
   },
   "auth": {
-    "title": "Yapay Zeka Sesli Arama",
+    "title": "SPARK AI SALES AGENT",
     "subtitle": "Satış Otomasyonu",
     "signIn": "Giriş Yap",
     "signUp": "Kayıt Ol",
@@ -151,28 +151,6 @@
      "viewAllCampaigns": "Tüm Kampanyaları Görüntüle",
      "noExistingCampaigns": "Mevcut kampanya bulunamadı",
     "performanceOverview": "Performans Genel Bakış",
-    "campaignConfiguration": "Kampanya Yapılandırması",
-    "launchAndMonitor": "Başlat ve İzle",
-    "totalMinutes": "Toplam Dakika",
-    "totalCallDuration": "Toplam arama süresi",
-    "performanceTrends": "Performans Trendleri",
-    "last12Hours": "Son 12 saat",
-    "live": "Canlı",
-    "liveFeedback": "Canlı Geri Bildirim",
-    "recentCallReviews": "Son arama değerlendirmeleri",
-    "active": "Aktif",
-    "totalCampaigns": "Toplam Kampanyalar",
-    "recentCampaigns": "Son Kampanyalar",
-    "viewAll": "Tümünü Görüntüle",
-    "noCampaignsYet": "Henüz Kampanya Yok",
-    "createCampaign": "Kampanya Oluştur",
-    "loadingCampaigns": "Kampanyalar yükleniyor...",
-    "chatMessages": {
-      "greatCallQuality": "Harika arama kalitesi!",
-      "veryProfessional": "Çok profesyonel",
-      "excellentFollowUp": "Mükemmel takip",
-      "perfectTiming": "Mükemmel zamanlama"
-    },
     "activeCampaigns": "Aktif Kampanyalar",
     "currentlyRunningCampaigns": "Şu anda çalışan kampanyalar",
     "callsToday": "Bugünkü Aramalar",
@@ -203,7 +181,7 @@
     "subtitle": "İnsan gibi konuşan YZ temsilcileriyle satış aramalarınızı otomatikleştirin; potansiyelleri nitelendirin, toplantılar planlayın ve 7/24 anlaşmaları kapatın. Satış otomasyonunun geleceğini deneyimleyin.",
     "startFreeTrial": "Ücretsiz Denemeyi Başlat",
     "watchDemo": "Demoyu İzle",
-    "tagline": "AI SPARK SALES AGENT"
+    "tagline": "SPARK AI SALES AGENT"
   },
   "stats": {
     "aiCallsMade": "YZ Tarafından Yapılan Aramalar",
@@ -900,8 +878,8 @@
     },
     "faqs": {
       "howItWorks": {
-        "question": "AI SPARK SALES AGENT nasıl çalışır?",
-        "answer": "AI SPARK SALES AGENT, gelişmiş doğal dil işleme ve makine öğrenimiyle müşteri aramalarını yönetebilen, potansiyel nitelendiren ve otomatik randevu alan akıllı sesli temsilciler oluşturur."
+        "question": "SPARK AI SALES AGENT nasıl çalışır?",
+        "answer": "SPARK AI SALES AGENT, gelişmiş doğal dil işleme ve makine öğrenimiyle müşteri aramalarını yönetebilen, potansiyel nitelendiren ve otomatik randevu alan akıllı sesli temsilciler oluşturur."
       },
       "customization": {
         "question": "YZ temsilciyi özelleştirebilir miyim?",
@@ -1079,7 +1057,7 @@
       "title": "En iyi şirketler neden AI SPARK SALES AGENT’i seçiyor",
       "subtitle": "Müşteri etkileşimini dönüştürmek ve eşi görülmemiş büyüme sağlamak için AI SPARK SALES AGENT’e güvenen 500+ şirkete katılın",
       "comparison": {
-        "ourPlatform": "AI SPARK SALES AGENT",
+        "ourPlatform": "SPARK AI SALES AGENT",
         "otherPlatforms": "Diğer YZ Platformları"
       }
     },
@@ -1121,7 +1099,7 @@
           "description": "Kişisel destek ve optimizasyon"
         }
       },
-      "sparkAI": "AI SPARK SALES AGENT",
+      "sparkAI": "SPARK AI SALES AGENT",
       "otherPlatforms": "Diğer YZ Platformları"
     },
     "featureHighlights": {
@@ -1338,6 +1316,119 @@
         "title": "Dönüşüm Optimizasyonu",
         "description": "Her aramayla dönüşüm oranlarını artırmak için sürekli öğrenme ve optimizasyon."
       }
+    },
+    "teamMembers": {
+      "jay": {
+        "name": "Jay Sir",
+        "title": "CEO / Kurucu",
+        "description": "YZ inovasyonu ve iş büyümesini yönlendiren vizyoner lider"
+      },
+      "tooba": {
+        "name": "Tooba",
+        "title": "YZ Başkanı",
+        "description": "YZ stratejisi ve makine öğrenmesi uygulamasına liderlik ediyor"
+      },
+      "sagar": {
+        "name": "Sagar",
+        "title": "YZ Stratejisti",
+        "description": "YZ çözümleri ve stratejik teknoloji planlamasında uzman"
+      },
+      "ananya": {
+        "name": "Ananya",
+        "title": "Proje Yöneticisi",
+        "description": "Kesintisiz proje teslimi ve ekip koordinasyonunu sağlıyor"
+      },
+      "ersham": {
+        "name": "Ersham",
+        "title": "Yaratıcı Başkan",
+        "description": "Yenilikçi kullanıcı deneyimleri ve yaratıcı çözümler tasarlıyor"
+      },
+      "saleem": {
+        "name": "Saleem",
+        "title": "İK Yöneticisi",
+        "description": "Yetenekli ekip kültürümüzü oluşturuyor ve besliyor"
+      }
+    },
+    "teamStats": {
+      "experience": "Yıl Birleşik Deneyim",
+      "projects": "Proje Teslim Edildi",
+      "satisfaction": "Müşteri Memnuniyeti",
+      "support": "Destek Mevcut"
+    },
+    "whyChoose": {
+      "comparison": {
+        "title": "Temel Özellikler ve Faydalar",
+        "ourPlatform": "SPARK AI SALES AGENT",
+        "otherPlatforms": "Diğer YZ Platformları",
+        "features": {
+          "advancedAI": {
+            "title": "Gelişmiş YZ Ses Teknolojisi",
+            "description": "En son teknoloji doğal dil işleme"
+          },
+          "customerSupport": {
+            "title": "7/24 Müşteri Desteği",
+            "description": "Kesintisiz erişilebilirlik ve izleme"
+          },
+          "voiceCloning": {
+            "title": "Özel Ses Klonlama",
+            "description": "Kişiselleştirilmiş marka sesi oluşturma"
+          },
+          "multiLanguage": {
+            "title": "Çok Dilli Destek",
+            "description": "Yerel aksentlerle 95+ dil"
+          },
+          "realTimeAnalytics": {
+            "title": "Gerçek Zamanlı Analitik",
+            "description": "Kapsamlı performans içgörüleri"
+          },
+          "enterpriseSecurity": {
+            "title": "Kurumsal Güvenlik",
+            "description": "SOC 2 uyumlu, uçtan uca şifreleme"
+          },
+          "easyIntegration": {
+            "title": "Kolay Entegrasyon",
+            "description": "Mevcut sistemlerle sorunsuz API entegrasyonu"
+          },
+          "dedicatedManager": {
+            "title": "Özel Hesap Yöneticisi",
+            "description": "Kişisel destek ve optimizasyon"
+          }
+        }
+      }
+    },
+    "pricingPlans": {
+      "essential": {
+        "name": "Temel Destek",
+        "price": "AED 1,500",
+        "period": "/ay",
+        "description": "YZ aramaya başlayan işletmeler için mükemmel",
+        "features": {
+          "monitoring": "7/24 çalışma süresi izleme ve olay uyarıları",
+          "tweaks": "Ayda 4 saate kadar akış ayarlaması veya komut değişikliği",
+          "rollover": "Kullanılmayan süre 60 gün boyunca devreder",
+          "report": "Eyleme dönüştürülebilir içgörülerle aylık performans raporu",
+          "email": "Sonraki iş günü SLA ile e-posta desteği"
+        },
+        "cta": "Başla"
+      },
+      "premium": {
+        "name": "Premium Destek",
+        "price": "AED 3,000",
+        "period": "/ay",
+        "description": "Gelişmiş optimizasyon ve öncelikli destek gerektiren işletmeler için",
+        "features": {
+          "everything": "Temel'deki her şey artı:",
+          "optimization": "Ayda 10 saate kadar komut/akış optimizasyonu",
+          "strategy": "Metrikleri ve yol haritasını gözden geçirmek için strateji oturumu",
+          "priority": "Aynı iş günü yanıtlarla öncelikli destek kuyruğu",
+          "earlyAccess": "Düşük maliyetli ses modellerinin erken erişim testi",
+          "notice": "Paket değişiklikleri için 30 günlük bildirim"
+        },
+        "cta": "Başla"
+      }
+    },
+    "consultationSection": {
+      "badge": "BAĞLANTI KURALIM"
     }
   },
   "chat": {
