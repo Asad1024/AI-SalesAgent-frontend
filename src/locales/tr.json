@@ -1220,7 +1220,8 @@
     "ctaBanner": {
       "title": "İşinizi Dönüştürmeye Hazır mısınız?",
       "subtitle": "'Ücretsiz Dene' veya 'Demo Ayırt' gibi eylem odaklı ifadeleri kısa bir fayda ile kullanın (örn. 'Haftada 10+ saat kazanın').",
-      "button": "Ücretsiz Dene - Haftada 10+ Saat Kazan"
+      "button": "Ücretsiz Dene - Haftada 10+ Saat Kazan",
+      "trustedBy": "Dünya çapında 500+ şirket tarafından güveniliyor"
     },
     "faq": {
       "title": "SSS",
@@ -1256,6 +1257,8 @@
       "guarantee": "✅ 14 gün ücretsiz deneme • ✅ Kredi kartı gerekmez • ✅ 30 gün para iade garantisi"
     },
     "testimonials": {
+      "title": "Referanslar",
+      "subtitle": "Gerçek fotoğraflar ve sonuçlarla müşteri başarı hikayelerini gösterin. Kişisel ve hedef kitlenize uygun tutun.",
       "sarah": {
         "name": "Sarah Johnson",
         "content": "AI SPARK SALES AGENT potansiyel nitelendirme sürecimizi dönüştürdü. 3 ayda %20'den %65'e çıktık."
@@ -1356,11 +1359,12 @@
       "support": "Destek Mevcut"
     },
     "whyChoose": {
+      "title": "Neden Bizi Seçmelisiniz?",
       "comparison": {
         "title": "Temel Özellikler ve Faydalar",
         "ourPlatform": "SPARK AI SALES AGENT",
         "otherPlatforms": "Diğer YZ Platformları",
-        "features": {
+    "features": {
           "advancedAI": {
             "title": "Gelişmiş YZ Ses Teknolojisi",
             "description": "En son teknoloji doğal dil işleme"
@@ -1468,6 +1472,54 @@
     "aiVoice": "YZ Sesi",
     "clearChat": "Sohbeti Temizle",
     "backToMain": "Ana Sayfaya Dön"
+  },
+  "calendly": {
+    "loading": "Yükleniyor...",
+    "bookConsultation": "Ücretsiz Danışmanlık Ayırt",
+    "scheduleTitle": "Ücretsiz Danışmanlığınızı Planlayın",
+    "aiExpertTeam": "YZ Uzman Ekibi",
+    "sparkAISpecialists": "Spark AI Uzmanları",
+    "duration": "30 dk",
+    "webConferencing": "Web konferans detayları onay sonrası sağlanır",
+    "wellCover": "Ele alacaklarımız:",
+    "topics": {
+      "businessNeeds": "İşletme ihtiyaçlarınız ve zorluklar",
+      "customStrategy": "Sektörünüze özel YZ stratejisi",
+      "roadmap": "Uygulama yol haritası ve zaman çizelgesi"
+    },
+    "testimonial": {
+      "quote": "Spark AI'deki YZ uzmanları danışmanlığımız sırasında profesyonel ve ilgiliydi. İşimiz için dönüşüm oranımızı %300 artıran harika bir YZ sesli temsilci stratejisi oluşturdular.",
+      "author": "Sarah Johnson, CEO TechStart Inc."
+    },
+    "schedulingComplete": "Planlama Tamamlandı",
+    "thankYou": "Planlama için teşekkürler! Kısa sürede onay e-postası alacaksınız.",
+    "notice": "Bildirim",
+    "basicLink": "Temel planlama bağlantısı kullanılıyor. Bazı özellikler sınırlı olabilir.",
+    "cantFindTime": "Uygun bir zaman bulamıyor musunuz?",
+    "contactDirectly": "Doğrudan bize ulaşın"
+  },
+  "badges": {
+    "trustedByLeaders": "🏆 SEKTÖR LİDERLERİNİN GÜVENDİĞİ"
+  },
+  "featureHighlights": {
+    "enterpriseSecurity": {
+      "title": "Kurumsal Güvenlik",
+      "description": "Askeri düzey şifreleme ile SOC 2 uyumlu"
+    },
+    "provenResults": {
+      "title": "Kanıtlanmış Sonuçlar",
+      "description": "Potansiyel dönüşüm oranlarında ortalama %300 artış"
+    },
+    "fiveStarSupport": {
+      "title": "5 Yıldızlı Destek",
+      "description": "7/24 özel destek ve %99,9 çalışma süresi"
+    },
+    "cta": {
+      "title": "Sektör liderlerine katılmaya hazır mısınız?",
+      "subtitle": "Fortune 500 şirketlerinin müşteri etkileşimini dönüştürmesine yardımcı olan aynı YZ teknolojisini deneyimleyin",
+      "startFreeTrial": "Ücretsiz Denemeyi Başlat",
+      "bookDemoCall": "Demo Görüşmesi Ayırt"
+    }
   },
   "exitIntent": {
     "title": "Bekleyin! Kaçırmayın! 🚨",

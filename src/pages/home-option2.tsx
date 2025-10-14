@@ -1096,7 +1096,7 @@ export default function HomeOption2() {
             {/* Trust Badge */}
             <div className="mt-6 sm:mt-8 flex items-center justify-center space-x-2 text-white/80 text-xs sm:text-sm px-4">
               <Shield className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span>Trusted by 500+ companies worldwide</span>
+              <span>{t('home.ctaBanner.trustedBy')}</span>
             </div>
           </div>
         </div>
@@ -1222,7 +1222,7 @@ export default function HomeOption2() {
                       </div>
                       <div className="flex items-center space-x-2">
                         <Video className="w-5 h-5" />
-                        <span>Web conferencing details provided upon confirmation</span>
+                        <span>{t('calendly.webConferencing')}</span>
                       </div>
                     </div>
                   </div>
@@ -1270,9 +1270,9 @@ export default function HomeOption2() {
 
           <div className="text-center mt-8">
             <p className="text-slate-500 dark:text-slate-400">
-              Can't find a time that works?{' '}
+              {t('calendly.cantFindTime')}{' '}
               <a href="/contact" className="text-blue-600 dark:text-blue-400 hover:underline">
-                Contact us directly
+                {t('calendly.contactDirectly')}
               </a>
             </p>
           </div>
@@ -1285,14 +1285,14 @@ export default function HomeOption2() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <div className="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4 animate-fade-in-up">
-              🏆 TRUSTED BY INDUSTRY LEADERS
+              {t('badges.trustedByLeaders')}
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200 leading-tight">
               {t('home.whyChoose.title')}
             </h2>
-            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-400 px-4">
+            {/* <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-400 px-4">
               {t('home.whyChoose.subtitle')}
-            </p>
+            </p> */}
           </div>
 
           {/* Enhanced Comparison Table */}
@@ -1400,22 +1400,22 @@ export default function HomeOption2() {
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg dark:shadow-2xl">
                 <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">Enterprise Security</h3>
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 px-2">SOC 2 compliant with military-grade encryption</p>
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">{t('featureHighlights.enterpriseSecurity.title')}</h3>
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 px-2">{t('featureHighlights.enterpriseSecurity.description')}</p>
             </div>
             <div className="text-center animate-fade-in-up animate-delay-900">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg dark:shadow-2xl">
                 <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">Proven Results</h3>
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 px-2">Average 300% increase in lead conversion rates</p>
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">{t('featureHighlights.provenResults.title')}</h3>
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 px-2">{t('featureHighlights.provenResults.description')}</p>
             </div>
             <div className="text-center animate-fade-in-up animate-delay-1000 sm:col-span-2 lg:col-span-1">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg dark:shadow-2xl">
                 <Star className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">5-Star Support</h3>
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 px-2">24/7 dedicated support with 99.9% uptime</p>
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">{t('featureHighlights.fiveStarSupport.title')}</h3>
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 px-2">{t('featureHighlights.fiveStarSupport.description')}</p>
             </div>
           </div>
 
@@ -1427,9 +1427,9 @@ export default function HomeOption2() {
               <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
               
               <div className="relative z-10">
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 leading-tight">Ready to join industry leaders?</h3>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 leading-tight">{t('featureHighlights.cta.title')}</h3>
                 <p className="text-base sm:text-lg text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
-                  Experience the same AI technology that's helping Fortune 500 companies transform their customer engagement
+                  {t('featureHighlights.cta.subtitle')}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                   <Link href="/login">
@@ -1438,7 +1438,7 @@ export default function HomeOption2() {
                     className="group bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:scale-105 transition-all duration-300 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-lg dark:shadow-2xl hover:shadow-2xl border-2 border-transparent hover:border-blue-200 dark:hover:border-blue-800 relative overflow-hidden w-full sm:w-auto"
                   >
                     <span className="relative z-10 flex items-center justify-center">
-                      Start Free Trial
+                      {t('featureHighlights.cta.startFreeTrial')}
                       <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -1451,17 +1451,17 @@ export default function HomeOption2() {
                   >
                     <span className="relative z-10 flex items-center justify-center">
                       <Phone className="mr-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
-                      Book Demo Call
+                      {t('featureHighlights.cta.bookDemoCall')}
                     </span>
                     <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </Button>
                 </div>
                 
-                {/* Trust Badge */}
-                <div className="mt-6 sm:mt-8 flex items-center justify-center space-x-2 text-white/80 text-xs sm:text-sm px-4">
-                  <Shield className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span>Trusted by 500+ companies worldwide</span>
-                </div>
+            {/* Trust Badge */}
+            <div className="mt-6 sm:mt-8 flex items-center justify-center space-x-2 text-white/80 text-xs sm:text-sm px-4">
+              <Shield className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span>{t('home.ctaBanner.trustedBy')}</span>
+            </div>
               </div>
             </div>
           </div>
@@ -1646,10 +1646,10 @@ export default function HomeOption2() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
-              Testimonials
+              {t('home.testimonials.title')}
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-              Show customer success stories with real photos and results. Keep it personal and relatable to your audience.
+              {t('home.testimonials.subtitle')}
             </p>
           </div>
 
