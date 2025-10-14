@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,10 +23,54 @@ export default function VoiceSelection({ selectedVoiceId, onVoiceSelect }: Voice
   const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [languageKey, setLanguageKey] = useState(0);
   
   const { toast } = useToast();
   const { i18n } = useTranslation();
   const queryClient = useQueryClient();
+
+  const { data: voicesData, isLoading, refetch } = useQuery<any>({
+    queryKey: ["/api/voices", i18n.language],
+    queryFn: () => api.getVoices(),
+    staleTime: 0,
+    gcTime: 0,
+  });
+
+  useEffect(() => {
+    refetch();
+    setLanguageKey(prev => prev + 1);
+  }, [i18n.language, refetch]);
+
+  useEffect(() => {
+  }, [voicesData]);
+
+  const testFiltering = () => {
+    const testVoices = [
+      { name: 'Harun', language: 'tr', description: 'A young guy from Istanbul with his modern Turkish' },
+      { name: 'Sarah', language: 'en', description: 'Young adult woman with a confident and warm tone' },
+      { name: 'Salma', language: 'ar', description: 'Arabic voice from Dubai' }
+    ];
+    
+    const testLanguage = 'tr';
+    const testKeywords = languageMap[testLanguage] || languageMap['en'];
+    
+    testVoices.forEach(voice => {
+      const voiceLanguage = (voice.language || '').toLowerCase();
+      const voiceDescription = (voice.description || '').toLowerCase();
+      const voiceName = (voice.name || '').toLowerCase();
+      
+      const matches = testKeywords.some(keyword => {
+        const keywordLower = keyword.toLowerCase();
+        return voiceLanguage.includes(keywordLower) ||
+               voiceDescription.includes(keywordLower) ||
+               voiceName.includes(keywordLower);
+      });
+    });
+  };
+  
+  useEffect(() => {
+    testFiltering();
+  }, []);
 
   // Helper function to cleanup audio
   const cleanupAudio = (audioToClean: HTMLAudioElement) => {
@@ -38,14 +82,6 @@ export default function VoiceSelection({ selectedVoiceId, onVoiceSelect }: Voice
     setAudioElement(null);
     setIsPlaying(false);
   };
-
-  // Get voices
-  const { data: voicesData, isLoading, refetch } = useQuery<any>({
-    queryKey: ["/api/voices"],
-    queryFn: () => api.getVoices(),
-    staleTime: 0, // Always refetch
-    gcTime: 0, // Don't cache
-  });
 
   const handleRefresh = async () => {
     setIsRefreshing(true);
@@ -329,13 +365,14 @@ export default function VoiceSelection({ selectedVoiceId, onVoiceSelect }: Voice
   const allVoices: any[] = Array.isArray(voicesData) ? voicesData : (voicesData?.voices || []);
   
   const languageMap: Record<string, string[]> = {
-    'tr': ['turkish', 'türkçe', 'turkce'],
-    'ar': ['arabic', 'عربي'],
-    'az': ['azerbaijani', 'azərbaycan'],
-    'en': ['english', 'american', 'british', 'australian', 'indian']
+    'tr': ['turkish', 'türkçe', 'turkce', 'istanbul', 'türkiye'],
+    'ar': ['arabic', 'عربي', 'arab', 'middle east', 'gulf', 'saudi', 'emirates'],
+    'az': ['azerbaijani', 'azərbaycan', 'azerbaijan', 'baku'],
+    'en': ['english', 'american', 'british', 'australian', 'indian', 'us', 'uk', 'usa']
   };
   
-  const currentLanguageCode = i18n.language || 'en';
+  const rawLanguageCode = i18n.language || 'en';
+  const currentLanguageCode = rawLanguageCode.split('-')[0].toLowerCase();
   const languageKeywords = languageMap[currentLanguageCode] || languageMap['en'];
   
   const voices = allVoices.filter((voice: any) => {
@@ -347,23 +384,22 @@ export default function VoiceSelection({ selectedVoiceId, onVoiceSelect }: Voice
     const voiceDescription = (voice.description || '').toLowerCase();
     const voiceName = (voice.name || '').toLowerCase();
     
-    return languageKeywords.some(keyword => 
-      voiceLanguage.includes(keyword.toLowerCase()) ||
-      voiceDescription.includes(keyword.toLowerCase()) ||
-      voiceName.includes(keyword.toLowerCase())
-    );
-  });
-  
-  // Debug: Check if voices are loaded
-  console.log('Voice selection:', {
-    total: allVoices.length,
-    filtered: voices.length,
-    language: currentLanguageCode,
-    keywords: languageKeywords
+    const matches = languageKeywords.some(keyword => {
+      const keywordLower = keyword.toLowerCase();
+      const languageMatch = voiceLanguage.includes(keywordLower);
+      const descriptionMatch = voiceDescription.includes(keywordLower);
+      const nameMatch = voiceName.includes(keywordLower);
+      
+      if (languageMatch || descriptionMatch || nameMatch) {
+        return true;
+      }
+      return false;
+    });
+    return matches;
   });
 
   return (
-    <Card className="group relative overflow-hidden border-0 bg-gradient-to-br from-blue-50/80 to-indigo-50/80 dark:from-blue-900/20 dark:to-indigo-900/20 backdrop-blur-xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+    <Card key={languageKey} className="group relative overflow-hidden border-0 bg-gradient-to-br from-blue-50/80 to-indigo-50/80 dark:from-blue-900/20 dark:to-indigo-900/20 backdrop-blur-xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
       {/* Animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       
@@ -383,18 +419,13 @@ export default function VoiceSelection({ selectedVoiceId, onVoiceSelect }: Voice
               <p className="text-sm text-slate-600 dark:text-slate-400 font-medium">
                 Choose or clone a voice for your campaigns
               </p>
+              <div className="mt-1">
+                <Badge variant="outline" className="text-xs">
+                  🌍 {currentLanguageCode.toUpperCase()} voices
+                </Badge>
+              </div>
             </div>
           </div>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={handleRefresh}
-            disabled={isRefreshing}
-            className="border-slate-300/50 text-slate-700 dark:text-slate-300 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-all duration-300"
-          >
-            <RefreshCw className={`h-4 w-4 mr-2 ${isRefreshing ? 'animate-spin' : ''}`} />
-            Refresh
-          </Button>
         </CardTitle>
       </CardHeader>
       <CardContent className="relative z-10">
@@ -427,7 +458,17 @@ export default function VoiceSelection({ selectedVoiceId, onVoiceSelect }: Voice
         {/* Enhanced Voice Library */}
         {activeTab === "library" && (
           <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
-            {voices.map((voice: any) => (
+            {voices.length === 0 ? (
+              <div className="text-center py-8">
+                <div className="text-slate-400 dark:text-slate-500 mb-2">
+                  <MicOff className="h-12 w-12 mx-auto" />
+                </div>
+                <p className="text-sm text-slate-600 dark:text-slate-400 font-medium">
+                  No voices found for {currentLanguageCode.toUpperCase()}
+                </p>
+              </div>
+            ) : (
+              voices.map((voice: any) => (
               <div
                 key={voice.id}
                 className={`group/voice p-4 border-2 rounded-2xl transition-all duration-300 cursor-pointer ${
@@ -493,7 +534,7 @@ export default function VoiceSelection({ selectedVoiceId, onVoiceSelect }: Voice
                   </div>
                 )}
               </div>
-            ))}
+            )))}
           </div>
         )}
 
