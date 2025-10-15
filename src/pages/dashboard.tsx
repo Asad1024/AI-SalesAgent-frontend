@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Sidebar from "@/components/sidebar";
-import StatsOverview from "@/components/stats-overview";
 import CampaignSetup from "@/components/campaign-setup";
 import VoiceSelection from "@/components/voice-selection";
 import LeadsUpload from "@/components/leads-upload";
 import CampaignActions from "@/components/campaign-actions";
 import CampaignSelector from "@/components/campaign-selector";
 import AnimatedBanner from "@/components/animated-banner";
-import LanguageSwitcher from "@/components/language-switcher";
 import Logo from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Zap, Sun, Moon, Menu, Megaphone } from "lucide-react";
