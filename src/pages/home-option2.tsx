@@ -937,7 +937,8 @@ export default function HomeOption2() {
                 description: t('home.demo.categories.customerSupport.description'),
                 icon: Headphones,
                 color: "from-blue-500 to-purple-500",
-                features: (t('home.demo.categories.customerSupport.features', { returnObjects: true }) as string[])
+                features: (t('home.demo.categories.customerSupport.features', { returnObjects: true }) as string[]),
+                videoUrl: "https://res.cloudinary.com/domnocrwi/video/upload/v1760529959/Customer_Support_mnzdzt.mp4"
               },
               {
                 title: t('home.demo.categories.appointmentBooking.title'),
@@ -965,6 +966,27 @@ export default function HomeOption2() {
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
                     <div className="relative">
+                      {/* Video Preview Thumbnail */}
+                      {demo.videoUrl && (
+                        <div 
+                          className="relative mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 aspect-video group/video cursor-pointer"
+                          onClick={() => window.open(demo.videoUrl, '_blank')}
+                        >
+                          <div className="absolute inset-0 bg-black/20 group-hover/video:bg-black/10 transition-colors duration-300"></div>
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover/video:scale-110 transition-transform duration-300 shadow-xl">
+                              <Play className="w-8 h-8 text-blue-600 ml-1" />
+                            </div>
+                          </div>
+                          <div className="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs font-semibold">
+                            {demo.duration}
+                          </div>
+                          <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-xs font-semibold animate-pulse">
+                            🔴 LIVE
+                          </div>
+                        </div>
+                      )}
+                      
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center space-x-3">
                           <div className={`w-12 h-12 bg-gradient-to-r ${demo.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg dark:shadow-2xl`}>
@@ -977,9 +999,11 @@ export default function HomeOption2() {
                             <p className="text-sm text-slate-500 dark:text-slate-400">{demo.industry}</p>
                           </div>
                         </div>
-                        <div className="bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full text-sm font-semibold text-slate-600 dark:text-slate-300">
-                          {demo.duration}
-                        </div>
+                        {!demo.videoUrl && (
+                          <div className="bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full text-sm font-semibold text-slate-600 dark:text-slate-300">
+                            {demo.duration}
+                          </div>
+                        )}
                       </div>
                       
                       <p className="text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
@@ -995,7 +1019,16 @@ export default function HomeOption2() {
                         ))}
                       </div>
                       
-                      <Button variant="outline" className="w-full group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-500 group-hover:text-white group-hover:border-transparent transition-all duration-300">
+                      <Button 
+                        variant="outline" 
+                        className="w-full group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-500 group-hover:text-white group-hover:border-transparent transition-all duration-300"
+                        onClick={() => {
+                          if (demo.videoUrl) {
+                            // Open video in a new tab/window
+                            window.open(demo.videoUrl, '_blank');
+                          }
+                        }}
+                      >
                         <Play className="mr-2 w-4 h-4" />
                         {t('home.demoSection.watchDemo')}
                       </Button>
