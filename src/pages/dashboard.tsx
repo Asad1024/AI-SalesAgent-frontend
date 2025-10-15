@@ -22,9 +22,11 @@ import {
   SheetTrigger,
   } from "@/components/ui/sheet";
 import CampaignsOverview from "@/components/campaigns-overview";
+import { useLocation } from "wouter";
 
 export default function Dashboard() {
   const { t } = useTranslation();
+  const [, setLocation] = useLocation();
   const [currentCampaign, setCurrentCampaign] = useState<any>(null);
   const [selectedVoiceId, setSelectedVoiceId] = useState<string>("");
   const [uploadedLeads, setUploadedLeads] = useState<any[]>([]);
@@ -187,7 +189,6 @@ export default function Dashboard() {
               </div>
             )}
 
-            {/* Existing Campaigns */}
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
@@ -207,7 +208,6 @@ export default function Dashboard() {
               <CampaignsOverview />
             </div>
 
-            {/* Enhanced Test & Launch */}
             {currentCampaign && (
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
