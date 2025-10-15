@@ -9,11 +9,9 @@ import CampaignSelector from "@/components/campaign-selector";
 import AnimatedBanner from "@/components/animated-banner";
 import Logo from "@/components/logo";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Zap, Sun, Moon, Menu, Megaphone } from "lucide-react";
-import ThemeToggle from "@/components/theme-toggle";
+import { Sparkles,  Menu, Megaphone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useTheme } from "@/hooks/use-theme";
-import { api } from "@/lib/api";
 import {
   Sheet,
   SheetContent,
