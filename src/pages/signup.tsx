@@ -148,45 +148,47 @@ export default function Signup() {
       </div>
 
       {/* Header */}
-      <div className="relative z-10 flex justify-between items-center p-6">
+      <div className="relative z-10 flex justify-between items-center p-4 sm:p-6">
         <div className="flex items-center space-x-2">
-          <Logo size="md" showText={true} />
+          <Logo size="sm" showText={true} className="sm:size-md" />
         </div>
         
-        <div className="flex items-center space-x-4">
-          <LanguageSwitcher />
+        <div className="flex items-center space-x-2 sm:space-x-4">
+          <div className="hidden sm:block">
+            <LanguageSwitcher />
+          </div>
           <Button
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
-            className="rounded-full"
+            className="rounded-full w-8 h-8 sm:w-10 sm:h-10"
           >
-            {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            {theme === 'dark' ? <Sun className="w-4 h-4 sm:w-5 sm:h-5" /> : <Moon className="w-4 h-4 sm:w-5 sm:h-5" />}
           </Button>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex items-center justify-center px-6 py-12">
-        <div className="w-full max-w-md">
-          <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 dark:border-slate-700/50 p-8">
+      <div className="relative z-10 flex items-center justify-center px-4 sm:px-6 py-8 sm:py-12">
+        <div className="w-full max-w-sm sm:max-w-md">
+          <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl border border-white/20 dark:border-slate-700/50 p-4 sm:p-6 lg:p-8">
             {!isSuccess ? (
               <>
                 {/* Header */}
-                <div className="text-center mb-8">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-2xl mb-4">
-                    <User className="w-8 h-8 text-white" />
+                <div className="text-center mb-6 sm:mb-8">
+                  <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-xl sm:rounded-2xl mb-3 sm:mb-4">
+                    <User className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
-                  <h1 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                  <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2">
                     {t('signup.title')}
                   </h1>
-                  <p className="text-slate-600 dark:text-slate-400">
+                  <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
                     {t('signup.subtitle')}
                   </p>
                 </div>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                   {/* Email */}
                   <div>
                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
@@ -200,7 +202,7 @@ export default function Signup() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full pl-10 pr-4 py-3 border border-slate-200 dark:border-slate-600 rounded-xl bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                        className="w-full pl-10 pr-4 py-2.5 sm:py-3 border border-slate-200 dark:border-slate-600 rounded-xl bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base"
                         placeholder={t('signup.emailPlaceholder')}
                       />
                     </div>
@@ -219,7 +221,7 @@ export default function Signup() {
                         value={formData.password}
                         onChange={handleChange}
                         required
-                        className="w-full pl-10 pr-12 py-3 border border-slate-200 dark:border-slate-600 rounded-xl bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                        className="w-full pl-10 pr-12 py-2.5 sm:py-3 border border-slate-200 dark:border-slate-600 rounded-xl bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base"
                         placeholder={t('signup.passwordPlaceholder')}
                       />
                       <button
@@ -245,7 +247,7 @@ export default function Signup() {
                         value={formData.confirmPassword}
                         onChange={handleChange}
                         required
-                        className="w-full pl-10 pr-12 py-3 border border-slate-200 dark:border-slate-600 rounded-xl bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                        className="w-full pl-10 pr-12 py-2.5 sm:py-3 border border-slate-200 dark:border-slate-600 rounded-xl bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base"
                         placeholder={t('signup.confirmPasswordPlaceholder')}
                       />
                       <button
@@ -262,7 +264,7 @@ export default function Signup() {
                   <Button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 hover:from-blue-600 hover:via-purple-600 hover:to-purple-700 text-white py-3 rounded-xl font-semibold transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                    className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 hover:from-blue-600 hover:via-purple-600 hover:to-purple-700 text-white py-2.5 sm:py-3 rounded-xl font-semibold transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-sm sm:text-base"
                   >
                     {isLoading ? (
                       <>
@@ -279,8 +281,8 @@ export default function Signup() {
                 </form>
 
                 {/* Login Link */}
-                <div className="mt-6 text-center">
-                  <p className="text-slate-600 dark:text-slate-400">
+                <div className="mt-4 sm:mt-6 text-center">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
                     {t('signup.alreadyHaveAccount')}{' '}
                     <Link href="/login" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold transition-colors">
                       {t('signup.signInHere')}
@@ -307,13 +309,13 @@ export default function Signup() {
           </div>
 
           {/* Features Grid */}
-          <div className="mt-8 grid grid-cols-2 gap-4">
+          <div className="mt-6 sm:mt-8 grid grid-cols-2 gap-3 sm:gap-4">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
                 <div
                   key={index}
-                  className="relative bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl rounded-2xl p-4 border border-white/20 dark:border-slate-700/50 text-center overflow-hidden"
+                  className="relative bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-white/20 dark:border-slate-700/50 text-center overflow-hidden"
                 >
                   {/* Background Pattern */}
                   <div className="absolute inset-0 opacity-5">
@@ -333,10 +335,10 @@ export default function Signup() {
                   <div className="absolute bottom-1 left-1 w-1.5 h-1.5 bg-purple-500/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
                   
                   <div className="relative z-10">
-                    <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl mb-2 shadow-lg">
-                      <Icon className="w-5 h-5 text-white" />
+                    <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg sm:rounded-xl mb-2 shadow-lg">
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                     </div>
-                    <p className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                    <p className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
                       {feature.text}
                     </p>
                   </div>

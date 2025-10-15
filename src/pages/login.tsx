@@ -165,51 +165,53 @@ export default function Login() {
         </div>
       </div>
 
-      <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
+      <div className="relative z-10 min-h-screen flex items-center justify-center p-4 sm:p-6">
               {/* Theme Toggle and Back to Home - Fixed Position */}
-      <div className="fixed top-4 right-4 z-50 flex space-x-2">
+      <div className="fixed top-3 sm:top-4 right-3 sm:right-4 z-50 flex space-x-1 sm:space-x-2">
         <Link href="/">
           <Button
             variant="ghost"
             size="sm"
-            className="w-12 h-12 p-0 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-white/20 dark:border-slate-700/50 hover:bg-white dark:hover:bg-slate-800 shadow-lg transition-all duration-300"
+            className="w-10 h-10 sm:w-12 sm:h-12 p-0 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-white/20 dark:border-slate-700/50 hover:bg-white dark:hover:bg-slate-800 shadow-lg transition-all duration-300"
             title="Back to Home"
           >
-            <ArrowLeft className="h-6 w-6 text-slate-700 dark:text-slate-300" />
+            <ArrowLeft className="h-5 w-5 sm:h-6 sm:w-6 text-slate-700 dark:text-slate-300" />
           </Button>
         </Link>
-        <LanguageSwitcher />
+        <div className="hidden sm:block">
+          <LanguageSwitcher />
+        </div>
         <Button
           variant="ghost"
           size="sm"
           onClick={toggleTheme}
-          className="w-12 h-12 p-0 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-white/20 dark:border-slate-700/50 hover:bg-white dark:hover:bg-slate-800 shadow-lg transition-all duration-300"
+          className="w-10 h-10 sm:w-12 sm:h-12 p-0 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-white/20 dark:border-slate-700/50 hover:bg-white dark:hover:bg-slate-800 shadow-lg transition-all duration-300"
           title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
         >
           {theme === 'light' ? (
-            <Moon className="h-6 w-6 text-slate-700 dark:text-slate-300" />
+            <Moon className="h-5 w-5 sm:h-6 sm:w-6 text-slate-700 dark:text-slate-300" />
           ) : (
-            <Sun className="h-6 w-6 text-slate-700 dark:text-slate-300" />
+            <Sun className="h-5 w-5 sm:h-6 sm:w-6 text-slate-700 dark:text-slate-300" />
           )}
         </Button>
       </div>
 
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-sm sm:max-w-md">
           {/* Header */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-6 sm:mb-8">
             {/* Logo */}
-            <div className="flex items-center justify-center space-x-3 mb-6">
-              <Logo size="lg" showText={false} />
+            <div className="flex items-center justify-center space-x-2 sm:space-x-3 mb-4 sm:mb-6">
+              <Logo size="md" showText={false} className="sm:size-lg" />
               <div className="text-left">
-                <h1 className="text-2xl font-bold spark-gradient-text">{t('auth.title')}</h1>
-                <p className="text-sm text-slate-600 dark:text-slate-400">{t('auth.welcomeBack')}</p>
+                <h1 className="text-xl sm:text-2xl font-bold spark-gradient-text">{t('auth.title')}</h1>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">{t('auth.welcomeBack')}</p>
                 <p className="text-xs text-purple-600 dark:text-purple-400 mt-1">Powered by Spark AI</p>
               </div>
             </div>
           </div>
 
           {/* Login Card */}
-          <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 dark:border-slate-700/50">
+          <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-white/20 dark:border-slate-700/50">
             {isSuccess ? (
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -228,18 +230,18 @@ export default function Login() {
             ) : (
               <>
                 {/* Card Header */}
-                <div className="text-center mb-6">
+                <div className="text-center mb-4 sm:mb-6">
                   <div className="flex items-center justify-center space-x-2 mb-2">
-                    <ArrowRight className="h-5 w-5 text-purple-500" />
-                    <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200">{t('auth.signIn')}</h2>
+                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 text-purple-500" />
+                    <h2 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-200">{t('auth.signIn')}</h2>
                   </div>
-                  <p className="text-slate-600 dark:text-slate-400">
+                  <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
                     {t('auth.enterCredentials')}
                   </p>
                 </div>
 
                 {/* Login Form */}
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                   {/* Email Field */}
                   <div>
                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
@@ -255,7 +257,7 @@ export default function Login() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full pl-10 pr-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                        className="w-full pl-10 pr-4 py-2.5 sm:py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
                         placeholder={t('auth.emailPlaceholder')}
                       />
                     </div>
@@ -283,7 +285,7 @@ export default function Login() {
                         value={formData.password}
                         onChange={handleChange}
                         required
-                        className="w-full pl-10 pr-12 py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                        className="w-full pl-10 pr-12 py-2.5 sm:py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
                         placeholder={t('auth.passwordPlaceholder')}
                       />
                       <button
@@ -304,7 +306,7 @@ export default function Login() {
                   <Button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white py-3 text-lg font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white py-2.5 sm:py-3 text-sm sm:text-base font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     {isLoading ? (
                       <div className="flex items-center justify-center">
@@ -325,7 +327,7 @@ export default function Login() {
                     onClick={handleDemoLogin}
                     disabled={isLoading}
                     variant="outline"
-                    className="w-full border-2 border-purple-500 text-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20 py-3 text-lg font-semibold rounded-xl transition-all duration-300"
+                    className="w-full border-2 border-purple-500 text-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20 py-2.5 sm:py-3 text-sm sm:text-base font-semibold rounded-xl transition-all duration-300"
                   >
                     <Sparkles className="mr-2 h-5 w-5" />
                     {t('auth.tryDemoAccount')}
@@ -333,9 +335,9 @@ export default function Login() {
                 </form>
 
                 {/* Demo Credentials Info */}
-                <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
+                <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
                   <div className="text-center">
-                    <h4 className="text-sm font-semibold text-purple-800 dark:text-purple-200 mb-2">
+                    <h4 className="text-xs sm:text-sm font-semibold text-purple-800 dark:text-purple-200 mb-2">
                       {t('auth.demoCredentials')}
                     </h4>
                     <div className="text-xs text-slate-600 dark:text-slate-400 space-y-1">
@@ -346,8 +348,8 @@ export default function Login() {
                 </div>
 
                 {/* Sign Up Link */}
-                <div className="mt-6 text-center">
-                  <p className="text-slate-600 dark:text-slate-400">
+                <div className="mt-4 sm:mt-6 text-center">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
                     Don't have an account?{' '}
                     <Link href="/signup" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-semibold transition-colors">
                       Create one here
@@ -359,18 +361,18 @@ export default function Login() {
           </div>
 
           {/* Features Grid */}
-          <div className="mt-8 grid grid-cols-2 gap-4">
+          <div className="mt-6 sm:mt-8 grid grid-cols-2 gap-3 sm:gap-4">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
                 <div
                   key={index}
-                  className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/20 dark:border-slate-700/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 text-center border border-white/20 dark:border-slate-700/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                 >
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mx-auto mb-2">
-                    <Icon className="h-4 w-4 text-white" />
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <Icon className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
                   </div>
-                  <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-1">
+                  <h3 className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 mb-1">
                     {feature.title}
                   </h3>
                   <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -382,20 +384,20 @@ export default function Login() {
           </div>
 
           {/* Stats */}
-          <div className="mt-8 text-center">
-            <div className="inline-flex items-center space-x-6 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-2xl px-6 py-3 border border-white/20 dark:border-slate-700/50">
+          <div className="mt-6 sm:mt-8 text-center">
+            <div className="inline-flex items-center space-x-3 sm:space-x-6 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-xl sm:rounded-2xl px-4 sm:px-6 py-2.5 sm:py-3 border border-white/20 dark:border-slate-700/50">
               <div className="text-center">
-                <div className="text-lg font-bold spark-gradient-text">10M+</div>
+                <div className="text-sm sm:text-lg font-bold spark-gradient-text">10M+</div>
                 <div className="text-xs text-slate-600 dark:text-slate-400">Calls Made</div>
               </div>
-              <div className="w-px h-8 bg-slate-300 dark:bg-slate-600"></div>
+              <div className="w-px h-6 sm:h-8 bg-slate-300 dark:bg-slate-600"></div>
               <div className="text-center">
-                <div className="text-lg font-bold spark-gradient-text">500+</div>
+                <div className="text-sm sm:text-lg font-bold spark-gradient-text">500+</div>
                 <div className="text-xs text-slate-600 dark:text-slate-400">Customers</div>
               </div>
-              <div className="w-px h-8 bg-slate-300 dark:bg-slate-600"></div>
+              <div className="w-px h-6 sm:h-8 bg-slate-300 dark:bg-slate-600"></div>
               <div className="text-center">
-                <div className="text-lg font-bold spark-gradient-text">95+</div>
+                <div className="text-sm sm:text-lg font-bold spark-gradient-text">95+</div>
                 <div className="text-xs text-slate-600 dark:text-slate-400">Languages</div>
               </div>
             </div>

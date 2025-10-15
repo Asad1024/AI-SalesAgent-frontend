@@ -87,7 +87,7 @@ export default function Dashboard() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Enhanced Header */}
-        <header className="relative bg-white/80 dark:bg-brand-900/80 backdrop-blur-xl border-b border-brand-200/50 dark:border-brand-800/50 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 shadow-sm overflow-hidden">
+        <header className="relative bg-white/80 dark:bg-brand-900/80 backdrop-blur-xl border-b border-brand-200/50 dark:border-brand-800/50 px-3 sm:px-4 lg:px-6 xl:px-8 py-3 sm:py-4 lg:py-6 shadow-sm overflow-hidden">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-5">
             <svg className="w-full h-full" viewBox="0 0 400 100" fill="none">
@@ -105,29 +105,29 @@ export default function Dashboard() {
           <div className="absolute top-2 right-20 w-3 h-3 bg-brand-500/20 rounded-full animate-pulse"></div>
           <div className="absolute bottom-2 left-20 w-2 h-2 bg-green-500/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 sm:space-x-4">
               {/* Mobile Menu Button */}
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
                   <Button 
                     variant="ghost" 
                     size="icon" 
-                    className="lg:hidden hover:bg-gradient-to-r hover:from-brand-500 hover:to-brand-600 hover:text-white transition-all duration-300"
+                    className="lg:hidden hover:bg-gradient-to-r hover:from-brand-500 hover:to-brand-600 hover:text-white transition-all duration-300 w-8 h-8 sm:w-10 sm:h-10"
                   >
-                    <Menu className="h-5 w-5" />
+                    <Menu className="h-4 w-4 sm:h-5 sm:w-5" />
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="w-[287.27px] p-0 bg-white/95 dark:bg-brand-900/95 backdrop-blur-xl">
+                <SheetContent side="left" className="w-[280px] sm:w-[320px] p-0 bg-white/95 dark:bg-brand-900/95 backdrop-blur-xl">
                   <Sidebar />
                 </SheetContent>
               </Sheet>
               
               <div className="space-y-1 sm:space-y-2">
-                <div className="flex items-center space-x-3">
-                  <Logo size="lg" showText={true} />
-                  <Sparkles className="h-6 w-6 text-yellow-500 animate-pulse" />
+                <div className="flex items-center space-x-2 sm:space-x-3">
+                  <Logo size="sm" showText={true} className="sm:size-md lg:size-lg" />
+                  <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-yellow-500 animate-pulse" />
                 </div>
-                <p className="text-brand-600 dark:text-brand-400 text-sm sm:text-base lg:text-lg font-medium hidden sm:block">
+                <p className="text-brand-600 dark:text-brand-400 text-xs sm:text-sm lg:text-base xl:text-lg font-medium hidden sm:block">
                   {t('auth.subtitle')}
                 </p>
               </div>
@@ -136,18 +136,18 @@ export default function Dashboard() {
         </header>
 
         {/* Enhanced Main Content */}
-        <main className="flex-1 overflow-auto p-4 sm:p-6 lg:p-8 bg-transparent">
-          <div className="max-w-7xl mx-auto space-y-6 sm:space-y-8">
+        <main className="flex-1 overflow-auto p-3 sm:p-4 lg:p-6 xl:p-8 bg-transparent">
+          <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6 lg:space-y-8">
             
             {/* Animated Banner */}
             <AnimatedBanner />
             
             {/* Campaign Selection - Moved to Top */}
             {!currentCampaign ? (
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-6 sm:h-8 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-brand-800 dark:text-brand-200">
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex items-center space-x-2 sm:space-x-3">
+                  <div className="w-2 h-5 sm:h-6 lg:h-8 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-brand-800 dark:text-brand-200">
                     Select Your Campaign
                   </h3>
                 </div>
@@ -155,16 +155,16 @@ export default function Dashboard() {
               </div>
             ) : (
               // Enhanced Campaign Setup
-              <div className="space-y-4 sm:space-y-6">
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-6 sm:h-8 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-brand-800 dark:text-brand-200">
+              <div className="space-y-3 sm:space-y-4 lg:space-y-6">
+                <div className="flex items-center space-x-2 sm:space-x-3">
+                  <div className="w-2 h-5 sm:h-6 lg:h-8 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-brand-800 dark:text-brand-200">
                     Campaign Configuration
                   </h3>
                 </div>
-                <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-8">
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
                   {/* Left Column: Configuration */}
-                  <div className="space-y-6">
+                  <div className="space-y-4 sm:space-y-6">
                     <CampaignSetup 
                       campaign={currentCampaign}
                       onCampaignUpdate={handleCampaignUpdate}
@@ -172,7 +172,7 @@ export default function Dashboard() {
                   </div>
 
                   {/* Right Column: Voice & Leads */}
-                  <div className="space-y-6">
+                  <div className="space-y-4 sm:space-y-6">
                     <VoiceSelection 
                       selectedVoiceId={selectedVoiceId}
                       onVoiceSelect={handleVoiceSelect}
@@ -188,19 +188,19 @@ export default function Dashboard() {
             )}
 
             {/* Existing Campaigns */}
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-8 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
-                  <h3 className="text-2xl font-bold text-brand-800 dark:text-brand-200">
+            <div className="space-y-3 sm:space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                <div className="flex items-center space-x-2 sm:space-x-3">
+                  <div className="w-2 h-6 sm:h-8 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-brand-800 dark:text-brand-200">
                     {t('dashboard.existingCampaigns')}
                   </h3>
                 </div>
                 <button
                   onClick={() => setLocation("/campaigns")}
-                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center px-3 sm:px-4 py-2 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl text-sm sm:text-base"
                 >
-                  <Megaphone className="h-4 w-4 mr-2" />
+                  <Megaphone className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                   {t('dashboard.viewAllCampaigns')}
                 </button>
               </div>
@@ -209,10 +209,10 @@ export default function Dashboard() {
 
             {/* Enhanced Test & Launch */}
             {currentCampaign && (
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-8 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
-                  <h3 className="text-2xl font-bold text-brand-800 dark:text-brand-200">
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex items-center space-x-2 sm:space-x-3">
+                  <div className="w-2 h-6 sm:h-8 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-brand-800 dark:text-brand-200">
                     Launch & Monitor
                   </h3>
                 </div>
