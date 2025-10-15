@@ -966,21 +966,19 @@ export default function HomeOption2() {
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
                     <div className="relative">
-                      {/* Video Preview Thumbnail */}
+                      {/* Video Player */}
                       {demo.videoUrl && (
-                        <div 
-                          className="relative mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 aspect-video group/video cursor-pointer"
-                          onClick={() => window.open(demo.videoUrl, '_blank')}
-                        >
-                          <div className="absolute inset-0 bg-black/20 group-hover/video:bg-black/10 transition-colors duration-300"></div>
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover/video:scale-110 transition-transform duration-300 shadow-xl">
-                              <Play className="w-8 h-8 text-blue-600 ml-1" />
-                            </div>
-                          </div>
-                          <div className="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs font-semibold">
-                            {demo.duration}
-                          </div>
+                        <div className="relative mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 aspect-video">
+                          <video 
+                            className="w-full h-full object-cover rounded-xl"
+                            controls
+                            preload="metadata"
+                            playsInline
+                            muted
+                          >
+                            <source src={demo.videoUrl} type="video/mp4" />
+                            Your browser does not support the video tag.
+                          </video>
                           <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-xs font-semibold animate-pulse">
                             🔴 LIVE
                           </div>
@@ -1022,15 +1020,9 @@ export default function HomeOption2() {
                       <Button 
                         variant="outline" 
                         className="w-full group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-500 group-hover:text-white group-hover:border-transparent transition-all duration-300"
-                        onClick={() => {
-                          if (demo.videoUrl) {
-                            // Open video in a new tab/window
-                            window.open(demo.videoUrl, '_blank');
-                          }
-                        }}
                       >
                         <Play className="mr-2 w-4 h-4" />
-                        {t('home.demoSection.watchDemo')}
+                        {demo.videoUrl ? 'Watch Video Above' : t('home.demoSection.watchDemo')}
                       </Button>
                     </div>
                     
