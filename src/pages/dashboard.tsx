@@ -1,40 +1,35 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Sidebar from "@/components/sidebar";
-import StatsOverview from "@/components/stats-overview";
 import CampaignSetup from "@/components/campaign-setup";
 import VoiceSelection from "@/components/voice-selection";
 import LeadsUpload from "@/components/leads-upload";
 import CampaignActions from "@/components/campaign-actions";
 import CampaignSelector from "@/components/campaign-selector";
 import AnimatedBanner from "@/components/animated-banner";
-import LanguageSwitcher from "@/components/language-switcher";
 import Logo from "@/components/logo";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Zap, Sun, Moon, Menu, Megaphone } from "lucide-react";
-import ThemeToggle from "@/components/theme-toggle";
+import { Sparkles,  Menu, Megaphone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useTheme } from "@/hooks/use-theme";
-import { api } from "@/lib/api";
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
   } from "@/components/ui/sheet";
 import CampaignsOverview from "@/components/campaigns-overview";
+import { useLocation } from "wouter";
 
 export default function Dashboard() {
   const { t } = useTranslation();
+  const [, setLocation] = useLocation();
   const [currentCampaign, setCurrentCampaign] = useState<any>(null);
   const [selectedVoiceId, setSelectedVoiceId] = useState<string>("");
   const [uploadedLeads, setUploadedLeads] = useState<any[]>([]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { toast } = useToast();
-  const { theme, toggleTheme } = useTheme();
 
   const handleCampaignUpdate = (campaign: any) => {
     setCurrentCampaign(campaign);
-    // Reset leads when switching campaigns
     setUploadedLeads([]);
   };
 
@@ -46,10 +41,8 @@ export default function Dashboard() {
     setUploadedLeads(leads);
   };
 
-  // Load leads when campaign changes
   useEffect(() => {
     if (currentCampaign?.id) {
-      // Fetch existing leads for the selected campaign
       const token = localStorage.getItem('auth-token');
       const headers: HeadersInit = {};
       
@@ -187,12 +180,11 @@ export default function Dashboard() {
               </div>
             )}
 
-            {/* Existing Campaigns */}
-            <div className="space-y-3 sm:space-y-4">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
-                <div className="flex items-center space-x-2 sm:space-x-3">
-                  <div className="w-2 h-6 sm:h-8 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-brand-800 dark:text-brand-200">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-8 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
+                  <h3 className="text-2xl font-bold text-brand-800 dark:text-brand-200">
                     {t('dashboard.existingCampaigns')}
                   </h3>
                 </div>
@@ -207,7 +199,6 @@ export default function Dashboard() {
               <CampaignsOverview />
             </div>
 
-            {/* Enhanced Test & Launch */}
             {currentCampaign && (
               <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-center space-x-2 sm:space-x-3">
