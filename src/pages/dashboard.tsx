@@ -27,12 +27,9 @@ export default function Dashboard() {
   const [selectedVoiceId, setSelectedVoiceId] = useState<string>("");
   const [uploadedLeads, setUploadedLeads] = useState<any[]>([]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { toast } = useToast();
-  const { theme, toggleTheme } = useTheme();
 
   const handleCampaignUpdate = (campaign: any) => {
     setCurrentCampaign(campaign);
-    // Reset leads when switching campaigns
     setUploadedLeads([]);
   };
 
@@ -44,10 +41,8 @@ export default function Dashboard() {
     setUploadedLeads(leads);
   };
 
-  // Load leads when campaign changes
   useEffect(() => {
     if (currentCampaign?.id) {
-      // Fetch existing leads for the selected campaign
       const token = localStorage.getItem('auth-token');
       const headers: HeadersInit = {};
       
