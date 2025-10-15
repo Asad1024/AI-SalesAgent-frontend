@@ -1130,40 +1130,49 @@ export default function HomeOption2() {
 
      
 
-      {/* Why Top Companies Choose Spark AI */}
-      <section className="relative py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%235965f0%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      {/* Why Top Companies Choose Spark AI - Redesigned */}
+      <section className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
+        {/* Enhanced Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%235965f0%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+          {/* Floating gradient orbs */}
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        </div>
+        
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-semibold mb-4 animate-fade-in-up">
+          {/* Enhanced Header */}
+          <div className="text-center mb-16 sm:mb-20">
+            <div className="inline-flex items-center bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 sm:px-8 py-3 rounded-full text-sm sm:text-base font-semibold mb-6 animate-fade-in-up shadow-lg">
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
               {t('badges.trustedByLeaders')}
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-4 sm:mb-6 animate-fade-in-up animate-delay-200 leading-tight px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-6 sm:mb-8 animate-fade-in-up animate-delay-200 leading-tight px-4">
               {t('home.whyChoose.title')}
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto animate-fade-in-up animate-delay-400 px-4">
+            <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 dark:text-slate-400 max-w-4xl mx-auto animate-fade-in-up animate-delay-400 px-4 leading-relaxed">
               Discover why industry leaders choose AI Spark Sales Agent over other platforms
             </p>
           </div>
 
-          {/* Mobile-First Comparison Cards */}
-          <div className="space-y-6 sm:space-y-8">
-            {/* Desktop Comparison Table - Hidden on Mobile */}
-            <div className="hidden lg:block bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700/50 animate-fade-in-up animate-delay-600">
+          {/* Modern Feature Comparison */}
+          <div className="space-y-8 sm:space-y-12">
+            {/* Desktop Comparison Table - Enhanced */}
+            <div className="hidden lg:block bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden border border-white/20 dark:border-slate-700/50 animate-fade-in-up animate-delay-600">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-slate-200 dark:border-slate-600/50 bg-gradient-to-r from-slate-50 to-blue-50 dark:from-slate-700 dark:to-slate-600">
-                      <th className="text-left py-6 lg:py-8 px-6 lg:px-8 text-base lg:text-lg font-bold text-slate-900 dark:text-white">
+                    <tr className="border-b border-slate-200/50 dark:border-slate-600/30 bg-gradient-to-r from-slate-50/80 to-blue-50/80 dark:from-slate-700/80 dark:to-slate-600/80 backdrop-blur-sm">
+                      <th className="text-left py-8 px-8 text-lg font-bold text-slate-900 dark:text-white">
                         {t('home.whyChoose.comparison.title')}
                       </th>
-                      <th className="text-center py-6 lg:py-8 px-6 lg:px-8">
-                        <div className="inline-flex items-center justify-center w-32 lg:w-36 h-12 lg:h-14 bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-xl shadow-lg dark:shadow-2xl">
-                          <Sparkles className="w-5 lg:w-6 h-5 lg:h-6 text-white mr-2" />
-                          <span className="text-white font-bold text-sm lg:text-lg">{t('home.whyChoose.comparison.ourPlatform')}</span>
+                      <th className="text-center py-8 px-8">
+                        <div className="inline-flex items-center justify-center w-40 h-16 bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-2xl shadow-xl">
+                          <Sparkles className="w-6 h-6 text-white mr-3" />
+                          <span className="text-white font-bold text-lg">{t('home.whyChoose.comparison.ourPlatform')}</span>
                         </div>
                       </th>
-                      <th className="text-center py-6 lg:py-8 px-6 lg:px-8 text-base lg:text-lg font-semibold text-slate-600 dark:text-slate-400">
+                      <th className="text-center py-8 px-8 text-lg font-semibold text-slate-600 dark:text-slate-400">
                         {t('home.whyChoose.comparison.otherPlatforms')}
                       </th>
                     </tr>
@@ -1219,25 +1228,25 @@ export default function HomeOption2() {
                         others: false
                       }
                     ].map((item, index) => (
-                      <tr key={index} className={`border-b border-slate-100 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors duration-200 animate-fade-in-up animate-delay-${(index + 1) * 100}`}>
-                        <td className="py-6 px-6 lg:px-8">
-                          <div>
-                            <div className="text-slate-900 dark:text-white font-semibold text-base mb-1 leading-tight">
+                      <tr key={index} className={`border-b border-slate-100/50 dark:border-slate-600/30 hover:bg-slate-50/50 dark:hover:bg-slate-700/30 transition-all duration-300 animate-fade-in-up animate-delay-${(index + 1) * 100} group`}>
+                        <td className="py-8 px-8">
+                          <div className="group-hover:translate-x-2 transition-transform duration-300">
+                            <div className="text-slate-900 dark:text-white font-semibold text-lg mb-2 leading-tight">
                               {item.feature}
                             </div>
-                            <div className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                            <div className="text-slate-500 dark:text-slate-400 text-base leading-relaxed">
                               {item.description}
                             </div>
                           </div>
                         </td>
-                        <td className="text-center py-6 px-6 lg:px-8">
-                          <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full shadow-lg dark:shadow-2xl">
-                            <CheckCircle className="w-6 h-6 text-white" />
+                        <td className="text-center py-8 px-8">
+                          <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full shadow-xl group-hover:scale-110 transition-transform duration-300">
+                            <CheckCircle className="w-7 h-7 text-white" />
                           </div>
                         </td>
-                        <td className="text-center py-6 px-6 lg:px-8">
-                          <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-r from-red-500 to-red-600 rounded-full shadow-lg dark:shadow-2xl">
-                            <X className="w-6 h-6 text-white" />
+                        <td className="text-center py-8 px-8">
+                          <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-full shadow-xl group-hover:scale-110 transition-transform duration-300">
+                            <X className="w-7 h-7 text-white" />
                           </div>
                         </td>
                       </tr>
@@ -1247,8 +1256,8 @@ export default function HomeOption2() {
               </div>
             </div>
 
-            {/* Mobile/Tablet Comparison Cards */}
-            <div className="lg:hidden space-y-4 sm:space-y-6">
+            {/* Mobile/Tablet Comparison Cards - Redesigned */}
+            <div className="lg:hidden space-y-6 sm:space-y-8">
               {[
                 {
                   feature: t('home.whyChoose.comparison.features.advancedAI.title'),
@@ -1299,32 +1308,32 @@ export default function HomeOption2() {
                   others: false
                 }
               ].map((item, index) => (
-                <div key={index} className={`bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700/50 p-4 sm:p-6 animate-fade-in-up animate-delay-${(index + 1) * 100}`}>
-                  <div className="flex items-start justify-between mb-3 sm:mb-4">
-                    <div className="flex-1 pr-4">
-                      <h3 className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white mb-1 sm:mb-2 leading-tight">
+                <div key={index} className={`bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-xl border border-white/20 dark:border-slate-700/50 p-6 sm:p-8 animate-fade-in-up animate-delay-${(index + 1) * 100} hover:shadow-2xl transition-all duration-300 group`}>
+                  <div className="flex items-start justify-between mb-4 sm:mb-6">
+                    <div className="flex-1 pr-6">
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 sm:mb-3 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                         {item.feature}
                       </h3>
-                      <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                      <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
                         {item.description}
                       </p>
                     </div>
-                    <div className="flex items-center space-x-3 sm:space-x-4">
+                    <div className="flex items-center space-x-4 sm:space-x-6">
                       {/* AI Spark Column */}
                       <div className="text-center">
-                        <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full shadow-lg dark:shadow-2xl mb-1">
-                          <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                        <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl shadow-xl mb-2 group-hover:scale-110 transition-transform duration-300">
+                          <CheckCircle className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                         </div>
-                        <div className="text-xs sm:text-sm font-semibold text-blue-600 dark:text-blue-400">
+                        <div className="text-xs sm:text-sm font-bold text-blue-600 dark:text-blue-400">
                           AI Spark
                         </div>
                       </div>
                       {/* Others Column */}
                       <div className="text-center">
-                        <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-red-500 to-red-600 rounded-full shadow-lg dark:shadow-2xl mb-1">
-                          <X className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                        <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl shadow-xl mb-2 group-hover:scale-110 transition-transform duration-300">
+                          <X className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                         </div>
-                        <div className="text-xs sm:text-sm font-semibold text-red-600 dark:text-red-400">
+                        <div className="text-xs sm:text-sm font-bold text-red-600 dark:text-red-400">
                           Others
                         </div>
                       </div>
@@ -1335,52 +1344,56 @@ export default function HomeOption2() {
             </div>
           </div>
 
-          {/* Trust Indicators */}
-          <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            <div className="text-center animate-fade-in-up animate-delay-800 bg-white/50 dark:bg-slate-800/30 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/20 dark:border-slate-700/30">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg dark:shadow-2xl">
-                <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+          {/* Enhanced Trust Indicators */}
+          <div className="mt-16 sm:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+            <div className="text-center animate-fade-in-up animate-delay-800 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/20 dark:border-slate-700/50 hover:shadow-2xl transition-all duration-300 group">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
-              <h3 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 dark:text-white mb-2">{t('featureHighlights.enterpriseSecurity.title')}</h3>
-              <p className="text-xs sm:text-sm lg:text-base text-slate-600 dark:text-slate-400 px-2 leading-relaxed">{t('featureHighlights.enterpriseSecurity.description')}</p>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 dark:text-white mb-3 sm:mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">{t('featureHighlights.enterpriseSecurity.title')}</h3>
+              <p className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-400 px-2 leading-relaxed">{t('featureHighlights.enterpriseSecurity.description')}</p>
             </div>
-            <div className="text-center animate-fade-in-up animate-delay-900 bg-white/50 dark:bg-slate-800/30 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/20 dark:border-slate-700/30">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg dark:shadow-2xl">
-                <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+            <div className="text-center animate-fade-in-up animate-delay-900 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/20 dark:border-slate-700/50 hover:shadow-2xl transition-all duration-300 group">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                <TrendingUp className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
-              <h3 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 dark:text-white mb-2">{t('featureHighlights.provenResults.title')}</h3>
-              <p className="text-xs sm:text-sm lg:text-base text-slate-600 dark:text-slate-400 px-2 leading-relaxed">{t('featureHighlights.provenResults.description')}</p>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 dark:text-white mb-3 sm:mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">{t('featureHighlights.provenResults.title')}</h3>
+              <p className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-400 px-2 leading-relaxed">{t('featureHighlights.provenResults.description')}</p>
             </div>
-            <div className="text-center animate-fade-in-up animate-delay-1000 sm:col-span-2 lg:col-span-1 bg-white/50 dark:bg-slate-800/30 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/20 dark:border-slate-700/30">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg dark:shadow-2xl">
-                <Star className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+            <div className="text-center animate-fade-in-up animate-delay-1000 sm:col-span-2 lg:col-span-1 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/20 dark:border-slate-700/50 hover:shadow-2xl transition-all duration-300 group">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                <Star className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
-              <h3 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 dark:text-white mb-2">{t('featureHighlights.fiveStarSupport.title')}</h3>
-              <p className="text-xs sm:text-sm lg:text-base text-slate-600 dark:text-slate-400 px-2 leading-relaxed">{t('featureHighlights.fiveStarSupport.description')}</p>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 dark:text-white mb-3 sm:mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">{t('featureHighlights.fiveStarSupport.title')}</h3>
+              <p className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-400 px-2 leading-relaxed">{t('featureHighlights.fiveStarSupport.description')}</p>
             </div>
           </div>
 
-          {/* CTA Section */}
-          <div className="mt-12 sm:mt-16 text-center">
-            <div className="relative bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 xl:p-12 text-white animate-fade-in-up animate-delay-1100 overflow-hidden mx-2 sm:mx-0">
-              {/* Background Animation */}
+          {/* Enhanced CTA Section */}
+          <div className="mt-16 sm:mt-20 text-center">
+            <div className="relative bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-2xl sm:rounded-3xl lg:rounded-[2rem] p-8 sm:p-12 lg:p-16 xl:p-20 text-white animate-fade-in-up animate-delay-1100 overflow-hidden mx-2 sm:mx-0 shadow-2xl">
+              {/* Enhanced Background Animation */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 opacity-50 animate-pulse"></div>
               <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
               
+              {/* Floating Elements */}
+              <div className="absolute top-4 right-4 w-3 h-3 bg-white/20 rounded-full animate-pulse"></div>
+              <div className="absolute bottom-4 left-4 w-2 h-2 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+              
               <div className="relative z-10">
-                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 leading-tight px-2">{t('featureHighlights.cta.title')}</h3>
-                <p className="text-sm sm:text-base lg:text-lg text-white/90 mb-4 sm:mb-6 lg:mb-8 max-w-2xl mx-auto px-2 leading-relaxed">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight px-2">{t('featureHighlights.cta.title')}</h3>
+                <p className="text-base sm:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 lg:mb-10 max-w-3xl mx-auto px-2 leading-relaxed">
                   {t('featureHighlights.cta.subtitle')}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center max-w-lg sm:max-w-none mx-auto">
                   <Link href="/login">
                   <Button 
                     size="lg" 
-                    className="group bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:scale-105 transition-all duration-300 px-4 sm:px-6 lg:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg font-semibold shadow-lg dark:shadow-2xl hover:shadow-2xl border-2 border-transparent hover:border-blue-200 dark:hover:border-blue-800 relative overflow-hidden w-full sm:w-auto"
+                    className="group bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:scale-105 transition-all duration-300 px-6 sm:px-8 lg:px-10 py-4 sm:py-5 text-base sm:text-lg lg:text-xl font-bold shadow-xl hover:shadow-2xl border-2 border-transparent hover:border-blue-200 dark:hover:border-blue-800 relative overflow-hidden w-full sm:w-auto rounded-xl sm:rounded-2xl"
                   >
                     <span className="relative z-10 flex items-center justify-center">
                       {t('featureHighlights.cta.startFreeTrial')}
-                      <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                      <ArrowRight className="ml-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform duration-300" />
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </Button>
@@ -1388,21 +1401,21 @@ export default function HomeOption2() {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="group border-2 border-white text-white hover:bg-white hover:text-purple-600 hover:scale-105 transition-all duration-300 px-4 sm:px-6 lg:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg font-semibold shadow-lg dark:shadow-2xl hover:shadow-2xl backdrop-blur-sm bg-white/10 hover:bg-white relative overflow-hidden w-full sm:w-auto"
+                    className="group border-2 border-white text-white hover:bg-white hover:text-purple-600 hover:scale-105 transition-all duration-300 px-6 sm:px-8 lg:px-10 py-4 sm:py-5 text-base sm:text-lg lg:text-xl font-bold shadow-xl hover:shadow-2xl backdrop-blur-sm bg-white/10 hover:bg-white relative overflow-hidden w-full sm:w-auto rounded-xl sm:rounded-2xl"
                   >
                     <span className="relative z-10 flex items-center justify-center">
-                      <Phone className="mr-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
+                      <Phone className="mr-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform duration-300" />
                       {t('featureHighlights.cta.bookDemoCall')}
                     </span>
                     <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </Button>
                 </div>
                 
-            {/* Trust Badge */}
-            <div className="mt-4 sm:mt-6 lg:mt-8 flex items-center justify-center space-x-2 text-white/80 text-xs sm:text-sm px-4">
-              <Shield className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span>{t('home.ctaBanner.trustedBy')}</span>
-            </div>
+                {/* Enhanced Trust Badge */}
+                <div className="mt-6 sm:mt-8 lg:mt-10 flex items-center justify-center space-x-3 text-white/90 text-sm sm:text-base px-4">
+                  <Shield className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="font-medium">{t('home.ctaBanner.trustedBy')}</span>
+                </div>
               </div>
             </div>
           </div>
