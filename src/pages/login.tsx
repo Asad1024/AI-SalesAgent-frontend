@@ -178,9 +178,7 @@ export default function Login() {
             <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-slate-700 dark:text-slate-300" />
           </Button>
         </Link>
-        <div className="hidden sm:block">
-          <LanguageSwitcher />
-        </div>
+        <LanguageSwitcher />
         <Button
           variant="ghost"
           size="sm"

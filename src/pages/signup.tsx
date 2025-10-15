@@ -154,9 +154,7 @@ export default function Signup() {
         </div>
         
         <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4">
-          <div className="hidden sm:block">
-            <LanguageSwitcher />
-          </div>
+          <LanguageSwitcher />
           <Button
             variant="ghost"
             size="icon"
