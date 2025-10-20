@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { useTranslation } from 'react-i18next';
+import ComingSoonModal from '@/components/coming-soon-modal';
 import { 
   Phone, 
   MessageCircle, 
@@ -64,6 +65,7 @@ import BackToTop from '@/components/back-to-top';
 import CalendlyScheduling from '@/components/calendly-scheduling';
 import AIDemoCall from '@/components/ai-demo-call';
 import AIDemoCallMinimal from '@/components/ai-demo-call-minimal';
+import VideoDemoSection from '@/components/video-demo-section';
 
 // Animated Background Components
 const VoiceWaveAnimation = () => (
@@ -140,11 +142,35 @@ const SoundWaveAnimation = () => (
 
 export default function HomeOption2() {
   const { t } = useTranslation();
+  const [showComingSoonModal, setShowComingSoonModal] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const { toast } = useToast();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+  const [videoRef, setVideoRef] = useState<HTMLVideoElement | null>(null);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+
+  // Video control functions
+  const toggleVideo = () => {
+    if (videoRef) {
+      if (videoRef.paused) {
+        videoRef.play();
+        setIsVideoPlaying(true);
+      } else {
+        videoRef.pause();
+        setIsVideoPlaying(false);
+      }
+    }
+  };
+
+  const handleVideoRef = (element: HTMLVideoElement | null) => {
+    setVideoRef(element);
+    if (element) {
+      element.addEventListener('play', () => setIsVideoPlaying(true));
+      element.addEventListener('pause', () => setIsVideoPlaying(false));
+    }
+  };
 
   // Animation observer for scroll-triggered animations
   useEffect(() => {
@@ -390,24 +416,54 @@ export default function HomeOption2() {
               >
                 {theme === 'dark' ? <Sun className="w-4 h-4 sm:w-5 sm:h-5" /> : <Moon className="w-4 h-4 sm:w-5 sm:h-5" />}
               </Button>
-              {user ? (
-                <Link href="/dashboard">
-                  <Button className="bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 hover:from-blue-600 hover:via-purple-600 hover:to-purple-700 text-white text-xs sm:text-sm px-3 sm:px-4 py-2">
-                    Dashboard
-                  </Button>
-                </Link>
-              ) : (
-                <div className="flex space-x-1 sm:space-x-2">
-                  <Link href="/login">
-                    <Button variant="ghost" className="text-xs sm:text-sm px-2 sm:px-3 py-2">{t('common.login')}</Button>
-                  </Link>
-                  <Link href="/signup">
-                    <Button className="bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 hover:from-blue-600 hover:via-purple-600 hover:to-purple-700 text-white text-xs sm:text-sm px-3 sm:px-4 py-2">
-                      {t('common.register')}
+              <div className="flex space-x-1 sm:space-x-2">
+                {user ? (
+                  <>
+                    <Link href="/dashboard">
+                      <Button className="bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 hover:from-blue-600 hover:via-purple-600 hover:to-purple-700 text-white text-xs sm:text-sm px-3 sm:px-4 py-2">
+                        Dashboard
+                      </Button>
+                    </Link>
+                    <Button 
+                      variant="ghost" 
+                      onClick={async () => {
+                        try {
+                          console.log('Logout button clicked');
+                          await logout();
+                          console.log('Logout successful');
+                          toast({
+                            title: t('auth.logoutSuccessMessage'),
+                            description: t('auth.logoutSuccessDescription'),
+                          });
+                          // Force page reload to ensure state is cleared
+                          window.location.reload();
+                        } catch (error) {
+                          console.error('Logout error:', error);
+                          toast({
+                            title: "Logout Error",
+                            description: "There was an error logging out. Please try again.",
+                            variant: "destructive"
+                          });
+                        }
+                      }}
+                      className="text-xs sm:text-sm px-2 sm:px-3 py-2 text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400"
+                    >
+                      {t('common.logout')}
                     </Button>
-                  </Link>
-                </div>
-              )}
+                  </>
+                ) : (
+                  <>
+                    <Link href="/login">
+                      <Button variant="ghost" className="text-xs sm:text-sm px-2 sm:px-3 py-2">{t('common.login')}</Button>
+                    </Link>
+                    <Link href="/signup">
+                      <Button className="bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 hover:from-blue-600 hover:via-purple-600 hover:to-purple-700 text-white text-xs sm:text-sm px-3 sm:px-4 py-2">
+                        {t('common.register')}
+                      </Button>
+                    </Link>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -454,19 +510,21 @@ export default function HomeOption2() {
                 <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
               </Link>
-              <Link href="/contact">
               <Button 
                 variant="outline" 
                 size="lg" 
                 className="border-2 border-brand-500 text-brand-600 hover:bg-brand-500 hover:text-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg w-full sm:w-auto max-w-xs sm:max-w-none"
+                onClick={() => {
+                  const element = document.getElementById('consultation');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               >
                 <Phone className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
-                Book Demo
+                {t('home.hero.bookDemo')}
               </Button>
-              </Link>
             </div>
-
-            {/* Enhanced Video Section */}
             
           </div>
         </div>
@@ -630,8 +688,8 @@ export default function HomeOption2() {
         </div>
       </section>
 
-      {/* Social Proof */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm">
+            {/* Social Proof */}
+            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8">
             <p className="text-slate-600 dark:text-slate-400 mb-6 text-reveal">{t('home.companies.trustedBy')}</p>
@@ -706,18 +764,20 @@ export default function HomeOption2() {
             {solutions.map((solution, index) => {
               const Icon = solution.icon;
               return (
-                <div key={index} className={`group relative text-center animate-fade-in-scale animate-delay-${(index + 1) * 200}`}>
-                  <div className="relative p-8 bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm rounded-3xl shadow-lg dark:shadow-2xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-200 dark:border-slate-700/50">
+                <div key={index} className={`group relative text-center animate-fade-in-scale animate-delay-${(index + 1) * 200} h-full`}>
+                  <div className="relative p-8 bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm rounded-3xl shadow-lg dark:shadow-2xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-200 dark:border-slate-700/50 h-full flex flex-col">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div className={`relative inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r ${solution.color} rounded-2xl mb-6 animate-fade-in-scale animate-delay-300 group-hover:scale-110 transition-transform duration-300 shadow-lg dark:shadow-2xl`}>
-                      <Icon className="w-10 h-10 text-white" />
+                    <div className="relative flex-1 flex flex-col">
+                      <div className={`relative inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r ${solution.color} rounded-2xl mb-6 animate-fade-in-scale animate-delay-300 group-hover:scale-110 transition-transform duration-300 shadow-lg dark:shadow-2xl`}>
+                        <Icon className="w-10 h-10 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 animate-fade-in-left animate-delay-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                        {solution.title}
+                      </h3>
+                      <p className="text-slate-600 dark:text-slate-400 animate-fade-in-right animate-delay-500 leading-relaxed flex-1">
+                        {solution.description}
+                      </p>
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 animate-fade-in-left animate-delay-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                      {solution.title}
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400 animate-fade-in-right animate-delay-500 leading-relaxed">
-                      {solution.description}
-                    </p>
                     <div className="absolute top-4 right-4 w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
                   </div>
                 </div>
@@ -773,16 +833,16 @@ export default function HomeOption2() {
               const Icon = benefit.icon;
               return (
                 <div key={index} className={`group relative animate-fade-in-up animate-delay-${(index + 1) * 150}`}>
-                  <div className="relative p-6 bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm rounded-2xl shadow-lg dark:shadow-2xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-slate-200 dark:border-slate-700/50 overflow-hidden">
+                  <div className="relative p-6 bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm rounded-2xl shadow-lg dark:shadow-2xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-slate-200 dark:border-slate-700/50 overflow-hidden h-full flex flex-col">
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                    <div className="relative">
+                    <div className="relative flex-1 flex flex-col">
                       <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-fade-in-scale animate-delay-300 group-hover:rotate-12 transition-transform duration-300 shadow-lg dark:shadow-2xl">
                         <Icon className="w-8 h-8 text-white" />
                       </div>
-                      <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3 animate-fade-in-left animate-delay-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3 animate-fade-in-left animate-delay-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 text-center">
                         {benefit.title}
                       </h3>
-                      <p className="text-slate-600 dark:text-slate-400 text-sm animate-fade-in-right animate-delay-500 leading-relaxed">
+                      <p className="text-slate-600 dark:text-slate-400 text-sm animate-fade-in-right animate-delay-500 leading-relaxed text-center flex-1">
                         {benefit.description}
                       </p>
                     </div>
@@ -804,6 +864,60 @@ export default function HomeOption2() {
             <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white text-sm font-semibold mb-4 animate-fade-in-up">
               {t('home.howItWorks.tag')}
             </div>
+            
+            {/* Video Section */}
+            <div className="mb-8 animate-fade-in-up animate-delay-100">
+              <div className="relative max-w-4xl mx-auto">
+                <div className="relative bg-white dark:bg-slate-800/90 rounded-2xl shadow-2xl dark:shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700/50">
+                  <video 
+                    ref={handleVideoRef}
+                    className="w-full h-auto max-h-96 object-cover"
+                    poster="/images/video-poster.jpg"
+                    autoPlay
+                    muted
+                    loop
+                    preload="metadata"
+                  >
+                    <source src="https://res.cloudinary.com/domnocrwi/video/upload/v1760974827/AI_Calling_Agent_snzybl.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  
+                  {/* Custom Play/Pause Button Overlay */}
+                  {!isVideoPlaying && (
+                    <div 
+                      className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-all duration-300 cursor-pointer group"
+                      onClick={toggleVideo}
+                    >
+                      <div className="w-20 h-20 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <svg className="w-8 h-8 text-blue-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Custom Pause Button (when video is playing) */}
+                  {isVideoPlaying && (
+                    <div 
+                      className="absolute top-4 right-4 cursor-pointer group"
+                      onClick={toggleVideo}
+                    >
+                      <div className="w-12 h-12 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                        </svg>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                
+                {/* Video Description */}
+                <p className="mt-4 text-slate-600 dark:text-slate-400 text-sm">
+                  Watch how our AI-powered calling system works in action
+                </p>
+              </div>
+            </div>
+            
             <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-6 animate-fade-in-up animate-delay-200">
               {t('home.howItWorks.title')}
             </h2>
@@ -903,110 +1017,8 @@ export default function HomeOption2() {
             </p>
           </div>
 
-          {/* Main Demo Showcase */}
-          <div className="mb-16">
-            <div className="bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700/50 animate-fade-in-up animate-delay-600">
-              <div className="relative">
-                <div className="aspect-video bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
-                      <Play className="w-10 h-10 ml-1" />
-                    </div>
-                    <h3 className="text-2xl font-bold mb-2">{t('home.demo.liveDemo')}</h3>
-                    <p className="text-white/80 mb-6">{t('home.demo.watchDescription')}</p>
-                    <Button className="bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 px-8 py-3 text-lg font-semibold">
-                      <Play className="mr-2 w-5 h-5" />
-                      {t('home.demo.playFullDemo')}
-                    </Button>
-                  </div>
-                </div>
-                <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold animate-pulse">
-                  🔴 {t('home.demo.live')}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Demo Categories */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {[
-              {
-                title: t('home.demo.categories.customerSupport.title'),
-                industry: t('home.demo.categories.customerSupport.industry'),
-                duration: t('home.demo.categories.customerSupport.duration'),
-                description: t('home.demo.categories.customerSupport.description'),
-                icon: Headphones,
-                color: "from-blue-500 to-purple-500",
-                features: (t('home.demo.categories.customerSupport.features', { returnObjects: true }) as string[])
-              },
-              {
-                title: t('home.demo.categories.appointmentBooking.title'),
-                industry: t('home.demo.categories.appointmentBooking.industry'),
-                duration: t('home.demo.categories.appointmentBooking.duration'),
-                description: t('home.demo.categories.appointmentBooking.description'),
-                icon: Calendar,
-                color: "from-blue-500 to-purple-500",
-                features: (t('home.demo.categories.appointmentBooking.features', { returnObjects: true }) as string[])
-              },
-              {
-                title: t('home.demo.categories.salesGeneration.title'),
-                industry: t('home.demo.categories.salesGeneration.industry'),
-                duration: t('home.demo.categories.salesGeneration.duration'),
-                description: t('home.demo.categories.salesGeneration.description'),
-                icon: TrendingUp,
-                color: "from-blue-500 to-purple-500",
-                features: (t('home.demo.categories.salesGeneration.features', { returnObjects: true }) as string[])
-              }
-            ].map((demo, index) => {
-              const Icon = demo.icon;
-              return (
-                <div key={index} className={`group relative animate-fade-in-up animate-delay-${(index + 1) * 200}`}>
-                  <div className="relative bg-white dark:bg-slate-800/80 dark:backdrop-blur-sm rounded-2xl p-6 shadow-lg dark:shadow-2xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-200 dark:border-slate-700/50 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    <div className="relative">
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center space-x-3">
-                          <div className={`w-12 h-12 bg-gradient-to-r ${demo.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg dark:shadow-2xl`}>
-                            <Icon className="w-6 h-6 text-white" />
-                          </div>
-                          <div>
-                            <h3 className="font-bold text-slate-900 dark:text-white text-lg group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                              {demo.title}
-                            </h3>
-                            <p className="text-sm text-slate-500 dark:text-slate-400">{demo.industry}</p>
-                          </div>
-                        </div>
-                        <div className="bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full text-sm font-semibold text-slate-600 dark:text-slate-300">
-                          {demo.duration}
-                        </div>
-                      </div>
-                      
-                      <p className="text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
-                        {demo.description}
-                      </p>
-                      
-                      <div className="space-y-2 mb-6">
-                        {demo.features.map((feature, featureIndex) => (
-                          <div key={featureIndex} className="flex items-center text-sm text-slate-500 dark:text-slate-400">
-                            <div className="w-1.5 h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-2"></div>
-                            {feature}
-                          </div>
-                        ))}
-                      </div>
-                      
-                      <Button variant="outline" className="w-full group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-500 group-hover:text-white group-hover:border-transparent transition-all duration-300">
-                        <Play className="mr-2 w-4 h-4" />
-                        {t('home.demoSection.watchDemo')}
-                      </Button>
-                    </div>
-                    
-                    <div className="absolute top-4 right-4 w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          {/* Video Demo Section */}
+          <VideoDemoSection className="animate-fade-in-up animate-delay-600" />
 
           {/* Call-to-Action */}
           <div className="text-center bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-white animate-fade-in-up animate-delay-800 mx-2 sm:mx-0">
@@ -1083,44 +1095,129 @@ export default function HomeOption2() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {pricingPlans.map((plan, index) => (
-              <div key={index} className={`relative bg-white dark:bg-slate-700/80 dark:backdrop-blur-sm rounded-2xl p-8 border-2 ${
-                plan.popular ? 'border-blue-500' : 'border-slate-200 dark:border-slate-600/50'
+              <div key={index} className={`group relative overflow-visible transition-all duration-700 hover:scale-105 ${
+                plan.popular 
+                  ? 'md:scale-110 z-10 pt-4' 
+                  : 'hover:z-20'
               }`}>
-                {plan.limited && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-red-500 text-white px-4 py-1 rounded-full text-sm font-medium">
-                      {t('home.pricingSection.limited')}
-                    </span>
-                  </div>
-                )}
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{plan.name}</h3>
-                  <div className="mb-4">
-                    <span className="text-4xl font-bold text-slate-900 dark:text-white">{plan.price}</span>
-                    <span className="text-slate-600 dark:text-slate-400">{plan.period}</span>
-                  </div>
-                  <p className="text-slate-600 dark:text-slate-400 mb-6">{plan.description}</p>
+                {/* Main Card */}
+                <div className={`relative overflow-hidden rounded-3xl transition-all duration-500 group-hover:shadow-2xl ${
+                  plan.popular 
+                    ? 'bg-white dark:bg-slate-800/80 backdrop-blur-sm border-2 border-blue-500/30 shadow-xl group-hover:border-blue-500/60 group-hover:shadow-2xl' 
+                    : 'bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-600/50 shadow-xl group-hover:border-blue-300 dark:group-hover:border-blue-500/50'
+                }`}>
                   
-                  <ul className="space-y-3 mb-8">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center">
-                        <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                        <span className="text-slate-600 dark:text-slate-400">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Popular Badge */}
+                  {plan.popular && (
+                    <div className="absolute top-2 left-1/2 transform -translate-x-1/2 z-20">
+                      <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-md">
+                        {t('home.pricingSection.mostPopular')}
+                      </div>
+                    </div>
+                  )}
                   
-                  <Button 
-                    className={`w-full ${
-                      plan.popular 
-                        ? 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white'
-                        : 'bg-slate-100 dark:bg-slate-600 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-500'
-                    }`}
-                  >
-                    {plan.cta}
-                  </Button>
+                  {/* Limited Badge */}
+                  {plan.limited && (
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
+                      <div className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg animate-pulse">
+                        {t('home.pricingSection.limited')}
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Subtle Background Accent */}
+                  <div className="absolute inset-0 overflow-hidden">
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-400/5 to-purple-400/5 rounded-full blur-xl"></div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="relative z-10 p-8 sm:p-10">
+                    {/* Header */}
+                    <div className="text-center mb-8">
+                      <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 transition-all duration-300 group-hover:scale-110 ${
+                        plan.popular 
+                          ? 'bg-gradient-to-r from-blue-500 to-purple-500 shadow-lg' 
+                          : 'bg-gradient-to-r from-slate-400 to-slate-500 group-hover:from-blue-400 group-hover:to-purple-400'
+                      }`}>
+                        <CheckCircle className="w-8 h-8 text-white" />
+                      </div>
+                      
+                      <h3 className={`text-2xl sm:text-3xl font-bold mb-3 transition-colors duration-300 ${
+                        plan.popular 
+                          ? 'text-blue-600 dark:text-blue-400' 
+                          : 'text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400'
+                      }`}>
+                        {plan.name}
+                      </h3>
+                      
+                      {/* Price */}
+                      <div className="mb-4">
+                        <div className="flex items-baseline justify-center">
+                          <span className={`text-4xl sm:text-5xl font-bold transition-colors duration-300 ${
+                            plan.popular 
+                              ? 'text-blue-600 dark:text-blue-400' 
+                              : 'text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400'
+                          }`}>
+                            {plan.price}
+                          </span>
+                          <span className="text-slate-500 dark:text-slate-400 ml-2 text-lg">{plan.period}</span>
+                        </div>
+                      </div>
+                      
+                      <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed max-w-xs mx-auto">
+                        {plan.description}
+                      </p>
+                    </div>
+                    
+                    {/* Features */}
+                    <div className="mb-8">
+                      <ul className="space-y-4">
+                        {plan.features.map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-start group/item">
+                            <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mr-4 mt-0.5 transition-all duration-300 ${
+                              plan.popular 
+                                ? 'bg-gradient-to-r from-green-400 to-emerald-500 shadow-md' 
+                                : 'bg-gradient-to-r from-slate-300 to-slate-400 group-hover:from-green-400 group-hover:to-emerald-500'
+                            }`}>
+                              <CheckCircle className="w-4 h-4 text-white" />
+                            </div>
+                            <span className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed group-hover/item:text-slate-700 dark:group-hover/item:text-slate-300 transition-colors duration-300">
+                              {feature}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    {/* CTA Button */}
+                    <div className="text-center">
+                      <Button 
+                        onClick={() => setShowComingSoonModal(true)}
+                        className={`w-full py-4 px-6 text-base sm:text-lg font-semibold rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl relative overflow-hidden ${
+                          plan.popular 
+                            ? 'bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 hover:from-blue-600 hover:via-purple-600 hover:to-blue-700 text-white shadow-lg' 
+                            : 'bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-600 dark:to-slate-700 text-slate-900 dark:text-white hover:from-blue-50 hover:to-purple-50 dark:hover:from-blue-600/20 dark:hover:to-purple-600/20 border border-slate-200 dark:border-slate-500'
+                        }`}
+                      >
+                        <span className="relative z-10 flex items-center justify-center">
+                          <CheckCircle className="w-5 h-5 mr-2" />
+                          {plan.cta}
+                        </span>
+                        {plan.popular && (
+                          <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                        )}
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  {/* Bottom Accent */}
+                  <div className={`absolute bottom-0 left-0 right-0 h-1 transition-all duration-300 ${
+                    plan.popular 
+                      ? 'bg-gradient-to-r from-blue-500 to-purple-500' 
+                      : 'bg-gradient-to-r from-slate-200 to-slate-300 dark:from-slate-600 dark:to-slate-500 group-hover:from-blue-400 group-hover:to-purple-400'
+                  }`}></div>
                 </div>
               </div>
             ))}
@@ -1423,7 +1520,7 @@ export default function HomeOption2() {
       </section>
 
        {/* Consultation Booking */}
-       <section className="py-20 px-4 sm:px-6 lg:px-8">
+       <section id="consultation" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-block bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
@@ -1903,9 +2000,6 @@ export default function HomeOption2() {
               <ul className="space-y-2 text-slate-400">
                 <li><a href="#solutions" className="hover:text-white transition-colors">{t('footer.features')}</a></li>
                 <li><a href="#pricing" className="hover:text-white transition-colors">{t('footer.pricing')}</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">{t('footer.api')}</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">{t('footer.integrations')}</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">{t('footer.voiceLibrary')}</a></li>
               </ul>
             </div>
 
@@ -1913,7 +2007,6 @@ export default function HomeOption2() {
             <div>
               <h3 className="font-semibold mb-4">{t('footer.company')}</h3>
               <ul className="space-y-2 text-slate-400">
-                <li><a href="/about" className="hover:text-white transition-colors">{t('footer.about')}</a></li>
                 <li><a href="/contact" className="hover:text-white transition-colors">{t('footer.contact')}</a></li>
               </ul>
             </div>
@@ -1923,17 +2016,18 @@ export default function HomeOption2() {
             <p className="text-slate-400 text-sm">
               {t('footer.copyright')}
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">{t('footer.privacyPolicy')}</a>
-              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">{t('footer.termsOfService')}</a>
-              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">{t('footer.cookiePolicy')}</a>
-            </div>
           </div>
         </div>
       </footer>
 
       {/* Back to Top Button */}
       <BackToTop />
+      
+      {/* Coming Soon Modal */}
+      <ComingSoonModal 
+        isOpen={showComingSoonModal} 
+        onClose={() => setShowComingSoonModal(false)} 
+      />
     </div>
   );
 }

@@ -533,6 +533,7 @@
       "title": "Biznesinizi Sİ səs agentləri ilə dəyişin",
       "subtitle": "Artıq zəng qaçırmayın. Sİ agentlərimiz potensialları qiymətləndirir, görüşlər təyin edir və dönüşüm yaradan dəstək göstərir.",
       "startFreeTrial": "Pulsuz sınağa başla",
+      "bookDemo": "Demo Rezervasiyası",
       "seeInAction": "AI SPARK SALES AGENT-i işdə görün",
       "watchDescription": "Sİ agentimizin real müştəri zənglərini təbii dialoqla necə idarə etdiyini izləyin",
       "tryLiveDemo": "Canlı demonu sına",
@@ -584,6 +585,9 @@
         "noMissedCalls": "Qaçırılan zəng yoxdur"
       }
     },
+    "companies": {
+      "trustedBy": "Aparıcı şirkətlərin etibar etdiyi"
+    },
     "solutionsSection": {
       "title": "Güclü Sİ həlləri",
       "subtitle": "Real nəticə verən qabaqcıl texnologiya ilə biznesinizi dəyişin.",
@@ -616,6 +620,16 @@
     "industriesSection": {
       "title": "Sənayelər üzrə etibar",
       "subtitle": "Səhiyyədən daşınmaz əmlaka — Sİ agentlərimiz sahənizin tələblərinə uyğunlaşır"
+    },
+    "industryUseCases": {
+      "healthcare": "Səhiyyə",
+      "ecommerce": "E-ticarət",
+      "realEstate": "Daşınmaz əmlak",
+      "education": "Təhsil",
+      "automotive": "Avtomobil",
+      "legal": "Hüquq",
+      "restaurant": "Restoran",
+      "services": "Xidmətlər"
     },
     "demoSection": {
       "tag": "🎬 CANLI DEMOLAR",
@@ -683,7 +697,8 @@
         "description": "Saniyəsinə qədər hesablanır (səs, transkripsiya və LLM emalı)"
       },
       "supportPackages": "Dəstək paketləri:",
-      "limited": "Məhdud"
+      "limited": "Məhdud",
+      "mostPopular": "Ən Məşhur"
     },
     "teamSection": {
       "tag": "👥 SPARK AI KOMANDASI",
@@ -902,9 +917,6 @@
       "callInitiated": "Zəng başladı!",
       "callDescription": "Sİ agentimiz imkanlarımızı göstərmək üçün qısa müddətdə sizi zəng edəcək."
     },
-    "companies": {
-      "trustedBy": "Aparıcı şirkətlərin etibar etdiyi"
-    },
     "industryUseCases": {
       "healthcare": "Görüş planlaşdırma, xatırlatmalar və dəstək",
       "ecommerce": "Sifariş izləmə, qaytarma və müştəri dəstəyi",
@@ -992,7 +1004,8 @@
     },
     "solutionsSection": {
       "title": "Güclü Sİ həlləri",
-      "subtitle": "Real nəticə verən qabaqcıl Sİ ilə biznesinizi dəyişin"
+      "subtitle": "Real nəticə verən qabaqcıl Sİ ilə biznesinizi dəyişin",
+      "tag": "🚀 HƏLLƏR"
     },
     "demo": {
       "title": "Sİ Səs Agentini iş başında görün",
@@ -1023,6 +1036,22 @@
           "description": "Sİ agent potensial yaradır, niteləyir və göstəriş planlayır.",
           "features": ["Potensial yaratma", "Aday niteləmə", "Göstəriş planlama"]
         }
+      },
+      "videoDemo": {
+        "audioOff": "Səs söndürülüb",
+        "audioOn": "Səs açılıb",
+        "enableAudio": "Səsi aktivləşdir",
+        "disableAudio": "Səsi söndür",
+        "playing": "Oynanır",
+        "watchDemo": "Demo izlə",
+        "pause": "Fasilə",
+        "readyToTransform": "Biznesinizi dəyişməyə hazırsınız?",
+        "readyToExperience": "Sİ səs agentlərinin gücünü birbaşa yaşayın. Bu gün pulsuz sınağınızı başladın və intellektual avtomatlaşdırmamızın satış prosesinizdə inqilab yaratmasını görün.",
+        "startFreeTrial": "Pulsuz sınağa başla",
+        "scheduleLiveDemo": "Canlı demo planlaşdır",
+        "freeTrial": "Pulsuz sınaq",
+        "noCreditCard": "Kart tələb olunmur",
+        "support247": "24/7 dəstək"
       }
     },
     "consultation": {
@@ -1422,6 +1451,28 @@
     },
     "consultationSection": {
       "badge": "ƏLAQƏ QURaq"
+    },
+    "faqs": {
+      "howItWorks": {
+        "question": "SPARK AI SALES AGENT necə işləyir?",
+        "answer": "SPARK AI SALES AGENT zəngləri avtomatik idarə edən, potensialları qiymətləndirən və görüşləri planlaşdıran ağıllı səs agentləri yaratmaq üçün inkişaf etmiş Sİ istifadə edir."
+      },
+      "customization": {
+        "question": "Sİ agentimi fərdiləşdirə bilərəm?",
+        "answer": "Bəli! Agentin səsini, ssenarilərini, axınlarını fərdiləşdirə bilərsiniz və hətta müəyyən sahəniz üçün təlim verə bilərsiniz."
+      },
+      "languages": {
+        "question": "Hansı dillər dəstəklənir?",
+        "answer": "Qlobal müştərilərə asanlıqla çata bilməyiniz üçün yerli aksentlərlə 95+ dili dəstəkləyirik."
+      },
+      "pricing": {
+        "question": "Qiymətləndirmə necə işləyir?",
+        "answer": "Planlarımız aylıq 1,500 AED-dən başlayır və bir dəfəlik 10,000 AED quraşdırma haqqı ilə. Gizli haqq yoxdur."
+      },
+      "freeTrial": {
+        "question": "Pulsuz sınaq var mı?",
+        "answer": "Bəli, 14 günlük pulsuz sınaq mövcuddur."
+      }
     }
   },
   "chat": {
