@@ -197,7 +197,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       const currentLanguage = rawLanguage.split('-')[0].toLowerCase();
       const campaignData = {
         name: newCampaignName,
-        firstPrompt: "Hi FIRST NAME, I'm calling from our sales team. I hope you're having a great day!",
+        firstPrompt: "Hi {{first_name}}, I'm calling from our sales team. I hope you're having a great day!",
         systemPersona: "You are a friendly, professional sales assistant. You help potential customers by clearly explaining features, answering questions, and guiding them toward the right solution. Always be helpful, confident, and respectful of their time.",
         language: currentLanguage
       };
@@ -1171,24 +1171,52 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   </label>
                   <div className="relative">
                     <div className="w-full px-2 py-1.5 text-xs border border-brand-300 dark:border-brand-600 rounded-lg bg-white dark:bg-brand-800 min-h-[32px] flex items-center">
-                      <span className="text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 px-1 py-0.5 rounded text-xs font-medium">
-                        FIRST NAME
-                      </span>
-                      <span className="text-gray-400 dark:text-gray-500 ml-1">
-                        {(currentCampaign.aiConfig?.initialMessage || currentCampaign.firstPrompt || '').replace(/FIRST NAME/g, '')}
-                      </span>
-                      <input
-                        type="text"
-                        value={(currentCampaign.aiConfig?.initialMessage || currentCampaign.firstPrompt || '').replace(/FIRST NAME/g, '')}
-                        onChange={(e) => {
-                          const newValue = e.target.value;
-                          const fullValue = newValue.trim() ? `FIRST NAME ${newValue}` : 'FIRST NAME';
-                          updateAIConfigWithScript('initialMessage', fullValue);
-                        }}
-                        className="absolute inset-0 w-full px-2 py-1.5 text-xs bg-transparent border-none outline-none text-transparent caret-black dark:caret-white"
-                        placeholder=""
-                        style={{ paddingLeft: '60px' }}
-                      />
+                      {(() => {
+                        const currentValue = currentCampaign.aiConfig?.initialMessage || currentCampaign.firstPrompt || '';
+                        const match = currentValue.match(/(.*?)\{\{first_name\}\}(.*)/s);
+                        let prefix = '';
+                        let suffix = currentValue;
+
+                        if (match) {
+                          prefix = match[1];
+                          suffix = match[2];
+                        }
+
+                        return (
+                          <>
+                            {/* Input for the prefix part */}
+                            <input
+                              type="text"
+                              placeholder=""
+                              className="border-none outline-none bg-transparent text-slate-900 placeholder-slate-400 min-w-[4ch] flex-shrink"
+                              value={prefix}
+                              onChange={(e) => {
+                                const newValue = `${e.target.value}{{first_name}}${suffix}`;
+                                updateAIConfigWithScript('initialMessage', newValue);
+                              }}
+                              style={{ width: `${Math.max(4, prefix.length)}ch` }}
+                            />
+
+                            {/* FIRST NAME tag */}
+                            <span className="text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 px-1 py-0.5 rounded text-xs font-medium">
+                              FIRST NAME
+                            </span>
+
+                            {/* Input for the suffix part */}
+                            <input
+                              type="text"
+                              placeholder=""
+                              className="border-none outline-none bg-transparent text-slate-900 placeholder-slate-400 min-w-[4ch] flex-grow"
+                              value={suffix}
+                              onChange={(e) => {
+                                const newValue = `${prefix}{{first_name}}${e.target.value}`;
+                                updateAIConfigWithScript('initialMessage', newValue);
+                              }}
+                              style={{ width: `${Math.max(4, suffix.length)}ch` }}
+                            />
+                          </>
+                        );
+                      })()}
                     </div>
                   </div>
                   <p className="text-xs text-brand-500 dark:text-brand-400 mt-1">Leave empty to use the selected script's opening message.</p>
