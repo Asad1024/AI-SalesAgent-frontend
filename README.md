@@ -1,4 +1,4 @@
-# AI Spark Sales Agent Frontend
+# AI Spark Sales Agent Frontend new
 
 This is the frontend application for the AI Spark Sales Agent project.
 
@@ -8,7 +8,7 @@ This project is currently in development. More documentation will be added as th
 
 ## Technologies
 
-- Frontend framework and technologies will be specified as development progresses. 
+- Frontend framework and technologies will be specified as development progresses. .
 
 ## Contributing
   
