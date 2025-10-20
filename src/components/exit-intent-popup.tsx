@@ -32,7 +32,6 @@ export default function ExitIntentPopup({ onClose }: ExitIntentPopupProps) {
     if (email) {
       setIsSubmitted(true);
       // Here you would typically send the email to your backend
-      console.log('Email captured:', email);
     }
   };
 

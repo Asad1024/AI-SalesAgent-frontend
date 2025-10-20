@@ -53,7 +53,6 @@ export default function CalendlyScheduling({
         }
         
         setSchedulingLink(link);
-        console.log('Generated Calendly link:', link);
         
       } catch (error) {
         console.error('Error generating scheduling link:', error);

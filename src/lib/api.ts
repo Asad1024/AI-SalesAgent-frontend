@@ -404,7 +404,6 @@ export const api = {
       credentials: 'include',
       body: JSON.stringify(data),
     });
-    console.log('API POST response status:', response.status);
     return handleResponse(response);
   },
 
@@ -478,7 +477,7 @@ export const api = {
   },
 
   makeTestCall: async (data: { phoneNumber: string; campaignId?: number; firstName?: string }) => {
-    const response = await fetch(`${BASE_URL}/api/make-outbound-call`, {
+    const response = await fetch(`${BASE_URL}/api/campaigns/make-outbound-call`, {
       method: 'POST',
       headers: getAuthHeaders(),
       credentials: 'include',

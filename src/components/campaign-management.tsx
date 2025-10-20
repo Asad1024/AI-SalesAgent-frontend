@@ -73,6 +73,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
   const [selectedScript, setSelectedScript] = useState('friendly');
   const [customScript, setCustomScript] = useState('');
   const [campaignControlStatus, setCampaignControlStatus] = useState<'stopped' | 'running' | 'paused'>('stopped');
+  const [isUpdatingAgent, setIsUpdatingAgent] = useState(false);
 
   const { toast } = useToast();
   const { t, i18n } = useTranslation();
@@ -284,7 +285,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
         title: "Test Call Initiated",
         description: `Call initiated to ${testCallData.phoneNumber}. Status: ${data.status}`,
       });
-      console.log('Test call initiated:', data);
+      
     },
     onError: (error: any) => {
       toast({
@@ -761,7 +762,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       campaignId: currentCampaign?.id,
       firstName: testCallData.firstName.trim() || "Customer"
     };
-    console.log('🔥 Frontend sending test call data:', callData);
+    
     testCallMutation.mutate(callData);
   };
 
@@ -1195,7 +1196,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                 
                 <button
                   onClick={async () => {
-                    if (!currentCampaign) return;
+                    if (!currentCampaign || isUpdatingAgent) return;
+                    setIsUpdatingAgent(true);
                     try {
                       const knowledgeBaseIds = (currentCampaign.knowledgeBase || []).map((f: any) => f.elevenlabsDocId).filter(Boolean);
                       await api.updateAgent(Number(currentCampaign.id), {
@@ -1207,11 +1209,18 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                       toast({ title: 'Agent Updated', description: 'Agent configuration saved.' });
                     } catch (err: any) {
                       toast({ title: 'Update Failed', description: err?.message || 'Could not update agent.', variant: 'destructive' });
+                    } finally {
+                      setIsUpdatingAgent(false);
                     }
                   }}
-                  className="w-full bg-gradient-to-r from-brand-500 to-brand-600 text-white px-3 py-2 rounded-lg hover:from-brand-600 hover:to-brand-700 transition-colors text-xs"
+                  disabled={isUpdatingAgent}
+                  className={`w-full text-white px-3 py-2 rounded-lg transition-colors text-xs ${
+                    isUpdatingAgent
+                      ? 'bg-brand-400 cursor-not-allowed'
+                      : 'bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700'
+                  }`}
                 >
-                  Update Agent
+                  {isUpdatingAgent ? 'Updating...' : 'Update Agent'}
                 </button>
               </div>
             </div>
