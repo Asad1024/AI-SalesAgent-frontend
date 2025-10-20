@@ -165,17 +165,17 @@ export default function Login() {
         </div>
       </div>
 
-      <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
-              {/* Theme Toggle and Back to Home - Fixed Position */}
-      <div className="fixed top-4 right-4 z-50 flex space-x-2">
+      <div className="relative z-10 min-h-screen flex items-center justify-center p-3 sm:p-4 lg:p-6">
+              {/* Enhanced Theme Toggle and Back to Home - Fixed Position */}
+      <div className="fixed top-2 sm:top-3 lg:top-4 right-2 sm:right-3 lg:right-4 z-50 flex space-x-1 sm:space-x-2">
         <Link href="/">
           <Button
             variant="ghost"
             size="sm"
-            className="w-12 h-12 p-0 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-white/20 dark:border-slate-700/50 hover:bg-white dark:hover:bg-slate-800 shadow-lg transition-all duration-300"
+            className="w-9 h-9 sm:w-10 sm:h-10 lg:w-12 lg:h-12 p-0 rounded-full bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl border border-white/30 dark:border-slate-700/60 hover:bg-white dark:hover:bg-slate-800 shadow-xl hover:shadow-2xl transition-all duration-300"
             title="Back to Home"
           >
-            <ArrowLeft className="h-6 w-6 text-slate-700 dark:text-slate-300" />
+            <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-slate-700 dark:text-slate-300" />
           </Button>
         </Link>
         <LanguageSwitcher />
@@ -183,33 +183,33 @@ export default function Login() {
           variant="ghost"
           size="sm"
           onClick={toggleTheme}
-          className="w-12 h-12 p-0 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-white/20 dark:border-slate-700/50 hover:bg-white dark:hover:bg-slate-800 shadow-lg transition-all duration-300"
+          className="w-9 h-9 sm:w-10 sm:h-10 lg:w-12 lg:h-12 p-0 rounded-full bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl border border-white/30 dark:border-slate-700/60 hover:bg-white dark:hover:bg-slate-800 shadow-xl hover:shadow-2xl transition-all duration-300"
           title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
         >
           {theme === 'light' ? (
-            <Moon className="h-6 w-6 text-slate-700 dark:text-slate-300" />
+            <Moon className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-slate-700 dark:text-slate-300" />
           ) : (
-            <Sun className="h-6 w-6 text-slate-700 dark:text-slate-300" />
+            <Sun className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-slate-700 dark:text-slate-300" />
           )}
         </Button>
       </div>
 
-        <div className="w-full max-w-md">
-          {/* Header */}
-          <div className="text-center mb-8">
+        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+          {/* Enhanced Header */}
+          <div className="text-center mb-6 sm:mb-8 lg:mb-10">
             {/* Logo */}
-            <div className="flex items-center justify-center space-x-3 mb-6">
-              <Logo size="lg" showText={false} />
+            <div className="flex items-center justify-center space-x-2 sm:space-x-3 lg:space-x-4 mb-4 sm:mb-6 lg:mb-8">
+              <Logo size="md" showText={false} className="sm:size-lg lg:size-xl" />
               <div className="text-left">
-                <h1 className="text-2xl font-bold spark-gradient-text">{t('auth.title')}</h1>
-                <p className="text-sm text-slate-600 dark:text-slate-400">{t('auth.welcomeBack')}</p>
-                <p className="text-xs text-purple-600 dark:text-purple-400 mt-1">Powered by Spark AI</p>
+                <h1 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold spark-gradient-text">{t('auth.title')}</h1>
+                <p className="text-xs sm:text-sm lg:text-base text-slate-600 dark:text-slate-400">{t('auth.welcomeBack')}</p>
+                <p className="text-xs sm:text-sm text-purple-600 dark:text-purple-400 mt-1">Powered by Spark AI</p>
               </div>
             </div>
           </div>
 
-          {/* Login Card */}
-          <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 dark:border-slate-700/50">
+          {/* Enhanced Login Card */}
+          <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl rounded-2xl sm:rounded-3xl lg:rounded-[2rem] p-4 sm:p-6 lg:p-8 xl:p-10 shadow-2xl border border-white/30 dark:border-slate-700/60">
             {isSuccess ? (
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -228,26 +228,26 @@ export default function Login() {
             ) : (
               <>
                 {/* Card Header */}
-                <div className="text-center mb-6">
+                <div className="text-center mb-4 sm:mb-6">
                   <div className="flex items-center justify-center space-x-2 mb-2">
-                    <ArrowRight className="h-5 w-5 text-purple-500" />
-                    <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200">{t('auth.signIn')}</h2>
+                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 text-purple-500" />
+                    <h2 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-200">{t('auth.signIn')}</h2>
                   </div>
-                  <p className="text-slate-600 dark:text-slate-400">
+                  <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
                     {t('auth.enterCredentials')}
                   </p>
                 </div>
 
-                {/* Login Form */}
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Email Field */}
+                {/* Enhanced Login Form */}
+                <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6 lg:space-y-8">
+                  {/* Enhanced Email Field */}
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                    <label className="block text-sm sm:text-base font-medium text-slate-700 dark:text-slate-300 mb-2 sm:mb-3">
                       {t('common.email')}
                     </label>
                     <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <Mail className="h-5 w-5 text-slate-400" />
+                      <div className="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none">
+                        <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-slate-400" />
                       </div>
                       <input
                         type="email"
@@ -255,27 +255,27 @@ export default function Login() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full pl-10 pr-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                        className="w-full pl-10 sm:pl-12 pr-4 py-3 sm:py-4 lg:py-5 border border-slate-300 dark:border-slate-600 rounded-xl sm:rounded-2xl bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base lg:text-lg placeholder-slate-400 dark:placeholder-slate-500"
                         placeholder={t('auth.emailPlaceholder')}
                       />
                     </div>
                     {!formData.email && (
-                      <div className="mt-1">
-                        <span className="text-xs text-red-500 bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded">
+                      <div className="mt-2">
+                        <span className="text-xs sm:text-sm text-red-500 bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded-lg">
                           Please fill out this field.
                         </span>
                       </div>
                     )}
                   </div>
 
-                  {/* Password Field */}
+                  {/* Enhanced Password Field */}
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                    <label className="block text-sm sm:text-base font-medium text-slate-700 dark:text-slate-300 mb-2 sm:mb-3">
                       {t('common.password')}
                     </label>
                     <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <Lock className="h-5 w-5 text-slate-400" />
+                      <div className="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none">
+                        <Lock className="h-4 w-4 sm:h-5 sm:w-5 text-slate-400" />
                       </div>
                       <input
                         type={showPassword ? 'text' : 'password'}
@@ -283,59 +283,59 @@ export default function Login() {
                         value={formData.password}
                         onChange={handleChange}
                         required
-                        className="w-full pl-10 pr-12 py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                        className="w-full pl-10 sm:pl-12 pr-12 py-3 sm:py-4 lg:py-5 border border-slate-300 dark:border-slate-600 rounded-xl sm:rounded-2xl bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base lg:text-lg placeholder-slate-400 dark:placeholder-slate-500"
                         placeholder={t('auth.passwordPlaceholder')}
                       />
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                        className="absolute inset-y-0 right-0 pr-3 sm:pr-4 flex items-center"
                       >
                         {showPassword ? (
-                          <EyeOff className="h-5 w-5 text-slate-400 hover:text-slate-600" />
+                          <EyeOff className="h-4 w-4 sm:h-5 sm:w-5 text-slate-400 hover:text-slate-600 transition-colors duration-200" />
                         ) : (
-                          <Eye className="h-5 w-5 text-slate-400 hover:text-slate-600" />
+                          <Eye className="h-4 w-4 sm:h-5 sm:w-5 text-slate-400 hover:text-slate-600 transition-colors duration-200" />
                         )}
                       </button>
                     </div>
                   </div>
 
-                  {/* Submit Button */}
+                  {/* Enhanced Submit Button */}
                   <Button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white py-3 text-lg font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white py-3 sm:py-4 lg:py-5 text-sm sm:text-base lg:text-lg font-bold rounded-xl sm:rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
                     {isLoading ? (
                       <div className="flex items-center justify-center">
-                        <Loader2 className="h-5 w-5 animate-spin mr-2" />
-                        {t('auth.signingIn')}
+                        <Loader2 className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 animate-spin mr-2 sm:mr-3" />
+                        <span className="text-sm sm:text-base lg:text-lg">{t('auth.signingIn')}</span>
                       </div>
                     ) : (
                       <div className="flex items-center justify-center">
-                        <ArrowRight className="mr-2 h-5 w-5" />
-                        {t('auth.signIn')}
+                        <ArrowRight className="mr-2 sm:mr-3 h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
+                        <span className="text-sm sm:text-base lg:text-lg">{t('auth.signIn')}</span>
                       </div>
                     )}
                   </Button>
 
-                  {/* Demo Login Button */}
+                  {/* Enhanced Demo Login Button */}
                   <Button
                     type="button"
                     onClick={handleDemoLogin}
                     disabled={isLoading}
                     variant="outline"
-                    className="w-full border-2 border-purple-500 text-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20 py-3 text-lg font-semibold rounded-xl transition-all duration-300"
+                    className="w-full border-2 border-purple-500 text-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20 py-3 sm:py-4 lg:py-5 text-sm sm:text-base lg:text-lg font-bold rounded-xl sm:rounded-2xl transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
-                    <Sparkles className="mr-2 h-5 w-5" />
-                    {t('auth.tryDemoAccount')}
+                    <Sparkles className="mr-2 sm:mr-3 h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
+                    <span className="text-sm sm:text-base lg:text-lg">{t('auth.tryDemoAccount')}</span>
                   </Button>
                 </form>
 
                 {/* Demo Credentials Info */}
-                <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
+                <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
                   <div className="text-center">
-                    <h4 className="text-sm font-semibold text-purple-800 dark:text-purple-200 mb-2">
+                    <h4 className="text-xs sm:text-sm font-semibold text-purple-800 dark:text-purple-200 mb-2">
                       {t('auth.demoCredentials')}
                     </h4>
                     <div className="text-xs text-slate-600 dark:text-slate-400 space-y-1">
@@ -346,8 +346,8 @@ export default function Login() {
                 </div>
 
                 {/* Sign Up Link */}
-                <div className="mt-6 text-center">
-                  <p className="text-slate-600 dark:text-slate-400">
+                <div className="mt-4 sm:mt-6 text-center">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
                     Don't have an account?{' '}
                     <Link href="/signup" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-semibold transition-colors">
                       Create one here
@@ -358,22 +358,22 @@ export default function Login() {
             )}
           </div>
 
-          {/* Features Grid */}
-          <div className="mt-8 grid grid-cols-2 gap-4">
+          {/* Enhanced Features Grid */}
+          <div className="mt-6 sm:mt-8 lg:mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
                 <div
                   key={index}
-                  className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-2xl p-4 text-center border border-white/20 dark:border-slate-700/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-xl sm:rounded-2xl lg:rounded-3xl p-3 sm:p-4 lg:p-6 text-center border border-white/30 dark:border-slate-700/60 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 group"
                 >
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mx-auto mb-2">
-                    <Icon className="h-4 w-4 text-white" />
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-white" />
                   </div>
-                  <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-1">
+                  <h3 className="text-xs sm:text-sm lg:text-base font-bold text-slate-800 dark:text-slate-200 mb-1 sm:mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-xs text-slate-600 dark:text-slate-400">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
@@ -381,22 +381,22 @@ export default function Login() {
             })}
           </div>
 
-          {/* Stats */}
-          <div className="mt-8 text-center">
-            <div className="inline-flex items-center space-x-6 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-2xl px-6 py-3 border border-white/20 dark:border-slate-700/50">
+          {/* Enhanced Stats */}
+          <div className="mt-6 sm:mt-8 lg:mt-10 text-center">
+            <div className="inline-flex items-center space-x-4 sm:space-x-6 lg:space-x-8 bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-xl sm:rounded-2xl lg:rounded-3xl px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 border border-white/30 dark:border-slate-700/60 shadow-lg">
               <div className="text-center">
-                <div className="text-lg font-bold spark-gradient-text">10M+</div>
-                <div className="text-xs text-slate-600 dark:text-slate-400">Calls Made</div>
+                <div className="text-sm sm:text-lg lg:text-xl font-bold spark-gradient-text">10M+</div>
+                <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">Calls Made</div>
               </div>
-              <div className="w-px h-8 bg-slate-300 dark:bg-slate-600"></div>
+              <div className="w-px h-6 sm:h-8 lg:h-10 bg-slate-300 dark:bg-slate-600"></div>
               <div className="text-center">
-                <div className="text-lg font-bold spark-gradient-text">500+</div>
-                <div className="text-xs text-slate-600 dark:text-slate-400">Customers</div>
+                <div className="text-sm sm:text-lg lg:text-xl font-bold spark-gradient-text">500+</div>
+                <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">Customers</div>
               </div>
-              <div className="w-px h-8 bg-slate-300 dark:bg-slate-600"></div>
+              <div className="w-px h-6 sm:h-8 lg:h-10 bg-slate-300 dark:bg-slate-600"></div>
               <div className="text-center">
-                <div className="text-lg font-bold spark-gradient-text">95+</div>
-                <div className="text-xs text-slate-600 dark:text-slate-400">Languages</div>
+                <div className="text-sm sm:text-lg lg:text-xl font-bold spark-gradient-text">95+</div>
+                <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">Languages</div>
               </div>
             </div>
           </div>

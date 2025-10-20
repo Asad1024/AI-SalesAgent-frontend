@@ -2,6 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile-first responsive improvements */
+@layer utilities {
+  /* Improved mobile touch targets */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better mobile scrolling */
+  .mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Mobile-optimized text sizes */
+  .mobile-text-xs {
+    @apply text-xs sm:text-sm;
+  }
+  
+  .mobile-text-sm {
+    @apply text-sm sm:text-base;
+  }
+  
+  .mobile-text-base {
+    @apply text-base sm:text-lg;
+  }
+  
+  .mobile-text-lg {
+    @apply text-lg sm:text-xl;
+  }
+  
+  .mobile-text-xl {
+    @apply text-xl sm:text-2xl;
+  }
+  
+  .mobile-text-2xl {
+    @apply text-2xl sm:text-3xl;
+  }
+  
+  .mobile-text-3xl {
+    @apply text-3xl sm:text-4xl;
+  }
+  
+  /* Mobile-optimized spacing */
+  .mobile-px {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .mobile-py {
+    @apply py-8 sm:py-12 lg:py-16;
+  }
+  
+  .mobile-mb {
+    @apply mb-6 sm:mb-8 lg:mb-12;
+  }
+  
+  /* Mobile-optimized grid layouts */
+  .mobile-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8;
+  }
+  
+  /* Mobile-optimized flex layouts */
+  .mobile-flex-col {
+    @apply flex flex-col sm:flex-row;
+  }
+  
+  .mobile-flex-center {
+    @apply flex flex-col sm:flex-row items-center justify-center;
+  }
+  
+  /* Mobile-optimized button sizes */
+  .mobile-btn {
+    @apply w-full sm:w-auto px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base;
+  }
+  
+  /* Mobile-optimized card layouts */
+  .mobile-card {
+    @apply rounded-lg sm:rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8;
+  }
+  
+  /* Mobile-optimized shadows */
+  .mobile-shadow {
+    @apply shadow-lg sm:shadow-xl lg:shadow-2xl;
+  }
+  
+  /* Mobile-optimized animations */
+  .mobile-animate {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  /* Mobile-optimized backdrop blur */
+  .mobile-backdrop {
+    @apply backdrop-blur-sm sm:backdrop-blur-md lg:backdrop-blur-lg;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
