@@ -642,18 +642,19 @@ export default function HomeOption2() {
             <div className="logo-scroll">
               {/* First set of logos */}
               {[
-                { name: 'Google', src: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg' },
-                { name: 'Microsoft', src: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg' },
-                { name: 'Amazon', src: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg' },
-                { name: 'Apple', src: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg' },
-                { name: 'Meta', src: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg' },
-                { name: 'Tesla', src: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Tesla_T_symbol.svg' },
-                { name: 'Shopify', src: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg' },
-                { name: 'Slack', src: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/Slack_Technologies_Logo.svg' },
-                { name: 'Netflix', src: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg' },
-                { name: 'Spotify', src: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg' },
-                { name: 'Uber', src: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Uber_logo_2018.svg' },
-                { name: 'Airbnb', src: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg' }
+                { name: 'Matchify', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Matchify%20Logo%20%281%29.png' },
+                { name: 'Strique', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Strique%20Logo%20%281%29.png' },
+                { name: 'JonEast', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/JonEast%20Logo%20%281%29.png' },
+                { name: 'Jon Technologies', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Jon%20Technologies%20Logo%20%281%29.png' },
+                { name: 'Incubytes', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Incubytes%20Logo%20%281%29.png' },
+                { name: 'Innovations Group', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Innovations%20Group%20Logo%20%281%29.png' },
+                { name: 'ilmyst', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/ilmyst%20Logo%20%281%29.png' },
+                { name: 'Dynamic World Computers', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Dynamic%20World%20Computers%20Logo%20%281%29.png' },
+                { name: 'Shiva IT Distributors', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Shiva%20IT%20Distributors%20Logo%20%281%29.png' },
+                { name: 'Box Office Events', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Box%20Office%20Events%20Logo%20%281%29.png' },
+                { name: 'OM Computer', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/OM%20Computer%20%281%29.png' },
+                { name: 'Winjoy', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Winjoy%20Logo%20%281%29.png' },
+                { name: 'Smart Choice', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Smart%20Choice%20Logo%20%281%29.png' }
               ].map((logo, index) => (
                 <div key={`first-${index}`} className="logo-item w-32 h-20 bg-white dark:bg-slate-700/80 dark:backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg dark:shadow-2xl border border-slate-200 dark:border-slate-600/50 opacity-70 hover:opacity-100 hover:shadow-2xl hover:scale-110 transition-all duration-300 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-slate-800/80 dark:to-slate-700/80">
                   <img src={logo.src} alt={logo.name} className="h-10 max-w-24 object-contain filter drop-shadow-sm" />
@@ -662,18 +663,19 @@ export default function HomeOption2() {
               
               {/* Duplicate set for seamless loop */}
               {[
-                { name: 'Google', src: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg' },
-                { name: 'Microsoft', src: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg' },
-                { name: 'Amazon', src: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg' },
-                { name: 'Apple', src: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg' },
-                { name: 'Meta', src: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg' },
-                { name: 'Tesla', src: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Tesla_T_symbol.svg' },
-                { name: 'Shopify', src: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg' },
-                { name: 'Slack', src: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/Slack_Technologies_Logo.svg' },
-                { name: 'Netflix', src: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg' },
-                { name: 'Spotify', src: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg' },
-                { name: 'Uber', src: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Uber_logo_2018.svg' },
-                { name: 'Airbnb', src: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg' }
+                { name: 'Matchify', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Matchify%20Logo%20%281%29.png' },
+                { name: 'Strique', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Strique%20Logo%20%281%29.png' },
+                { name: 'JonEast', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/JonEast%20Logo%20%281%29.png' },
+                { name: 'Jon Technologies', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Jon%20Technologies%20Logo%20%281%29.png' },
+                { name: 'Incubytes', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Incubytes%20Logo%20%281%29.png' },
+                { name: 'Innovations Group', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Innovations%20Group%20Logo%20%281%29.png' },
+                { name: 'ilmyst', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/ilmyst%20Logo%20%281%29.png' },
+                { name: 'Dynamic World Computers', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Dynamic%20World%20Computers%20Logo%20%281%29.png' },
+                { name: 'Shiva IT Distributors', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Shiva%20IT%20Distributors%20Logo%20%281%29.png' },
+                { name: 'Box Office Events', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Box%20Office%20Events%20Logo%20%281%29.png' },
+                { name: 'OM Computer', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/OM%20Computer%20%281%29.png' },
+                { name: 'Winjoy', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Winjoy%20Logo%20%281%29.png' },
+                { name: 'Smart Choice', src: 'https://hazziassets.blr1.cdn.digitaloceanspaces.com/spark/assets/Smart%20Choice%20Logo%20%281%29.png' }
               ].map((logo, index) => (
                 <div key={`second-${index}`} className="logo-item w-32 h-20 bg-white dark:bg-slate-700/80 dark:backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg dark:shadow-2xl border border-slate-200 dark:border-slate-600/50 opacity-70 hover:opacity-100 hover:shadow-2xl hover:scale-110 transition-all duration-300 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-slate-800/80 dark:to-slate-700/80">
                   <img src={logo.src} alt={logo.name} className="h-10 max-w-24 object-contain filter drop-shadow-sm" />

@@ -73,7 +73,7 @@ function AppRouter() {
       </Switch>
       
       {/* Global Chat Widget - Available on all pages */}
-      <LiveChatWidget />
+      {/* <LiveChatWidget /> */}
     </>
   );
 }
