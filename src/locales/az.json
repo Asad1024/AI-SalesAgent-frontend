@@ -1677,6 +1677,8 @@
     "campaignNamePlaceholder": "Kampaniya adını daxil edin",
     "firstPrompt": "İlk prompt",
     "firstPromptPlaceholder": "Sİ-nizin deyəcəyi ilk ismarışı yazın",
+    "defaultInitialMessage": "Salam {{first_name}}, satış komandamızdan zəng edirəm. Ümid edirəm ki, gözəl bir gün keçirirsiniz!",
+    "defaultSystemPersona": "Sən dostane və peşəkar satış köməkçisisən. Potensial müştərilərə xüsusiyyətləri aydın şəkildə izah edərək, suallarına cavab verərək və onları düzgün həllə yönləndirərək kömək edirsən. Həmişə köməkçi, özünə güvənən və vaxtlarına hörmətli ol.",
     "systemPersona": "Sistem personası",
     "systemPersonaPlaceholder": "Sİ-nin xarakter və davranışını təsvir edin",
     "next": "Növbəti",

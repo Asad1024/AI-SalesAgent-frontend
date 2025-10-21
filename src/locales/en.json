@@ -1602,6 +1602,8 @@
     "campaignNamePlaceholder": "Enter campaign name",
     "firstPrompt": "First Prompt",
     "firstPromptPlaceholder": "Enter the first message your AI will say",
+    "defaultInitialMessage": "Hi {{first_name}}, I'm calling from our sales team. I hope you're having a great day!",
+    "defaultSystemPersona": "You are a friendly, professional sales assistant. You help potential customers by clearly explaining features, answering questions, and guiding them toward the right solution. Always be helpful, confident, and respectful of their time.",
     "systemPersona": "System Persona",
     "systemPersonaPlaceholder": "Define your AI’s personality and behavior",
     "next": "Next",

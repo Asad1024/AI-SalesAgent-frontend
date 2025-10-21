@@ -79,8 +79,16 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n?.language || 'en';
   const normalizedLanguage = currentLanguage.split('-')[0].toLowerCase();
+  const [defaultInitialMessage, setDefaultInitialMessage] = useState(() => t('campaignCreation.defaultInitialMessage'));
+  const [defaultSystemPersona, setDefaultSystemPersona] = useState(() => t('campaignCreation.defaultSystemPersona'));
   useEffect(() => {
     const handleLanguageChange = (lng: string) => {
+      setDefaultInitialMessage(t('campaignCreation.defaultInitialMessage'));
+      setDefaultSystemPersona(t('campaignCreation.defaultSystemPersona'));
+      if (currentCampaign) {
+        const newDefaultMessage = t('campaignCreation.defaultInitialMessage');
+        updateAIConfigWithScript('initialMessage', newDefaultMessage);
+      }
     };
     
     i18n?.on('languageChanged', handleLanguageChange);
@@ -88,10 +96,13 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
     return () => {
       i18n?.off('languageChanged', handleLanguageChange);
     };
-  }, [i18n, normalizedLanguage]);
+    }, [i18n, currentCampaign]);
+  useEffect(() => {
+    setDefaultInitialMessage(t('campaignCreation.defaultInitialMessage'));
+    setDefaultSystemPersona(t('campaignCreation.defaultSystemPersona'));
+  }, [currentLanguage, t]);
   const queryClient = useQueryClient();
 
-  // Preset conversation scripts
   const conversationScripts = {
     friendly: {
       name: "Friendly & Conversational",
@@ -197,8 +208,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       const currentLanguage = rawLanguage.split('-')[0].toLowerCase();
       const campaignData = {
         name: newCampaignName,
-        firstPrompt: "Hi {{first_name}}, I'm calling from our sales team. I hope you're having a great day!",
-        systemPersona: "You are a friendly, professional sales assistant. You help potential customers by clearly explaining features, answering questions, and guiding them toward the right solution. Always be helpful, confident, and respectful of their time.",
+        firstPrompt: defaultInitialMessage,
+        systemPersona: defaultSystemPersona,
         language: currentLanguage
       };
       createCampaignMutation.mutate(campaignData);
@@ -875,7 +886,6 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
           ...currentCampaign.aiConfig,
           [field]: value
         },
-        // Also update the direct fields for backend compatibility
         firstPrompt: field === 'initialMessage' ? value : currentCampaign.firstPrompt,
         systemPersona: field === 'systemPersona' ? value : currentCampaign.systemPersona
       });
@@ -906,7 +916,6 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
 
   const completionStatus = getCompletionStatus();
 
-  // Filter voices based on search term
   const filteredVoices = voices.filter((voice: any) => {
     if (voiceSearchTerm.trim()) {
       const searchLower = voiceSearchTerm.toLowerCase();
@@ -944,7 +953,6 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
     return matchesLanguage;
   });
 
-  // Show loading state only when editing an existing campaign
   if (isLoading && campaignId) {
     return (
       <div className="max-w-6xl mx-auto p-6 bg-white rounded-lg shadow-lg">
@@ -958,7 +966,6 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
 
   return (
     <div className="max-w-7xl mx-auto p-4 bg-white/50 dark:bg-brand-900/50 backdrop-blur-sm rounded-lg shadow-lg border border-brand-200/50 dark:border-brand-800/50">
-      {/* Compact Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-gradient-to-br from-brand-500 to-brand-600 rounded-lg flex items-center justify-center">
@@ -981,7 +988,6 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
         </div>
       </div>
 
-      {/* Step 1: Campaign Selection */}
       {currentStep === 1 && (
         <div className="space-y-6">
           <div className="flex items-center space-x-3 mb-6">
@@ -1047,12 +1053,9 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
         </div>
       )}
 
-      {/* Step 3: Campaign Configuration */}
       {currentStep === 3 && currentCampaign && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          {/* Left Panel - Configuration */}
           <div className="space-y-4">
-            {/* Knowledge Base */}
             <div className="bg-white/50 dark:bg-brand-800/30 rounded-lg p-4 border border-brand-200/50 dark:border-brand-700/50">
               <div className="flex items-center space-x-2 mb-3">
                 <div className="w-6 h-6 bg-gradient-to-br from-brand-500 to-brand-600 rounded-lg flex items-center justify-center">
@@ -1112,7 +1115,6 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
               )}
             </div>
 
-            {/* AI Configuration */}
             <div className="bg-white/50 dark:bg-brand-800/30 rounded-lg p-4 border border-brand-200/50 dark:border-brand-700/50">
               <div className="flex items-center space-x-2 mb-3">
                 <div className="w-6 h-6 bg-gradient-to-br from-brand-500 to-brand-600 rounded-lg flex items-center justify-center">
@@ -1125,7 +1127,6 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
               </div>
               
               <div className="space-y-3">
-                {/* Conversation Script Selection */}
                 <div>
                   <label className="block text-xs font-medium text-brand-700 dark:text-brand-300 mb-1">
                     Conversation Script
@@ -1184,7 +1185,6 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
 
                         return (
                           <>
-                            {/* Input for the prefix part */}
                             <input
                               type="text"
                               placeholder=""
@@ -1196,13 +1196,9 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                               }}
                               style={{ width: `${Math.max(4, prefix.length)}ch` }}
                             />
-
-                            {/* FIRST NAME tag */}
                             <span className="text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 px-1 py-0.5 rounded text-xs font-medium">
                               FIRST NAME
                             </span>
-
-                            {/* Input for the suffix part */}
                             <input
                               type="text"
                               placeholder=""
@@ -1221,7 +1217,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   </div>
                   <p className="text-xs text-brand-500 dark:text-brand-400 mt-1">Leave empty to use the selected script's opening message.</p>
                 </div>
-                
+
                 <button
                   onClick={async () => {
                     if (!currentCampaign || isUpdatingAgent) return;
@@ -1254,9 +1250,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
             </div>
           </div>
 
-          {/* Right Panel - Voice & Leads */}
           <div className="space-y-4">
-            {/* AI Voice Selection */}
             <div className="bg-white/50 dark:bg-brand-800/30 rounded-lg p-4 border border-brand-200/50 dark:border-brand-700/50">
               <div className="flex items-center space-x-2 mb-3">
                 <div className="w-6 h-6 bg-gradient-to-br from-brand-500 to-brand-600 rounded-lg flex items-center justify-center">
@@ -1281,7 +1275,6 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   </button>
                 </div>
                 
-                {/* Voice Search */}
                 <div className="mt-2">
                   <input
                     type="text"
@@ -1414,7 +1407,6 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
               </div>
             </div>
 
-            {/* Leads Management */}
             <div className="bg-white/50 dark:bg-brand-800/30 rounded-lg p-4 border border-brand-200/50 dark:border-brand-700/50">
               <div className="flex items-center space-x-2 mb-3">
                 <div className="w-6 h-6 bg-gradient-to-br from-brand-500 to-brand-600 rounded-lg flex items-center justify-center">
@@ -1489,7 +1481,6 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
         </div>
       )}
 
-      {/* Step 4: Campaign Launch */}
       {currentStep === 4 && currentCampaign && (
         <div className="space-y-6">
           <div className="flex items-center space-x-3 mb-6">
@@ -1503,7 +1494,6 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Test Single Call */}
             <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Test Single Call</h3>
               
@@ -1582,7 +1572,6 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
               </div>
             </div>
 
-            {/* Launch Campaign */}
             <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Campaign Control</h3>
               
@@ -1699,7 +1688,6 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
         </div>
       )}
 
-      {/* Navigation */}
       {currentStep > 1 && (
         <div className="flex justify-between mt-8 pt-6 border-t border-gray-200">
           <button

@@ -1700,6 +1700,8 @@
     "campaignNamePlaceholder": "Kampanya adını girin",
     "firstPrompt": "İlk İstem",
     "firstPromptPlaceholder": "YZ’nizin söyleyeceği ilk mesajı girin",
+    "defaultInitialMessage": "Merhaba {{first_name}}, satış ekibimizden arıyorum. Umarım harika bir gün geçiriyorsunuz!",
+    "defaultSystemPersona": "Sen dostane ve profesyonel bir satış asistanısın. Potansiyel müşterilere özellikleri açıkça açıklayarak, sorularını yanıtlayarak ve onları doğru çözüme yönlendirerek yardım ediyorsun. Her zaman yardımcı, kendinden emin ve zamanlarına saygılı ol.",
     "systemPersona": "Sistem Personası",
     "systemPersonaPlaceholder": "YZ’nin kişiliğini ve davranışını tanımlayın",
     "next": "İleri",
