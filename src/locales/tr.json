@@ -533,7 +533,8 @@
       "title": "İşinizi YZ Sesli Temsilcilerle Dönüştürün",
       "subtitle": "Bir çağrıyı daha kaçırmayın. YZ temsilcilerimiz potansiyelleri nitelendirir, randevu alır ve dönüşüm sağlayan müşteri desteği sunar.",
       "startFreeTrial": "Ücretsiz Denemeyi Başlat",
-      "seeInAction": "AI SPARK SALES AGENT’i İş Başında Görün",
+      "bookDemo": "Demo Rezervasyonu",
+      "seeInAction": "AI SPARK SALES AGENT'i İş Başında Görün",
       "watchDescription": "YZ temsilcimizin gerçek müşteri aramalarını doğal konuşmayla nasıl yönettiğini izleyin",
       "tryLiveDemo": "Canlı Demoyu Dene",
       "enterPhoneNumber": "Telefon numaranızı girin",
@@ -584,6 +585,9 @@
         "noMissedCalls": "Kaçırılan çağrı yok"
       }
     },
+    "companies": {
+      "trustedBy": "Önde gelen şirketlerin güvendiği"
+    },
     "solutionsSection": {
       "title": "Güçlü YZ Çözümleri",
       "subtitle": "Gerçek sonuçlar sunan son teknolojiyle işinizi dönüştürün.",
@@ -616,6 +620,16 @@
     "industriesSection": {
       "title": "Sektörler Genelinde Güvenilir",
       "subtitle": "Sağlıktan gayrimenkule, YZ temsilcilerimiz sektörünüzün ihtiyaçlarına uyum sağlar"
+    },
+    "industryUseCases": {
+      "healthcare": "Sağlık",
+      "ecommerce": "E-ticaret",
+      "realEstate": "Gayrimenkul",
+      "education": "Eğitim",
+      "automotive": "Otomotiv",
+      "legal": "Hukuk",
+      "restaurant": "Restoran",
+      "services": "Hizmetler"
     },
     "demoSection": {
       "tag": "🎬 CANLI DEMOLAR",
@@ -683,7 +697,8 @@
         "description": "Saniyesine kadar faturalandırılır (ses üretimi, gerçek zamanlı yazıya döküm ve LLM işlemeyi kapsar)"
       },
       "supportPackages": "Destek Paketleri:",
-      "limited": "Sınırlı"
+      "limited": "Sınırlı",
+      "mostPopular": "En Popüler"
     },
     "teamSection": {
       "tag": "👥 SPARK AI EKİBİ",
@@ -902,9 +917,6 @@
       "callInitiated": "Arama Başlatıldı!",
       "callDescription": "YZ temsilcimiz yeteneklerimizi göstermek için kısa süre içinde sizi arayacak."
     },
-    "companies": {
-      "trustedBy": "Önde gelen şirketlerin güvendiği"
-    },
     "industryUseCases": {
       "healthcare": "Randevu planlama, hasta hatırlatmaları ve destek",
       "ecommerce": "Sipariş takibi, iade ve müşteri desteği",
@@ -1002,7 +1014,8 @@
     },
     "solutionsSection": {
       "title": "Güçlü YZ Çözümleri",
-      "subtitle": "Gerçek sonuçlar sunan son teknoloji YZ ile işinizi dönüştürün"
+      "subtitle": "Gerçek sonuçlar sunan son teknoloji YZ ile işinizi dönüştürün",
+      "tag": "🚀 ÇÖZÜMLER"
     },
     "demo": {
       "title": "YZ Sesli Temsilciyi İş Başında Görün",
@@ -1033,6 +1046,22 @@
           "description": "YZ temsilci potansiyeller üretir, nitelendirir ve gösterim planlar.",
           "features": ["Potansiyel Üretimi", "Aday Nitelendirme", "Gösterim Planlama"]
         }
+      },
+      "videoDemo": {
+        "audioOff": "Ses Kapalı",
+        "audioOn": "Ses Açık",
+        "enableAudio": "Sesi Etkinleştir",
+        "disableAudio": "Sesi Kapat",
+        "playing": "Oynatılıyor",
+        "watchDemo": "Demo İzle",
+        "pause": "Duraklat",
+        "readyToTransform": "İşinizi Dönüştürmeye Hazır mısınız?",
+        "readyToExperience": "YZ sesli temsilcilerinin gücünü ilk elden deneyimleyin. Bugün ücretsiz denemenizi başlatın ve akıllı otomasyonumuzun satış sürecinizde devrim yaratmasını görün.",
+        "startFreeTrial": "Ücretsiz Denemeye Başla",
+        "scheduleLiveDemo": "Canlı Demo Planla",
+        "freeTrial": "Ücretsiz Deneme",
+        "noCreditCard": "Kredi Kartı Gerekmez",
+        "support247": "7/24 Destek"
       }
     },
     "consultation": {
@@ -1180,7 +1209,7 @@
       "subtitle": "AI SPARK SALES AGENT’in devrim niteliğindeki sesli temsilci teknolojisinin arkasındaki uzmanlar",
       "members": {
         "jay": {
-          "name": "Jay Sir",
+          "name": "Jay",
           "title": "CEO / Kurucu",
           "description": "YZ inovasyonunu ve iş büyümesini yönlendiren vizyoner lider"
         },
@@ -1334,7 +1363,7 @@
     },
     "teamMembers": {
       "jay": {
-        "name": "Jay Sir",
+        "name": "Jay",
         "title": "CEO / Kurucu",
         "description": "YZ inovasyonu ve iş büyümesini yönlendiren vizyoner lider"
       },
@@ -1445,6 +1474,28 @@
     },
     "consultationSection": {
       "badge": "BAĞLANTI KURALIM"
+    },
+    "faqs": {
+      "howItWorks": {
+        "question": "SPARK AI SALES AGENT nasıl çalışır?",
+        "answer": "SPARK AI SALES AGENT, aramaları otomatik olarak yöneten, potansiyelleri değerlendiren ve randevuları planlayan akıllı ses ajanları oluşturmak için gelişmiş YZ kullanır."
+      },
+      "customization": {
+        "question": "YZ ajanımı özelleştirebilir miyim?",
+        "answer": "Evet! Ajanın sesini, senaryolarını, akışlarını özelleştirebilir ve hatta belirli sektörünüz için eğitebilirsiniz."
+      },
+      "languages": {
+        "question": "Hangi diller destekleniyor?",
+        "answer": "Küresel müşterilere kolayca ulaşabilmeniz için yerel aksanlarla 95+ dili destekliyoruz."
+      },
+      "pricing": {
+        "question": "Fiyatlandırma nasıl çalışır?",
+        "answer": "Planlarımız aylık 1,500 AED'den başlar ve bir kerelik 10,000 AED kurulum ücreti ile. Gizli ücret yoktur."
+      },
+      "freeTrial": {
+        "question": "Ücretsiz deneme var mı?",
+        "answer": "Evet, 14 günlük ücretsiz deneme mevcuttur."
+      }
     }
   },
   "chat": {

@@ -365,7 +365,7 @@
     "enterFullName": "Enter your full name",
     "enterEmail": "Enter your email",
     "enterPhone": "Enter your phone number",
-    "weWillCall": "We’ll call you at",
+    "weWillCall": "We'll call you at",
     "initiatingCall": "Initiating call...",
     "getAiCallExperience": "Get AI Call Experience",
     "callDescription": "Our AI agent will call you within 2–3 minutes to demonstrate the experience"
@@ -533,6 +533,7 @@
       "title": "Transform Your Business with AI Voice Agents",
       "subtitle": "Never miss another call. Our AI agents qualify leads, book appointments, and deliver customer support that converts.",
       "startFreeTrial": "Start Free Trial",
+      "bookDemo": "Book Demo",
       "seeInAction": "See AI SPARK SALES AGENT in Action",
       "watchDescription": "Watch our AI agent handle real customer calls with natural conversation",
       "tryLiveDemo": "Try Live Demo",
@@ -584,6 +585,9 @@
         "noMissedCalls": "No missed calls"
       }
     },
+    "companies": {
+      "trustedBy": "Trusted by leading companies"
+    },
     "solutionsSection": {
       "title": "Powerful AI Solutions",
       "subtitle": "Transform your business with cutting-edge technology that delivers real results.",
@@ -615,8 +619,18 @@
     },
     "industriesSection": {
       "title": "Trusted Across Industries",
-      "subtitle": "From healthcare to real estate, our AI agents adapt to your industry’s unique needs"
+      "subtitle": "From healthcare to real estate, our AI agents adapt to your industry's unique needs"
     },
+    "industryUseCases": {
+    "healthcare": "Appointment scheduling, patient reminders, and support",
+    "ecommerce": "Order tracking, returns, and customer support",
+    "realEstate": "Lead qualification, property inquiries, and scheduling",
+    "education": "Student support, enrollment, and information services",
+    "automotive": "Service appointments, sales follow-ups, and support",
+    "legal": "Client intake, appointment scheduling, and case updates",
+    "restaurant": "Reservations, orders, and customer service",
+    "services": "Appointment booking, follow-up, and support"
+  },
     "demoSection": {
       "tag": "🎬 LIVE DEMOS",
       "title": "See AI Voice Agent in Action",
@@ -683,7 +697,8 @@
         "description": "Billed to the exact second (covers voice generation, real-time transcription, and LLM processing)"
       },
       "supportPackages": "Support Packages:",
-      "limited": "Limited"
+      "limited": "Limited",
+      "mostPopular": "Most Popular"
     },
     "teamSection": {
       "tag": "👥 SPARK AI TEAM",
@@ -898,7 +913,8 @@
     },
     "solutionsSection": {
       "title": "Powerful AI Solutions",
-      "subtitle": "Transform your business with cutting-edge AI technology that delivers real results"
+      "subtitle": "Transform your business with cutting-edge AI technology that delivers real results",
+      "tag": "🚀 SOLUTIONS"
     },
     "demo": {
       "title": "See AI Voice Agent in Action",
@@ -929,6 +945,22 @@
           "description": "The AI agent generates leads, qualifies them, and schedules viewings.",
           "features": ["Lead Generation", "Lead Qualification", "Viewing Scheduling"]
         }
+      },
+      "videoDemo": {
+        "audioOff": "Audio Off",
+        "audioOn": "Audio On",
+        "enableAudio": "Enable Audio",
+        "disableAudio": "Disable Audio",
+        "playing": "Playing",
+        "watchDemo": "Watch Demo",
+        "pause": "Pause",
+        "readyToTransform": "Ready to Transform Your Business?",
+        "readyToExperience": "Experience the power of AI voice agents firsthand. Start your free trial today and see how our intelligent automation can revolutionize your sales process.",
+        "startFreeTrial": "Start Free Trial",
+        "scheduleLiveDemo": "Schedule Live Demo",
+        "freeTrial": "Free Trial",
+        "noCreditCard": "No Credit Card Required",
+        "support247": "24/7 Support"
       }
     },
     "consultation": {
@@ -1064,7 +1096,7 @@
       "subtitle": "The experts behind AI SPARK SALES AGENT’s revolutionary voice agent technology",
       "members": {
         "jay": {
-          "name": "Jay Sir",
+          "name": "Jay",
           "title": "CEO / Founder",
           "description": "Visionary leader driving AI innovation and business growth"
         },
@@ -1214,7 +1246,7 @@
     },
     "teamMembers": {
       "jay": {
-        "name": "Jay Sir",
+        "name": "Jay",
         "title": "CEO / Founder",
         "description": "Visionary leader driving AI innovation and business growth"
       },
