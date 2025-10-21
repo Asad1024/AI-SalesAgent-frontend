@@ -874,7 +874,6 @@ export default function HomeOption2() {
                     className="w-full h-auto max-h-96 object-cover"
                     poster="/images/video-poster.jpg"
                     autoPlay
-                    muted
                     loop
                     preload="metadata"
                   >
