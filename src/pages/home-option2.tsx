@@ -150,6 +150,7 @@ export default function HomeOption2() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   const [videoRef, setVideoRef] = useState<HTMLVideoElement | null>(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [isVideoMuted, setIsVideoMuted] = useState(true);
 
   // Video control functions
   const toggleVideo = () => {
@@ -161,6 +162,13 @@ export default function HomeOption2() {
         videoRef.pause();
         setIsVideoPlaying(false);
       }
+    }
+  };
+
+  const toggleMute = () => {
+    if (videoRef) {
+      videoRef.muted = !videoRef.muted;
+      setIsVideoMuted(videoRef.muted);
     }
   };
 
@@ -874,6 +882,7 @@ export default function HomeOption2() {
                     className="w-full h-auto max-h-96 object-cover"
                     poster="/images/video-poster.jpg"
                     autoPlay
+                    muted
                     loop
                     preload="metadata"
                   >
@@ -904,6 +913,20 @@ export default function HomeOption2() {
                       <div className="w-12 h-12 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                         <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                        </svg>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Unmute Button (when video is muted) */}
+                  {isVideoMuted && isVideoPlaying && (
+                    <div 
+                      className="absolute top-4 left-4 cursor-pointer group"
+                      onClick={toggleMute}
+                    >
+                      <div className="w-12 h-12 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
                         </svg>
                       </div>
                     </div>
