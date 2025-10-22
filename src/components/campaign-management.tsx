@@ -975,12 +975,12 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
             <h1 className="text-xl font-bold text-brand-800 dark:text-brand-200">{t('dashboard.campaignManagement')}</h1>
             {currentCampaign && (
               <div className="flex items-center space-x-2">
-                <span className="text-xs text-brand-600 dark:text-brand-400">Campaign: {currentCampaign.name}</span>
+                <span className="text-xs text-brand-600 dark:text-brand-400">{t('dashboard.campaign')} {currentCampaign.name}</span>
                 <button 
                   onClick={() => setCurrentStep(1)}
                   className="text-xs text-brand-500 hover:text-brand-600 dark:text-brand-400 dark:hover:text-brand-300"
                 >
-                  Change Campaign
+                  {t('dashboard.changeCampaign')}
                 </button>
               </div>
             )}
@@ -995,8 +995,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
               <FileText className="h-5 w-5 text-purple-600" />
             </div>
             <div>
-              <h2 className="text-xl font-semibold text-gray-900">Campaign Selection</h2>
-              <p className="text-gray-600">Create a new campaign or select an existing one.</p>
+              <h2 className="text-xl font-semibold text-gray-900">{t('dashboard.campaignSelection')}</h2>
+              <p className="text-gray-600">{t('dashboard.createNewOrSelectExisting')}</p>
             </div>
           </div>
 
@@ -1023,7 +1023,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   onClick={handleCreateCampaign}
                   className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
                 >
-                  Create Campaign
+                  {t('dashboard.createCampaign')}
                 </button>
               </div>
             )}
@@ -1069,7 +1069,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
               
               <div className="border-2 border-dashed border-brand-300 dark:border-brand-600 rounded-lg p-4 text-center hover:border-brand-400 dark:hover:border-brand-500 transition-colors">
                 <ArrowUp className="h-6 w-6 text-brand-400 mx-auto mb-2" />
-                <p className="text-xs text-brand-600 dark:text-brand-400 mb-2">Drop your PDF files here or click to browse</p>
+                <p className="text-xs text-brand-600 dark:text-brand-400 mb-2">{t('dashboard.dropPdfFilesOrClickToBrowse')}</p>
                 <input
                   type="file"
                   multiple
@@ -1083,7 +1083,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   className="inline-flex items-center space-x-1 bg-gradient-to-r from-brand-500 to-brand-600 text-white px-3 py-1.5 rounded-lg hover:from-brand-600 hover:to-brand-700 transition-colors cursor-pointer text-xs"
                 >
                   <FileIcon className="h-4 w-4" />
-                  <span>Choose Files</span>
+                  <span>{t('dashboard.chooseFiles')}</span>
                 </label>
               </div>
               
@@ -1111,7 +1111,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
               )}
               
               {knowledgeBaseFiles.length === 0 && (
-                <p className="text-xs text-brand-500 dark:text-brand-400 mt-3">No knowledge base files uploaded yet.</p>
+                <p className="text-xs text-brand-500 dark:text-brand-400 mt-3">{t('dashboard.noKnowledgeBaseFilesYet')}</p>
               )}
             </div>
 
@@ -1215,7 +1215,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                       })()}
                     </div>
                   </div>
-                  <p className="text-xs text-brand-500 dark:text-brand-400 mt-1">Leave empty to use the selected script's opening message.</p>
+                  <p className="text-xs text-brand-500 dark:text-brand-400 mt-1">{t('dashboard.leaveEmptyToUseSelectedScript')}</p>
                 </div>
 
                 <button
@@ -1244,7 +1244,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                       : 'bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700'
                   }`}
                 >
-                  {isUpdatingAgent ? 'Updating...' : 'Update Agent'}
+                  {isUpdatingAgent ? t('dashboard.updating') : t('dashboard.updateAgent')}
                 </button>
               </div>
             </div>
@@ -1421,12 +1421,12 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
               <div className="border-2 border-dashed border-brand-300 dark:border-brand-600 rounded-lg p-3 text-center hover:border-brand-400 dark:hover:border-brand-500 transition-colors">
                 <FileIcon className="h-5 w-5 text-brand-400 mx-auto mb-2" />
                 <p className="text-xs text-brand-600 dark:text-brand-400 mb-2">
-                  Upload CSV files with the following columns:
+                  {t('dashboard.uploadCsvFilesWithColumns')}
                 </p>
                 <div className="text-xs text-brand-500 dark:text-brand-400 mb-3 space-y-1">
-                  <p><strong>Required:</strong> first_name, contact_no</p>
-                  <p><strong>Optional:</strong> last_name, email</p>
-                  <p><em>Note:</em> Country code (+971) will be auto-added to UAE numbers</p>
+                  <p><strong>{t('dashboard.required')}</strong> first_name, contact_no</p>
+                  <p><strong>{t('dashboard.optional')}</strong> last_name, email</p>
+                  <p><em>{t('dashboard.note')}</em> {t('dashboard.countryCodeAutoAdded')}</p>
                 </div>
                 <input
                   type="file"
@@ -1440,7 +1440,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   className="inline-flex items-center space-x-1 bg-gradient-to-r from-brand-500 to-brand-600 text-white px-3 py-1.5 rounded-lg hover:from-brand-600 hover:to-brand-700 transition-colors cursor-pointer text-xs"
                 >
                   <Upload className="h-3 w-3" />
-                  <span>Upload CSV File</span>
+                  <span>{t('dashboard.uploadCsvFile')}</span>
                 </label>
               </div>
               
@@ -1694,7 +1694,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
             onClick={() => setCurrentStep(currentStep - 1)}
             className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
           >
-            Previous
+            {t('dashboard.previous')}
           </button>
           
           {currentStep === 3 && currentCampaign && (
@@ -1702,7 +1702,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
               onClick={() => setCurrentStep(4)}
               className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
             >
-              Continue to Launch
+              {t('dashboard.continueToLaunch')}
             </button>
           )}
         </div>

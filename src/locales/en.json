@@ -174,7 +174,35 @@
     "viewAnalytics": "View Analytics",
     "detailedReports": "Detailed reports",
     "optimize": "Optimize",
-    "aiSuggestions": "AI suggestions"
+    "aiSuggestions": "AI suggestions",
+    "recentCampaigns": "Recent Campaigns",
+    "noCampaignsYet": "No campaigns yet",
+    "viewAll": "View All",
+    "createCampaign": "Create Campaign",
+    "totalCalls": "Total Calls",
+    "totalCampaigns": "Total Campaigns",
+    "selectYourCampaign": "Select Your Campaign",
+    "campaignSelection": "Campaign Selection",
+    "createNewOrSelectExisting": "Create a new campaign or select an existing one.",
+    "noKnowledgeBaseFilesYet": "No knowledge base files uploaded yet.",
+    "backToCampaigns": "Back to Campaigns",
+    "editCampaign": "Edit Campaign",
+    "updateYourAIVoiceCallingCampaign": "Update your AI voice calling campaign",
+    "leaveEmptyToUseSelectedScript": "Leave empty to use the selected script's opening message.",
+    "previous": "Previous",
+    "continueToLaunch": "Continue to Launch",
+    "dropPdfFilesOrClickToBrowse": "Drop your PDF files here or click to browse",
+    "uploadCsvFilesWithColumns": "Upload CSV files with the following columns:",
+    "required": "Required:",
+    "optional": "Optional:",
+    "note": "Note:",
+    "countryCodeAutoAdded": "Country code (+971) will be auto-added to UAE numbers",
+    "uploadCsvFile": "Upload CSV File",
+    "campaign": "Campaign:",
+    "changeCampaign": "Change Campaign",
+    "chooseFiles": "Choose Files",
+    "updating": "Updating...",
+    "updateAgent": "Update Agent"
   },
   "hero": {
     "title": "Transform Your Sales with AI Voice Intelligence",
@@ -231,6 +259,16 @@
       "title": "Smart Lead Qualification",
       "description": "Automatically identify and prioritize high-value prospects with AI precision",
       "stats": "94% Accuracy"
+    },
+    "personalization": {
+      "title": "AI Personalization",
+      "description": "Customize AI behavior and responses to match your brand voice and customer preferences",
+      "stats": "Custom AI"
+    },
+    "globalReach": {
+      "title": "Global Reach",
+      "description": "Connect with customers worldwide through multilingual AI agents that understand local cultures and languages",
+      "stats": "Worldwide"
     }
   },
   "experience": {

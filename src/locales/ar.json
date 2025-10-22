@@ -174,7 +174,35 @@
   "viewAnalytics": "عرض التحليلات",
   "detailedReports": "تقارير مفصلة",
   "optimize": "تحسين",
-  "aiSuggestions": "اقتراحات الذكاء الاصطناعي"
+  "aiSuggestions": "اقتراحات الذكاء الاصطناعي",
+  "recentCampaigns": "الحملات الأخيرة",
+  "noCampaignsYet": "لا توجد حملات بعد",
+  "viewAll": "عرض الكل",
+  "createCampaign": "إنشاء حملة",
+  "totalCalls": "إجمالي المكالمات",
+  "totalCampaigns": "إجمالي الحملات",
+  "selectYourCampaign": "اختر حملتك",
+  "campaignSelection": "اختيار الحملة",
+  "createNewOrSelectExisting": "أنشئ حملة جديدة أو اختر حملة موجودة.",
+  "noKnowledgeBaseFilesYet": "لم يتم رفع ملفات قاعدة المعرفة بعد.",
+  "backToCampaigns": "العودة إلى الحملات",
+  "editCampaign": "تحرير الحملة",
+  "updateYourAIVoiceCallingCampaign": "قم بتحديث حملة المكالمات الصوتية بالذكاء الاصطناعي",
+  "leaveEmptyToUseSelectedScript": "اتركه فارغاً لاستخدام رسالة البداية للنص المحدد.",
+  "previous": "السابق",
+  "continueToLaunch": "المتابعة إلى الإطلاق",
+  "dropPdfFilesOrClickToBrowse": "أفلت ملفات PDF هنا أو انقر للتصفح",
+  "uploadCsvFilesWithColumns": "ارفع ملفات CSV بالأعمدة التالية:",
+  "required": "مطلوب:",
+  "optional": "اختياري:",
+  "note": "ملاحظة:",
+  "countryCodeAutoAdded": "سيتم إضافة رمز الدولة (+971) تلقائياً لأرقام الإمارات",
+  "uploadCsvFile": "رفع ملف CSV",
+  "campaign": "الحملة:",
+  "changeCampaign": "تغيير الحملة",
+  "chooseFiles": "اختر الملفات",
+  "updating": "جاري التحديث...",
+  "updateAgent": "تحديث الوكيل"
   },
   "hero": {
   "title": "حوّل مبيعاتك بذكاء الصوت الاصطناعي",
@@ -231,6 +259,16 @@
   "title": "تأهيل ذكي للعملاء المحتملين",
   "description": "تحديد وترتيب العملاء ذوي القيمة العالية تلقائياً بدقة الذكاء الاصطناعي",
   "stats": "دقة 94%"
+  },
+  "personalization": {
+  "title": "تخصيص الذكاء الاصطناعي",
+  "description": "تخصيص سلوك الذكاء الاصطناعي والاستجابات لتتماشى مع صوت علامتك التجارية وتفضيلات العملاء",
+  "stats": "ذكاء اصطناعي مخصص"
+  },
+  "globalReach": {
+  "title": "الوصول العالمي",
+  "description": "تواصل مع العملاء حول العالم عبر وكلاء ذكاء اصطناعي متعددين اللغات يفهمون الثقافات واللغات المحلية",
+  "stats": "عالمياً"
   }
   },
   "experience": {

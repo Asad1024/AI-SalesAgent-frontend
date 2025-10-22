@@ -8,6 +8,7 @@ import { useLocation } from "wouter";
 import { api } from "@/lib/api";
 import { useToast } from "@/hooks/use-toast";
 import ThemeToggle from "@/components/theme-toggle";
+import { useTranslation } from "react-i18next";
 
 interface CampaignEditProps {
     id: string;
@@ -16,6 +17,7 @@ interface CampaignEditProps {
 export default function CampaignEdit({ id }: CampaignEditProps) {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   // Fetch campaign details to validate edit permissions
   const { data: campaign, isLoading, error } = useQuery({
@@ -64,7 +66,7 @@ export default function CampaignEdit({ id }: CampaignEditProps) {
             <AlertCircle className="h-8 w-8 text-brand-500 mx-auto mb-4" />
             <p className="text-slate-600 dark:text-slate-400">Failed to load campaign</p>
             <Button onClick={() => setLocation('/campaigns')} className="mt-4 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white">
-              Back to Campaigns
+              {t('dashboard.backToCampaigns')}
             </Button>
           </div>
         </div>
@@ -86,13 +88,13 @@ export default function CampaignEdit({ id }: CampaignEditProps) {
                 className="flex items-center space-x-2 hover:bg-brand-100 dark:hover:bg-brand-800"
               >
                 <ArrowLeft className="h-4 w-4" />
-                <span>Back to Campaigns</span>
+                <span>{t('dashboard.backToCampaigns')}</span>
               </Button>
               <div>
                 <h2 className="text-3xl font-bold text-brand-800 dark:text-brand-200 spark-gradient-text">
-                  Edit Campaign
+                  {t('dashboard.editCampaign')}
                 </h2>
-                <p className="text-slate-600 dark:text-slate-400 mt-2">Update your AI voice calling campaign</p>
+                <p className="text-slate-600 dark:text-slate-400 mt-2">{t('dashboard.updateYourAIVoiceCallingCampaign')}</p>
               </div>
             </div>
             <ThemeToggle />

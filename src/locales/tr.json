@@ -174,7 +174,35 @@
     "viewAnalytics": "Analitikleri Görüntüle",
     "detailedReports": "Ayrıntılı raporlar",
     "optimize": "Optimize et",
-    "aiSuggestions": "YZ önerileri"
+    "aiSuggestions": "YZ önerileri",
+    "recentCampaigns": "Son Kampanyalar",
+    "noCampaignsYet": "Henüz kampanya yok",
+    "viewAll": "Tümünü Görüntüle",
+    "createCampaign": "Kampanya Oluştur",
+    "totalCalls": "Toplam Aramalar",
+    "totalCampaigns": "Toplam Kampanyalar",
+    "selectYourCampaign": "Kampanyanızı Seçin",
+    "campaignSelection": "Kampanya Seçimi",
+    "createNewOrSelectExisting": "Yeni bir kampanya oluşturun veya mevcut birini seçin.",
+    "noKnowledgeBaseFilesYet": "Henüz bilgi tabanı dosyası yüklenmedi.",
+    "backToCampaigns": "Kampanyalara Geri Dön",
+    "editCampaign": "Kampanyayı Düzenle",
+    "updateYourAIVoiceCallingCampaign": "YZ sesli arama kampanyanızı güncelleyin",
+    "leaveEmptyToUseSelectedScript": "Seçilen betiğin açılış mesajını kullanmak için boş bırakın.",
+    "previous": "Önceki",
+    "continueToLaunch": "Başlatmaya Devam Et",
+    "dropPdfFilesOrClickToBrowse": "PDF dosyalarınızı buraya bırakın veya göz atmak için tıklayın",
+    "uploadCsvFilesWithColumns": "Aşağıdaki sütunlarla CSV dosyalarını yükleyin:",
+    "required": "Gerekli:",
+    "optional": "İsteğe bağlı:",
+    "note": "Not:",
+    "countryCodeAutoAdded": "Ülke kodu (+971) BAE numaralarına otomatik olarak eklenecek",
+    "uploadCsvFile": "CSV Dosyası Yükle",
+    "campaign": "Kampanya:",
+    "changeCampaign": "Kampanyayı Değiştir",
+    "chooseFiles": "Dosya Seç",
+    "updating": "Güncelleniyor...",
+    "updateAgent": "Ajanı Güncelle"
   },
   "hero": {
     "title": "YZ Ses Zekâsı ile Satışlarınızı Dönüştürün",
@@ -231,6 +259,16 @@
       "title": "Akıllı Potansiyel Nitelendirme",
       "description": "YZ hassasiyetiyle yüksek değerli potansiyelleri otomatik olarak belirleyin ve önceliklendirin",
       "stats": "%94 Doğruluk"
+    },
+    "personalization": {
+      "title": "YZ Kişiselleştirme",
+      "description": "Marka sesinize ve müşteri tercihlerinize uygun YZ davranışını ve yanıtlarını özelleştirin",
+      "stats": "Özel YZ"
+    },
+    "globalReach": {
+      "title": "Küresel Erişim",
+      "description": "Yerel kültürleri ve dilleri anlayan çok dilli YZ temsilcileriyle dünya çapında müşterilerle bağlantı kurun",
+      "stats": "Dünya Çapında"
     }
   },
   "experience": {

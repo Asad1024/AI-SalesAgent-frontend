@@ -174,7 +174,35 @@
     "viewAnalytics": "Analitikaya bax",
     "detailedReports": "Ətraflı hesabatlar",
     "optimize": "Optimallaşdır",
-    "aiSuggestions": "Sİ tövsiyələri"
+    "aiSuggestions": "Sİ tövsiyələri",
+    "recentCampaigns": "Son Kampaniyalar",
+    "noCampaignsYet": "Hələ kampaniya yoxdur",
+    "viewAll": "Hamısına bax",
+    "createCampaign": "Kampaniya yarat",
+    "totalCalls": "Ümumi zənglər",
+    "totalCampaigns": "Ümumi kampaniyalar",
+    "selectYourCampaign": "Kampaniyanızı seçin",
+    "campaignSelection": "Kampaniya seçimi",
+    "createNewOrSelectExisting": "Yeni kampaniya yaradın və ya mövcud olanı seçin.",
+    "noKnowledgeBaseFilesYet": "Hələ bilik bazası faylları yüklənməyib.",
+    "backToCampaigns": "Kampaniyalara qayıt",
+    "editCampaign": "Kampaniyanı redaktə et",
+    "updateYourAIVoiceCallingCampaign": "Sİ səsli zəng kampaniyanızı yeniləyin",
+    "leaveEmptyToUseSelectedScript": "Seçilmiş skriptin açılış mesajını istifadə etmək üçün boş buraxın.",
+    "previous": "Əvvəlki",
+    "continueToLaunch": "Başlatmaya Davam Et",
+    "dropPdfFilesOrClickToBrowse": "PDF fayllarınızı buraya atın və ya göz atmak üçün klikləyin",
+    "uploadCsvFilesWithColumns": "Aşağıdakı sütunlarla CSV fayllarını yükləyin:",
+    "required": "Tələb olunan:",
+    "optional": "İstəyə bağlı:",
+    "note": "Qeyd:",
+    "countryCodeAutoAdded": "Ölkə kodu (+971) BƏƏ nömrələrinə avtomatik əlavə ediləcək",
+    "uploadCsvFile": "CSV Faylı Yüklə",
+    "campaign": "Kampaniya:",
+    "changeCampaign": "Kampaniyanı Dəyişdir",
+    "chooseFiles": "Faylları Seç",
+    "updating": "Yenilənir...",
+    "updateAgent": "Agentı Yenilə"
   },
   "hero": {
     "title": "Sİ Səs Zəkası ilə Satışlarınızı Dəyişin",
@@ -231,6 +259,16 @@
       "title": "Ağıllı potensial qiymətləndirmə",
       "description": "Sİ dəqiqliyi ilə yüksək dəyərli potensialları avtomatik aşkarlayın və prioritetləşdirin",
       "stats": "%94 dəqiqlik"
+    },
+    "personalization": {
+      "title": "Sİ fərdiləşdirmə",
+      "description": "Sİ davranışını və cavablarını marka səsinizə və müştəri üstünlüklərinizə uyğunlaşdırın",
+      "stats": "Fərdi Sİ"
+    },
+    "globalReach": {
+      "title": "Qlobal çatma",
+      "description": "Yerli mədəniyyətləri və dilləri başa düşən çoxdilli Sİ agentləri vasitəsilə dünya miqyasında müştərilərlə əlaqə qurun",
+      "stats": "Dünya miqyasında"
     }
   },
   "experience": {

@@ -141,7 +141,7 @@ export default function Dashboard() {
                 <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4">
                   <div className="w-2 h-5 sm:h-6 lg:h-8 xl:h-10 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
                   <h3 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-brand-800 dark:text-brand-200">
-                    Select Your Campaign
+                    {t('dashboard.selectYourCampaign')}
                   </h3>
                 </div>
                 <CampaignSelector onCampaignSelect={handleCampaignUpdate} />
