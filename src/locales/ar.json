@@ -1763,7 +1763,31 @@
   "last7Days": "آخر 7 أيام",
   "last30Days": "آخر 30 يوماً",
   "last90Days": "آخر 90 يوماً",
-  "custom": "نطاق مخصص"
+  "custom": "نطاق مخصص",
+  "additionalMetrics": {
+    "averageCallDuration": "متوسط مدة المكالمة",
+    "perCallAverage": "متوسط لكل مكالمة",
+    "peakHours": "ساعات الذروة",
+    "bestCallTimes": "أفضل أوقات المكالمات",
+    "dailyAverage": "المتوسط اليومي",
+    "callsPerDay": "مكالمات في اليوم"
+  },
+    "charts": {
+      "callVolume": "حجم المكالمات",
+      "successRateTrend": "اتجاه معدل النجاح"
+    },
+    "campaignPerformance": {
+      "title": "أداء الحملة",
+      "campaign": "الحملة",
+      "totalLeads": "إجمالي العملاء المحتملين",
+      "completed": "مكتمل",
+      "successRate": "معدل النجاح",
+      "avgDuration": "متوسط المدة",
+      "created": "تاريخ الإنشاء",
+      "loading": "جاري تحميل أداء الحملة...",
+      "noData": "لا توجد بيانات حملة",
+      "noDataDescription": "أنشئ حملات لرؤية تحليلات الأداء هنا."
+    }
   },
   "sidebar": {
   "dashboard": "لوحة التحكم",

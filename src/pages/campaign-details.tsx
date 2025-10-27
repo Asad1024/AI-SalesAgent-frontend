@@ -46,7 +46,6 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
   };
 
   useEffect(() => {
-    // Cleanup audio player on component unmount
     return () => {
       if (audioPlayerRef.current) {
         audioPlayerRef.current.pause();
@@ -54,13 +53,12 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
     };
   }, []);
 
-  // Auto-refresh call logs every 30 seconds for active campaigns
   useEffect(() => {
     if (!data?.campaign || data.campaign.status !== 'active') return;
 
     const interval = setInterval(() => {
       refetch();
-    }, 30000); // 30 seconds
+    }, 30000);
 
     return () => clearInterval(interval);
   }, [data?.campaign?.status, refetch]);
@@ -149,13 +147,6 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
                 <h2 className="text-3xl font-bold text-brand-900 dark:text-white">{campaign.name}</h2>
                 <p className="text-brand-600 dark:text-brand-400 mt-2">Campaign Details & Conversations</p>
               </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <Button variant="outline" onClick={handleRefresh} disabled={isLoading}>
-                <RefreshCw className={`h-4 w-4 mr-2 ${isLoading ? 'animate-spin' : ''}`} />
-                Refresh Status
-              </Button>
-              <Badge>{campaign.status}</Badge>
             </div>
           </div>
         </header>

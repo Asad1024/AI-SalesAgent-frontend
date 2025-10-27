@@ -1762,7 +1762,31 @@
     "last7Days": "Last 7 Days",
     "last30Days": "Last 30 Days",
     "last90Days": "Last 90 Days",
-    "custom": "Custom Range"
+    "custom": "Custom Range",
+    "additionalMetrics": {
+      "averageCallDuration": "Average Call Duration",
+      "perCallAverage": "Per call average",
+      "peakHours": "Peak Hours",
+      "bestCallTimes": "Best call times",
+      "dailyAverage": "Daily Average",
+      "callsPerDay": "Calls per day"
+    },
+    "charts": {
+      "callVolume": "Call Volume",
+      "successRateTrend": "Success Rate Trend"
+    },
+    "campaignPerformance": {
+      "title": "Campaign Performance",
+      "campaign": "Campaign",
+      "totalLeads": "Total Leads",
+      "completed": "Completed",
+      "successRate": "Success Rate",
+      "avgDuration": "Avg Duration",
+      "created": "Created",
+      "loading": "Loading campaign performance...",
+      "noData": "No Campaign Data",
+      "noDataDescription": "Create campaigns to see performance analytics here."
+    }
   },
   "sidebar": {
     "dashboard": "Dashboard",

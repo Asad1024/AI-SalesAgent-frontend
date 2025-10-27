@@ -1856,7 +1856,31 @@
     "last7Days": "Son 7 gün",
     "last30Days": "Son 30 gün",
     "last90Days": "Son 90 gün",
-    "custom": "Xüsusi aralıq"
+    "custom": "Xüsusi Aralıq",
+    "additionalMetrics": {
+      "averageCallDuration": "Orta Zəng Müddəti",
+      "perCallAverage": "Zəng başına orta",
+      "peakHours": "Pik Saatlar",
+      "bestCallTimes": "Ən yaxşı zəng saatları",
+      "dailyAverage": "Günlük Orta",
+      "callsPerDay": "Gündə zəng sayı"
+    },
+    "charts": {
+      "callVolume": "Zəng Həcmi",
+      "successRateTrend": "Uğur Dərəcəsi Trendi"
+    },
+    "campaignPerformance": {
+      "title": "Kampaniya Performansı",
+      "campaign": "Kampaniya",
+      "totalLeads": "Ümumi Potensial Müştəri",
+      "completed": "Tamamlanan",
+      "successRate": "Uğur Dərəcəsi",
+      "avgDuration": "Orta Müddət",
+      "created": "Yaradılma",
+      "loading": "Kampaniya performansı yüklənir...",
+      "noData": "Kampaniya Məlumatı Yoxdur",
+      "noDataDescription": "Performans analitikasını görmək üçün kampaniyalar yaradın."
+    }
   },
   "sidebar": {
     "dashboard": "İdarə paneli",

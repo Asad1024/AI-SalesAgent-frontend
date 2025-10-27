@@ -1879,7 +1879,31 @@
     "last7Days": "Son 7 Gün",
     "last30Days": "Son 30 Gün",
     "last90Days": "Son 90 Gün",
-    "custom": "Özel Aralık"
+    "custom": "Özel Aralık",
+    "additionalMetrics": {
+      "averageCallDuration": "Ortalama Arama Süresi",
+      "perCallAverage": "Arama başına ortalama",
+      "peakHours": "Yoğun Saatler",
+      "bestCallTimes": "En iyi arama saatleri",
+      "dailyAverage": "Günlük Ortalama",
+      "callsPerDay": "Günde arama sayısı"
+    },
+    "charts": {
+      "callVolume": "Arama Hacmi",
+      "successRateTrend": "Başarı Oranı Trendi"
+    },
+    "campaignPerformance": {
+      "title": "Kampanya Performansı",
+      "campaign": "Kampanya",
+      "totalLeads": "Toplam Potansiyel Müşteri",
+      "completed": "Tamamlanan",
+      "successRate": "Başarı Oranı",
+      "avgDuration": "Ortalama Süre",
+      "created": "Oluşturulma",
+      "loading": "Kampanya performansı yükleniyor...",
+      "noData": "Kampanya Verisi Yok",
+      "noDataDescription": "Performans analitiklerini görmek için kampanyalar oluşturun."
+    }
   },
   "sidebar": {
     "dashboard": "Kontrol Paneli",

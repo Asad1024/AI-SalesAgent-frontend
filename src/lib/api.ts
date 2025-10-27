@@ -39,6 +39,45 @@ export interface DashboardAnalytics {
   }[];
 }
 
+export interface AnalyticsData {
+  totalCampaigns: number;
+  activeCampaigns: number;
+  totalCalls: number;
+  successfulCalls: number;
+  failedCalls: number;
+  successRate: number;
+  totalMinutes: number;
+  averageCallDuration: number;
+  callsToday: number;
+  peakHours: string;
+  dailyAverage: number;
+}
+
+export interface CampaignPerformance {
+  id: number;
+  name: string;
+  totalLeads: number;
+  completedCalls: number;
+  successfulCalls: number;
+  failedCalls: number;
+  successRate: number;
+  averageDuration: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CallVolumeData {
+  date: string;
+  calls: number;
+  successful: number;
+  failed: number;
+}
+
+export interface SuccessRateTrend {
+  date: string;
+  successRate: number;
+}
+
 export interface FileUploadResponse {
   success: boolean;
   voice?: Voice;
@@ -532,7 +571,6 @@ export const api = {
     return handleResponse(response);
   },
 
-  // Delete knowledge base file
   deleteKnowledgeBaseFile: async (fileId: string, elevenlabsId?: string) => {
     const response = await fetch(`${BASE_URL}/api/upload/knowledge-base/${fileId}`, {
       method: 'DELETE',
@@ -543,7 +581,6 @@ export const api = {
     return handleResponse(response);
   },
 
-  // Call tracking and history
   getActiveCalls: async () => {
     const response = await fetch(`${BASE_URL}/api/calls/active`, {
       method: 'GET',
@@ -571,57 +608,175 @@ export const api = {
     return handleResponse(response);
   },
 
-  // Replace the mock getStats with real analytics
-  getStats: async (): Promise<CampaignStats> => {
+  getAnalytics: async (timeRange?: string): Promise<AnalyticsData> => {
     try {
-      const response = await fetch(`${BASE_URL}/api/analytics/dashboard`, {
+      const url = timeRange 
+        ? `${BASE_URL}/api/analytics/dashboard?timeRange=${timeRange}`
+        : `${BASE_URL}/api/analytics/dashboard`;
+        
+      const response = await fetch(url, {
         headers: getAuthHeaders(),
         credentials: 'include'
       });
+      
       if (!response.ok) {
-        throw new Error('Failed to fetch analytics');
+        throw new Error('Loading');
       }
 
       const data: DashboardAnalytics = await response.json();
       
-      // Extract values from the ElevenLabs response
-      const stats: CampaignStats = {
+      const analytics: AnalyticsData = {
+        totalCampaigns: 0,
         activeCampaigns: 0,
+        totalCalls: 0,
+        successfulCalls: 0,
+        failedCalls: 0,
+        successRate: 0,
+        totalMinutes: 0,
+        averageCallDuration: 0,
         callsToday: 0,
-        successRate: "0%",
-        totalMinutes: 0
+        peakHours: '2-4 PM',
+        dailyAverage: 0
       };
 
       if (data.charts && Array.isArray(data.charts)) {
         data.charts.forEach(chart => {
           switch (chart.name) {
-            case "active_campaigns":
-              stats.activeCampaigns = parseInt(chart.data) || 0;
+            case "total_campaigns":
+              analytics.totalCampaigns = parseInt(chart.data) || 0;
               break;
-            case "calls_today":
-              stats.callsToday = parseInt(chart.data) || 0;
+            case "active_campaigns":
+              analytics.activeCampaigns = parseInt(chart.data) || 0;
+              break;
+            case "total_calls":
+              analytics.totalCalls = parseInt(chart.data) || 0;
+              break;
+            case "successful_calls":
+              analytics.successfulCalls = parseInt(chart.data) || 0;
+              break;
+            case "failed_calls":
+              analytics.failedCalls = parseInt(chart.data) || 0;
               break;
             case "success_rate":
-              stats.successRate = typeof chart.data === 'number' 
-                ? `${Math.round(chart.data * 100)}%` 
-                : '0%';
+              analytics.successRate = typeof chart.data === 'number' 
+                ? Math.round(chart.data * 100) 
+                : 0;
               break;
             case "total_minutes":
-              stats.totalMinutes = parseInt(chart.data) || 0;
+              analytics.totalMinutes = parseInt(chart.data) || 0;
+              break;
+            case "average_call_duration":
+              analytics.averageCallDuration = parseInt(chart.data) || 0;
+              break;
+            case "calls_today":
+              analytics.callsToday = parseInt(chart.data) || 0;
+              break;
+            case "daily_average":
+              analytics.dailyAverage = parseInt(chart.data) || 0;
               break;
           }
         });
       }
 
-      return stats;
+      return analytics;
     } catch (error) {
-      console.error('Failed to fetch analytics:', error);
-      // Return demo stats if the API call fails
       return {
-        activeCampaigns: 3,
-        callsToday: 45,
-        successRate: "27%",
-        totalMinutes: 180
+        totalCampaigns: 0,
+        activeCampaigns: 0,
+        totalCalls: 0,
+        successfulCalls: 0,
+        failedCalls: 0,
+        successRate: 0,
+        totalMinutes: 0,
+        averageCallDuration: 0,
+        callsToday: 0,
+        peakHours: '2-4 PM',
+        dailyAverage: 0
+      };
+    }
+  },
+
+  getCampaignPerformance: async (): Promise<CampaignPerformance[]> => {
+    try {
+      const response = await fetch(`${BASE_URL}/api/campaigns`, {
+        headers: getAuthHeaders(),
+        credentials: 'include'
+      });
+
+      const data = await response.json();
+      const campaigns = Array.isArray(data) ? data : (data.campaigns || []);
+      
+      return campaigns.map((campaign: any) => ({
+        id: campaign.id,
+        name: campaign.name,
+        status: campaign.status,
+        totalLeads: campaign.totalLeads || 0,
+        completedCalls: campaign.completedCalls || 0,
+        successfulCalls: campaign.successfulCalls || 0,
+        failedCalls: campaign.failedCalls || 0,
+        successRate: campaign.completedCalls > 0 
+          ? Math.round((campaign.successfulCalls || 0) / campaign.completedCalls * 100)
+          : 0,
+        averageDuration: campaign.averageDuration || 0,
+        createdAt: campaign.createdAt,
+        updatedAt: campaign.updatedAt
+      }));
+    } catch (error) {
+      return [];
+    }
+  },
+
+  getCallVolumeData: async (timeRange: string = '7d'): Promise<CallVolumeData[]> => {
+    try {
+      const response = await fetch(`${BASE_URL}/api/analytics/call-volume?timeRange=${timeRange}`, {
+        headers: getAuthHeaders(),
+        credentials: 'include'
+      });
+      
+      if (!response.ok) {
+        throw new Error('Loading');
+      }
+
+      const data = await response.json();
+      return data.callVolume || [];
+    } catch (error) {
+      return [];
+    }
+  },
+
+  getSuccessRateTrend: async (timeRange: string = '7d'): Promise<SuccessRateTrend[]> => {
+    try {
+      const response = await fetch(`${BASE_URL}/api/analytics/success-rate-trend?timeRange=${timeRange}`, {
+        headers: getAuthHeaders(),
+        credentials: 'include'
+      });
+      
+      if (!response.ok) {
+        throw new Error('Loading');
+      }
+
+      const data = await response.json();
+      return data.successRateTrend || [];
+    } catch (error) {
+      return [];
+    }
+  },
+
+  getStats: async (): Promise<CampaignStats> => {
+    try {
+      const analytics = await api.getAnalytics();
+      return {
+        activeCampaigns: analytics.activeCampaigns,
+        callsToday: analytics.callsToday,
+        successRate: `${analytics.successRate}%`,
+        totalMinutes: analytics.totalMinutes
+      };
+    } catch (error) {
+      return {
+        activeCampaigns: 0,
+        callsToday: 0,
+        successRate: "0%",
+        totalMinutes: 0
       };
     }
   },
