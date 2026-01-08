@@ -147,7 +147,11 @@ export interface ExperienceCallRequest {
   agent: string;
 }
 
-const BASE_URL = 'https://aisparksalesagent-backend.onrender.com';
+// Production URL (commented for local testing)
+// const BASE_URL = 'https://aisparksalesagent-backend.onrender.com';
+
+// Local development URL (Backend running on port 8000)
+const BASE_URL = 'http://localhost:8000';
 
 async function handleResponse(response: Response) {
   const data = await response.json();
@@ -166,154 +170,59 @@ async function handleResponse(response: Response) {
 export const api = {
   getBaseUrl: () => BASE_URL,
   // GET requests
-  getCampaigns: () => 
-    fetch(`${BASE_URL}/api/campaigns`, {
-      headers: getAuthHeaders(),
-      credentials: 'include'
-    }).then(handleResponse).catch(() => {
-      // Return demo campaigns if API fails
-      return [
-        {
-          id: 1,
-          name: "Demo Sales Campaign",
-          firstPrompt: "Hi {name}, this is Sarah calling from our company. I hope I'm not catching you at a bad time? I wanted to reach out about something that might be really helpful for you. Do you have a quick moment to chat?",
-          systemPersona: "You are Sarah, a friendly and professional sales representative. Be conversational, warm, and empathetic. Use natural speech patterns and listen actively to responses.",
-          selectedVoiceId: "demo-voice-1",
-          status: "active",
-          totalLeads: 150,
-          completedCalls: 45,
-          successfulCalls: 12,
-          failedCalls: 33,
-          averageDuration: 180,
-          createdAt: new Date().toISOString()
-        },
-        {
-          id: 2,
-          name: "Follow-up Campaign",
-          firstPrompt: "Hi {name}, this is Sarah calling to follow up on our previous conversation about our services. I wanted to see if you had any questions or if you're ready to move forward?",
-          systemPersona: "You are Sarah, a follow-up specialist. Be persistent but respectful. Focus on addressing their concerns and moving them toward a decision.",
-          selectedVoiceId: "demo-voice-2",
-          status: "draft",
-          totalLeads: 75,
-          completedCalls: 0,
-          successfulCalls: 0,
-          failedCalls: 0,
-          averageDuration: 0,
-          createdAt: new Date(Date.now() - 86400000).toISOString()
-        },
-        {
-          id: 3,
-          name: "New Product Launch",
-          firstPrompt: "Hello {name}, this is Sarah calling with some exciting news about our new product launch. I believe this could be perfect for your business. Do you have a few minutes to hear about this opportunity?",
-          systemPersona: "You are Sarah, an enthusiastic product specialist. Be excited about the new product while being professional. Focus on the benefits and value proposition.",
-          selectedVoiceId: "demo-voice-3",
-          status: "paused",
-          totalLeads: 200,
-          completedCalls: 120,
-          successfulCalls: 35,
-          failedCalls: 85,
-          averageDuration: 240,
-          createdAt: new Date(Date.now() - 172800000).toISOString()
+  getCampaigns: async () => {
+    try {
+      const token = localStorage.getItem('auth-token');
+      const headers: HeadersInit = {
+        'Content-Type': 'application/json',
+      };
+      
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
+
+      const response = await fetch(`${BASE_URL}/api/campaigns`, {
+        headers,
+        credentials: 'include'
+      });
+
+      // Check if response is ok
+      if (!response.ok) {
+        // If unauthorized, clear token and redirect
+        if (response.status === 401) {
+          localStorage.removeItem('auth-token');
+          localStorage.removeItem('user');
+          window.location.href = '/login';
+          return [];
         }
-      ];
-    }),
+        throw new Error(`Failed to fetch campaigns: ${response.status} ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      
+      // Handle both array and object responses
+      if (Array.isArray(data)) {
+        return data;
+      } else if (data && typeof data === 'object') {
+        return data.campaigns || data.data || [];
+      }
+      
+      return [];
+    } catch (error) {
+      console.error('Failed to fetch campaigns:', error);
+      // Return empty array instead of throwing to prevent UI crashes
+      return [];
+    }
+  },
   
   getCampaignDetails: (id: string) => 
     fetch(`${BASE_URL}/api/campaigns/${id}/details`, {
       headers: getAuthHeaders(),
       credentials: 'include'
-    }).then(handleResponse).catch(() => {
-      // Return demo campaign details if API fails
-      const demoCampaigns = [
-        {
-          id: 1,
-          name: "Demo Sales Campaign",
-          firstPrompt: "Hi {name}, this is Sarah calling from our company. I hope I'm not catching you at a bad time? I wanted to reach out about something that might be really helpful for you. Do you have a quick moment to chat?",
-          systemPersona: "You are Sarah, a friendly and professional sales representative. Be conversational, warm, and empathetic. Use natural speech patterns and listen actively to responses.",
-          selectedVoiceId: "demo-voice-1",
-          status: "active",
-          totalLeads: 150,
-          completedCalls: 45,
-          successfulCalls: 12,
-          failedCalls: 33,
-          averageDuration: 180,
-          createdAt: new Date().toISOString()
-        },
-        {
-          id: 2,
-          name: "Follow-up Campaign",
-          firstPrompt: "Hi {name}, this is Sarah calling to follow up on our previous conversation about our services. I wanted to see if you had any questions or if you're ready to move forward?",
-          systemPersona: "You are Sarah, a follow-up specialist. Be persistent but respectful. Focus on addressing their concerns and moving them toward a decision.",
-          selectedVoiceId: "demo-voice-2",
-          status: "draft",
-          totalLeads: 75,
-          completedCalls: 0,
-          successfulCalls: 0,
-          failedCalls: 0,
-          averageDuration: 0,
-          createdAt: new Date(Date.now() - 86400000).toISOString()
-        },
-        {
-          id: 3,
-          name: "New Product Launch",
-          firstPrompt: "Hello {name}, this is Sarah calling with some exciting news about our new product launch. I believe this could be perfect for your business. Do you have a few minutes to hear about this opportunity?",
-          systemPersona: "You are Sarah, an enthusiastic product specialist. Be excited about the new product while being professional. Focus on the benefits and value proposition.",
-          selectedVoiceId: "demo-voice-3",
-          status: "paused",
-          totalLeads: 200,
-          completedCalls: 120,
-          successfulCalls: 35,
-          failedCalls: 85,
-          averageDuration: 240,
-          createdAt: new Date(Date.now() - 172800000).toISOString()
-        }
-      ];
-      
-      const campaign = demoCampaigns.find(c => c.id === parseInt(id));
-      if (!campaign) {
-        throw new Error('Campaign not found');
-      }
-      
-      // Generate demo call logs based on campaign data
-      const demoCallLogs = [];
-      const demoLeads = [];
-      
-      // Generate demo leads
-      for (let i = 1; i <= Math.min(campaign.totalLeads, 20); i++) {
-        demoLeads.push({
-          id: i,
-          firstName: `Lead ${i}`,
-          lastName: `Customer ${i}`,
-          contactNo: `+971501234${i.toString().padStart(3, '0')}`,
-          status: i <= campaign.completedCalls ? 'completed' : 'pending'
-        });
-      }
-      
-      // Generate demo call logs for completed calls
-      for (let i = 1; i <= campaign.completedCalls; i++) {
-        const isSuccessful = i <= campaign.successfulCalls;
-        demoCallLogs.push({
-          id: i,
-          leadId: i,
-          phoneNumber: `+971501234${i.toString().padStart(3, '0')}`,
-          status: isSuccessful ? 'completed' : 'failed',
-          duration: Math.floor(Math.random() * 300) + 60, // 1-6 minutes
-          created_at: new Date(Date.now() - Math.random() * 7 * 24 * 60 * 60 * 1000).toISOString(),
-          elevenlabsConversationId: isSuccessful ? `demo-conversation-${i}` : null
-        });
-      }
-      
-      return {
-        campaign,
-        leads: demoLeads,
-        callLogs: demoCallLogs,
-        stats: {
-          totalCalls: campaign.completedCalls,
-          successfulCalls: campaign.successfulCalls,
-          failedCalls: campaign.failedCalls,
-          averageDuration: campaign.averageDuration
-        }
-      };
+    }).then(handleResponse).catch((error) => {
+      // Don't return demo data - throw error instead
+      console.error('Failed to fetch campaign details:', error);
+      throw error;
     }),
 
   getConversationDetails: (conversationId: string) =>
@@ -525,12 +434,12 @@ export const api = {
     return handleResponse(response);
   },
 
-  startCampaign: async (campaignData: any) => {
+  startCampaign: async (data: { campaignId: number }) => {
     const response = await fetch(`${BASE_URL}/api/campaigns/start-campaign`, {
       method: 'POST',
       headers: getAuthHeaders(),
       credentials: 'include',
-      body: JSON.stringify(campaignData),
+      body: JSON.stringify(data),
     });
     return handleResponse(response);
   },

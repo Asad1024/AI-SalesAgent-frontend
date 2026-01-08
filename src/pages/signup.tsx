@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 import { useTranslation } from 'react-i18next';
 import { 
   Phone, 
@@ -34,8 +34,9 @@ import Logo from '@/components/logo';
 
 export default function Signup() {
   const { t } = useTranslation();
-  const { register } = useAuth();
+  const { register, user } = useAuth();
   const { toast } = useToast();
+  const [, setLocation] = useLocation();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -47,6 +48,13 @@ export default function Signup() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [currentAnimation, setCurrentAnimation] = useState(0);
   const { theme, toggleTheme } = useTheme();
+
+  // Redirect to dashboard if already logged in
+  useEffect(() => {
+    if (user) {
+      setLocation('/dashboard');
+    }
+  }, [user, setLocation]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,10 +83,10 @@ export default function Signup() {
       await register(formData.email, formData.password, formData.confirmPassword);
       setIsSuccess(true);
       
-      // Redirect after success
+      // Redirect after success using router (no page reload)
       setTimeout(() => {
-        window.location.href = '/dashboard';
-      }, 1500);
+        setLocation('/dashboard');
+      }, 1000);
     } catch (error: any) {
       toast({
         title: "Registration Failed",

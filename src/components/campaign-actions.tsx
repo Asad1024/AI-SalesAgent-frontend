@@ -7,6 +7,8 @@ import { useMutation } from "@tanstack/react-query";
 import { Rocket, Phone, Play, AlertCircle } from "lucide-react";
 import { api } from "@/lib/api";
 import { useTranslation } from "react-i18next";
+import { useAuth } from "@/hooks/use-auth";
+import UpgradeModal from "@/components/upgrade-modal";
 
 interface CampaignActionsProps {
   campaign: any;
@@ -16,9 +18,11 @@ interface CampaignActionsProps {
 
 export default function CampaignActions({ campaign, selectedVoiceId, uploadedLeads }: CampaignActionsProps) {
   const { t } = useTranslation();
+  const { user } = useAuth();
   const [testPhoneNumber, setTestPhoneNumber] = useState("");
   const [testFirstName, setTestFirstName] = useState("");
   const [testCallStatus, setTestCallStatus] = useState<"idle" | "calling" | "completed" | "failed">("idle");
+  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   
   const { toast } = useToast();
 
@@ -47,7 +51,7 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
 
   // Start campaign mutation
   const startCampaignMutation = useMutation({
-    mutationFn: (campaignId: number) => api.startCampaign(campaignId),
+    mutationFn: (campaignId: number) => api.startCampaign({ campaignId }),
     onSuccess: (data) => {
       toast({
         title: "Campaign Started",
@@ -102,6 +106,15 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
   };
 
   const handleStartCampaign = () => {
+    // Check credits first
+    const userCredits = user?.creditsBalance || 0;
+    const requiredCredits = uploadedLeads.length * 3; // 3 credits per lead (default)
+    
+    if (userCredits < requiredCredits) {
+      setShowUpgradeModal(true);
+      return;
+    }
+
     if (!campaign?.firstPrompt) {
       toast({
         title: "Initial Message Required",
@@ -138,7 +151,7 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
       return;
     }
 
-    const confirmMessage = `Are you sure you want to start the campaign?\n\nThis will:\n- Use the selected voice (${selectedVoiceId})\n- Process ${uploadedLeads.length} leads\n- Use the uploaded knowledge base\n- Start with: "${campaign.firstPrompt}"`;
+    const confirmMessage = `Are you sure you want to start the campaign?\n\nThis will:\n- Use the selected voice (${selectedVoiceId})\n- Process ${uploadedLeads.length} leads\n- Use the uploaded knowledge base\n- Start with: "${campaign.firstPrompt}"\n- Cost: ${requiredCredits} credits`;
     
     if (window.confirm(confirmMessage)) {
       startCampaignMutation.mutate(campaign.id);
@@ -150,7 +163,8 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
   const isReadyToLaunch = campaign?.firstPrompt && selectedVoiceId && campaign?.knowledgeBaseId && uploadedLeads.length > 0;
 
   return (
-    <Card className="border border-border bg-card/50 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
+    <>
+      <Card className="border border-border bg-card/50 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
       <CardHeader>
         <CardTitle className="flex items-center space-x-4">
           <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-md">
@@ -298,5 +312,8 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
         </div>
       </CardContent>
     </Card>
+    
+    <UpgradeModal isOpen={showUpgradeModal} onClose={() => setShowUpgradeModal(false)} />
+    </>
   );
 }

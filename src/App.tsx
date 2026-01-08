@@ -11,6 +11,7 @@ import Dashboard from "@/pages/dashboard";
 import Campaigns from "@/pages/campaigns";
 import Voices from "@/pages/voices";
 import Analytics from "@/pages/analytics";
+import Upgrade from "@/pages/upgrade";
 import HomeOption2 from "@/pages/home-option2";
 import About from "@/pages/about";
 import Contact from "@/pages/contact";
@@ -69,6 +70,7 @@ function AppRouter() {
         </Route>
         <Route path="/voices" component={user ? Voices : Login} />
         <Route path="/analytics" component={user ? Analytics : Login} />
+        <Route path="/upgrade" component={user ? Upgrade : Login} />
         <Route component={NotFound} />
       </Switch>
       

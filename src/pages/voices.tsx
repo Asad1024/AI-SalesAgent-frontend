@@ -302,14 +302,14 @@ export default function Voices() {
       
       {/* Mobile Sidebar */}
       <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-        <SheetContent side="left" className="w-[287.27px] p-0 bg-white/95 dark:bg-brand-900/95 backdrop-blur-xl">
+        <SheetContent side="left" className="w-[287.27px] p-0 bg-white/95 dark:bg-brand-900/95 backdrop-blur-sm sm:backdrop-blur-xl">
           <Sidebar />
         </SheetContent>
       </Sheet>
       
       <div className="flex-1 flex flex-col overflow-hidden">
-        <header className="bg-white/80 dark:bg-brand-900/80 backdrop-blur-xl border-b border-brand-200/50 dark:border-brand-800/50 px-8 py-6">
-          <div className="flex items-center justify-between">
+        <header className="bg-white/80 dark:bg-brand-900/80 backdrop-blur-xl border-b border-brand-200/50 dark:border-brand-800/50 px-4 sm:px-6 lg:px-8 py-4 sm:py-2.5 min-h-[88px] flex items-center">
+          <div className="flex items-center justify-between relative z-10 w-full">
             <div className="flex items-center space-x-4">
               {/* Mobile Menu Button */}
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
@@ -325,11 +325,15 @@ export default function Voices() {
               </Sheet>
               
               <div>
-                <h2 className="text-3xl font-bold text-brand-800 dark:text-brand-200 spark-gradient-text">
+                <h2 className="text-3xl font-bold text-black dark:text-black spark-gradient-text">
                   {t('voices.title')}
                 </h2>
-                <p className="text-brand-600 dark:text-brand-400 mt-2">{t('voices.subtitle')}</p>
+                <p className="text-black dark:text-black mt-2">{t('voices.subtitle')}</p>
               </div>
+            </div>
+            <div className="hidden lg:flex items-center gap-3">
+              <ThemeToggle />
+              <LanguageSwitcher />
             </div>
           </div>
         </header>

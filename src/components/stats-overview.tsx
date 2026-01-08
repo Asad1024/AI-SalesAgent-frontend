@@ -15,7 +15,10 @@ export default function StatsOverview() {
   const { data: campaignsData, isLoading: campaignsLoading } = useQuery({
     queryKey: ["/api/campaigns"],
     queryFn: () => api.getCampaigns(),
-    refetchInterval: 10000, // Refresh every 10 seconds
+    refetchInterval: 30000, // Refresh every 30 seconds (reduced frequency)
+    staleTime: 15000, // Consider data stale after 15 seconds
+    gcTime: 60000, // Keep in cache for 60 seconds
+    refetchOnWindowFocus: false, // Don't refetch on window focus
   });
 
   const isLoading = statsLoading || campaignsLoading;

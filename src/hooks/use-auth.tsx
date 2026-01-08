@@ -10,6 +10,7 @@ interface AuthContextType {
   logout: () => Promise<void>;
   updateProfile: (email: string) => Promise<void>;
   changePassword: (currentPassword: string, newPassword: string, confirmNewPassword: string) => Promise<void>;
+  refreshUser: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -32,12 +33,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   useEffect(() => {
     checkAuthStatus();
+    // Only check status on mount, not continuously
   }, []);
 
   const checkAuthStatus = async () => {
     try {
       const status = await authService.checkStatus();
       if (status.authenticated && status.user) {
+        // Use creditsBalance from API only, no hardcoded defaults
         setUser(status.user);
       } else {
         setUser(null);
@@ -55,6 +58,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const login = async (email: string, password: string) => {
     try {
       const response = await authService.login(email, password);
+      // Use creditsBalance from API only, no hardcoded defaults
       setUser(response.user || null);
     } catch (error) {
       throw error;
@@ -64,6 +68,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const register = async (email: string, password: string, confirmPassword: string) => {
     try {
       const response = await authService.register(email, password, confirmPassword);
+      // Use creditsBalance from API only, no hardcoded defaults
       setUser(response.user || null);
     } catch (error) {
       throw error;
@@ -98,6 +103,17 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
+  const refreshUser = async () => {
+    try {
+      const status = await authService.checkStatus();
+      if (status.authenticated && status.user) {
+        setUser(status.user);
+      }
+    } catch (error) {
+      console.error('Failed to refresh user:', error);
+    }
+  };
+
   const value: AuthContextType = {
     user,
     loading,
@@ -106,6 +122,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     logout,
     updateProfile,
     changePassword,
+    refreshUser,
   };
 
   return (

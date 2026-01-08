@@ -5,13 +5,15 @@ import CampaignSetup from "@/components/campaign-setup";
 import VoiceSelection from "@/components/voice-selection";
 import LeadsUpload from "@/components/leads-upload";
 import CampaignActions from "@/components/campaign-actions";
-import CampaignSelector from "@/components/campaign-selector";
 import AnimatedBanner from "@/components/animated-banner";
 import Logo from "@/components/logo";
 import { Button } from "@/components/ui/button";
-import { Sparkles,  Menu, Megaphone } from "lucide-react";
+import { Sparkles,  Menu, Megaphone, Plus, Coins } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { useTheme } from "@/hooks/use-theme";
+import ThemeToggle from "@/components/theme-toggle";
+import LanguageSwitcher from "@/components/language-switcher";
+import { useQuery } from "@tanstack/react-query";
+import { api } from "@/lib/api";
 import {
   Sheet,
   SheetContent,
@@ -19,14 +21,23 @@ import {
   } from "@/components/ui/sheet";
 import CampaignsOverview from "@/components/campaigns-overview";
 import { useLocation } from "wouter";
+import { useAuth } from "@/hooks/use-auth";
 
 export default function Dashboard() {
   const { t } = useTranslation();
   const [, setLocation] = useLocation();
+  const { user, refreshUser } = useAuth();
   const [currentCampaign, setCurrentCampaign] = useState<any>(null);
   const [selectedVoiceId, setSelectedVoiceId] = useState<string>("");
   const [uploadedLeads, setUploadedLeads] = useState<any[]>([]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Refresh user data on mount only (not periodically to prevent refreshes)
+  useEffect(() => {
+    refreshUser();
+    // Removed periodic refresh to prevent page refreshes
+    // Credits will update when user performs actions or manually refreshes
+  }, [refreshUser]);
 
   const handleCampaignUpdate = (campaign: any) => {
     setCurrentCampaign(campaign);
@@ -70,17 +81,17 @@ export default function Dashboard() {
   }, [currentCampaign?.id]);
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-brand-50 via-brand-100 to-brand-50 dark:from-brand-900 dark:via-brand-800/20 dark:to-brand-900">
+    <div className="flex h-screen bg-gradient-to-br from-brand-50 via-brand-100 to-brand-50 dark:from-brand-900 dark:via-brand-800/20 dark:to-brand-900 overflow-hidden">
       {/* Desktop Sidebar */}
-      <div className="hidden lg:block">
+      <div className="hidden lg:block h-full">
         <Sidebar />
       </div>
       
       
       {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
+      <div className="flex-1 flex flex-col overflow-hidden min-w-0">
         {/* Enhanced Header */}
-        <header className="relative bg-white/90 dark:bg-brand-900/90 backdrop-blur-xl border-b border-brand-200/50 dark:border-brand-800/50 px-2 sm:px-3 lg:px-6 xl:px-8 py-2 sm:py-3 lg:py-6 shadow-lg overflow-hidden">
+        <header className="relative bg-white/80 dark:bg-brand-900/80 backdrop-blur-xl border-b border-brand-200/50 dark:border-brand-800/50 px-4 sm:px-6 lg:px-8 py-4 sm:py-2.5 overflow-hidden min-h-[88px] flex items-center border-l-0">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-5">
             <svg className="w-full h-full" viewBox="0 0 400 100" fill="none">
@@ -97,7 +108,7 @@ export default function Dashboard() {
           {/* Floating Elements */}
           <div className="absolute top-2 right-20 w-3 h-3 bg-brand-500/20 rounded-full animate-pulse"></div>
           <div className="absolute bottom-2 left-20 w-2 h-2 bg-green-500/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between relative z-10 w-full">
             <div className="flex items-center space-x-2 sm:space-x-4">
               {/* Mobile Menu Button */}
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
@@ -110,44 +121,36 @@ export default function Dashboard() {
                     <Menu className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="w-[280px] sm:w-[320px] lg:w-[360px] p-0 bg-white/95 dark:bg-brand-900/95 backdrop-blur-xl border-r border-brand-200/50 dark:border-brand-800/50">
+                <SheetContent side="left" className="w-[280px] sm:w-[320px] lg:w-[360px] p-0 bg-white/95 dark:bg-brand-900/95 backdrop-blur-sm sm:backdrop-blur-xl border-r border-brand-200/50 dark:border-brand-800/50">
                   <Sidebar />
                 </SheetContent>
               </Sheet>
               
-              <div className="space-y-1 sm:space-y-2">
-                <div className="flex items-center space-x-2 sm:space-x-3">
-                  <Logo size="sm" showText={true} className="sm:size-md lg:size-lg" />
-                  <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-yellow-500 animate-pulse" />
-                </div>
-                <p className="text-brand-600 dark:text-brand-400 text-xs sm:text-sm lg:text-base xl:text-lg font-medium hidden sm:block">
-                  {t('auth.subtitle')}
+              <div>
+                <h2 className="text-3xl font-bold text-black dark:text-black spark-gradient-text">
+                  {t('common.dashboard')}
+                </h2>
+                <p className="text-black dark:text-black mt-2">
+                  Manage your AI voice calling campaigns and sales automation
                 </p>
               </div>
+            </div>
+            <div className="hidden lg:flex items-center gap-3">
+              <ThemeToggle />
+              <LanguageSwitcher />
             </div>
           </div>
         </header>
 
         {/* Enhanced Main Content */}
-        <main className="flex-1 overflow-auto p-2 sm:p-3 lg:p-6 xl:p-8 bg-transparent">
-          <div className="max-w-7xl mx-auto space-y-3 sm:space-y-4 lg:space-y-6 xl:space-y-8">
+        <main className="flex-1 overflow-y-auto overflow-x-hidden p-2 sm:p-3 lg:p-6 xl:p-8 bg-transparent">
+          <div className="max-w-7xl mx-auto space-y-3 sm:space-y-4 lg:space-y-6 xl:space-y-8 pb-4">
             
             {/* Animated Banner */}
             <AnimatedBanner />
             
-            {/* Enhanced Campaign Selection - Moved to Top */}
-            {!currentCampaign ? (
-              <div className="space-y-3 sm:space-y-4 lg:space-y-6">
-                <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4">
-                  <div className="w-2 h-5 sm:h-6 lg:h-8 xl:h-10 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
-                  <h3 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-brand-800 dark:text-brand-200">
-                    {t('dashboard.selectYourCampaign')}
-                  </h3>
-                </div>
-                <CampaignSelector onCampaignSelect={handleCampaignUpdate} />
-              </div>
-            ) : (
-              // Enhanced Campaign Setup
+            {/* Campaign Configuration - Only show when a campaign is selected */}
+            {currentCampaign && (
               <div className="space-y-3 sm:space-y-4 lg:space-y-6 xl:space-y-8">
                 <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4">
                   <div className="w-2 h-5 sm:h-6 lg:h-8 xl:h-10 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
@@ -180,21 +183,31 @@ export default function Dashboard() {
               </div>
             )}
 
+            {/* Recent Campaigns Section - Merged and simplified */}
             <div className="space-y-3 sm:space-y-4 lg:space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
                 <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4">
                   <div className="w-2 h-6 sm:h-8 lg:h-10 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full"></div>
                   <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-brand-800 dark:text-brand-200">
-                    {t('dashboard.existingCampaigns')}
+                    {t('dashboard.recentCampaigns')}
                   </h3>
                 </div>
-                <button
-                  onClick={() => setLocation("/campaigns")}
-                  className="inline-flex items-center px-3 sm:px-4 lg:px-6 py-2 sm:py-3 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-medium rounded-lg sm:rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl text-xs sm:text-sm lg:text-base hover:scale-105"
-                >
-                  <Megaphone className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 mr-1 sm:mr-2" />
-                  {t('dashboard.viewAllCampaigns')}
-                </button>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <button
+                    onClick={() => setLocation("/campaigns/new")}
+                    className="inline-flex items-center px-3 sm:px-4 lg:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-medium rounded-lg sm:rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl text-xs sm:text-sm lg:text-base hover:scale-105"
+                  >
+                    <Plus className="h-3 w-3 sm:h-4 sm:w-4 lg:h-4 lg:w-4 mr-1 sm:mr-2" />
+                    {t('dashboard.createCampaign')}
+                  </button>
+                  <button
+                    onClick={() => setLocation("/campaigns")}
+                    className="inline-flex items-center px-3 sm:px-4 lg:px-6 py-2 sm:py-3 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-medium rounded-lg sm:rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl text-xs sm:text-sm lg:text-base hover:scale-105"
+                  >
+                    <Megaphone className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 mr-1 sm:mr-2" />
+                    {t('dashboard.viewAllCampaigns')}
+                  </button>
+                </div>
               </div>
               <CampaignsOverview />
             </div>

@@ -167,7 +167,7 @@ export default function Analytics() {
       
       
       <div className="flex-1 flex flex-col overflow-hidden">
-        <header className="relative bg-white/80 dark:bg-brand-900/80 backdrop-blur-xl border-b border-brand-200/50 dark:border-brand-800/50 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 overflow-hidden">
+        <header className="relative bg-white/80 dark:bg-brand-900/80 backdrop-blur-xl border-b border-brand-200/50 dark:border-brand-800/50 px-4 sm:px-6 lg:px-8 py-4 sm:py-2.5 overflow-hidden min-h-[88px] flex items-center">
           <div className="absolute inset-0 opacity-5">
             <svg className="w-full h-full" viewBox="0 0 400 100" fill="none">
               <defs>
@@ -183,7 +183,7 @@ export default function Analytics() {
           
           <div className="absolute top-3 right-24 w-4 h-4 bg-brand-500/20 rounded-full animate-pulse"></div>
           <div className="absolute bottom-3 left-24 w-3 h-3 bg-green-500/20 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between relative z-10 w-full">
             <div className="flex items-center space-x-4">
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
@@ -195,17 +195,21 @@ export default function Analytics() {
                     <Menu className="h-5 w-5" />
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="w-[287.27px] p-0 bg-white/95 dark:bg-brand-900/95 backdrop-blur-xl">
+                <SheetContent side="left" className="w-[287.27px] p-0 bg-white/95 dark:bg-brand-900/95 backdrop-blur-sm sm:backdrop-blur-xl">
                   <Sidebar />
                 </SheetContent>
               </Sheet>
               
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-brand-800 dark:text-brand-200 spark-gradient-text">
+                <h2 className="text-3xl font-bold text-black dark:text-black spark-gradient-text">
                   {t('analytics.title')}
                 </h2>
-                <p className="text-sm sm:text-base text-brand-600 dark:text-brand-400 mt-1 sm:mt-2">{t('analytics.subtitle')}</p>
+                <p className="text-black dark:text-black mt-2">{t('analytics.subtitle')}</p>
               </div>
+            </div>
+            <div className="hidden lg:flex items-center gap-3">
+              <ThemeToggle />
+              <LanguageSwitcher />
             </div>
           </div>
         </header>

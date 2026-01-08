@@ -3,7 +3,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
-import { Plus, Search, Menu } from "lucide-react";
+import { Plus, Search, Menu, Loader2 } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { api, type Campaign } from "@/lib/api";
 import Sidebar from "@/components/sidebar";
@@ -88,14 +88,14 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
   );
 
   return (
-    <div className="flex h-screen bg-slate-50 dark:bg-slate-900">
+    <div className="flex h-screen bg-slate-50 dark:bg-slate-900 overflow-hidden">
       {/* Desktop Sidebar */}
-      <div className="hidden lg:block">
+      <div className="hidden lg:block h-full">
         <Sidebar />
       </div>
       
-      <div className="flex-1 flex flex-col overflow-hidden">
-        <header className="relative bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 overflow-hidden">
+      <div className="flex-1 flex flex-col overflow-hidden min-w-0">
+        <header className="relative bg-white/80 dark:bg-brand-900/80 backdrop-blur-xl border-b border-brand-200/50 dark:border-brand-800/50 px-4 sm:px-6 lg:px-8 py-4 sm:py-2.5 overflow-hidden min-h-[88px] flex items-center">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-5">
             <svg className="w-full h-full" viewBox="0 0 400 100" fill="none">
@@ -113,7 +113,7 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
           {/* Floating Elements */}
           <div className="absolute top-4 right-28 w-5 h-5 bg-purple-500/20 rounded-full animate-pulse"></div>
           <div className="absolute bottom-4 left-28 w-4 h-4 bg-purple-500/20 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between relative z-10 w-full">
                 <div className="flex items-center space-x-4">
                   {/* Mobile Menu Button */}
                   <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
@@ -126,20 +126,24 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
                         <Menu className="h-5 w-5" />
                       </Button>
                     </SheetTrigger>
-                    <SheetContent side="left" className="w-[287.27px] p-0 bg-white/95 dark:bg-brand-900/95 backdrop-blur-xl">
+                    <SheetContent side="left" className="w-[287.27px] p-0 bg-white/95 dark:bg-brand-900/95 backdrop-blur-sm sm:backdrop-blur-xl">
                       <Sidebar />
                     </SheetContent>
                   </Sheet>
                   
                   <div>
-                    <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">{t('campaigns.title')}</h2>
-                    <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-1 sm:mt-2">{t('campaigns.subtitle')}</p>
+                    <h2 className="text-3xl font-bold text-black dark:text-black spark-gradient-text">{t('campaigns.title')}</h2>
+                    <p className="text-black dark:text-black mt-2">{t('campaigns.subtitle')}</p>
                   </div>
+                </div>
+                <div className="hidden lg:flex items-center gap-3">
+                  <ThemeToggle />
+                  <LanguageSwitcher />
                 </div>
               </div>
         </header>
-        <main className="flex-1 overflow-auto p-4 sm:p-6 lg:p-8">
-          <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6">
+        <main className="flex-1 overflow-y-auto overflow-x-hidden p-4 sm:p-6 lg:p-8">
+          <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6 pb-4">
             {/* Campaign Workflow Banner */}
             <CampaignWorkflowBanner />
             
@@ -194,8 +198,27 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <Button variant="outline" onClick={() => setShowDeleteDialog(false)}>Cancel</Button>
-            <Button variant="destructive" onClick={handleConfirmDelete}>Delete</Button>
+            <Button 
+              variant="outline" 
+              onClick={() => setShowDeleteDialog(false)}
+              disabled={deleteCampaignMutation.isPending}
+            >
+              Cancel
+            </Button>
+            <Button 
+              variant="destructive" 
+              onClick={handleConfirmDelete}
+              disabled={deleteCampaignMutation.isPending}
+            >
+              {deleteCampaignMutation.isPending ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Deleting
+                </>
+              ) : (
+                "Delete"
+              )}
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

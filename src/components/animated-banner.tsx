@@ -196,76 +196,82 @@ export default function AnimatedBanner() {
   ];
 
   return (
-    <div className={`animated-banner rounded-xl sm:rounded-2xl lg:rounded-3xl mb-3 sm:mb-4 lg:mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ aspectRatio: '4/3', minHeight: '250px' }}>
-      <div className="relative z-10 h-full flex flex-col p-3 sm:p-6 lg:p-8">
-        {/* Language Selector */}
-        <div className="flex justify-center mb-1 sm:mb-2 lg:mb-4">
-          <div className="flex space-x-1 sm:space-x-2 bg-white/20 backdrop-blur-sm rounded-full p-0.5 sm:p-1">
-            {['en', 'ar', 'tr', 'az'].map((lang) => (
-              <button
-                key={lang}
-                onClick={() => i18n.changeLanguage(lang)}
-                className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
-                  currentLanguage === lang
-                    ? 'bg-white text-purple-600 shadow-lg'
-                    : 'text-white/80 hover:text-white hover:bg-white/10'
-                }`}
-              >
-                {lang === 'en' ? 'EN' : lang === 'ar' ? 'عربي' : lang === 'tr' ? 'TR' : 'AZ'}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Header */}
-        <div className="text-center mb-2 sm:mb-4 lg:mb-6 flex-shrink-0">
-          <div className="flex items-center justify-center space-x-1 sm:space-x-2 lg:space-x-3 mb-1 sm:mb-2 lg:mb-3">
-            <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12 bg-white/20 backdrop-blur-sm rounded-lg sm:rounded-xl lg:rounded-2xl flex items-center justify-center">
-              <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 lg:h-6 lg:w-6 text-white animate-pulse" />
+    <div className={`animated-banner rounded-xl sm:rounded-2xl lg:rounded-3xl mb-3 sm:mb-4 lg:mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ aspectRatio: '16/7', minHeight: '470px' }}>
+      <div className="relative z-10 h-full flex flex-col p-2 sm:p-3 lg:p-4 overflow-hidden">
+        {/* Top Section: Language Selector and Title on Left */}
+        <div className="flex items-start justify-between mb-1 sm:mb-2 lg:mb-3 flex-shrink-0">
+          {/* Left Side: Language Selector and Title */}
+          <div className="flex flex-col space-y-1 sm:space-y-1.5 lg:space-y-2">
+            {/* Language Selector */}
+            <div className="flex justify-start">
+              <div className="flex space-x-1 sm:space-x-1.5 bg-white/20 backdrop-blur-sm rounded-full p-1 sm:p-1.5">
+                {['en', 'ar', 'tr', 'az'].map((lang) => (
+                  <button
+                    key={lang}
+                    onClick={() => i18n.changeLanguage(lang)}
+                    className={`px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm lg:text-base font-medium transition-all duration-300 ${
+                      currentLanguage === lang
+                        ? 'bg-white text-purple-600 shadow-lg'
+                        : 'text-white/80 hover:text-white hover:bg-white/10'
+                    }`}
+                  >
+                    {lang === 'en' ? 'EN' : lang === 'ar' ? 'عربي' : lang === 'tr' ? 'TR' : 'AZ'}
+                  </button>
+                ))}
+              </div>
             </div>
-            <h1 className="text-lg sm:text-xl lg:text-3xl xl:text-4xl font-bold text-white typing-animation" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-              {t('home.title')}
-            </h1>
+
+            {/* Header */}
+            <div className="text-left">
+              <div className="flex items-center space-x-1 sm:space-x-1.5 mb-0.5 sm:mb-1">
+                <div className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-white/20 backdrop-blur-sm rounded-md sm:rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Sparkles className="h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3 text-white animate-pulse" />
+                </div>
+                <h1 className="text-base sm:text-lg lg:text-2xl xl:text-3xl font-bold text-white typing-animation" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                  {t('home.title')}
+                </h1>
+              </div>
+              <p className="text-[10px] sm:text-xs lg:text-sm text-white/90 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                {t('home.subtitle')}
+              </p>
+            </div>
           </div>
-          <p className="text-xs sm:text-sm lg:text-lg xl:text-xl text-white/90 font-medium px-2" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-            {t('home.subtitle')}
-          </p>
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-4 lg:gap-6 flex-1 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-1.5 sm:gap-2 lg:gap-3 flex-1 items-center min-h-0">
           {/* Left Side - Feature Showcase */}
-          <div className="space-y-2 sm:space-y-3 lg:space-y-4">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl lg:rounded-3xl p-2 sm:p-3 lg:p-4 border border-white/20">
-              <div className="flex items-center space-x-2 sm:space-x-3 mb-1 sm:mb-2 lg:mb-3">
-                <div className={`w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br ${currentFeatureData.color} rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg float-animation`}>
-                  <Icon className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-white" />
+          <div className="space-y-1.5 sm:space-y-2 lg:space-y-2.5">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl lg:rounded-2xl p-2 sm:p-3 lg:p-4 border border-white/20">
+              <div className="flex items-center space-x-2 sm:space-x-2.5 lg:space-x-3 mb-1 sm:mb-1.5 lg:mb-2">
+                <div className={`w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 bg-gradient-to-br ${currentFeatureData.color} rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg float-animation flex-shrink-0`}>
+                  <Icon className="h-4 w-4 sm:h-4.5 sm:w-4.5 lg:h-5 lg:w-5 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold text-white slide-in truncate" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                  <h3 className="text-sm sm:text-base lg:text-lg font-bold text-white slide-in truncate" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
                     {currentFeatureData.title}
                   </h3>
-                  <p className="text-white/80 text-xs sm:text-xs lg:text-sm line-clamp-2" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                  <p className="text-white/80 text-xs sm:text-sm line-clamp-2" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
                     {currentFeatureData.description}
                   </p>
                 </div>
               </div>
               
               {/* Metric Badge */}
-              <div className="inline-block mt-1 sm:mt-2">
-                <span className="bg-white/20 text-white px-1.5 sm:px-2 py-0.5 sm:py-1 lg:px-3 lg:py-1.5 rounded-full font-semibold text-xs backdrop-blur-sm pulse-glow">
+              <div className="inline-block mt-1 sm:mt-1.5">
+                <span className="bg-white/20 text-white px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-full font-semibold text-xs sm:text-sm backdrop-blur-sm pulse-glow">
                   {currentFeatureData.metric}
                 </span>
               </div>
             </div>
 
             {/* Feature Indicators */}
-            <div className="flex justify-center space-x-1 sm:space-x-1 lg:space-x-2">
+            <div className="flex justify-start space-x-1 sm:space-x-1.5 lg:space-x-2">
               {features.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentFeature(index)}
-                  className={`w-1.5 h-1.5 sm:w-2 sm:h-2 lg:w-3 lg:h-3 rounded-full transition-all duration-300 ${
+                  className={`w-1 h-1 sm:w-1.5 sm:h-1.5 lg:w-2 lg:h-2 rounded-full transition-all duration-300 ${
                     index === currentFeature 
                       ? 'bg-white scale-125' 
                       : 'bg-white/40 hover:bg-white/60'
@@ -276,58 +282,58 @@ export default function AnimatedBanner() {
           </div>
 
           {/* Right Side - Dynamic Interface */}
-          <div className="relative h-full flex items-center justify-center">
+          <div className="relative h-full flex items-center justify-center lg:justify-end min-h-0 transform -translate-y-7 sm:-translate-y-9 lg:-translate-y-12">
             {currentFeatureData.dialerInterface ? (
               /* Phone Dialer Interface */
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl lg:rounded-3xl p-2 sm:p-3 lg:p-4 border border-white/20 float-animation w-full max-w-xs sm:max-w-sm">
-                <div className="bg-white rounded-lg sm:rounded-xl lg:rounded-2xl p-2 sm:p-3 lg:p-4 shadow-2xl">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl lg:rounded-2xl p-1 sm:p-1.5 lg:p-2 border border-white/20 float-animation w-full max-w-[200px] sm:max-w-[240px] lg:max-w-[280px]">
+                <div className="bg-white rounded-md sm:rounded-lg lg:rounded-xl p-1.5 sm:p-2 lg:p-2.5 shadow-2xl">
                   {/* Call Header */}
-                  <div className="text-center mb-2 sm:mb-3 lg:mb-4">
-                    <div className="flex items-center justify-center space-x-1 sm:space-x-2 mb-1 sm:mb-2 lg:mb-3">
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                        <Bot className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-white" />
+                  <div className="text-center mb-1 sm:mb-1.5 lg:mb-2">
+                    <div className="flex items-center justify-center space-x-1 mb-0.5 sm:mb-1">
+                      <div className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Bot className="h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3 text-white" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <h3 className="text-xs sm:text-sm lg:text-base font-bold text-gray-800 truncate" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                        <h3 className="text-[10px] sm:text-xs lg:text-sm font-bold text-gray-800 truncate" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
                           {t('dialer.aiSalesAgent')}
                         </h3>
-                        <p className="text-xs text-gray-600 truncate" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                        <p className="text-[9px] sm:text-[10px] text-gray-600 truncate" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
                           {t('dialer.sparkAISystem')}
                         </p>
                       </div>
                     </div>
                     
                     {/* Call Status */}
-                    <div className="space-y-1 sm:space-y-2">
-                      <div className="flex items-center justify-center space-x-1 sm:space-x-2">
+                    <div className="space-y-0.5 sm:space-y-1">
+                      <div className="flex items-center justify-center space-x-0.5 sm:space-x-1">
                         {callStatus === 'dialing' && (
                           <>
-                            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 lg:w-3 lg:h-3 bg-yellow-500 rounded-full animate-pulse"></div>
-                            <span className="text-xs sm:text-xs lg:text-sm text-yellow-600 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                            <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-yellow-500 rounded-full animate-pulse"></div>
+                            <span className="text-[9px] sm:text-[10px] text-yellow-600 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
                               {t('dialer.dialing')}
                             </span>
                           </>
                         )}
                         {callStatus === 'connecting' && (
                           <>
-                            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 lg:w-3 lg:h-3 bg-blue-500 rounded-full animate-pulse"></div>
-                            <span className="text-xs sm:text-xs lg:text-sm text-blue-600 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                            <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-blue-500 rounded-full animate-pulse"></div>
+                            <span className="text-[9px] sm:text-[10px] text-blue-600 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
                               {t('dialer.connecting')}
                             </span>
                           </>
                         )}
                         {callStatus === 'connected' && (
                           <>
-                            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 lg:w-3 lg:h-3 bg-blue-500 rounded-full animate-pulse"></div>
-                            <span className="text-xs sm:text-xs lg:text-sm text-blue-600 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                            <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-blue-500 rounded-full animate-pulse"></div>
+                            <span className="text-[9px] sm:text-[10px] text-blue-600 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
                               {t('dialer.connected')}
                             </span>
                           </>
                         )}
                         {callStatus === 'idle' && (
                           <>
-                            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 lg:w-3 lg:h-3 bg-gray-500 rounded-full"></div>
-                            <span className="text-xs sm:text-xs lg:text-sm text-gray-600 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                            <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-gray-500 rounded-full"></div>
+                            <span className="text-[9px] sm:text-[10px] text-gray-600 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
                               {t('dialer.readyToCall')}
                             </span>
                           </>
@@ -335,9 +341,9 @@ export default function AnimatedBanner() {
                       </div>
                       
                       {/* Phone Number Display */}
-                      <div className="bg-gray-100 rounded-md sm:rounded-lg p-1.5 sm:p-2">
-                        <p className="text-xs sm:text-sm lg:text-base font-mono text-gray-800">+1 (555) 123-4567</p>
-                        <p className="text-xs text-gray-500 truncate" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                      <div className="bg-gray-100 rounded-md p-1 sm:p-1.5">
+                        <p className="text-[10px] sm:text-xs font-mono text-gray-800">+1 (555) 123-4567</p>
+                        <p className="text-[9px] text-gray-500 truncate" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
                           {currentLanguage === 'ar' ? 'جون سميث - عميل محتمل' : currentLanguage === 'tr' ? 'John Smith - Satış Adayı' : currentLanguage === 'az' ? 'John Smith - Satış Potensialı' : 'John Smith - Sales Lead'}
                         </p>
                       </div>
@@ -345,26 +351,26 @@ export default function AnimatedBanner() {
                   </div>
 
                   {/* Call Controls */}
-                  <div className="flex justify-center space-x-2 sm:space-x-3 mb-2 sm:mb-3">
-                    <button className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-red-500 hover:bg-red-600 rounded-full flex items-center justify-center transition-colors duration-300">
-                      <PhoneOff className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-white" />
+                  <div className="flex justify-center space-x-1 sm:space-x-1.5 mb-1 sm:mb-1.5">
+                    <button className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-red-500 hover:bg-red-600 rounded-full flex items-center justify-center transition-colors duration-300">
+                      <PhoneOff className="h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3 text-white" />
                     </button>
-                    <button className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 rounded-full flex items-center justify-center transition-colors duration-300 shadow-lg">
-                      <PhoneCall className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-white" />
+                    <button className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 rounded-full flex items-center justify-center transition-colors duration-300 shadow-lg">
+                      <PhoneCall className="h-2.5 w-2.5 sm:h-3 sm:w-3 lg:h-3.5 lg:w-3.5 text-white" />
                     </button>
-                    <button className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors duration-300">
-                      <Volume2 className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 text-white" />
+                    <button className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors duration-300">
+                      <Volume2 className="h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3 text-white" />
                     </button>
                   </div>
 
                   {/* Dialer Pad */}
-                  <div className="space-y-1 sm:space-y-2">
+                  <div className="space-y-0.5 sm:space-y-1">
                     {dialerButtons.map((row, rowIndex) => (
-                      <div key={rowIndex} className="flex justify-center space-x-1 sm:space-x-2">
+                      <div key={rowIndex} className="flex justify-center space-x-0.5 sm:space-x-1">
                         {row.map((button) => (
                           <button
                             key={button}
-                            className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center font-semibold text-gray-700 transition-colors duration-300 text-xs sm:text-sm"
+                            className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center font-semibold text-gray-700 transition-colors duration-300 text-[10px] sm:text-xs"
                           >
                             {button}
                           </button>
@@ -374,27 +380,27 @@ export default function AnimatedBanner() {
                   </div>
 
                   {/* Call Stats */}
-                  <div className="mt-2 sm:mt-3 pt-1 sm:pt-2 border-t border-gray-200">
-                    <div className="grid grid-cols-3 gap-1 sm:gap-2 text-center">
+                  <div className="mt-1 sm:mt-1.5 pt-0.5 sm:pt-1 border-t border-gray-200">
+                    <div className="grid grid-cols-3 gap-0.5 sm:gap-1 text-center">
                       <div>
-                        <p className="text-xs text-gray-500" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                        <p className="text-[9px] text-gray-500" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
                           {t('dialer.duration')}
                         </p>
-                        <p className="text-xs font-semibold text-gray-800">00:02:34</p>
+                        <p className="text-[9px] font-semibold text-gray-800">00:02:34</p>
                       </div>
                       <div>
-                        <p className="text-xs text-gray-500" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                        <p className="text-[9px] text-gray-500" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
                           {t('dialer.quality')}
                         </p>
-                        <p className="text-xs font-semibold text-blue-600" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                        <p className="text-[9px] font-semibold text-blue-600" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
                           {t('dialer.excellent')}
                         </p>
                       </div>
                       <div>
-                        <p className="text-xs text-gray-500" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                        <p className="text-[9px] text-gray-500" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
                           {t('dialer.sentiment')}
                         </p>
-                        <p className="text-xs font-semibold text-blue-600" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                        <p className="text-[9px] font-semibold text-blue-600" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
                           {t('dialer.positive')}
                         </p>
                       </div>
@@ -404,33 +410,33 @@ export default function AnimatedBanner() {
               </div>
             ) : (
               /* Regular Chat Interface */
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl lg:rounded-3xl p-2 sm:p-3 lg:p-4 border border-white/20 float-animation w-full max-w-xs sm:max-w-sm">
-                <div className="bg-white rounded-lg sm:rounded-xl lg:rounded-2xl p-2 sm:p-3 shadow-2xl">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl lg:rounded-2xl p-1 sm:p-1.5 lg:p-2 border border-white/20 float-animation w-full max-w-[200px] sm:max-w-[240px] lg:max-w-[280px]">
+                <div className="bg-white rounded-md sm:rounded-lg lg:rounded-xl p-1.5 sm:p-2 shadow-2xl">
                   {/* Phone Header */}
-                  <div className="flex items-center justify-between mb-2 sm:mb-3">
-                    <div className="flex items-center space-x-1 sm:space-x-2">
-                      <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-md sm:rounded-lg flex items-center justify-center">
-                        <Bot className="h-2.5 w-2.5 sm:h-3 sm:w-3 lg:h-4 lg:w-4 text-white" />
+                  <div className="flex items-center justify-between mb-1 sm:mb-1.5">
+                    <div className="flex items-center space-x-0.5 sm:space-x-1">
+                      <div className="w-4 h-4 sm:w-5 sm:h-5 lg:w-5 lg:h-5 bg-gradient-to-br from-blue-500 to-purple-500 rounded-md flex items-center justify-center flex-shrink-0">
+                        <Bot className="h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3 text-white" />
                       </div>
-                      <span className="font-semibold text-gray-800 text-xs sm:text-sm lg:text-base" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+                      <span className="font-semibold text-gray-800 text-[10px] sm:text-xs lg:text-sm" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
                         {currentLanguage === 'ar' ? 'الوكيل الذكي' : currentLanguage === 'tr' ? 'AI Ajan' : currentLanguage === 'az' ? 'AI Agent' : 'AI Agent'}
                       </span>
                     </div>
-                    <div className="flex space-x-0.5 sm:space-x-1">
-                      <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 lg:w-2 lg:h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                      <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 lg:w-2 lg:h-2 bg-blue-500 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                      <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 lg:w-2 lg:h-2 bg-blue-500 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                    <div className="flex space-x-0.5">
+                      <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-blue-500 rounded-full animate-pulse"></div>
+                      <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-blue-500 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                      <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-blue-500 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
                     </div>
                   </div>
 
                   {/* Dynamic Chat Interface */}
-                  <div className="space-y-1 sm:space-y-2">
+                  <div className="space-y-0.5 sm:space-y-1 max-h-[120px] sm:max-h-[140px] lg:max-h-[160px] overflow-y-auto">
                     {currentFeatureData.chatMessages.map((message, index) => (
                       <div key={index} className={`fade-in`} style={{animationDelay: `${index * 0.5}s`}}>
                         {message.type === "user" && (
                           <div className="flex justify-end">
-                            <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl rounded-br-md max-w-xs">
-                              <p className="text-xs sm:text-xs lg:text-sm" style={{direction: message.text.includes('مرحبا') || message.text.includes('هل') ? 'rtl' : 'ltr'}}>
+                            <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-1.5 sm:px-2 py-1 rounded-lg sm:rounded-xl rounded-br-md max-w-[85%]">
+                              <p className="text-[10px] sm:text-xs" style={{direction: message.text.includes('مرحبا') || message.text.includes('هل') ? 'rtl' : 'ltr'}}>
                                 {message.text}
                               </p>
                             </div>
@@ -439,16 +445,16 @@ export default function AnimatedBanner() {
                         
                         {message.type === "ai" && (
                           <div className="flex justify-start">
-                            <div className="bg-gray-100 px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl rounded-bl-md max-w-xs">
-                              <p className="text-xs sm:text-xs lg:text-sm text-gray-800" style={{direction: message.text.includes('نعم') || message.text.includes('أستطيع') ? 'rtl' : 'ltr'}}>
+                            <div className="bg-gray-100 px-1.5 sm:px-2 py-1 rounded-lg sm:rounded-xl rounded-bl-md max-w-[85%]">
+                              <p className="text-[10px] sm:text-xs text-gray-800" style={{direction: message.text.includes('نعم') || message.text.includes('أستطيع') ? 'rtl' : 'ltr'}}>
                                 {message.text}
                               </p>
                               {message.features && (
-                                <div className="mt-1 sm:mt-2 space-y-0.5 sm:space-y-1">
+                                <div className="mt-0.5 sm:mt-1 space-y-0.5">
                                   {message.features.map((feature, featureIndex) => (
-                                    <div key={featureIndex} className="flex items-center space-x-1 sm:space-x-2">
-                                      <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 lg:w-3 lg:h-3 rounded-full bg-gradient-to-r ${currentFeatureData.color}`}></div>
-                                      <span className="text-xs text-gray-600" style={{direction: feature.includes('اللهجة') || feature.includes('العربية') ? 'rtl' : 'ltr'}}>
+                                    <div key={featureIndex} className="flex items-center space-x-0.5 sm:space-x-1">
+                                      <div className={`w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-gradient-to-r ${currentFeatureData.color} flex-shrink-0`}></div>
+                                      <span className="text-[9px] sm:text-[10px] text-gray-600" style={{direction: feature.includes('اللهجة') || feature.includes('العربية') ? 'rtl' : 'ltr'}}>
                                         {feature}
                                       </span>
                                     </div>
@@ -461,11 +467,11 @@ export default function AnimatedBanner() {
                         
                         {message.type === "typing" && (
                           <div className="flex justify-start">
-                            <div className="bg-gray-100 px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl rounded-bl-md">
-                              <div className="flex space-x-0.5 sm:space-x-1">
-                                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 lg:w-2 lg:h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 lg:w-2 lg:h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 lg:w-2 lg:h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                            <div className="bg-gray-100 px-1.5 sm:px-2 py-1 rounded-lg sm:rounded-xl rounded-bl-md">
+                              <div className="flex space-x-0.5">
+                                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-gray-400 rounded-full animate-bounce"></div>
+                                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
                               </div>
                             </div>
                           </div>
@@ -478,17 +484,17 @@ export default function AnimatedBanner() {
             )}
 
             {/* Floating Elements */}
-            <div className="absolute -top-2 -right-2 lg:-top-4 lg:-right-4 w-6 h-6 lg:w-8 lg:h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center bounce-animation">
-              <Zap className="h-3 w-3 lg:h-4 lg:w-4 text-white" />
+            <div className="absolute -top-1 -right-1 lg:-top-2 lg:-right-2 w-4 h-4 lg:w-5 lg:h-5 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center bounce-animation">
+              <Zap className="h-2 w-2 lg:h-2.5 lg:w-2.5 text-white" />
             </div>
-            <div className="absolute -bottom-2 -left-2 lg:-bottom-4 lg:-left-4 w-4 h-4 lg:w-6 lg:h-6 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center rotate-animation">
-              <Sparkles className="h-2 w-2 lg:h-3 lg:w-3 text-white" />
+            <div className="absolute -bottom-1 -left-1 lg:-bottom-2 lg:-left-2 w-3 h-3 lg:w-4 lg:h-4 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center rotate-animation">
+              <Sparkles className="h-1.5 w-1.5 lg:h-2 lg:w-2 text-white" />
             </div>
           </div>
         </div>
 
         {/* Bottom Stats */}
-        <div className="mt-2 sm:mt-4 lg:mt-6 grid grid-cols-2 md:grid-cols-4 gap-1 sm:gap-2 lg:gap-4 flex-shrink-0">
+        <div className="mt-2 sm:mt-3 lg:mt-4 grid grid-cols-2 md:grid-cols-4 gap-0.5 sm:gap-1 lg:gap-2 flex-shrink-0">
           {[
             { label: t('stats.aiCallsMade'), value: "10M+", icon: Phone },
             { label: t('stats.happyCustomers'), value: "500+", icon: Users },
@@ -497,27 +503,27 @@ export default function AnimatedBanner() {
           ].map((stat, index) => {
             const StatIcon = stat.icon;
             return (
-              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl lg:rounded-2xl p-1.5 sm:p-2 lg:p-3 border border-white/20 text-center fade-in" style={{animationDelay: `${index * 0.1}s`}}>
-                <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-md sm:rounded-lg flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                  <StatIcon className="h-2.5 w-2.5 sm:h-3 sm:w-3 lg:h-4 lg:w-4 text-white" />
+              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-md sm:rounded-lg lg:rounded-xl p-1 sm:p-1.5 lg:p-2 border border-white/20 text-center fade-in" style={{animationDelay: `${index * 0.1}s`}}>
+                <div className="w-4 h-4 sm:w-5 sm:h-5 lg:w-5 lg:h-5 bg-gradient-to-br from-blue-500 to-purple-500 rounded-md flex items-center justify-center mx-auto mb-0.5 sm:mb-1">
+                  <StatIcon className="h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3 text-white" />
                 </div>
-                <div className="text-xs sm:text-sm lg:text-lg font-bold text-white">{stat.value}</div>
-                <div className="text-xs sm:text-xs lg:text-sm text-white/80" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>{stat.label}</div>
+                <div className="text-[10px] sm:text-xs lg:text-sm font-bold text-white">{stat.value}</div>
+                <div className="text-[9px] sm:text-[10px] lg:text-xs text-white/80 line-clamp-1" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>{stat.label}</div>
               </div>
             );
           })}
         </div>
 
         {/* Progress Bar */}
-        <div className="mt-2 sm:mt-3 lg:mt-4 flex-shrink-0">
-          <div className="w-full bg-white/20 rounded-full h-1 sm:h-1.5 lg:h-2">
+        <div className="mt-1 sm:mt-1.5 lg:mt-2 flex-shrink-0">
+          <div className="w-full bg-white/20 rounded-full h-0.5 sm:h-1 lg:h-1.5">
             <div 
-              className="h-1 sm:h-1.5 lg:h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-1000 ease-out"
+              className="h-0.5 sm:h-1 lg:h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-1000 ease-out"
               style={{ width: `${((currentFeature + 1) / features.length) * 100}%` }}
             ></div>
           </div>
-          <div className="text-center mt-1 sm:mt-1 lg:mt-2">
-            <span className="text-white/80 text-xs sm:text-xs lg:text-sm" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
+          <div className="text-center mt-0.5 sm:mt-0.5 lg:mt-1">
+            <span className="text-white/80 text-[9px] sm:text-[10px] lg:text-xs" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
               {currentFeature + 1} {t('progress').replace('{total}', features.length.toString())}
             </span>
           </div>

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { api } from "@/lib/api";
-import { ArrowLeft, RefreshCw, Users, CheckCircle, XCircle, Phone, Clock, Play, Pause, Download, MessageSquare } from "lucide-react";
+import { ArrowLeft, RefreshCw, Users, CheckCircle, XCircle, Phone, Clock, Play, Pause, Download, MessageSquare, Loader2, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -12,6 +12,8 @@ import { useState, useRef, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useMemo } from "react";
 import { useToast } from "@/hooks/use-toast";
+import ThemeToggle from "@/components/theme-toggle";
+import LanguageSwitcher from "@/components/language-switcher";
 
 interface CampaignDetailsProps {
   id: string;
@@ -119,8 +121,35 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
     }
   };
 
-  if (isLoading) return <div className="flex h-screen items-center justify-center"><p>Loading campaign...</p></div>;
-  if (error) return <div className="flex h-screen items-center justify-center"><p>Error loading campaign details.</p></div>;
+  if (isLoading) {
+    return (
+      <div className="flex h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+        <Sidebar />
+        <div className="flex-1 flex items-center justify-center">
+          <div className="text-center">
+            <Loader2 className="h-8 w-8 animate-spin mx-auto mb-4 text-blue-600 dark:text-blue-400" />
+            <p className="text-slate-600 dark:text-slate-400">Loading campaign...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  if (error) {
+    return (
+      <div className="flex h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+        <Sidebar />
+        <div className="flex-1 flex items-center justify-center">
+          <div className="text-center">
+            <AlertCircle className="h-8 w-8 mx-auto mb-4 text-red-500" />
+            <p className="text-slate-600 dark:text-slate-400">Failed to load campaign details.</p>
+            <Button onClick={() => window.history.back()} className="mt-4 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white">
+              <ArrowLeft className="h-4 w-4 mr-2" />
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const { campaign, leads, callLogs, stats } = data;
   const completedCallsProgress = campaign.totalLeads > 0 ? (stats.completed / campaign.totalLeads) * 100 : 0;
@@ -137,16 +166,20 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
     <div className="flex h-screen bg-gradient-to-br from-brand-50 via-brand-100 to-brand-50 dark:from-brand-900 dark:via-brand-800/20 dark:to-brand-900">
       <Sidebar />
       <div className="flex-1 flex flex-col overflow-hidden">
-        <header className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-b border-white/20 dark:border-slate-700/50 px-8 py-6">
-          <div className="flex items-center justify-between">
+        <header className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-b border-white/20 dark:border-slate-700/50 px-8 py-4 sm:py-2.5 min-h-[88px] flex items-center">
+          <div className="flex items-center justify-between relative z-10 w-full">
             <div className="flex items-center gap-4">
-              <Button variant="ghost" size="icon" onClick={() => setLocation("/campaigns")}>
+              <Button variant="ghost" size="icon" onClick={() => window.history.back()}>
                 <ArrowLeft className="text-brand-600 dark:text-brand-400" />
               </Button>
               <div>
-                <h2 className="text-3xl font-bold text-brand-900 dark:text-white">{campaign.name}</h2>
-                <p className="text-brand-600 dark:text-brand-400 mt-2">Campaign Details & Conversations</p>
+                <h2 className="text-3xl font-bold text-black dark:text-black spark-gradient-text">{campaign.name}</h2>
+                <p className="text-black dark:text-black mt-2">Campaign Details & Conversations</p>
               </div>
+            </div>
+            <div className="hidden lg:flex items-center gap-3">
+              <ThemeToggle />
+              <LanguageSwitcher />
             </div>
           </div>
         </header>

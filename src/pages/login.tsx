@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 import { useTranslation } from 'react-i18next';
 import { 
   Phone, 
@@ -35,8 +35,9 @@ import Logo from '@/components/logo';
 
 export default function Login() {
   const { t } = useTranslation();
-  const { login } = useAuth();
+  const { login, user } = useAuth();
   const { toast } = useToast();
+  const [, setLocation] = useLocation();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -47,6 +48,13 @@ export default function Login() {
   const [currentAnimation, setCurrentAnimation] = useState(0);
   const { theme, toggleTheme } = useTheme();
 
+  // Redirect to dashboard if already logged in
+  useEffect(() => {
+    if (user) {
+      setLocation('/dashboard');
+    }
+  }, [user, setLocation]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -55,10 +63,10 @@ export default function Login() {
       await login(formData.email, formData.password);
       setIsSuccess(true);
       
-      // Redirect after success
+      // Redirect after success using router (no page reload)
       setTimeout(() => {
-        window.location.href = '/dashboard';
-      }, 1500);
+        setLocation('/dashboard');
+      }, 1000);
     } catch (error: any) {
       toast({
         title: "Login Failed",
@@ -83,10 +91,10 @@ export default function Login() {
       await login('admin@example.com', 'admin123');
       setIsSuccess(true);
       
-      // Redirect after success
+      // Redirect after success using router (no page reload)
       setTimeout(() => {
-        window.location.href = '/dashboard';
-      }, 1500);
+        setLocation('/dashboard');
+      }, 1000);
     } catch (error: any) {
       toast({
         title: "Demo Login Failed",

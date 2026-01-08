@@ -7,6 +7,10 @@ import { Eye, Edit, Trash2, Play, Pause, Square, RotateCcw } from "lucide-react"
 import { useLocation } from "wouter";
 import { useToast } from "@/hooks/use-toast";
 import { api } from "@/lib/api";
+import { useAuth } from "@/hooks/use-auth";
+import { useState } from "react";
+import UpgradeModal from "@/components/upgrade-modal";
+import { useQueryClient } from "@tanstack/react-query";
 
 interface CampaignCardProps {
   campaign: Campaign;
@@ -17,6 +21,9 @@ interface CampaignCardProps {
 export function CampaignCard({ campaign, onDelete, onEdit }: CampaignCardProps) {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
+  const { user, refreshUser } = useAuth();
+  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
+  const queryClient = useQueryClient();
 
   const getStatusClass = (status: string) => {
     switch (status) {
@@ -73,13 +80,15 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
         await api.post(`/api/campaigns/${campaign.id}/stop`, {});
         toast({
           title: "Stopped",
-          description: "stopped.",
+          description: "Campaign stopped successfully.",
         });
-        window.location.reload();
-      } catch (error) {
+        // Refresh data without page reload
+        queryClient.invalidateQueries({ queryKey: ["/api/campaigns"] });
+        refreshUser();
+      } catch (error: any) {
         toast({
           title: "Error",
-          description: "Error.",
+          description: error.message || "Failed to stop campaign.",
           variant: "destructive"
         });
       }
@@ -94,13 +103,15 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
         await api.post(`/api/campaigns/${campaign.id}/pause`, {});
         toast({
           title: "Paused",
-          description: "paused.",
+          description: "Campaign paused successfully.",
         });
-        window.location.reload();
-      } catch (error) {
+        // Refresh data without page reload
+        queryClient.invalidateQueries({ queryKey: ["/api/campaigns"] });
+        refreshUser();
+      } catch (error: any) {
         toast({
           title: "Error",
-          description: "Error.",
+          description: error.message || "Failed to pause campaign.",
           variant: "destructive"
         });
       }
@@ -109,38 +120,57 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
 
   const handleResumeCampaign = async () => {
     try {
-      await api.post(`/campaigns/${campaign.id}/resume`, {});
+      await api.post(`/api/campaigns/${campaign.id}/resume`, {});
       toast({
         title: "Resumed",
-        description: "resumed.",
+        description: "Campaign resumed successfully.",
       });
-      window.location.reload();
-    } catch (error) {
+      // Refresh data without page reload
+      queryClient.invalidateQueries({ queryKey: ["/api/campaigns"] });
+      refreshUser();
+    } catch (error: any) {
       toast({
         title: "Error",
-        description: "Error.",
+        description: error.message || "Failed to resume campaign.",
         variant: "destructive"
       });
     }
   };
 
   const handleStartCampaign = async () => {
-    const confirmMessage = `Are you sure you want to start the campaign "${campaign.name}"?\n\nThis will:\n- Start making calls to leads\n- Use the configured voice and settings\n- Begin processing immediately`;
+    // Check credits first
+    const userCredits = user?.creditsBalance || 0;
+    const requiredCredits = (campaign.totalLeads || 1) * 3; // 3 credits per lead
+    
+    if (userCredits < requiredCredits) {
+      setShowUpgradeModal(true);
+      return;
+    }
+
+    const confirmMessage = `Are you sure you want to start the campaign "${campaign.name}"?\n\nThis will:\n- Start making calls to leads\n- Use the configured voice and settings\n- Begin processing immediately\n- Cost: ${requiredCredits} credits`;
     
     if (window.confirm(confirmMessage)) {
       try {
-        await api.post(`/campaigns/${campaign.id}/start`, {});
+        await api.post(`/api/campaigns/start-campaign`, { campaignId: campaign.id });
         toast({
           title: "Started",
-          description: "started.",
+          description: "Campaign started successfully.",
         });
-        window.location.reload();
-      } catch (error) {
-        toast({
-          title: "Error",
-          description: "Error.",
-          variant: "destructive"
-        });
+        // Refresh data without page reload
+        queryClient.invalidateQueries({ queryKey: ["/api/campaigns"] });
+        refreshUser();
+      } catch (error: any) {
+        // Check if error is due to insufficient credits
+        const errorMessage = error.message || error.error || '';
+        if (errorMessage.toLowerCase().includes('insufficient credits') || errorMessage.toLowerCase().includes('insufficient')) {
+          setShowUpgradeModal(true);
+        } else {
+          toast({
+            title: "Error",
+            description: errorMessage || "Failed to start campaign.",
+            variant: "destructive"
+          });
+        }
       }
     }
   };
@@ -151,7 +181,8 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
   const canStop = campaign.status === 'active' || campaign.status === 'running' || campaign.status === 'in-progress' || campaign.status === 'in_progress' || campaign.status === 'calling' || campaign.status === 'ringing' || campaign.status === 'paused';
 
   return (
-    <Card className="relative bg-white/50 dark:bg-black/50 backdrop-blur-sm border border-gray-200/20 shadow-lg rounded-2xl overflow-hidden group">
+    <>
+      <Card className="relative bg-white/50 dark:bg-black/50 backdrop-blur-sm border border-gray-200/20 shadow-lg rounded-2xl overflow-hidden group">
       <div className="absolute top-4 right-4 z-10">
         <div className={`w-3 h-3 rounded-full ${getStatusClass(campaign.status)}`}></div>
       </div>
@@ -268,5 +299,8 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
         </div>
       </CardContent>
     </Card>
+    
+    <UpgradeModal isOpen={showUpgradeModal} onClose={() => setShowUpgradeModal(false)} />
+    </>
   );
 }

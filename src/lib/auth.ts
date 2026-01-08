@@ -12,7 +12,11 @@ export interface AuthError {
 }
 
 class AuthService {
-  private baseUrl = 'https://aisparksalesagent-backend.onrender.com/api/auth';
+  // Production URL (commented for local testing)
+  // private baseUrl = 'https://aisparksalesagent-backend.onrender.com/api/auth';
+  
+  // Local development URL (Backend running on port 8000)
+  private baseUrl = 'http://localhost:8000/api/auth';
 
   async register(email: string, password: string, confirmPassword: string): Promise<AuthResponse> {
     const response = await fetch(`${this.baseUrl}/register`, {
@@ -47,6 +51,8 @@ class AuthService {
       const demoUser = {
         id: 'demo-user-1',
         email: 'admin@example.com',
+        creditsBalance: 500,
+        creditsUsed: 0,
         createdAt: new Date(),
         updatedAt: new Date(),
       };
@@ -153,7 +159,28 @@ class AuthService {
     }
   }
 
+  // Throttle checkStatus calls to prevent 429 errors
+  private lastStatusCheck = 0;
+  private statusCheckCooldown = 10000; // 10 seconds cooldown between status checks
+
   async checkStatus(): Promise<{ authenticated: boolean; user?: Omit<User, 'passwordHash'> }> {
+    const now = Date.now();
+    
+    // Throttle: if called too soon, return cached data
+    if (now - this.lastStatusCheck < this.statusCheckCooldown) {
+      const storedUser = localStorage.getItem('user');
+      const token = localStorage.getItem('auth-token');
+      if (token && storedUser) {
+        try {
+          const user = JSON.parse(storedUser);
+          return { authenticated: true, user };
+        } catch (e) {
+          // Continue to fetch fresh data if cache is invalid
+        }
+      }
+    }
+
+    this.lastStatusCheck = now;
 
     const demoUser = localStorage.getItem('demo-user');
     if (demoUser) {
@@ -166,63 +193,87 @@ class AuthService {
     }
 
     const token = localStorage.getItem('auth-token');
-    const storedUser = localStorage.getItem('user');
 
-    if (token && storedUser) {
+    // Always fetch fresh user data from API instead of using cached localStorage
+    if (token) {
       try {
-        const user = JSON.parse(storedUser);
-        return { authenticated: true, user };
-      } catch (error) {
-        localStorage.removeItem('auth-token');
-        localStorage.removeItem('user');
-      }
-    }
+        // Add timeout to prevent hanging
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
 
-    try {
-      // Add timeout to prevent hanging
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+        const headers: HeadersInit = {
+          'Content-Type': 'application/json',
+        };
 
-      const headers: HeadersInit = {
-        'Content-Type': 'application/json',
-      };
-
-      if (token) {
         headers['Authorization'] = `Bearer ${token}`;
-      }
 
-      const response = await fetch(`${this.baseUrl}/status`, {
-        headers,
-        credentials: 'include',
-        signal: controller.signal,
-      });
+        const response = await fetch(`${this.baseUrl}/status`, {
+          headers,
+          credentials: 'include',
+          signal: controller.signal,
+        });
 
-      clearTimeout(timeoutId);
+        clearTimeout(timeoutId);
 
-      if (!response.ok) {
-        localStorage.removeItem('auth-token');
-        localStorage.removeItem('user');
+        // Handle 429 (Too Many Requests) gracefully
+        if (response.status === 429) {
+          // Return cached user data if rate limited
+          const storedUser = localStorage.getItem('user');
+          if (storedUser) {
+            try {
+              const user = JSON.parse(storedUser);
+              return { authenticated: true, user };
+            } catch (e) {
+              // Continue
+            }
+          }
+          return { authenticated: false };
+        }
+
+        if (!response.ok) {
+          // Don't clear tokens on other errors, just return cached data
+          const storedUser = localStorage.getItem('user');
+          if (storedUser && response.status !== 401) {
+            try {
+              const user = JSON.parse(storedUser);
+              return { authenticated: true, user };
+            } catch (e) {
+              // Continue
+            }
+          }
+          if (response.status === 401) {
+            localStorage.removeItem('auth-token');
+            localStorage.removeItem('user');
+          }
+          return { authenticated: false };
+        }
+
+        const data = await response.json();
+        
+        // Always update localStorage with fresh data from API
+        if (data.user) {
+          localStorage.setItem('user', JSON.stringify(data.user));
+        }
+
+        return data;
+      } catch (error) {
+        // Fallback to cached user only if API fails
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+          try {
+            const user = JSON.parse(storedUser);
+            return { authenticated: true, user };
+          } catch (e) {
+            localStorage.removeItem('auth-token');
+            localStorage.removeItem('user');
+          }
+        }
+        
         return { authenticated: false };
       }
-
-      const data = await response.json();
-      
-      if (data.user) {
-        localStorage.setItem('user', JSON.stringify(data.user));
-      }
-
-      return data;
-    } catch (error) {
-      if (token && storedUser) {
-        try {
-          const user = JSON.parse(storedUser);
-          return { authenticated: true, user };
-        } catch (e) {
-        }
-      }
-      
-      return { authenticated: false };
     }
+
+    return { authenticated: false };
   }
 }
 

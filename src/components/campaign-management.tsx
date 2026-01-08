@@ -4,6 +4,8 @@ import { useToast } from '@/hooks/use-toast';
 import { api } from '@/lib/api';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'wouter';
+import UpgradeModal from '@/components/upgrade-modal';
+import { useAuth } from '@/hooks/use-auth';
 import { 
   FileText, 
   Bot, 
@@ -21,7 +23,8 @@ import {
   Phone,
   Trash2,
   Square,
-  RotateCcw
+  RotateCcw,
+  Loader2
 } from 'lucide-react';
 
 interface CampaignManagementProps {
@@ -74,9 +77,11 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
   const [customScript, setCustomScript] = useState('');
   const [campaignControlStatus, setCampaignControlStatus] = useState<'stopped' | 'running' | 'paused'>('stopped');
   const [isUpdatingAgent, setIsUpdatingAgent] = useState(false);
+  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
 
   const { toast } = useToast();
   const { t, i18n } = useTranslation();
+  const { user } = useAuth();
   const currentLanguage = i18n?.language || 'en';
   const normalizedLanguage = currentLanguage.split('-')[0].toLowerCase();
   const [defaultInitialMessage, setDefaultInitialMessage] = useState(() => t('campaignCreation.defaultInitialMessage'));
@@ -299,11 +304,17 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       
     },
     onError: (error: any) => {
-      toast({
-        title: "Test Call Failed",
-        description: error.message || "Failed to make test call.",
-        variant: "destructive",
-      });
+      // Check if error is due to insufficient credits
+      const errorMessage = error.message || error.error || '';
+      if (errorMessage.toLowerCase().includes('insufficient credits') || errorMessage.toLowerCase().includes('insufficient')) {
+        setShowUpgradeModal(true);
+      } else {
+        toast({
+          title: "Test Call Failed",
+          description: errorMessage || "Failed to make test call.",
+          variant: "destructive",
+        });
+      }
     },
   });
 
@@ -311,6 +322,9 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
   const startCampaignMutation = useMutation({
     mutationFn: (campaignData: any) => api.startCampaign(campaignData),
     onSuccess: async (data) => {
+      // Only set status to running after successful start
+      setCampaignControlStatus('running');
+      
       toast({
         title: "Campaign Started",
         description: data.message || "Campaign has been started successfully.",
@@ -346,11 +360,17 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       queryClient.invalidateQueries({ queryKey: ['/api/campaigns'] });
     },
     onError: (error: any) => {
-      toast({
-        title: "Campaign Start Failed",
-        description: error.message || "Failed to start campaign.",
-        variant: "destructive",
-      });
+      // Check if error is due to insufficient credits
+      const errorMessage = error.message || error.error || '';
+      if (errorMessage.toLowerCase().includes('insufficient credits') || errorMessage.toLowerCase().includes('insufficient')) {
+        setShowUpgradeModal(true);
+      } else {
+        toast({
+          title: "Campaign Start Failed",
+          description: errorMessage || "Failed to start campaign.",
+          variant: "destructive",
+        });
+      }
     },
   });
 
@@ -437,6 +457,12 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
     setCsvLeads([]);
     setShowCSVPreview(false);
 
+    // Reset file input to allow re-uploading the same file
+    const fileInput = document.getElementById('leads-upload') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = '';
+    }
+
     // Update campaign state
       if (currentCampaign) {
         setCurrentCampaign({
@@ -475,7 +501,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       if (currentCampaign) {
         setCurrentCampaign({
           ...currentCampaign,
-          leads: updatedLeads
+          leads: updatedLeads,
+          totalLeads: updatedLeads.length // Update totalLeads to match actual leads count
         });
       }
 
@@ -517,14 +544,15 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
     setEditedEmail('');
   };
 
-  const handleDeleteLead = (index: number) => {
+  const handleDeleteLead = async (index: number) => {
     const updatedLeads = csvLeads.filter((_, i) => i !== index);
     setCsvLeads(updatedLeads);
 
     if (currentCampaign) {
       setCurrentCampaign({
         ...currentCampaign,
-        leads: updatedLeads
+        leads: updatedLeads,
+        totalLeads: updatedLeads.length // Update totalLeads to match actual leads count
       });
     }
 
@@ -533,6 +561,21 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       setShowCSVPreview(false);
     } else {
       setLeadsFile({ name: `Uploaded CSV (${updatedLeads.length} leads)`, leads: updatedLeads } as any);
+    }
+
+    // Sync the updated leads to the backend
+    if (currentCampaign && currentCampaign.id) {
+      try {
+        await api.updateCampaignLeads(currentCampaign.id, updatedLeads);
+      } catch (error) {
+        console.error('Failed to sync deleted lead to backend:', error);
+        toast({
+          title: "Warning",
+          description: "Lead removed from preview but failed to sync with server. Please refresh.",
+          variant: "destructive",
+        });
+        return;
+      }
     }
 
     toast({
@@ -787,6 +830,20 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       return;
     }
 
+    // Check credits before starting
+    const userCredits = user?.creditsBalance || 0;
+    // Get leads count - prioritize actual leads array length over totalLeads
+    const leadsCount = currentCampaign?.leads?.length || 
+                      csvLeads.length || 
+                      currentCampaign?.totalLeads || 
+                      0;
+    const requiredCredits = leadsCount * 3; // 3 credits per lead (default)
+    
+    if (userCredits < requiredCredits && leadsCount > 0) {
+      setShowUpgradeModal(true);
+      return;
+    }
+
     const confirmMessage = `Are you sure you want to start the campaign "${currentCampaign.name}"?\n\nThis will:\n- Use the selected voice\n- Process uploaded leads\n- Use the uploaded knowledge base\n- Start making calls immediately`;
     
     if (window.confirm(confirmMessage)) {
@@ -806,7 +863,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       };
       
       startCampaignMutation.mutate(campaignData);
-      setCampaignControlStatus('running');
+      // Don't set status to running here - wait for successful mutation
     }
   };
 
@@ -1018,12 +1075,21 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   placeholder="Enter campaign name"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   autoFocus
+                  disabled={createCampaignMutation.isPending}
                 />
                 <button
                   onClick={handleCreateCampaign}
-                  className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                  disabled={createCampaignMutation.isPending}
+                  className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-blue-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  {t('dashboard.createCampaign')}
+                  {createCampaignMutation.isPending ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      <span>Creating...</span>
+                    </>
+                  ) : (
+                    t('dashboard.createCampaign')
+                  )}
                 </button>
               </div>
             )}
@@ -1035,18 +1101,26 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
               <p className="text-gray-500 text-center py-8">{t('dashboard.noExistingCampaigns')}</p>
             ) : (
               <div className="space-y-2">
-                {campaigns.map((campaign: any) => (
-                  <div
-                    key={campaign.id}
-                    onClick={() => {
-                      setLocation(`/campaigns/${campaign.id}/edit`);
-                    }}
-                    className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
-                  >
-                    <h4 className="font-medium text-gray-900">{campaign.name}</h4>
-                    <p className="text-sm text-gray-500">Created {new Date().toLocaleDateString()}</p>
-                  </div>
-                ))}
+                {campaigns.map((campaign: any) => {
+                  const canEdit = campaign?.status === 'draft' && ((campaign?.completedCalls || 0) === 0);
+                  return (
+                    <div
+                      key={campaign.id}
+                      onClick={() => {
+                        setLocation(canEdit ? `/campaigns/${campaign.id}/edit` : `/campaigns/${campaign.id}`);
+                      }}
+                      className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
+                    >
+                      <div className="flex items-center justify-between">
+                        <h4 className="font-medium text-gray-900">{campaign.name}</h4>
+                        {!canEdit && (
+                          <span className="text-xs px-2 py-1 rounded bg-yellow-100 text-yellow-700 border border-yellow-200">View Only</span>
+                        )}
+                      </div>
+                      <p className="text-sm text-gray-500">Created {new Date().toLocaleDateString()}</p>
+                    </div>
+                  );
+                })}
               </div>
             )}
           </div>
@@ -2009,6 +2083,10 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
           </div>
         </div>
       )}
+
+      {/* Upgrade Modal */}
+      <UpgradeModal isOpen={showUpgradeModal} onClose={() => setShowUpgradeModal(false)} />
+
     </div>
   );
 }

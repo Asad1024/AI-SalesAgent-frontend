@@ -14,7 +14,10 @@ export default function ActiveCampaigns() {
   const { data: campaignsData, isLoading, refetch } = useQuery({
     queryKey: ["/api/campaigns"],
     queryFn: () => api.getCampaigns(),
-    refetchInterval: 3000, // Refresh every 3 seconds for real-time updates
+    refetchInterval: 15000, // Refresh every 15 seconds (optimized)
+    staleTime: 10000, // Consider data stale after 10 seconds
+    gcTime: 60000, // Keep in cache for 60 seconds
+    refetchOnWindowFocus: false, // Don't refetch on window focus
   });
 
   const handleRefresh = async () => {
