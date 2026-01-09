@@ -32,26 +32,68 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Restore user from localStorage immediately on mount for instant UI update
+    const restoreUserFromStorage = () => {
+      try {
+        const storedToken = localStorage.getItem('auth-token');
+        const storedUser = localStorage.getItem('user');
+        
+        if (storedToken && storedUser) {
+          try {
+            const user = JSON.parse(storedUser);
+            setUser(user);
+            setLoading(false);
+          } catch (e) {
+            // Invalid stored user, clear it
+            localStorage.removeItem('user');
+            localStorage.removeItem('auth-token');
+          }
+        } else {
+          // Check for demo user
+          const demoUser = localStorage.getItem('demo-user');
+          if (demoUser) {
+            try {
+              const user = JSON.parse(demoUser);
+              setUser(user);
+              setLoading(false);
+              return;
+            } catch (e) {
+              localStorage.removeItem('demo-user');
+            }
+          }
+          setLoading(false);
+        }
+      } catch (error) {
+        setLoading(false);
+      }
+    };
+
+    // Restore immediately
+    restoreUserFromStorage();
+    
+    // Then validate with backend in the background
     checkAuthStatus();
-    // Only check status on mount, not continuously
   }, []);
 
   const checkAuthStatus = async () => {
     try {
       const status = await authService.checkStatus();
       if (status.authenticated && status.user) {
-        // Use creditsBalance from API only, no hardcoded defaults
+        // Update with fresh data from API
         setUser(status.user);
       } else {
+        // Only clear user if API confirms not authenticated (not on network errors)
         setUser(null);
       }
     } catch (error) {
-      console.warn('Auth check failed, running in demo mode:', error);
-      // Don't set user to null on error, just log the warning
-      // This allows the app to continue functioning even when backend is unavailable
-      setUser(null);
-    } finally {
-      setLoading(false);
+      console.warn('Auth check failed:', error);
+      // Don't clear user on network errors - keep the cached user
+      // Only clear if localStorage is also empty
+      const storedToken = localStorage.getItem('auth-token');
+      const storedUser = localStorage.getItem('user');
+      if (!storedToken || !storedUser) {
+        setUser(null);
+      }
     }
   };
 
