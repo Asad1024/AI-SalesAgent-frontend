@@ -148,7 +148,7 @@ export interface ExperienceCallRequest {
 }
 
 // Use environment variable if available, otherwise use Railway production URL
-const BASE_URL = import.meta.env.VITE_API_URL || 'https://ai-salesagent-backend-production.up.railway.app';
+const BASE_URL = 'https://ai-salesagent-backend-production.up.railway.app';
 
 async function handleResponse(response: Response) {
   const data = await response.json();
