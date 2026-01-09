@@ -237,6 +237,7 @@ class AuthService {
             } catch (e) {
               // Continue
             }
+
           }
           if (response.status === 401) {
             localStorage.removeItem('auth-token');
