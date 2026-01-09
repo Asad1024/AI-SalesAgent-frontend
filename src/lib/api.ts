@@ -147,11 +147,11 @@ export interface ExperienceCallRequest {
   agent: string;
 }
 
-// Production URL (commented for local testing)
-// const BASE_URL = 'https://aisparksalesagent-backend.onrender.com';
+// Production URL - Use environment variable or fallback to production URL
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://aisparksalesagent-backend.onrender.com';
 
-// Local development URL (Backend running on port 8000)
-const BASE_URL = 'http://localhost:8000';
+// For local development, uncomment the line below and comment the line above
+// const BASE_URL = 'http://localhost:8000';
 
 async function handleResponse(response: Response) {
   const data = await response.json();
