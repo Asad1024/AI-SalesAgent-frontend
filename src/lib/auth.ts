@@ -12,11 +12,8 @@ export interface AuthError {
 }
 
 class AuthService {
-  // Production URL (commented for local testing)
-  // private baseUrl = 'https://aisparksalesagent-backend.onrender.com/api/auth';
-  
-  // Local development URL (Backend running on port 8000)
-  private baseUrl = 'http://localhost:8000/api/auth';
+  // Use environment variable if available, otherwise use Railway production URL
+  private baseUrl = (import.meta.env.VITE_API_URL || 'https://ai-salesagent-backend-production.up.railway.app') + '/api/auth';
 
   async register(email: string, password: string, confirmPassword: string): Promise<AuthResponse> {
     const response = await fetch(`${this.baseUrl}/register`, {
