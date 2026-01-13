@@ -57,15 +57,19 @@ export default function Sidebar() {
     try {
       await logout();
       toast({
-        title: "Logged out",
-        description: "You have been successfully logged out.",
+        title: t('common.loggedOut'),
+        description: t('common.loggedOutSuccess'),
       });
+      // Force hard redirect to login page to update URL
+      window.location.href = '/login';
     } catch (error: any) {
       toast({
-        title: "Logout failed",
-        description: error.message || "An error occurred during logout.",
+        title: t('common.logoutFailed'),
+        description: error.message || t('common.logoutError'),
         variant: "destructive",
       });
+      // Still redirect even if logout fails
+      window.location.href = '/login';
     }
   };
 
@@ -78,7 +82,7 @@ export default function Sidebar() {
           <Sparkles className="h-6 w-6 text-yellow-500 animate-pulse" />
         </div>
         <p className="text-xs sm:text-xs lg:text-sm xl:text-sm text-brand-600 dark:text-brand-400 font-medium mt-2">
-          {t('navigation.aiPowered')} & Sales Automation
+          {t('navigation.aiPowered')} & {t('common.salesAutomation')}
         </p>
       </div>
 
@@ -131,18 +135,38 @@ export default function Sidebar() {
             <LanguageSwitcher />
           </div>
 
-          <div className="flex items-center space-x-4 p-4 rounded-2xl bg-gradient-to-r from-blue-50/50 to-purple-50/50 dark:from-blue-900/20 dark:to-purple-900/20 border border-blue-200/30 dark:border-blue-700/30 shadow-lg">
-            <div className="relative">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 via-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
-                <User className="h-6 w-6 text-white" />
+          <div className="flex items-start space-x-3 p-3 rounded-2xl bg-gradient-to-r from-blue-50/50 to-purple-50/50 dark:from-blue-900/20 dark:to-purple-900/20 border border-blue-200/30 dark:border-blue-700/30 shadow-lg">
+            <div className="relative flex-shrink-0">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 via-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                <User className="h-5 w-5 text-white" />
               </div>
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-purple-500 border-2 border-white dark:border-slate-900 rounded-full"></div>
+              <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-purple-500 border-2 border-white dark:border-slate-900 rounded-full"></div>
             </div>
-            <div className="flex-1 min-w-0">
+            <div className="flex-1 min-w-0 space-y-0.5">
+              {/* User Name with Company Name in parentheses */}
               <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 truncate">
-                {user?.email || t('common.user')}
+                {(user?.firstName || user?.lastName) 
+                  ? [user.firstName, user.lastName].filter(Boolean).join(' ') || 'User'
+                  : t('common.user')
+                }
+                {user?.companyName && (
+                  <span className="text-xs font-normal text-slate-600 dark:text-slate-400">
+                    {' '}({user.companyName})
+                  </span>
+                )}
               </p>
-              <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">{t('common.active')} {t('common.user')}</p>
+              
+              {/* Email */}
+              {user?.email && (
+                <p className="text-xs text-slate-600 dark:text-slate-400 truncate">
+                  {user.email}
+                </p>
+              )}
+              
+              {/* Active Status */}
+              <p className="text-[10px] text-slate-500 dark:text-slate-500 font-medium">
+                {t('common.active')} {t('common.user')}
+              </p>
             </div>
           </div>
 
@@ -155,7 +179,7 @@ export default function Sidebar() {
               <Coins className={`h-4 w-4 ${
                 (user?.creditsBalance || 0) < 50 ? 'text-red-500' : 'text-emerald-600'
               }`} />
-              <span className="text-sm font-semibold text-slate-800 dark:text-slate-200">Credits</span>
+              <span className="text-sm font-semibold text-slate-800 dark:text-slate-200">{t('common.minutes')}</span>
             </div>
             <div className="flex items-center gap-2">
               <span className={`text-sm font-bold ${
@@ -166,7 +190,7 @@ export default function Sidebar() {
               <button
                 onClick={() => setLocation('/upgrade')}
                 className="p-1.5 hover:bg-brand-100 dark:hover:bg-brand-800 rounded-lg transition-all duration-300 group"
-                title="Upgrade to get more credits"
+                title={t('common.upgradeForMoreMinutes')}
               >
                 <Zap className="h-4 w-4 text-yellow-500 group-hover:scale-110 group-hover:text-yellow-600 transition-all duration-300" />
               </button>
@@ -177,7 +201,7 @@ export default function Sidebar() {
             variant="outline"
             size="sm"
             onClick={handleLogout}
-            className="w-full text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 border-slate-200/50 dark:border-slate-700/50 hover:border-red-300/50 dark:hover:border-red-600/50 hover:bg-red-50/50 dark:hover:bg-red-900/20 transition-all duration-300 group"
+            className="w-full text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 hover:text-red-600 dark:hover:text-red-400 border-slate-200 dark:border-slate-700 hover:border-red-300 dark:hover:border-red-600 hover:bg-red-50 dark:hover:bg-red-900/30 transition-all duration-300 group"
           >
             <LogOut className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
             {t('common.logout')}

@@ -1,0 +1,2202 @@
+{
+  "common": {
+    "cancel": "रद्द करें",
+    "save": "सहेजें",
+    "delete": "हटाएं",
+    "edit": "संपादित करें",
+    "create": "बनाएं",
+    "update": "अपडेट करें",
+    "confirm": "पुष्टि करें",
+    "close": "बंद करें",
+    "loading": "लोड हो रहा है...",
+    "error": "त्रुटि",
+    "success": "सफलता",
+    "warning": "चेतावनी",
+    "info": "जानकारी",
+    "yes": "हाँ",
+    "no": "नहीं",
+    "ok": "ठीक है",
+    "back": "वापस",
+    "next": "अगला",
+    "previous": "पिछला",
+    "search": "खोजें",
+    "filter": "फ़िल्टर",
+    "clear": "साफ़ करें",
+    "refresh": "ताज़ा करें",
+    "upload": "अपलोड करें",
+    "download": "डाउनलोड करें",
+    "export": "निर्यात करें",
+    "import": "आयात करें",
+    "required": "आवश्यक",
+    "optional": "वैकल्पिक",
+    "name": "नाम",
+    "description": "विवरण",
+    "status": "स्थिति",
+    "active": "सक्रिय",
+    "inactive": "निष्क्रिय",
+    "completed": "पूर्ण",
+    "pending": "लंबित",
+    "paused": "रोका गया",
+    "pause": "रोकें",
+    "resume": "जारी रखें",
+    "draft": "ड्राफ्ट",
+    "settings": "सेटिंग्स",
+    "logout": "लॉग आउट",
+    "login": "लॉग इन",
+    "register": "पंजीकरण",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "confirmPassword": "पासवर्ड की पुष्टि करें",
+    "user": "उपयोगकर्ता",
+    "darkMode": "डार्क मोड",
+    "lightMode": "लाइट मोड",
+    "switchToDark": "डार्क मोड में बदलें",
+    "switchToLight": "लाइट मोड में बदलें",
+    "admin": "व्यवस्थापक",
+    "administrator": "व्यवस्थापक",
+    "signIn": "साइन इन",
+    "getStarted": "शुरू करें",
+    "startFreeTrial": "मुफ्त परीक्षण शुरू करें",
+    "watchDemo": "डेमो देखें",
+    "scheduleDemo": "डेमो शेड्यूल करें",
+    "about": "के बारे में",
+    "contact": "संपर्क",
+    "features": "सुविधाएं",
+    "pricing": "मूल्य निर्धारण",
+    "home": "होम",
+    "dashboard": "डैशबोर्ड",
+    "campaigns": "अभियान",
+    "voices": "आवाज़ें",
+    "analytics": "विश्लेषण",
+    "salesAutomation": "बिक्री स्वचालन",
+    "minutes": "मिनट",
+    "upgradeForMoreMinutes": "अधिक मिनट प्राप्त करने के लिए अपग्रेड करें",
+    "loggedOut": "लॉग आउट हो गया",
+    "loggedOutSuccess": "आप सफलतापूर्वक लॉग आउट हो गए हैं।",
+    "logoutFailed": "लॉगआउट विफल",
+    "logoutError": "लॉगआउट के दौरान एक त्रुटि हुई।"
+  },
+  "auth": {
+    "title": "SPARK AI SALES AGENT",
+    "subtitle": "बिक्री स्वचालन",
+    "signIn": "साइन इन",
+    "signUp": "साइन अप करें",
+    "createAccount": "खाता बनाएं",
+    "welcomeBack": "अपने वॉइस कैंपेन डैशबोर्ड में वापस स्वागत है",
+    "createAccountPrompt": "शुरू करने के लिए अपना खाता बनाएं",
+    "enterCredentials": "अपने डैशबोर्ड तक पहुंचने के लिए अपनी साख दर्ज करें",
+    "fillDetails": "नया खाता बनाने के लिए अपनी जानकारी भरें",
+    "emailPlaceholder": "अपना ईमेल दर्ज करें",
+    "passwordPlaceholder": "अपना पासवर्ड दर्ज करें",
+    "confirmPasswordPlaceholder": "अपने पासवर्ड की पुष्टि करें",
+    "signingIn": "साइन इन हो रहा है...",
+    "creatingAccount": "खाता बनाया जा रहा है...",
+    "dontHaveAccount": "खाता नहीं है?",
+    "alreadyHaveAccount": "पहले से खाता है?",
+    "createOneHere": "यहां बनाएं",
+    "signInHere": "यहां साइन इन करें",
+    "passwordRequirements": "पासवर्ड आवश्यकताएं:",
+    "passwordRequirementsText": "कम से कम 8 वर्ण, बड़े अक्षर, छोटे अक्षर और संख्याओं के साथ।",
+    "validationError": "सत्यापन त्रुटि",
+    "emailPasswordRequired": "ईमेल और पासवर्ड आवश्यक हैं",
+    "passwordsDoNotMatch": "पासवर्ड मेल नहीं खाते",
+    "welcomeMessage": "स्वागत है!",
+    "loginSuccessMessage": "सफलतापूर्वक साइन इन किया गया।",
+    "accountCreatedMessage": "खाता बनाया गया!",
+    "accountCreatedSuccessMessage": "आपका खाता बनाया गया है और आप अब साइन इन हैं।",
+    "loginFailed": "लॉगिन विफल",
+    "registrationFailed": "पंजीकरण विफल",
+    "errorOccurred": "एक त्रुटि हुई। कृपया पुनः प्रयास करें।",
+    "checkingAuthentication": "प्रमाणीकरण जांचा जा रहा है...",
+    "tryDemoAccount": "डेमो खाता आज़माएं",
+    "demoCredentials": "डेमो साख",
+    "loginFailedTitle": "लॉगिन विफल",
+    "emailPasswordIncorrect": "ईमेल और पासवर्ड गलत है।",
+    "passwordTooShortTitle": "पासवर्ड बहुत छोटा",
+    "passwordTooShortDescription": "पासवर्ड कम से कम 6 वर्ण लंबा होना चाहिए।",
+    "passwordsDontMatchTitle": "पासवर्ड मेल नहीं खाते",
+    "passwordsDontMatchDescription": "कृपया सुनिश्चित करें कि दोनों पासवर्ड मेल खाते हैं।",
+    "passwordSetSuccessTitle": "पासवर्ड सफलतापूर्वक सेट किया गया",
+    "passwordSetSuccessDescription": "अब आप अपने ईमेल और पासवर्ड के साथ साइन इन कर सकते हैं।",
+    "failedToSetPasswordTitle": "पासवर्ड सेट करने में विफल",
+    "failedToSetPasswordDescription": "आपका पासवर्ड सेट करते समय एक त्रुटि हुई।",
+    "demoLoginFailedTitle": "डेमो लॉगिन विफल",
+    "demoLoginFailedDescription": "डेमो खाते के साथ लॉगिन करने में असमर्थ।",
+    "googleSignInFailedTitle": "Google साइन इन विफल",
+    "googleSignInFailedDescription": "Google के साथ प्रमाणीकरण विफल।",
+    "redirectingToDashboard": "आपके डैशबोर्ड पर पुनर्निर्देशित किया जा रहा है...",
+    "pleaseFillOutField": "कृपया इस फ़ील्ड को भरें।",
+    "orContinueWith": "या जारी रखें",
+    "demoEmail": "ईमेल:",
+    "demoPassword": "पासवर्ड:",
+    "poweredBySparkAI": "Spark AI द्वारा संचालित",
+    "callsMade": "किए गए कॉल",
+    "customers": "ग्राहक",
+    "languages": "भाषाएं",
+    "setPasswordDialogTitle": "अपने खाते के लिए पासवर्ड सेट करें",
+    "setPasswordDialogDescription": "यह खाता Google के साथ बनाया गया था। आप अपने ईमेल और पासवर्ड के साथ साइन इन करने के लिए एक पासवर्ड सेट कर सकते हैं, या Google साइन इन का उपयोग जारी रख सकते हैं।",
+    "wouldYouLikeToSetPassword": "क्या आप इसके लिए एक पासवर्ड सेट करना चाहेंगे",
+    "setPassword": "पासवर्ड सेट करें",
+    "useGoogleSignIn": "Google साइन इन का उपयोग करें",
+    "newPassword": "नया पासवर्ड",
+    "enterNewPassword": "नया पासवर्ड दर्ज करें (न्यूनतम 6 वर्ण)",
+    "confirmNewPassword": "नए पासवर्ड की पुष्टि करें",
+    "settingPassword": "पासवर्ड सेट किया जा रहा है...",
+    "setPasswordAndSignIn": "पासवर्ड सेट करें और साइन इन करें",
+    "features": {
+      "voiceCloning": "वॉइस क्लोनिंग",
+      "voiceCloningDesc": "कस्टम AI आवाज़ें",
+      "multiLanguage": "बहुभाषी",
+      "multiLanguageDesc": "95+ भाषाएं",
+      "analytics": "विश्लेषण",
+      "analyticsDesc": "वास्तविक समय अंतर्दृष्टि",
+      "secure": "सुरक्षित",
+      "secureDesc": "एंटरप्राइज़-ग्रेड"
+    },
+    "floatingElements": {
+      "aiVoiceCalls": "AI वॉइस कॉल",
+      "smartAgents": "स्मार्ट एजेंट",
+      "realTimeChat": "वास्तविक समय चैट",
+      "analytics": "विश्लेषण"
+    }
+  },
+  "navigation": {
+    "dashboard": "डैशबोर्ड",
+    "campaigns": "अभियान",
+    "voices": "आवाज़ें",
+    "analytics": "विश्लेषण",
+    "aiPowered": "AI संचालित",
+    "voiceConversations": "वॉइस वार्तालाप",
+    "home": "होम",
+    "features": "सुविधाएं",
+    "benefits": "लाभ",
+    "pricing": "मूल्य निर्धारण",
+    "about": "के बारे में",
+    "contact": "संपर्क",
+    "signIn": "साइन इन",
+    "getStarted": "शुरू करें"
+  },
+  "dashboard": {
+    "title": "डैशबोर्ड",
+    "subtitle": "अपने AI वॉइस कॉलिंग अभियानों और बिक्री स्वचालन का प्रबंधन करें",
+    "welcomeMessage": "स्वागत है! अपने AI वॉइस अभियानों का प्रबंधन करें",
+    "campaignStatistics": "अभियान आंकड़े",
+    "liveData": "लाइव डेटा",
+    "campaignManagement": "अभियान प्रबंधन",
+    "changeCampaign": "अभियान बदलें",
+    "voiceSelection": "आवाज़ चयन",
+    "leadsManagement": "लीड्स प्रबंधन",
+    "knowledgeBase": "ज्ञान आधार",
+    "uploadPdfFiles": "अपने AI एजेंट को प्रशिक्षित करने के लिए PDF फ़ाइलें अपलोड करें।",
+    "aiConfiguration": "AI कॉन्फ़िगरेशन",
+    "setupAiAgent": "अपने AI एजेंट के व्यक्तित्व और व्यवहार को सेट करें।",
+    "aiVoiceSelection": "AI आवाज़ चयन",
+    "chooseFromPremium": "प्रीमियम या कस्टम आवाज़ों में से चुनें।",
+    "uploadAndManageLeads": "अपनी कॉलिंग सूचियों को अपलोड और प्रबंधित करें।",
+    "knowledgeBaseRequired": "ज्ञान आधार आवश्यक",
+    "knowledgeBaseUploaded": "ज्ञान आधार अपलोड किया गया",
+    "campaignLaunch": "अभियान लॉन्च",
+    "notifications": "सूचनाएं",
+    "noNotifications": "कोई सूचना नहीं",
+    "markAllAsRead": "सभी को पढ़ा हुआ चिह्नित करें",
+    "clearAll": "सभी साफ़ करें",
+    "selectCampaign": "अपना अभियान चुनें",
+    "campaignSelection": "अभियान चयन",
+    "createNewCampaign": "एक नया अभियान बनाएं या मौजूदा एक चुनें",
+    "createNewCampaignButton": "नया अभियान बनाएं",
+    "existingCampaigns": "मौजूदा अभियान",
+    "viewAllCampaigns": "सभी अभियान देखें",
+    "noExistingCampaigns": "कोई मौजूदा अभियान नहीं मिला",
+    "performanceOverview": "प्रदर्शन अवलोकन",
+    "activeCampaigns": "सक्रिय अभियान",
+    "currentlyRunningCampaigns": "वर्तमान में चल रहे अभियान",
+    "callsToday": "आज की कॉलें",
+    "totalCallsMadeToday": "आज की गई कुल कॉलें",
+    "successRate": "सफलता दर",
+    "overallCampaignSuccess": "समग्र अभियान सफलता",
+    "totalMinutes": "कुल मिनट",
+    "totalCallDuration": "कुल कॉल अवधि",
+    "performanceTrends": "प्रदर्शन रुझान",
+    "last12Hours": "पिछले 12 घंटे",
+    "live": "लाइव",
+    "liveFeedback": "लाइव फीडबैक",
+    "recentCallReviews": "हाल की कॉल समीक्षाएं",
+    "active": "सक्रिय",
+    "greatCallQuality": "बेहतरीन कॉल गुणवत्ता!",
+    "veryProfessional": "बहुत पेशेवर",
+    "positive": "सकारात्मक",
+    "minutesAgo": "मिनट पहले",
+    "launchCampaign": "अभियान लॉन्च करें",
+    "startNewAICalling": "नई AI कॉलिंग शुरू करें",
+    "viewAnalytics": "विश्लेषण देखें",
+    "detailedReports": "विस्तृत रिपोर्ट",
+    "optimize": "अनुकूलन करें",
+    "aiSuggestions": "AI सुझाव",
+    "recentCampaigns": "हाल के अभियान",
+    "noCampaignsYet": "अभी तक कोई अभियान नहीं",
+    "viewAll": "सभी देखें",
+    "createCampaign": "अभियान बनाएं",
+    "totalCalls": "कुल कॉलें",
+    "totalCampaigns": "कुल अभियान",
+    "selectYourCampaign": "अपना अभियान चुनें",
+    "createNewOrSelectExisting": "एक नया अभियान बनाएं या मौजूदा एक चुनें।",
+    "noKnowledgeBaseFilesYet": "अभी तक कोई ज्ञान आधार फ़ाइलें अपलोड नहीं की गईं।",
+    "backToCampaigns": "अभियानों पर वापस",
+    "editCampaign": "अभियान संपादित करें",
+    "updateYourAIVoiceCallingCampaign": "अपने AI वॉइस कॉलिंग अभियान को अपडेट करें",
+    "leaveEmptyToUseSelectedScript": "चयनित स्क्रिप्ट के उद्घाटन संदेश का उपयोग करने के लिए खाली छोड़ें।",
+    "previous": "पिछला",
+    "continueToLaunch": "लॉन्च करने के लिए जारी रखें",
+    "dropPdfFilesOrClickToBrowse": "अपनी PDF फ़ाइलें यहां छोड़ें या ब्राउज़ करने के लिए क्लिक करें",
+    "uploadCsvFilesWithColumns": "निम्नलिखित कॉलम के साथ CSV फ़ाइलें अपलोड करें:",
+    "required": "आवश्यक:",
+    "optional": "वैकल्पिक:",
+    "note": "नोट:",
+    "countryCodeAutoAdded": "देश कोड (+971) UAE नंबरों में स्वचालित रूप से जोड़ा जाएगा",
+    "uploadCsvFile": "CSV फ़ाइल अपलोड करें",
+    "campaign": "अभियान:",
+    "chooseFiles": "फ़ाइलें चुनें",
+    "updating": "अपडेट हो रहा है...",
+    "updateAgent": "एजेंट अपडेट करें"
+  },
+  "hero": {
+    "title": "Transform Your Sales with AI Voice Intelligence",
+    "subtitle": "Automate your sales calls with human-like AI agents that qualify leads, schedule meetings, and close deals 24/7. Experience the future of sales automation.",
+    "startFreeTrial": "मुफ्त परीक्षण शुरू करें",
+    "watchDemo": "डेमो देखें",
+    "tagline": "AI SPARK SALES AGENT"
+  },
+  "stats": {
+    "aiCallsMade": "AI कॉल किए गए",
+    "happyCustomers": "खुश ग्राहक",
+    "languagesSupported": "समर्थित भाषाएं",
+    "uptime": "अपटाइम",
+    "activeCampaigns": "Active Campaigns",
+    "callsToday": "Calls Today",
+    "successRate": "Success Rate",
+    "languages": "Languages"
+  },
+  "features": {
+    "title": "आधुनिक बिक्री के लिए शक्तिशाली सुविधाएं",
+    "subtitle": "अपनी बिक्री प्रक्रिया को स्वचालित करने और AI के साथ अपने व्यवसाय को बढ़ाने के लिए आपको जो कुछ भी चाहिए",
+    "aiVoiceCalling": {
+      "title": "AI वॉइस कॉलिंग",
+      "description": "बुद्धिमान वॉइस एजेंट जो मानव जैसी आवाज़ करते हैं और प्राकृतिक बातचीत के साथ लीड को परिवर्तित करते हैं",
+      "stats": "27%+ AOV वृद्धि"
+    },
+    "voiceCloning": {
+      "title": "वॉइस क्लोनिंग",
+      "description": "कस्टम AI आवाज़ें बनाएं जो आपके ब्रांड व्यक्तित्व और टोन से मेल खाती हों",
+      "stats": "95+ वॉइस विकल्प"
+    },
+    "multiLanguageSupport": {
+      "title": "बहुभाषी समर्थन",
+      "description": "मूल भाषा की बातचीत और सांस्कृतिक जागरूकता के साथ वैश्विक दर्शकों तक पहुंचें",
+      "stats": "95+ भाषाएं"
+    },
+    "multiLanguage": {
+      "title": "बहुभाषी समर्थन",
+      "description": "मूल भाषा की बातचीत और सांस्कृतिक जागरूकता के साथ वैश्विक दर्शकों तक पहुंचें",
+      "stats": "95+ भाषाएं"
+    },
+    "arabicSupport": {
+      "title": "अरबी समर्थन",
+      "description": "क्षेत्रीय बोलियों के साथ स्थानीय अरबी भाषा समर्थन",
+      "stats": "4 बोलियाँ"
+    },
+    "availability": {
+      "title": "24/7 उपलब्धता",
+      "description": "अथक AI एजेंटों के साथ कोई लीड न चूकें जो लगातार काम कर रहे हैं",
+      "stats": "हमेशा ऑनलाइन"
+    },
+    "analytics": {
+      "title": "रियल-टाइम एनालिटिक्स",
+      "description": "लाइव अंतर्दृष्टि और मेट्रिक्स के साथ प्रदर्शन को ट्रैक करें और अभियानों को अनुकूलित करें",
+      "stats": "लाइव अंतर्दृष्टि"
+    },
+    "leadQualification": {
+      "title": "स्मार्ट लीड योग्यता",
+      "description": "AI सटीकता के साथ उच्च-मूल्य संभावनाओं को स्वचालित रूप से पहचानें और प्राथमिकता दें",
+      "stats": "94% सटीकता"
+    },
+    "personalization": {
+      "title": "AI व्यक्तिगतकरण",
+      "description": "अपने ब्रांड वॉइस और ग्राहक प्राथमिकताओं से मेल खाने के लिए AI व्यवहार और प्रतिक्रियाओं को अनुकूलित करें",
+      "stats": "कस्टम AI"
+    },
+    "globalReach": {
+      "title": "वैश्विक पहुंच",
+      "description": "बहुभाषी AI एजेंटों के माध्यम से दुनिया भर के ग्राहकों से जुड़ें जो स्थानीय संस्कृतियों और भाषाओं को समझते हैं",
+      "stats": "दुनिया भर में"
+    }
+  },
+  "experience": {
+    "title": "Experience Our AI Voice Agents",
+    "subtitle": "Try our AI calling agents across industries and see how they can transform your business",
+    "selectIndustry": "Select Your Industry",
+    "chooseAgent": "Choose Your AI Agent",
+    "tryCall": "Try Call",
+    "industryInsights": "Industry Insights",
+    "useCases": "Use Cases",
+    "keyBenefits": "Key Benefits",
+    "agentProfile": "Agent Profile",
+    "experience": "Experience",
+    "languages": "Languages",
+    "successRate": "Success Rate",
+    "industryPerformance": "Industry Performance Metrics",
+    "exploreMore": "Explore More Industries"
+  },
+  "sectors": {
+    "banking": {
+      "name": "Banking & Finance",
+      "description": "AI agents for customer service, loan applications, and financial advice",
+      "useCases": [
+        "Customer Support",
+        "Loan Applications",
+        "Account Management",
+        "Investment Advisory"
+      ],
+      "benefits": [
+        "24/7 Financial Support",
+        "Compliance Monitoring",
+        "Multi-language Banking",
+        "Fraud Detection"
+      ],
+      "stats": "85% faster loan processing"
+    },
+    "healthcare": {
+      "name": "Healthcare",
+      "description": "Patient appointment scheduling, health reminders, and medical support",
+      "useCases": [
+        "Appointment Scheduling",
+        "Health Reminders",
+        "Telemedicine Support",
+        "Insurance Verification"
+      ],
+      "benefits": [
+        "Reduced No-shows",
+        "HIPAA Compliant",
+        "Multi-language Support",
+        "Emergency Alerts"
+      ],
+      "stats": "60% reduction in missed appointments"
+    },
+    "education": {
+      "name": "Education",
+      "description": "Student enrollment, course information, and academic support",
+      "useCases": [
+        "Student Enrollment",
+        "Course Registration",
+        "Academic Advising",
+        "Parent Communication"
+      ],
+      "benefits": [
+        "Automated Enrollment",
+        "Multi-language Education",
+        "Progress Tracking",
+        "Parent Engagement"
+      ],
+      "stats": "40% increase in enrollment rates"
+    },
+    "realEstate": {
+      "name": "Real Estate",
+      "description": "Property inquiries, appointment scheduling, and market updates",
+      "useCases": [
+        "Property Inquiries",
+        "Viewing Scheduling",
+        "Market Updates",
+        "Client Follow-up"
+      ],
+      "benefits": [
+        "Lead Qualification",
+        "Automated Showings",
+        "Market Intelligence",
+        "Client Retention"
+      ],
+      "stats": "3x more qualified leads"
+    },
+    "retail": {
+      "name": "Retail & E-commerce",
+      "description": "Customer support, order tracking, and product recommendations",
+      "useCases": [
+        "Customer Support",
+        "Order Tracking",
+        "Product Recommendations",
+        "Returns Processing"
+      ],
+      "benefits": [
+        "24/7 Shopping Support",
+        "Personalized Recommendations",
+        "Multi-channel Support",
+        "Inventory Management"
+      ],
+      "stats": "35% increase in average order value"
+    },
+    "automotive": {
+      "name": "Automotive",
+      "description": "Service appointments, vehicle inquiries, and dealership support",
+      "useCases": [
+        "Service Appointments",
+        "Vehicle Inquiries",
+        "Parts Availability",
+        "Test Drive Scheduling"
+      ],
+      "benefits": [
+        "Service Reminders",
+        "Parts Inventory",
+        "Warranty Support",
+        "Customer Retention"
+      ],
+      "stats": "50% faster service booking"
+    },
+    "travel": {
+      "name": "Travel & Hospitality",
+      "description": "Booking assistance, travel information, and customer service",
+      "useCases": [
+        "Booking Assistance",
+        "Travel Information",
+        "Hotel Reservations",
+        "Customer Support"
+      ],
+      "benefits": [
+        "Multi-language Travel",
+        "Real-time Updates",
+        "Personalized Recommendations",
+        "Emergency Support"
+      ],
+      "stats": "45% increase in booking conversions"
+    },
+    "technology": {
+      "name": "Technology",
+      "description": "Technical support, product demos, and sales assistance",
+      "useCases": [
+        "Technical Support",
+        "Product Demos",
+        "Sales Assistance",
+        "Onboarding"
+      ],
+      "benefits": [
+        "24/7 Tech Support",
+        "Multi-language Support",
+        "Product Training",
+        "Lead Qualification"
+      ],
+      "stats": "70% faster issue resolution"
+    }
+  },
+  "agents": {
+    "sarah": {
+      "name": "Sarah",
+      "role": "Customer Service Specialist",
+      "specialties": [
+        "Customer Support",
+        "Problem Resolution",
+        "Product Information"
+      ],
+      "experience": "5+ years in customer service",
+      "languages": [
+        "English",
+        "Spanish",
+        "French"
+      ],
+      "successRate": "94% customer satisfaction"
+    },
+    "mike": {
+      "name": "Mike",
+      "role": "Sales Representative",
+      "specialties": [
+        "Lead Qualification",
+        "Sales Demos",
+        "Objection Handling"
+      ],
+      "experience": "7+ years in sales",
+      "languages": [
+        "English",
+        "German",
+        "Italian"
+      ],
+      "successRate": "27% higher conversion"
+    },
+    "emma": {
+      "name": "Emma",
+      "role": "Technical Support",
+      "specialties": [
+        "Technical Issues",
+        "Product Training",
+        "Troubleshooting"
+      ],
+      "experience": "6+ years in tech support",
+      "languages": [
+        "English",
+        "Portuguese",
+        "Dutch"
+      ],
+      "successRate": "89% first-call resolution"
+    },
+    "david": {
+      "name": "David",
+      "role": "Appointment Scheduler",
+      "specialties": [
+        "Scheduling",
+        "Calendar Management",
+        "Reminders"
+      ],
+      "experience": "4+ years in scheduling",
+      "languages": [
+        "English",
+        "Arabic",
+        "Russian"
+      ],
+      "successRate": "95% appointment completion"
+    },
+    "lisa": {
+      "name": "Lisa",
+      "role": "Financial Advisor",
+      "specialties": [
+        "Investment Advisory",
+        "Loan Applications",
+        "Financial Planning"
+      ],
+      "experience": "8+ years in finance",
+      "languages": [
+        "English",
+        "Mandarin",
+        "Japanese"
+      ],
+      "successRate": "92% client retention"
+    },
+    "alex": {
+      "name": "Alex",
+      "role": "Healthcare Coordinator",
+      "specialties": [
+        "Appointment Scheduling",
+        "Insurance Verification",
+        "Patient Care"
+      ],
+      "experience": "6+ years in healthcare",
+      "languages": [
+        "English",
+        "Spanish",
+        "Korean"
+      ],
+      "successRate": "88% patient satisfaction"
+    }
+  },
+  "callForm": {
+    "title": "AI Call Experience",
+    "fullName": "Full Name",
+    "emailAddress": "Email Address",
+    "phoneNumber": "Phone Number",
+    "enterFullName": "Enter your full name",
+    "enterEmail": "Enter your email",
+    "enterPhone": "Enter your phone number",
+    "weWillCall": "We'll call you at",
+    "initiatingCall": "Initiating call...",
+    "getAiCallExperience": "Get AI Call Experience",
+    "callDescription": "Our AI agent will call you within 2–3 minutes to demonstrate the experience"
+  },
+  "pricing": {
+    "title": "Voice AI Outbound Agent - Pricing",
+    "subtitle": "Transparent pricing with no hidden costs. Choose the support package that fits your needs.",
+    "mostPopular": "Most Popular",
+    "setupFee": {
+      "title": "One-time Setup Fee",
+      "price": "AED 10,000",
+      "description": "Per agent setup and configuration"
+    },
+    "aiUsage": {
+      "title": "AI Usage Fees",
+      "price": "AED 0.51 - 0.66",
+      "period": "/minute",
+      "description": "Billed to the exact second (covers voice generation, real-time transcription, and LLM processing)"
+    },
+    "essential": {
+      "name": "Essential Support",
+      "price": "AED 1,500",
+      "period": "/month",
+      "description": "Ideal for businesses starting with AI calling",
+      "features": [
+        "24/7 uptime monitoring and incident alerts",
+        "Up to 4 hours/month of flow tweaks or prompt changes",
+        "Unused time rolls over for 60 days",
+        "Monthly performance report with actionable insights",
+        "Email support with next-business-day SLA"
+      ]
+    },
+    "premium": {
+      "name": "Premium Support",
+      "price": "AED 3,000",
+      "period": "/month",
+      "description": "For businesses wanting advanced optimization and priority support",
+      "features": [
+        "Everything in Essential plus:",
+        "Up to 10 hours/month of prompt/flow optimization",
+        "Strategy session to review metrics and roadmap",
+        "Priority support queue with same-business-day responses",
+        "Early-access testing of lower-cost voice models",
+        "30-day notice for package changes"
+      ]
+    },
+    "notes": {
+      "vat": "UAE 5% VAT applies where relevant",
+      "optimization": "We upgrade your agent with larger-scale models and pass savings on — no locked-in metered rates"
+    }
+  },
+  "cta": {
+    "title": "Ready to Transform Your Sales?",
+    "subtitle": "Join thousands of sales teams already using the AI Sales Calling Agent to automate their calling process",
+    "startFreeTrial": "मुफ्त परीक्षण शुरू करें",
+    "scheduleDemo": "डेमो शेड्यूल करें"
+  },
+  "footer": {
+    "companyDescription": "Transform your sales process with AI-powered voice agents that sound human and convert leads 24/7.",
+    "address": "Office 705, New Century City Tower, Port Saeed, Dubai, UAE",
+    "email": "contactus@sparkai.ae",
+    "phone": "+971503519350",
+    "product": "Product",
+    "company": "Company",
+    "features": "सुविधाएं",
+    "pricing": "मूल्य निर्धारण",
+    "api": "API",
+    "integrations": "Integrations",
+    "about": "के बारे में",
+    "blog": "Blog",
+    "careers": "Careers",
+    "contact": "संपर्क",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy",
+    "voiceLibrary": "Voice Library",
+    "helpCenter": "Help Center",
+    "copyright": "© 2024 AI SPARK SALES AGENT. All rights reserved."
+  },
+  "language": {
+    "switchTo": "Switch to",
+    "currentLanguage": "Current Language",
+    "selectLanguage": "Select Language"
+  },
+  "signup": {
+    "title": "खाता बनाएं",
+    "subtitle": "SparkAI से जुड़ें और अपनी AI बिक्री यात्रा शुरू करें",
+    "emailLabel": "ईमेल पता",
+    "emailPlaceholder": "अपना ईमेल दर्ज करें",
+    "passwordLabel": "पासवर्ड",
+    "passwordPlaceholder": "एक पासवर्ड बनाएं",
+    "confirmPasswordLabel": "पासवर्ड की पुष्टि करें",
+    "confirmPasswordPlaceholder": "अपने पासवर्ड की पुष्टि करें",
+    "createAccount": "खाता बनाएं",
+    "creatingAccount": "खाता बनाया जा रहा है...",
+    "alreadyHaveAccount": "पहले से खाता है?",
+    "signInHere": "यहां साइन इन करें",
+    "accountCreated": "खाता बनाया गया!",
+    "welcomeMessage": "SparkAI में आपका स्वागत है! आपके डैशबोर्ड पर पुनर्निर्देशित किया जा रहा है...",
+    "firstNameLabel": "पहला नाम",
+    "firstNamePlaceholder": "पहला नाम",
+    "lastNameLabel": "अंतिम नाम",
+    "lastNamePlaceholder": "अंतिम नाम",
+    "companyNameLabel": "कंपनी का नाम",
+    "companyNamePlaceholder": "अपनी कंपनी का नाम दर्ज करें",
+    "passwordMismatchTitle": "पासवर्ड मेल नहीं खाता",
+    "passwordMismatchDescription": "पासवर्ड मेल नहीं खाते। कृपया पुनः प्रयास करें।",
+    "passwordTooShortTitle": "पासवर्ड बहुत छोटा",
+    "passwordTooShortDescription": "पासवर्ड कम से कम 6 वर्ण लंबा होना चाहिए।",
+    "companyNameRequiredTitle": "कंपनी का नाम आवश्यक",
+    "companyNameRequiredDescription": "कृपया अपनी कंपनी का नाम दर्ज करें।",
+    "registrationFailedTitle": "पंजीकरण विफल",
+    "registrationFailedDescription": "पंजीकरण के दौरान एक त्रुटि हुई।",
+    "accountAlreadyExistsTitle": "खाता पहले से मौजूद है",
+    "accountAlreadyExistsDescription": "खाता पहले से मौजूद है, साइन इन किया जा रहा है...",
+    "googleAccountConnectedTitle": "Google खाता जुड़ा",
+    "googleAccountConnectedDescription": "पंजीकरण पूरा करने के लिए कृपया अपना कंपनी नाम और पासवर्ड भरें।",
+    "googleSignUpFailedTitle": "Google साइन अप विफल",
+    "googleSignUpFailedDescription": "Google के साथ प्रमाणीकरण विफल।",
+    "orContinueWith": "या जारी रखें",
+    "floatingElements": {
+      "aiVoiceCalls": "AI वॉइस कॉल",
+      "smartAgents": "स्मार्ट एजेंट",
+      "realTimeChat": "वास्तविक समय चैट",
+      "analytics": "विश्लेषण"
+    },
+    "features": {
+      "lightningFastSetup": "बिजली की तरह तेज़ सेटअप",
+      "enterpriseSecurity": "एंटरप्राइज़ सुरक्षा",
+      "multiLanguageSupport": "बहुभाषी समर्थन",
+      "advancedAnalytics": "उन्नत विश्लेषण"
+    }
+  },
+  "contact": {
+    "emailSupport": "Email Support",
+    "phoneSupport": "Phone Support",
+    "bookCall": "Book a Call",
+    "getHelpEmail": "Get help via email within 24 hours",
+    "speakTeam": "Speak with our team directly",
+    "scheduleCall": "Schedule a discovery call with our team",
+    "scheduleNow": "Schedule Now",
+    "officeLocations": "Office Locations",
+    "visitOffices": "Visit us at our Dubai office or reach out online.",
+    "sendMessage": "Send Message",
+    "fillForm": "Fill out the form below and we’ll get back to you within 24 hours.",
+    "name": "नाम",
+    "email": "ईमेल",
+    "company": "Company",
+    "phone": "Phone",
+    "subject": "Subject",
+    "message": "Message",
+    "selectSubject": "Select a subject",
+    "salesInquiry": "Sales Inquiry",
+    "technicalSupport": "Technical Support",
+    "partnership": "Partnership",
+    "demoRequest": "Demo Request",
+    "generalQuestion": "General Question",
+    "yourFullName": "Your full name",
+    "yourEmail": "your@email.com",
+    "yourCompany": "Your company name",
+    "yourPhone": "+971 4 123 4567",
+    "tellUsProject": "Tell us about your project or question...",
+    "sending": "Sending...",
+    "messageSent": "Message Sent!",
+    "thankYouReaching": "Thank you for reaching out. We’ll get back to you soon.",
+    "whyChooseSupport": "Why Choose Our Support?",
+    "committedExceptional": "We’re committed to providing exceptional support to help you succeed",
+    "support24": "24/7 Support",
+    "roundClockAssistance": "Round-the-clock assistance for all your needs",
+    "expertTeam": "Expert Team",
+    "aiSpecialists": "AI specialists and sales professionals",
+    "securePrivate": "Secure & Private",
+    "dataProtected": "Your data is protected with enterprise-grade security",
+    "fastResponse": "Fast Response",
+    "averageResponse": "Average response time under 2 hours",
+    "faq": "Frequently Asked Questions",
+    "quickAnswers": "Quick answers to common questions",
+    "readyGetStarted": "Ready to Get Started?",
+    "joinThousands": "Join thousands of businesses already using AI SPARK SALES AGENT to transform their sales process"
+  },
+  "home": {
+    "title": "AI वॉइस सेल्स एजेंट",
+    "subtitle": "बुद्धिमान वॉइस ऑटोमेशन के साथ अपनी बिक्री को बदलें",
+    "hero": {
+      "title": "Transform Your Business with AI Voice Agents",
+      "subtitle": "Never miss another call. Our AI agents qualify leads, book appointments, and deliver customer support that converts.",
+      "startFreeTrial": "मुफ्त परीक्षण शुरू करें",
+      "bookDemo": "Book Demo",
+      "seeInAction": "See AI SPARK SALES AGENT in Action",
+      "watchDescription": "Watch our AI agent handle real customer calls with natural conversation",
+      "tryLiveDemo": "Try Live Demo",
+      "enterPhoneNumber": "Enter your phone number",
+      "playDemoVideo": "Play Demo Video",
+      "getFreeDemoCall": "Get Free Demo Call",
+      "selectYourIndustry": "Select Your Industry",
+      "yourName": "Your Name",
+      "phoneNumber": "Phone Number",
+      "stats": {
+        "successRate": "98%",
+        "successRateLabel": "Success Rate",
+        "availability": "24/7",
+        "availabilityLabel": "Availability",
+        "languages": "100+",
+        "languagesLabel": "Languages"
+      }
+    },
+    "problem": {
+      "title": "Missed Calls = Missed Revenue",
+      "subtitle": "Every missed call costs your company money. Answer every call 24/7/365.",
+      "tag": "24/7 Call Handling",
+      "problemTitle": "Problem",
+      "solutionTitle": "Solution",
+      "problemDescription": "Overwhelmed by repetitive calls?",
+      "solutionDescription": "Automate calls with AI Voice Agents",
+      "problems": [
+        "Want to get more leads?",
+        "Struggling with high call volume?",
+        "Pulled away from important tasks?",
+        "Looking for a scalable, 24/7 solution?"
+      ],
+      "solutions": [
+        "AI agents work 24/7 to capture every lead",
+        "Handle unlimited calls simultaneously",
+        "Focus on high-value activities",
+        "Scale without hiring more staff"
+      ],
+      "problemCards": {
+        "outOfHours": "Out-of-hours calls",
+        "unqualified": "Unqualified leads",
+        "canceledTasks": "Interrupted tasks",
+        "missedCalls": "Missed calls"
+      },
+      "solutionCards": {
+        "availability": "24/7 Availability",
+        "qualifiedLeads": "Qualified leads",
+        "freedUpTasks": "Freed-up tasks",
+        "noMissedCalls": "No missed calls"
+      }
+    },
+    "companies": {
+      "trustedBy": "Trusted by leading companies"
+    },
+    "solutionsSection": {
+      "title": "Powerful AI Solutions",
+      "subtitle": "Transform your business with cutting-edge AI technology that delivers real results",
+      "tag": "🚀 SOLUTIONS"
+    },
+    "benefitsSection": {
+      "tag": "✨ BENEFITS",
+      "title": "Why Choose Us?",
+      "subtitle": "Experience the advantages that set us apart from the competition"
+    },
+    "howItWorks": {
+      "tag": "🔄 HOW IT WORKS",
+      "title": "Simple 3-Step Process",
+      "subtitle": "Get started in minutes with our streamlined setup"
+    },
+    "industriesSection": {
+      "title": "Trusted Across Industries",
+      "subtitle": "From healthcare to real estate, our AI agents adapt to your industry's unique needs"
+    },
+    "industryUseCases": {
+      "healthcare": "Appointment scheduling, patient reminders, and support",
+      "ecommerce": "Order tracking, returns, and customer support",
+      "realEstate": "Lead qualification, property inquiries, and scheduling",
+      "education": "Student support, enrollment, and information services",
+      "automotive": "Service appointments, sales follow-ups, and support",
+      "legal": "Client intake, appointment scheduling, and case updates",
+      "restaurant": "Reservations, orders, and customer service",
+      "services": "Appointment booking, follow-up, and support"
+    },
+    "demoSection": {
+      "tag": "🎬 LIVE DEMOS",
+      "title": "See AI Voice Agent in Action",
+      "subtitle": "Watch how our AI-powered voice agents handle real phone conversations across industries. No scripts, no pre-recorded responses — just pure AI intelligence.",
+      "watchDemo": "डेमो देखें",
+      "bookLiveDemo": "Book Live Demo",
+      "tryFreeCall": "Try Free Call",
+      "liveDemo": {
+        "title": "Live AI Call Demo",
+        "subtitle": "Watch how our AI agent handles a real customer service call.",
+        "playAllDemo": "🎬 Play All Demos",
+        "live": "🔴 LIVE"
+      },
+      "demos": {
+        "ecommerce": {
+          "title": "Customer Support Demo — E-commerce",
+          "duration": "⏱️ 2:30 min",
+          "description": "The AI agent manages order tracking, returns, and customer inquiries with a natural conversation flow.",
+          "features": [
+            "Order Tracking",
+            "Return Processing",
+            "Customer Inquiries"
+          ],
+          "watchDemo": "👉 Watch Demo"
+        },
+        "healthcare": {
+          "title": "Appointment Scheduling Demo — Healthcare",
+          "duration": "⏱️ 3:15 min",
+          "description": "The AI agent qualifies prospects, creates appointments, and automatically follows up.",
+          "features": [
+            "Lead Qualification",
+            "Appointment Scheduling",
+            "Automatic Follow-up"
+          ],
+          "watchDemo": "👉 Watch Demo"
+        },
+        "realEstate": {
+          "title": "Sales & Lead Generation — Real Estate",
+          "duration": "⏱️ 4:20 min",
+          "description": "The AI agent generates new leads, qualifies them, and schedules property viewing appointments.",
+          "features": [
+            "Lead Generation",
+            "Lead Qualification",
+            "Viewing Scheduling"
+          ],
+          "watchDemo": "👉 Watch Demo"
+        }
+      },
+      "conclusion": "These demos show how naturally and effectively AI works in real conversations — like an experienced call center agent, but with uninterrupted, unlimited capacity."
+    },
+    "pricingSection": {
+      "tag": "💰 PRICING",
+      "title": "Transparent Pricing, No Hidden Fees",
+      "subtitle": "Transparent pricing with no hidden costs. Choose the support package that fits your needs.",
+      "setupFee": {
+        "title": "One-time Setup Fee",
+        "amount": "AED 10,000",
+        "description": "Per agent setup and configuration"
+      },
+      "usageFee": {
+        "title": "AI Usage Fees",
+        "amount": "AED 0.51 - 0.66",
+        "unit": "/minute",
+        "description": "Billed to the exact second (covers voice generation, real-time transcription, and LLM processing)"
+      },
+      "supportPackages": "Support Packages:",
+      "limited": "Limited",
+      "mostPopular": "Most Popular"
+    },
+    "teamSection": {
+      "badge": "WHO IS BEHIND AI SPARK SALES AGENT",
+      "title": "Meet our team",
+      "subtitle": "The experts behind AI SPARK SALES AGENT’s revolutionary voice agent technology"
+    },
+    "testimonialsSection": {
+      "tag": "⭐ TESTIMONIALS",
+      "title": "What Our Clients Say",
+      "subtitle": "Real results from businesses using AI SPARK SALES AGENT"
+    },
+    "faqSection": {
+      "tag": "❓ FAQ",
+      "title": "Frequently Asked Questions",
+      "subtitle": "Quick answers to common questions",
+      "questions": {
+        "howItWorks": "How does SPARK AI SALES AGENT work?",
+        "customize": "Can I customize my AI agent?",
+        "languages": "What languages are supported?",
+        "pricing": "How does pricing work?",
+        "freeTrial": "Is there a free trial?"
+      },
+      "answers": {
+        "howItWorks": "SPARK AI SALES AGENT uses advanced AI to create intelligent voice agents that automatically handle calls, qualify leads, and schedule appointments.",
+        "customize": "Yes! You can customize the agent's voice, scripts, flows, and even train it for your specific industry.",
+        "languages": "We support 95+ languages with native accents so you can reach global customers easily.",
+        "pricing": "Our plans start from AED 1,500/month with a one-time setup fee of AED 10,000. No hidden fees.",
+        "freeTrial": "Yes, a 14-day free trial is available."
+      }
+    },
+    "footerSection": {
+      "office": "Office: New Century City Tower, Port Saeed, Dubai, UAE",
+      "email": "Email: contactus@sparkai.ae",
+      "phone": "Phone: +971 503519350",
+      "security": "SSL Secure · GDPR Compliant · 4.9/5 Rating",
+      "copyright": "© 2024 AI SPARK SALES AGENT. All rights reserved.",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "cookiePolicy": "Cookie Policy"
+    },
+    "benefits": {
+      "title": "Why Choose Our AI Calling System",
+      "subtitle": "Transform your business with intelligent voice automation",
+      "moreSalesCalls": {
+        "title": "300% More Sales Calls",
+        "description": "Never miss another lead. AI agents make calls 24/7, increasing your reach by 300% even while you sleep.",
+        "stats": "300% increase"
+      },
+      "availability": {
+        "title": "24/7 Availability",
+        "description": "Never miss a call again with always-on AI agents"
+      },
+      "lightningFast": {
+        "title": "Lightning Fast",
+        "description": "Instant responses and immediate lead qualification"
+      },
+      "scalableTeam": {
+        "title": "Scalable Team",
+        "description": "Handle unlimited calls simultaneously without hiring"
+      },
+      "dataDriven": {
+        "title": "Data Driven",
+        "description": "Real-time analytics and performance insights"
+      },
+      "uploadData": {
+        "title": "Upload Your Data",
+        "description": "Simply upload your contact list and let AI do the rest"
+      },
+      "industries": {
+        "healthcare": "Healthcare",
+        "ecommerce": "E-commerce",
+        "realEstate": "Real Estate",
+        "education": "Education",
+        "automotive": "Automotive",
+        "legal": "Legal",
+        "restaurant": "Restaurant",
+        "services": "Services"
+      },
+      "solutions": {
+        "customerSupport": {
+          "title": "Customer Support",
+          "description": "24/7 automated customer service that never sleeps"
+        },
+        "leadQualification": {
+          "title": "Lead Qualification",
+          "description": "AI-powered lead scoring and qualification"
+        },
+        "salesAutomation": {
+          "title": "Sales Automation",
+          "description": "Automated follow-ups that convert prospects to customers"
+        }
+      }
+    },
+    "industries": {
+      "healthcare": "Healthcare",
+      "ecommerce": "E-commerce",
+      "realEstate": "Real Estate",
+      "education": "Education",
+      "automotive": "Automotive",
+      "legal": "Legal",
+      "restaurant": "Restaurant",
+      "services": "Services"
+    },
+    "solutions": {
+      "customerSupport": {
+        "title": "Customer Support",
+        "description": "24/7 automated customer service that never sleeps"
+      },
+      "leadQualification": {
+        "title": "Lead Qualification",
+        "description": "AI-powered lead scoring and qualification"
+      },
+      "salesAutomation": {
+        "title": "Sales Automation",
+        "description": "Automated follow-ups that convert prospects to customers"
+      }
+    },
+    "features": {
+      "availability": {
+        "title": "24/7 Availability",
+        "description": "Don’t miss calls with always-on AI agents"
+      },
+      "lightningFast": {
+        "title": "Lightning Fast",
+        "description": "Instant responses and immediate lead qualification"
+      },
+      "scalableTeam": {
+        "title": "Scalable Team",
+        "description": "Unlimited calls without additional staff"
+      },
+      "dataDriven": {
+        "title": "Data Driven",
+        "description": "Real-time analytics and performance insights"
+      },
+      "uploadData": {
+        "title": "Upload Your Data",
+        "description": "Add your business info, scripts, and knowledge base"
+      },
+      "trainAi": {
+        "title": "Train Your AI",
+        "description": "Our AI learns your voice, tone, and business processes"
+      },
+      "goLive": {
+        "title": "Go Live",
+        "description": "Start receiving and making calls with your AI agent"
+      }
+    },
+    "pricing": {
+      "basic": {
+        "name": "Basic",
+        "description": "Perfect for small businesses getting started",
+        "features": [
+          "Basic analytics",
+          "Email support"
+        ],
+        "cta": "शुरू करें"
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Advanced features for growing businesses",
+        "features": [
+          "Advanced analytics",
+          "Priority support",
+          "Custom integrations"
+        ],
+        "cta": "शुरू करें"
+      }
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "subtitle": "Show customer success stories with real photos and results. Keep it personal and relatable to your audience.",
+      "sarah": {
+        "name": "Sarah Johnson",
+        "content": "AI SPARK SALES AGENT transformed our lead qualification process. We went from 20% to 65% in just 3 months."
+      },
+      "michael": {
+        "name": "Michael Chen",
+        "role": "Sales Director, RealEstate Pro",
+        "content": "AI agents manage appointment scheduling flawlessly. Our team now focuses on closing deals instead of calendar management."
+      },
+      "emily": {
+        "name": "Emily Rodriguez",
+        "role": "Founder, HealthCare Plus",
+        "content": "Patient satisfaction increased by 40% after AI SPARK SALES AGENT. Our patients love the instant, personalized support."
+      }
+    },
+    "demos": {
+      "customerSupport": {
+        "title": "Customer Support Demo",
+        "description": "See how our AI handles customer inquiries and resolves issues instantly."
+      },
+      "appointmentBooking": {
+        "title": "Appointment Booking Demo",
+        "description": "Watch our AI agent schedule appointments and manage calendars seamlessly.",
+        "industry": "Healthcare"
+      },
+      "salesQualification": {
+        "title": "Sales Qualification Demo",
+        "description": "Experience how our AI qualifies leads and books meetings automatically."
+      }
+    },
+    "demo": {
+      "title": "See AI Voice Agent in Action",
+      "subtitle": "Watch our AI voice agents handle real phone calls across industries. No scripts, no pre-recorded responses — just pure AI intelligence.",
+      "liveDemo": "Live AI Call Demo",
+      "watchDescription": "Watch how our AI agent handles a real customer service call",
+      "playFullDemo": "Play Full Demo",
+      "live": "LIVE",
+      "categories": {
+        "customerSupport": {
+          "title": "Customer Support Demo",
+          "industry": "E-commerce",
+          "duration": "2:30 min",
+          "description": "The AI agent handles order tracking, returns, and customer questions with a natural flow.",
+          "features": [
+            "Order Tracking",
+            "Returns Processing",
+            "Customer Inquiries"
+          ]
+        },
+        "appointmentBooking": {
+          "title": "Appointment Booking Demo",
+          "industry": "Healthcare",
+          "duration": "3:15 min",
+          "description": "The AI agent qualifies leads, books appointments, and follows up automatically.",
+          "features": [
+            "Lead Qualification",
+            "Appointment Booking",
+            "Automatic Follow-up"
+          ]
+        },
+        "salesGeneration": {
+          "title": "Sales & Lead Generation",
+          "industry": "Real Estate",
+          "duration": "4:20 min",
+          "description": "The AI agent generates leads, qualifies them, and schedules viewings.",
+          "features": [
+            "Lead Generation",
+            "Lead Qualification",
+            "Viewing Scheduling"
+          ]
+        }
+      },
+      "videoDemo": {
+        "audioOff": "Audio Off",
+        "audioOn": "Audio On",
+        "enableAudio": "Enable Audio",
+        "disableAudio": "Disable Audio",
+        "playing": "Playing",
+        "watchDemo": "डेमो देखें",
+        "pause": "रोकें",
+        "readyToTransform": "Ready to Transform Your Business?",
+        "readyToExperience": "Experience the power of AI voice agents firsthand. Start your free trial today and see how our intelligent automation can revolutionize your sales process.",
+        "startFreeTrial": "मुफ्त परीक्षण शुरू करें",
+        "scheduleLiveDemo": "Schedule Live Demo",
+        "freeTrial": "Free Trial",
+        "noCreditCard": "No Credit Card Required",
+        "support247": "24/7 Support"
+      }
+    },
+    "consultation": {
+      "title": "Book a free consultation with our AI experts",
+      "subtitle": "Get personalized advice on how AI voice agents can transform your business",
+      "expertTeam": "AI Expert Team",
+      "specialists": "AI Voice Specialists",
+      "discoveryCall": "AI Agent Discovery Call",
+      "duration": "30 min",
+      "description": "Schedule a free discovery call with our AI experts!",
+      "features": [
+        "Custom AI strategy for your industry",
+        "Personalized implementation plan",
+        "ROI projections and timeline",
+        "Free consultation and setup guidance"
+      ],
+      "testimonial": "The AI experts at AI SPARK SALES AGENT were professional and attentive. They created a fantastic AI voice agent strategy that increased our conversion rate by 300%.",
+      "weWillCover": "We’ll cover:",
+      "hearFromOthers": "Hear it from others:"
+    },
+    "whyChoose": {
+      "title": "Why Choose Us",
+      "comparison": {
+        "title": "Key Features & Benefits",
+        "ourPlatform": "AI SPARK SALES AGENT",
+        "otherPlatforms": "Other AI Platforms",
+        "features": {
+          "advancedAI": {
+            "title": "Advanced AI Voice Technology",
+            "description": "Cutting-edge natural language processing"
+          },
+          "customerSupport": {
+            "title": "24/7 Customer Support",
+            "description": "Round-the-clock availability and monitoring"
+          },
+          "voiceCloning": {
+            "title": "Custom Voice Cloning",
+            "description": "Personalized brand voice creation"
+          },
+          "multiLanguage": {
+            "title": "Multi-language Support",
+            "description": "95+ languages with native accents"
+          },
+          "realTimeAnalytics": {
+            "title": "Real-time Analytics",
+            "description": "Comprehensive performance insights"
+          },
+          "enterpriseSecurity": {
+            "title": "Enterprise Security",
+            "description": "SOC 2 compliant, end-to-end encryption"
+          },
+          "easyIntegration": {
+            "title": "Easy Integration",
+            "description": "Seamless API integration with existing systems"
+          },
+          "dedicatedManager": {
+            "title": "Dedicated Account Manager",
+            "description": "Personal support and optimization"
+          }
+        }
+      }
+    },
+    "featureComparison": {
+      "badge": "Trusted by Industry Leaders",
+      "title": "Why top companies choose AI SPARK SALES AGENT",
+      "subtitle": "Join 500+ companies that trust AI SPARK SALES AGENT to transform customer engagement and accelerate growth",
+      "features": {
+        "advancedVoice": {
+          "name": "Advanced AI Voice Technology",
+          "description": "State-of-the-art natural language processing"
+        },
+        "customerSupport": {
+          "name": "24/7 Customer Support",
+          "description": "Round-the-clock availability and monitoring"
+        },
+        "voiceCloning": {
+          "name": "Custom Voice Cloning",
+          "description": "Personalized brand voice creation"
+        },
+        "multiLanguage": {
+          "name": "Multi-language Support",
+          "description": "95+ languages with native accents"
+        },
+        "realTimeAnalytics": {
+          "name": "Real-time Analytics",
+          "description": "Comprehensive performance insights"
+        },
+        "enterpriseSecurity": {
+          "name": "Enterprise Security",
+          "description": "SOC 2 compliant with end-to-end encryption"
+        },
+        "easyIntegration": {
+          "name": "Easy Integration",
+          "description": "Seamless API integration with existing systems"
+        },
+        "dedicatedManager": {
+          "name": "Dedicated Account Manager",
+          "description": "Personal support and optimization"
+        }
+      },
+      "sparkAI": "AI SPARK SALES AGENT",
+      "otherPlatforms": "Other AI Platforms"
+    },
+    "featureHighlights": {
+      "enterpriseSecurity": {
+        "title": "Enterprise Security",
+        "description": "SOC 2 compliant with military-grade encryption"
+      },
+      "provenResults": {
+        "title": "Proven Results",
+        "description": "Average 300% increase in lead conversion rates"
+      },
+      "fiveStarSupport": {
+        "title": "5-Star Support",
+        "description": "24/7 dedicated support with 99.9% uptime"
+      }
+    },
+    "ctaBanner": {
+      "title": "Ready to Transform Your Business?",
+      "subtitle": "Use action-driven CTAs like 'Try for Free' or 'Book a Demo' with a short benefit (e.g., 'Save 10+ hours a week').",
+      "button": "Try for Free — Save 10+ Hours/Week",
+      "trustedBy": "Trusted by 500+ companies worldwide"
+    },
+    "aiSalesTeam": {
+      "badge": "AI SALES TEAM",
+      "title": "Meet Your New AI Sales Team",
+      "subtitle": "AI SPARK SALES AGENT creates intelligent voice agents that sound human, think strategically, and work 24/7 to grow your business.",
+      "readyToSee": "Ready to See Your AI Agent in Action?",
+      "bookDemo": "Book a personalized demo and watch our AI handle your specific use case in real time.",
+      "demoForm": {
+        "title": "Experience the Magic – Get a Free AI Demo Call Tailored to Your Industry",
+        "description": "Our AI agent will call you in just **60 seconds** to showcase real customer conversations tailored to your industry and use case. Experience how it qualifies leads, answers questions, and boosts conversion — automatically.",
+        "fields": {
+          "name": "Your Name",
+          "namePlaceholder": "Enter your full name",
+          "phone": "Phone Number",
+          "phonePlaceholder": "+971 00 000 0000",
+          "industry": "Your Industry",
+          "industryPlaceholder": "Select your industry"
+        },
+        "submitButton": "Get Free Demo Call",
+        "assurances": {
+          "secure": "100% Secure",
+          "setup": "60 Second Setup",
+          "noCard": "No Credit Card Required"
+        }
+      }
+    },
+    "featuresBenefits": {
+      "availability": {
+        "title": "24/7 Availability",
+        "description": "Your AI sales team never sleeps, works weekends, and handles holidays automatically."
+      },
+      "leadQualification": {
+        "title": "Lead Qualification",
+        "description": "Intelligent scoring and qualification that identifies high-value prospects instantly."
+      },
+      "conversionOptimization": {
+        "title": "Conversion Optimization",
+        "description": "Continuous learning and optimization to improve conversion rates with every call."
+      }
+    },
+    "companyStats": {
+      "experience": {
+        "value": "50+",
+        "label": "Total Years of Experience"
+      },
+      "projects": {
+        "value": "500+",
+        "label": "Projects Delivered"
+      },
+      "satisfaction": {
+        "value": "95%",
+        "label": "Customer Satisfaction"
+      },
+      "support": {
+        "value": "24/7",
+        "label": "Support Available"
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "subtitle": "Answer common questions simply. Remove doubts about pricing, setup, or features.",
+      "items": {
+        "howItWorks": {
+          "question": "How does SPARK AI SALES AGENT work?",
+          "answer": "SPARK AI SALES AGENT uses advanced AI to create intelligent voice agents that automatically handle calls, qualify leads, and schedule appointments."
+        },
+        "customization": {
+          "question": "Can I customize the AI agent?",
+          "answer": "Yes! You can customize the agent’s voice, scripts, flows, and even train it for your specific industry."
+        },
+        "languages": {
+          "question": "What languages are supported?",
+          "answer": "We support 95+ languages with native accents so you can reach global customers easily."
+        },
+        "cost": {
+          "question": "How much does it cost?",
+          "answer": "Our plans start from AED 1,500/month with a one-time setup fee of AED 10,000. No hidden fees."
+        },
+        "freeTrial": {
+          "question": "Is there a free trial?",
+          "answer": "Yes! We offer a 14-day free trial with no commitment. Try all features and see the results yourself."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to 10x Your Sales Calls?",
+      "subtitle": "Join 500+ companies already saving 10+ hours per week and increasing conversions by 300%. Start your free trial today.",
+      "tryFree": "Try for Free — Save 10+ Hours/Week",
+      "bookDemo": "Book a Demo",
+      "guarantee": "✅ 14-day free trial • ✅ No credit card required • ✅ 30-day money-back guarantee"
+    },
+    "ctaSection": {
+      "title": "Ready to Transform Your Business?",
+      "subtitle": "Use action-driven CTAs like ‘Try for Free’ or ‘Book a Demo’ with a short benefit (e.g., ‘Save 10+ hours a week’).",
+      "button": "Try for Free — Save 10+ Hours/Week"
+    },
+    "aiDemoCall": {
+      "title": "Experience the Magic – Get a Free AI Demo Call Tailored to Your Industry",
+      "description": "Our AI agent will call you in just **60 seconds** to show how it handles real customer conversations tailored to your industry and use case. Experience how it qualifies leads, answers questions, and boosts conversion — automatically.",
+      "form": {
+        "nameLabel": "Your Name",
+        "namePlaceholder": "Enter full name",
+        "phoneLabel": "Phone Number",
+        "phonePlaceholder": "+971 00 000 0000",
+        "industryLabel": "Your Industry",
+        "industryPlaceholder": "Select your industry",
+        "submitButton": "Get Free Demo Call"
+      },
+      "assurances": {
+        "secure": "100% Secure",
+        "setup": "60 Second Setup",
+        "noCard": "No Credit Card Required"
+      }
+    },
+    "aiSalesFeatures": {
+      "availability": {
+        "title": "24/7 Availability",
+        "description": "Your AI sales team doesn’t sleep, works weekends, and handles holidays automatically."
+      },
+      "leadQualification": {
+        "title": "Lead Qualification",
+        "description": "Smart scoring and qualification that instantly identifies high-value prospects."
+      },
+      "conversionOptimization": {
+        "title": "Conversion Optimization",
+        "description": "Continuous learning and optimization to improve conversion rates with every call."
+      }
+    },
+    "teamMembers": {
+      "jay": {
+        "name": "Jay",
+        "title": "CEO / Founder",
+        "description": "Visionary leader driving AI innovation and business growth"
+      },
+      "tooba": {
+        "name": "Tooba",
+        "title": "Head of AI",
+        "description": "Leads AI strategy and machine learning implementation"
+      },
+      "sagar": {
+        "name": "Sagar",
+        "title": "AI Strategist",
+        "description": "Expert in AI solutions and strategic technology planning"
+      },
+      "ananya": {
+        "name": "Ananya",
+        "title": "Project Manager",
+        "description": "Ensures seamless project delivery and team coordination"
+      },
+      "ersham": {
+        "name": "Ersham",
+        "title": "Creative Lead",
+        "description": "Designs innovative user experiences and creative solutions"
+      },
+      "saleem": {
+        "name": "Saleem",
+        "title": "HR Manager",
+        "description": "Builds and nurtures our talented team culture"
+      }
+    },
+    "teamStats": {
+      "experience": "Years Combined Experience",
+      "projects": "Projects Delivered",
+      "satisfaction": "Customer Satisfaction",
+      "support": "Support Available"
+    },
+    "pricingPlans": {
+      "essential": {
+        "name": "Essential Support",
+        "price": "AED 1,500",
+        "period": "/month",
+        "description": "Perfect for businesses starting with AI calling",
+        "features": {
+          "monitoring": "24/7 uptime monitoring and incident alerts",
+          "tweaks": "Up to 4 hours/month of flow tweaks or prompt changes",
+          "rollover": "Unused time rolls over for 60 days",
+          "report": "Monthly performance report with actionable insights",
+          "email": "Email support with next-business-day SLA"
+        },
+        "cta": "शुरू करें"
+      },
+      "premium": {
+        "name": "Premium Support",
+        "price": "AED 3,000",
+        "period": "/month",
+        "description": "For businesses requiring advanced optimization and priority support",
+        "features": {
+          "everything": "Everything in Essential plus:",
+          "optimization": "Up to 10 hours/month of prompt/flow optimization",
+          "strategy": "Strategy session to review metrics and roadmap",
+          "priority": "Priority support queue with same-business-day responses",
+          "earlyAccess": "Early access testing of lower-cost voice models",
+          "notice": "30-day notice for package changes"
+        },
+        "cta": "शुरू करें"
+      }
+    },
+    "consultationSection": {
+      "badge": "LET'S CONNECT"
+    },
+    "faqs": {
+      "howItWorks": {
+        "question": "How does SPARK AI SALES AGENT work?",
+        "answer": "SPARK AI SALES AGENT uses advanced AI to create intelligent voice agents that automatically handle calls, qualify leads, and schedule appointments."
+      },
+      "customization": {
+        "question": "Can I customize my AI agent?",
+        "answer": "Yes! You can customize the agent's voice, scripts, flows, and even train it for your specific industry."
+      },
+      "languages": {
+        "question": "What languages are supported?",
+        "answer": "We support 95+ languages with native accents so you can reach global customers easily."
+      },
+      "pricing": {
+        "question": "How does pricing work?",
+        "answer": "Our plans start from AED 1,500/month with a one-time setup fee of AED 10,000. No hidden fees."
+      },
+      "freeTrial": {
+        "question": "Is there a free trial?",
+        "answer": "Yes, a 14-day free trial is available."
+      }
+    }
+  },
+  "chat": {
+    "welcomeMessage": "👋 Hi! I’m Sarah, your AI Sales Assistant. I can help with questions about our AI voice calling service, or I can call you directly to demonstrate our technology! What would you like to know?",
+    "chatWithUs": "Chat with us",
+    "aiSalesSupport": "Sarah - AI Sales Assistant",
+    "onlineNow": "Online & ready to call",
+    "typeMessage": "Type your message or say 'call me to demo'...",
+    "call": "Call",
+    "email": "ईमेल",
+    "schedule": "Schedule",
+    "quickQuestions": "Quick questions:",
+    "quickReplies": {
+      "cost": "💰 What’s the cost?",
+      "freeTrial": "🎯 Free trial available?",
+      "howItWorks": "⚡ How does it work?",
+      "demo": "📞 Call me to demo!"
+    },
+    "responses": {
+      "pricing": "💰 Our AI voice calling service has a one-time setup fee of AED 10,000 per agent; monthly support packages start at AED 1,500/month (Essential) or AED 3,000/month (Premium). AI usage is billed at AED 0.51–0.66 per minute. Would you like me to call you to discuss pricing options?",
+      "freeTrial": "🎯 We offer a free consultation and demo call to experience our AI voice technology firsthand. No credit card required! Just say 'call me to demo' and I’ll set up a personalized demo call for you.",
+      "demo": "⚡ Our AI makes natural-sounding calls to your leads, handles objections, and books appointments — all while sounding human! The best way to experience it is to receive a demo call. Would you like me to call you right now?",
+      "setup": "🚀 Getting started is super easy! Upload your contact list, choose your AI voice, and customize your script. Our AI will start calling within minutes. I can walk you through everything with a live demo — shall I call you?",
+      "default": "🤖 Great question! I’d love to help you learn more about our AI voice calling tech. The best way to understand its power is to experience it firsthand. Want me to call you for a personalized demo?"
+    },
+    "freeDemoCall": "Free Demo Call Setup",
+    "yourName": "Your Name",
+    "phoneNumber": "Phone Number (e.g., +1234567890)",
+    "selectIndustry": "Select Your Industry",
+    "companyName": "Company Name (Optional)",
+    "scheduleDemoCall": "Schedule Demo Call",
+    "scheduling": "Scheduling...",
+    "callScheduled": "🎉 Perfect! I’ve scheduled your free demo call. Our AI will call you at {{phone}} within the next 5 minutes. The call will be about {{industry}} solutions. Get ready! 📞✨",
+    "voiceInput": "Voice Input",
+    "listenToMessage": "Listen to message",
+    "stopSpeaking": "Stop Speaking",
+    "aiVoice": "AI Voice",
+    "clearChat": "Clear Chat",
+    "backToMain": "Back to Main"
+  },
+  "calendly": {
+    "loading": "लोड हो रहा है...",
+    "bookConsultation": "Book Free Consultation",
+    "scheduleTitle": "Schedule Your Free Consultation",
+    "aiExpertTeam": "AI Expert Team",
+    "sparkAISpecialists": "Spark AI Specialists",
+    "duration": "30 min",
+    "webConferencing": "Web conferencing details provided upon confirmation",
+    "wellCover": "We'll cover:",
+    "topics": {
+      "businessNeeds": "Your business needs and challenges",
+      "customStrategy": "Custom AI strategy for your industry",
+      "roadmap": "Implementation roadmap and timeline"
+    },
+    "testimonial": {
+      "quote": "The AI experts at Spark AI were professional and attentive during our consultation. They created an amazing AI voice agent strategy for our business that increased our conversion rate by 300%.",
+      "author": "Sarah Johnson, CEO TechStart Inc."
+    },
+    "schedulingComplete": "Scheduling Complete",
+    "thankYou": "Thank you for scheduling! You should receive a confirmation email shortly.",
+    "notice": "Notice",
+    "basicLink": "Using basic scheduling link. Some features may be limited.",
+    "cantFindTime": "Can't find a time that works?",
+    "contactDirectly": "Contact us directly"
+  },
+  "badges": {
+    "trustedByLeaders": "🏆 TRUSTED BY INDUSTRY LEADERS"
+  },
+  "featureHighlights": {
+    "enterpriseSecurity": {
+      "title": "Enterprise Security",
+      "description": "SOC 2 compliant with military-grade encryption"
+    },
+    "provenResults": {
+      "title": "Proven Results",
+      "description": "Average 300% increase in lead conversion rates"
+    },
+    "fiveStarSupport": {
+      "title": "5-Star Support",
+      "description": "24/7 dedicated support with 99.9% uptime"
+    },
+    "cta": {
+      "title": "Ready to join industry leaders?",
+      "subtitle": "Experience the same AI technology that's helping Fortune 500 companies transform their customer engagement",
+      "startFreeTrial": "मुफ्त परीक्षण शुरू करें",
+      "bookDemoCall": "Book Demo Call"
+    }
+  },
+  "exitIntent": {
+    "title": "Wait! Don’t Miss Out! 🚨",
+    "subtitle": "Get 50% OFF your first 3 months + FREE setup (Value: $500)",
+    "benefits": {
+      "save": "Save $1,500+ in the first 3 months",
+      "setup": "Free professional setup (worth $500)",
+      "trial": "14-day free trial included",
+      "guarantee": "30-day money-back guarantee"
+    },
+    "emailLabel": "Enter your email to claim this offer:",
+    "emailPlaceholder": "your@email.com",
+    "claimButton": "Claim My 50% Discount",
+    "privacy": "🔒 We respect your privacy. No spam, ever. Unsubscribe anytime.",
+    "success": {
+      "title": "🎉 You’re In!",
+      "message": "Check your email for your exclusive 50% discount code. This offer expires in 24 hours!",
+      "button": "Start My Free Trial"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Answer common questions simply. Remove doubts about pricing, setup, or features.",
+    "items": {
+      "cost": {
+        "question": "How much does it cost to get started?",
+        "answer": "Our plans start from AED 1,500/month with a one-time setup fee of AED 10,000. We also offer a 14-day free trial so you can test the system risk-free. No hidden fees!"
+      },
+      "setup": {
+        "question": "How long does setup take?",
+        "answer": "Setup takes just 5 minutes! Upload your contacts, choose your AI voice, and you’re ready. We provide free onboarding for the best results."
+      },
+      "natural": {
+        "question": "Does the AI sound natural?",
+        "answer": "Yes! Our advanced voice synthesis sounds completely human. 99% of prospects can’t tell they’re talking to AI. You can even clone your own voice for a personal touch."
+      },
+      "satisfaction": {
+        "question": "What if I’m not satisfied?",
+        "answer": "We offer a 30-day money-back guarantee. If you’re not completely satisfied, we’ll refund you — no questions asked. We’re confident you’ll love the results!"
+      },
+      "integration": {
+        "question": "Can I integrate with my existing CRM?",
+        "answer": "Absolutely! We integrate with all major CRMs including Salesforce, HubSpot, Pipedrive, and more. All call data and leads sync automatically to your system."
+      }
+    }
+  },
+  "process": {
+    "title": "How It Works",
+    "subtitle": "Show how easy your solution is to implement. Describe the process in 3 simple steps.",
+    "steps": {
+      "step1": {
+        "title": "Upload Your Leads",
+        "description": "Upload your contact list or connect your CRM. Our system automatically imports and organizes prospects."
+      },
+      "step2": {
+        "title": "AI Makes the Calls",
+        "description": "Our AI agents call your prospects, qualify them, and schedule meetings. Conversations are natural and engaging."
+      },
+      "step3": {
+        "title": "Close More Deals",
+        "description": "Focus on qualified leads and close more deals. Get detailed reports on every call and conversion."
+      }
+    }
+  },
+  "benefits": {
+    "title": "Why Choose Our AI Calling System",
+    "subtitle": "Highlight your product’s key advantages — 24/7 functionality, seamless integration, and superior efficiency.",
+    "availability": {
+      "title": "24/7 Availability",
+      "description": "Your AI sales agent doesn’t sleep, doesn’t take breaks, and never misses a call — capturing every opportunity around the clock.",
+      "stats": {
+        "value": "24/7",
+        "label": "Always Available"
+      }
+    },
+    "integration": {
+      "title": "Seamless Integration",
+      "description": "Works with your existing CRM, email tools, and sales processes. No disruption to your current workflow.",
+      "stats": {
+        "value": "5 Min",
+        "label": "Setup Time"
+      }
+    },
+    "efficiency": {
+      "title": "Superior Efficiency",
+      "description": "Make 10x more calls in the same time. AI handles repetitive work while you focus on closing.",
+      "stats": {
+        "value": "10x",
+        "label": "More Efficient"
+      }
+    }
+  },
+  "campaigns": {
+    "title": "अभियान",
+    "subtitle": "अपने सभी वॉइस कॉलिंग अभियानों को प्रबंधित करें",
+    "createNew": "नया अभियान बनाएं",
+    "createFirst": "अपना पहला अभियान बनाएं",
+    "noCampaigns": "कोई अभियान नहीं मिला",
+    "noCampaignsDesc": "एक नया अभियान बनाकर शुरू करें।",
+    "searchPlaceholder": "अभियान खोजें...",
+    "loading": "अभियान लोड हो रहे हैं...",
+    "active": "सक्रिय",
+    "paused": "रोका गया",
+    "draft": "ड्राफ्ट",
+    "completed": "पूर्ण",
+    "totalLeads": "कुल लीड्स",
+    "completedCalls": "पूर्ण कॉल",
+    "successfulCalls": "सफल कॉल",
+    "failedCalls": "असफल कॉल",
+    "averageDuration": "औसत अवधि",
+    "createdAt": "बनाया गया",
+    "actions": "कार्रवाई",
+    "view": "देखें",
+    "edit": "संपादित करें",
+    "delete": "हटाएं",
+    "start": "शुरू करें",
+    "pause": "रोकें",
+    "resume": "जारी रखें",
+    "deleteConfirmTitle": "क्या आप सुनिश्चित हैं?",
+    "deleteConfirmMessage": "इस कार्रवाई को पूर्ववत नहीं किया जा सकता। यह \"{{name}}\" अभियान को स्थायी रूप से हटा देगा।",
+    "deleteSuccess": "अभियान हटाया गया",
+    "deleteSuccessMessage": "अभियान सफलतापूर्वक हटा दिया गया है।",
+    "deleteError": "त्रुटि",
+    "deleteErrorMessage": "अभियान हटाने में विफल",
+    "cannotEditTitle": "अभियान संपादित नहीं किया जा सकता",
+    "cannotEditDraft": "केवल ड्राफ्ट अभियान संपादित किए जा सकते हैं",
+    "cannotEditWithCalls": "पूर्ण कॉल वाले अभियान संपादित नहीं किए जा सकते",
+    "deleting": "हटाया जा रहा है...",
+    "totalCalls": "कुल कॉल",
+    "successful": "सफल",
+    "progress": "प्रगति",
+    "created": "बनाया गया",
+    "stop": "रोकें",
+    "stopped": "रोका गया",
+    "stoppedMessage": "अभियान सफलतापूर्वक रोक दिया गया।",
+    "pausedMessage": "अभियान सफलतापूर्वक रोक दिया गया।",
+    "resumed": "फिर से शुरू किया गया",
+    "resumedMessage": "अभियान सफलतापूर्वक फिर से शुरू किया गया।",
+    "started": "शुरू किया गया",
+    "startedMessage": "अभियान सफलतापूर्वक शुरू किया गया।",
+    "stopConfirmMessage": "क्या आप \"{name}\" अभियान को रोकना चाहते हैं?\n\nयह करेगा:\n- सभी चल रहे कॉल रोकेगा\n- नए कॉल शुरू होने से रोकेगा\n- अभियान डेटा सुरक्षित रखेगा",
+    "pauseConfirmMessage": "क्या आप \"{name}\" अभियान को रोकना चाहते हैं?\n\nयह करेगा:\n- चल रहे कॉल रोकेगा\n- नए कॉल शुरू होने से रोकेगा\n- बाद में फिर से शुरू करने की अनुमति देगा",
+    "startConfirmMessage": "क्या आप \"{name}\" अभियान को शुरू करना चाहते हैं?\n\nयह करेगा:\n- लीड्स को कॉल करना शुरू करेगा\n- कॉन्फ़िगर किए गए वॉइस और सेटिंग्स का उपयोग करेगा\n- तुरंत प्रसंस्करण शुरू करेगा\n- मिनट वास्तविक कॉल अवधि के आधार पर कटौती की जाएगी",
+    "cannotEditPublished": "प्रकाशित अभियान संपादित नहीं किए जा सकते",
+    "cannotEditWithCompletedCalls": "पूर्ण कॉल वाले अभियान संपादित नहीं किए जा सकते"
+  },
+  "campaignDetails": {
+    "title": "Campaign Details",
+    "subtitle": "Campaign Details & Conversations",
+    "backToCampaigns": "Back to Campaigns",
+    "loading": "Loading campaign...",
+    "error": "Failed to load campaign",
+    "stats": {
+      "totalLeads": "Total Leads",
+      "completed": "पूर्ण",
+      "calling": "Calling",
+      "failed": "Failed",
+      "pending": "लंबित"
+    },
+    "leads": {
+      "title": "Leads",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "contactNo": "Contact Number",
+      "status": "स्थिति"
+    },
+    "callLogs": {
+      "title": "Call Logs",
+      "phoneNumber": "Phone Number",
+      "status": "स्थिति",
+      "duration": "Duration",
+      "createdAt": "Created At",
+      "actions": "Actions",
+      "viewConversation": "View Conversation"
+    },
+    "conversation": {
+      "title": "Call Transcript",
+      "subtitle": "Conversation with {{phoneNumber}} on {{date}}",
+      "loading": "Loading transcript...",
+      "noTranscription": "No transcript available for this call.",
+      "speaker": "Speaker",
+      "message": "Message"
+    }
+  },
+  "campaignCreation": {
+    "title": "नया अभियान बनाएं",
+    "subtitle": "अपना AI वॉइस कॉलिंग अभियान सेट अप करें",
+    "step1": "अभियान विवरण",
+    "step2": "आवाज़ चयन",
+    "step3": "लीड्स अपलोड करें",
+    "step4": "समीक्षा और लॉन्च",
+    "campaignName": "अभियान नाम",
+    "campaignNamePlaceholder": "अभियान नाम दर्ज करें",
+    "firstPrompt": "पहला प्रॉम्प्ट",
+    "firstPromptPlaceholder": "पहला संदेश दर्ज करें जो आपका AI कहेगा",
+    "defaultInitialMessage": "नमस्ते {{first_name}}, मैं हमारी सेल्स टीम से कॉल कर रहा हूं। मुझे उम्मीद है कि आपका दिन बढ़िया रहा है!",
+    "defaultSystemPersona": "आप एक मित्रवत, पेशेवर सेल्स असिस्टेंट हैं। आप संभावित ग्राहकों की मदद करते हैं सुविधाओं को स्पष्ट रूप से समझाकर, प्रश्नों के उत्तर देकर, और उन्हें सही समाधान की ओर मार्गदर्शन करके। हमेशा मददगार, आत्मविश्वासी और उनके समय का सम्मान करें।",
+    "systemPersona": "सिस्टम व्यक्तित्व",
+    "systemPersonaPlaceholder": "अपने AI के व्यक्तित्व और व्यवहार को परिभाषित करें",
+    "next": "अगला",
+    "previous": "पिछला",
+    "create": "अभियान बनाएं",
+    "creating": "अभियान बनाया जा रहा है...",
+    "success": "अभियान सफलतापूर्वक बनाया गया!",
+    "campaignCreated": "अभियान बनाया गया",
+    "campaignCreatedMessage": "अभियान सफलतापूर्वक बनाया गया है।",
+    "creationFailed": "निर्माण विफल",
+    "creationFailedMessage": "अभियान बनाने में विफल",
+    "campaignNameRequired": "अभियान नाम आवश्यक",
+    "campaignNameRequiredMessage": "कृपया एक अभियान नाम दर्ज करें।",
+    "duplicateCampaignName": "डुप्लिकेट अभियान नाम",
+    "duplicateCampaignNameMessage": "इस नाम का एक अभियान पहले से ही आपके खाते में मौजूद है। कृपया एक अलग नाम चुनें।",
+    "pdfUploaded": "PDF अपलोड किया गया",
+    "pdfUploadedMessage": "ज्ञान आधार सफलतापूर्वक अपलोड किया गया है।",
+    "uploadFailed": "अपलोड विफल",
+    "uploadFailedMessage": "PDF अपलोड करने में विफल।",
+    "csvUploaded": "CSV अपलोड किया गया",
+    "csvUploadedMessage": "{count} लीड्स सफलतापूर्वक अपलोड किए गए।",
+    "csvUploadFailedMessage": "CSV अपलोड करने में विफल।",
+    "testCallInitiated": "टेस्ट कॉल शुरू की गई",
+    "testCallFailed": "टेस्ट कॉल विफल",
+    "testCallFailedMessage": "टेस्ट कॉल करने में विफल।",
+    "campaignStarted": "अभियान शुरू किया गया",
+    "campaignStartedMessage": "अभियान सफलतापूर्वक शुरू किया गया है।",
+    "startCampaignConfirmMessage": "क्या आप \"{name}\" अभियान को शुरू करना चाहते हैं?\n\nयह करेगा:\n- चयनित आवाज़ का उपयोग करेगा\n- अपलोड किए गए लीड्स को प्रसंस्कृत करेगा\n- अपलोड किए गए ज्ञान आधार का उपयोग करेगा\n- तुरंत कॉल करना शुरू करेगा",
+    "deleteFileConfirmMessage": "क्या आप इस फ़ाइल को हटाना चाहते हैं? यह इसे AI एजेंट के ज्ञान आधार से हटा देगा।",
+    "fileDeleted": "फ़ाइल हटाई गई",
+    "fileDeletedMessage": "ज्ञान आधार फ़ाइल सफलतापूर्वक हटा दी गई है।",
+    "deleteLeadsConfirmMessage": "क्या आप सभी {count} अपलोड किए गए लीड्स को हटाना चाहते हैं? इस कार्रवाई को पूर्ववत नहीं किया जा सकता।",
+    "agentUpdated": "एजेंट अपडेट किया गया",
+    "agentUpdatedMessage": "AI एजेंट कॉन्फ़िगरेशन सफलतापूर्वक अपडेट किया गया है।",
+    "updateFailed": "अपडेट विफल",
+    "updateFailedMessage": "एजेंट कॉन्फ़िगरेशन अपडेट करने में विफल।",
+    "pdfUpdated": "PDF अपलोड किया गया",
+    "pdfUpdatedMessage": "ज्ञान आधार सफलतापूर्वक अपडेट किया गया है।",
+    "validationError": "सत्यापन त्रुटि",
+    "firstPromptRequired": "कृपया एक पहला प्रॉम्प्ट संदेश प्रदान करें।",
+    "campaignUpdated": "अभियान अपडेट किया गया",
+    "campaignUpdatedMessage": "अभियान सेटिंग्स सफलतापूर्वक सहेजी गई हैं।",
+    "invalidFile": "अमान्य फ़ाइल",
+    "invalidFilePdf": "कृपया एक PDF फ़ाइल अपलोड करें।",
+    "fileTooLarge": "फ़ाइल बहुत बड़ी है",
+    "fileTooLargePdf": "PDF फ़ाइल 10MB से छोटी होनी चाहिए।",
+    "deleteFailed": "हटाना विफल",
+    "deleteFailedMessage": "फ़ाइल हटाने में विफल",
+    "leadsDeleted": "लीड्स हटाए गए",
+    "leadsDeletedMessage": "सभी लीड्स सफलतापूर्वक हटा दिए गए हैं।",
+    "deleteLeadsFailed": "हटाना विफल",
+    "deleteLeadsFailedMessage": "लीड्स हटाने में विफल।",
+    "noCampaign": "कोई अभियान नहीं",
+    "noCampaignMessage": "कृपया पहले एक अभियान बनाएं या चुनें।",
+    "invalidFileCsv": "कृपया एक CSV फ़ाइल अपलोड करें।",
+    "fileTooLargeCsv": "CSV फ़ाइल 5MB से छोटी होनी चाहिए।",
+    "noLeads": "कोई लीड्स नहीं",
+    "noLeadsMessage": "हटाने के लिए कोई लीड्स नहीं हैं।",
+    "testCallSuccessful": "टेस्ट कॉल सफल",
+    "testCallSuccessfulMessage": "टेस्ट कॉल सफलतापूर्वक पूरी हुई।",
+    "campaignStartFailed": "अभियान शुरू करने में विफल",
+    "campaignStartFailedMessage": "अभियान शुरू करने में विफल।",
+    "phoneNumberRequired": "फोन नंबर आवश्यक",
+    "phoneNumberRequiredMessage": "कृपया टेस्ट कॉल के लिए एक फोन नंबर दर्ज करें।",
+    "invalidPhoneNumber": "अमान्य फोन नंबर",
+    "invalidPhoneNumberMessage": "कृपया एक वैध फोन नंबर दर्ज करें (उदाहरण: +15551234567 या 5551234567)।",
+    "noCampaignMessage2": "कृपया पहले एक अभियान बनाएं।",
+    "initialMessageRequired": "प्रारंभिक संदेश आवश्यक",
+    "initialMessageRequiredMessage": "कृपया अभियान के लिए एक प्रारंभिक संदेश सेट करें।",
+    "voiceRequired": "आवाज़ आवश्यक",
+    "voiceRequiredMessage": "कृपया अभियान के लिए एक आवाज़ चुनें।",
+    "knowledgeBaseRequiredMessage": "कृपया एक ज्ञान आधार PDF फ़ाइल अपलोड करें।",
+    "leadsRequired": "लीड्स आवश्यक",
+    "leadsRequiredMessage": "कृपया अभियान शुरू करने से पहले लीड्स CSV फ़ाइल अपलोड करें।",
+    "startCampaignConfirmMessage2": "क्या आप अभियान को शुरू करना चाहते हैं?\n\nयह करेगा:\n- चयनित आवाज़ का उपयोग करेगा ({voiceId})\n- {leadsCount} लीड्स को प्रसंस्कृत करेगा\n- अपलोड किए गए ज्ञान आधार का उपयोग करेगा\n- इसके साथ शुरू करेगा: \"{firstPrompt}\"\n- लागत: {credits} क्रेडिट",
+    "voiceCloned": "आवाज़ क्लोन की गई",
+    "voiceClonedMessage": "आवाज़ सफलतापूर्वक क्लोन की गई है।",
+    "voiceCloningFailed": "आवाज़ क्लोनिंग विफल",
+    "voiceCloningFailedMessage": "आवाज़ क्लोन करने में विफल।",
+    "fileRemoved": "फ़ाइल हटाई गई",
+    "fileRemovedMessage": "चयनित फ़ाइल हटा दी गई है।",
+    "campaignLaunch": {
+      "title": "अभियान लॉन्च",
+      "subtitle": "अपने अभियान का परीक्षण करें और शुरू करें।",
+      "testSingleCall": "एकल कॉल परीक्षण",
+      "firstNameOptional": "पहला नाम (वैकल्पिक)",
+      "firstNamePlaceholder": "पहला नाम दर्ज करें",
+      "phoneNumber": "फोन नंबर",
+      "testCall": "टेस्ट कॉल",
+      "calling": "कॉल कर रहे हैं...",
+      "completeStepsToEnable": "टेस्ट कॉल सक्षम करने के लिए सभी आवश्यक चरण पूरे करें:",
+      "setInitialMessage": "प्रारंभिक संदेश सेट करें",
+      "selectVoice": "एक आवाज़ चुनें",
+      "uploadKnowledgeBase": "ज्ञान आधार अपलोड करें",
+      "uploadLeadsCsv": "लीड्स CSV अपलोड करें",
+      "campaignControl": "अभियान नियंत्रण",
+      "start": "शुरू करें",
+      "starting": "शुरू हो रहा है...",
+      "pause": "रोकें",
+      "resume": "जारी रखें",
+      "stop": "रोकें",
+      "status": "स्थिति",
+      "running": "चल रहा है",
+      "paused": "रोका गया",
+      "stopped": "रोका गया",
+      "viewExistingCampaigns": "मौजूदा अभियान देखें",
+      "campaignRequirements": "अभियान आवश्यकताएं:",
+      "initialMessageRequired": "प्रारंभिक संदेश आवश्यक",
+      "voiceSelectionRequired": "आवाज़ चयन आवश्यक",
+      "knowledgeBaseRequired": "ज्ञान आधार आवश्यक",
+      "leadsCsvRequired": "लीड्स CSV आवश्यक",
+      "campaignActive": "अभियान सक्रिय",
+      "campaignActiveMessage": "आपका अभियान अब कॉल कर रहा है!",
+      "totalLeads": "कुल लीड्स",
+      "callsMade": "किए गए कॉल",
+      "successfulCalls": "सफल कॉल",
+      "pendingCalls": "लंबित कॉल",
+      "progress": "प्रगति",
+      "callHistory": "कॉल इतिहास",
+      "started": "शुरू किया गया",
+      "lastCall": "अंतिम कॉल",
+      "close": "बंद करें",
+      "enterCampaignName": "अभियान नाम दर्ज करें",
+      "creating": "बनाया जा रहा है...",
+      "enterCustomOpening": "अपना कस्टम ओपनिंग संदेश दर्ज करें...",
+      "searchVoices": "नाम, उच्चारण, लिंग या आयु से आवाज़ खोजें...",
+      "enterVoiceName": "आवाज़ नाम दर्ज करें",
+      "enterDescription": "विवरण दर्ज करें",
+      "initialMessageOverride": "प्रारंभिक संदेश (ओवरराइड)",
+      "save": "सहेजें",
+      "cancel": "रद्द करें",
+      "lastNameOptional": "अंतिम नाम (वैकल्पिक)",
+      "phonePlaceholder": "+971xxxxxxxx",
+      "emailOptional": "ईमेल (वैकल्पिक)"
+    }
+  },
+  "voices": {
+    "title": "Voice Library",
+    "subtitle": "Manage and clone voices for your campaigns",
+    "searchPlaceholder": "Search voices...",
+    "cloneVoice": "Clone Voice",
+    "premade": "Premade Voices",
+    "cloned": "Cloned Voices",
+    "select": "Select Voice",
+    "selected": "Selected",
+    "preview": "Preview",
+    "settings": "Voice Settings",
+    "stability": "Stability",
+    "similarity": "Similarity Boost",
+    "style": "Style",
+    "speakerBoost": "Speaker Boost",
+    "uploadAudio": "Upload Audio File",
+    "voiceName": "Voice Name",
+    "voiceNamePlaceholder": "Enter voice name",
+    "description": "विवरण",
+    "descriptionPlaceholder": "Enter voice description"
+  },
+  "leads": {
+    "title": "Upload Leads",
+    "subtitle": "Upload your contact list to start calling",
+    "dragDrop": "Drag and drop your CSV file here, or click to browse",
+    "supportedFormats": "Supported formats: CSV",
+    "uploading": "Uploading...",
+    "processing": "Processing leads...",
+    "success": "Leads uploaded successfully!",
+    "error": "Failed to upload leads",
+    "preview": "Preview",
+    "totalLeads": "Total Leads",
+    "validLeads": "Valid Leads",
+    "invalidLeads": "Invalid Leads",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phone": "Phone",
+    "email": "ईमेल",
+    "company": "Company",
+    "remove": "Remove",
+    "confirm": "Confirm Upload"
+  },
+  "analytics": {
+    "title": "विश्लेषण",
+    "subtitle": "Track performance and insights for your campaigns",
+    "export": "निर्यात करें",
+    "timeRange": {
+      "24h": "Last 24 hours",
+      "7d": "Last 7 days",
+      "30d": "Last 30 days",
+      "90d": "Last 90 days"
+    },
+    "cards": {
+      "totalCampaigns": "Total Campaigns",
+      "activeCampaigns": "Active Campaigns",
+      "totalCalls": "Total Calls",
+      "successRate": "Success Rate"
+    },
+    "overview": "Overview",
+    "campaigns": "अभियान",
+    "calls": "Calls",
+    "leads": "Leads",
+    "conversions": "Conversions",
+    "callsToday": "Calls Today",
+    "totalMinutes": "Total Minutes",
+    "totalCalls": "Total Calls",
+    "successfulCalls": "Successful Calls",
+    "failedCalls": "Failed Calls",
+    "averageCallDuration": "Average Call Duration",
+    "conversionRate": "Conversion Rate",
+    "totalLeads": "Total Leads",
+    "qualifiedLeads": "Qualified Leads",
+    "appointmentsBooked": "Appointments Booked",
+    "revenue": "Revenue",
+    "costPerCall": "Cost Per Call",
+    "roi": "ROI",
+    "timeframe": "Timeframe",
+    "last7Days": "Last 7 Days",
+    "last30Days": "Last 30 Days",
+    "last90Days": "Last 90 Days",
+    "custom": "Custom Range",
+    "additionalMetrics": {
+      "averageCallDuration": "Average Call Duration",
+      "perCallAverage": "Per call average",
+      "peakHours": "Peak Hours",
+      "bestCallTimes": "Best call times",
+      "dailyAverage": "Daily Average",
+      "callsPerDay": "Calls per day"
+    },
+    "charts": {
+      "callVolume": "Call Volume",
+      "successRateTrend": "Success Rate Trend"
+    },
+    "campaignPerformance": {
+      "title": "Campaign Performance",
+      "campaign": "Campaign",
+      "totalLeads": "Total Leads",
+      "completed": "पूर्ण",
+      "successRate": "Success Rate",
+      "avgDuration": "Avg Duration",
+      "created": "Created",
+      "loading": "Loading campaign performance...",
+      "noData": "No Campaign Data",
+      "noDataDescription": "Create campaigns to see performance analytics here."
+    }
+  },
+  "sidebar": {
+    "dashboard": "डैशबोर्ड",
+    "campaigns": "अभियान",
+    "voices": "आवाज़ें",
+    "analytics": "विश्लेषण",
+    "settings": "सेटिंग्स",
+    "logout": "लॉग आउट",
+    "newCampaign": "New Campaign",
+    "activeCampaigns": "Active Campaigns",
+    "totalCalls": "Total Calls",
+    "successRate": "Success Rate"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "noNotifications": "No notifications",
+    "markAllRead": "Mark all as read",
+    "campaignStarted": "Campaign started successfully",
+    "campaignPaused": "Campaign paused",
+    "campaignCompleted": "Campaign completed",
+    "newLead": "New lead added",
+    "callCompleted": "Call completed",
+    "systemUpdate": "System update available"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "network": "Network error. Please check your connection.",
+    "unauthorized": "You are not authorized to perform this action.",
+    "notFound": "The requested resource was not found.",
+    "validation": "Please check your input and try again.",
+    "server": "Server error. Please try again later.",
+    "timeout": "Request timed out. Please try again.",
+    "fileUpload": "Failed to upload file. Please try again.",
+    "invalidFile": "Invalid file format. Please upload a valid file.",
+    "fileTooLarge": "File is too large. Please upload a smaller file."
+  },
+  "success": {
+    "campaignCreated": "Campaign created successfully!",
+    "campaignUpdated": "Campaign updated successfully!",
+    "campaignDeleted": "Campaign deleted successfully!",
+    "leadsUploaded": "Leads uploaded successfully!",
+    "voiceCloned": "Voice cloned successfully!",
+    "settingsUpdated": "Settings updated successfully!",
+    "callScheduled": "Call scheduled successfully!",
+    "dataExported": "Data exported successfully!"
+  },
+  "dialer": {
+    "aiSalesAgent": "AI सेल्स एजेंट",
+    "aiAgent": "AI एजेंट",
+    "sparkAISystem": "AI SPARK SALES AGENT सिस्टम",
+    "dialing": "डायल कर रहा है...",
+    "connecting": "कनेक्ट हो रहा है...",
+    "connected": "कनेक्टेड",
+    "readyToCall": "कॉल के लिए तैयार",
+    "duration": "अवधि",
+    "quality": "गुणवत्ता",
+    "excellent": "उत्कृष्ट",
+    "sentiment": "भावना",
+    "positive": "सकारात्मक"
+  },
+  "progress": "of {total} features",
+  "campaignWorkflow": {
+    "title": "How Campaigns Work",
+    "subtitle": "Follow these simple steps to create and launch your AI voice calling campaigns",
+    "workflowTitle": "Campaign Workflow",
+    "step": "Step",
+    "startFirstCampaign": "Start Your First Campaign",
+    "step1": {
+      "title": "Create Campaign",
+      "description": "Set up your voice calling campaign",
+      "details": [
+        "Enter campaign name and description",
+        "Write your opening message",
+        "Configure AI personality",
+        "Set campaign objectives"
+      ],
+      "features": [
+        "Campaign Setup",
+        "Message Creation",
+        "AI Configuration"
+      ]
+    },
+    "step2": {
+      "title": "Upload Leads",
+      "description": "Add your contact list",
+      "details": [
+        "Upload a CSV with contacts",
+        "Map fields (name, phone, email)",
+        "Validate phone numbers",
+        "Preview lead data"
+      ],
+      "features": [
+        "CSV Upload",
+        "Field Mapping",
+        "Data Validation"
+      ]
+    },
+    "step3": {
+      "title": "Configure AI",
+      "description": "Set up voice and knowledge base",
+      "details": [
+        "Select AI voice (ElevenLabs)",
+        "Upload knowledge base documents",
+        "Configure conversation flow",
+        "Set call parameters"
+      ],
+      "features": [
+        "Voice Selection",
+        "Knowledge Base",
+        "AI Setup"
+      ]
+    },
+    "step4": {
+      "title": "Test & Launch",
+      "description": "Test and start your campaign",
+      "details": [
+        "Make test calls to verify setup",
+        "Review campaign settings",
+        "Start campaign execution",
+        "Monitor call progress"
+      ],
+      "features": [
+        "Test Calls",
+        "Campaign Launch",
+        "Progress Monitoring"
+      ]
+    },
+    "step5": {
+      "title": "Monitor Results",
+      "description": "Track campaign performance",
+      "details": [
+        "View call statistics",
+        "Analyze success rates",
+        "Review call recordings",
+        "Export results"
+      ],
+      "features": [
+        "विश्लेषण",
+        "Call Logs",
+        "Performance Reports"
+      ]
+    }
+  }
+}

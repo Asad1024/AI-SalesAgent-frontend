@@ -31,9 +31,9 @@ export default function UpgradeModal({ isOpen, onClose }: UpgradeModalProps) {
               <Zap className="w-8 h-8 text-yellow-600 dark:text-yellow-400" />
             </div>
           </div>
-          <DialogTitle className="text-2xl text-center">Insufficient Credits</DialogTitle>
+          <DialogTitle className="text-2xl text-center">Insufficient Minutes</DialogTitle>
           <DialogDescription className="text-center pt-2">
-            You don't have enough credits to start this campaign. Upgrade your plan to get more credits and unlock premium features.
+            You don't have enough minutes to start this campaign. Upgrade your plan to get more minutes and unlock premium features.
           </DialogDescription>
         </DialogHeader>
 
@@ -42,9 +42,9 @@ export default function UpgradeModal({ isOpen, onClose }: UpgradeModalProps) {
             <p className="text-sm text-slate-700 dark:text-slate-300">
               <span className="font-semibold">Our plans include:</span>
               <ul className="list-disc list-inside mt-2 text-xs space-y-1">
-                <li>Basic: 500 Credits - One-time</li>
-                <li>Essential: 500 Credits/Seat/Month</li>
-                <li>Premium: 2,500 Credits/Month</li>
+                <li>Basic: 500 Minutes - One-time</li>
+                <li>Essential: 500 Minutes/Seat/Month</li>
+                <li>Premium: 2,500 Minutes/Month</li>
               </ul>
             </p>
           </div>

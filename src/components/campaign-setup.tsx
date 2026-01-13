@@ -45,16 +45,16 @@ export default function CampaignSetup({ campaign, onCampaignUpdate }: CampaignSe
     }) => api.updateAgent(data),
     onSuccess: (data) => {
       toast({
-        title: "Agent Updated",
-        description: "AI agent configuration has been updated successfully.",
+        title: t('campaignCreation.agentUpdated'),
+        description: t('campaignCreation.agentUpdatedMessage'),
       });
       onCampaignUpdate(data.campaign);
       queryClient.invalidateQueries({ queryKey: ["/api/campaigns"] });
     },
     onError: (error: any) => {
       toast({
-        title: "Update Failed",
-        description: error.message || "Failed to update agent configuration.",
+        title: t('campaignCreation.updateFailed'),
+        description: error.message || t('campaignCreation.updateFailedMessage'),
         variant: "destructive",
       });
     },
@@ -65,8 +65,8 @@ export default function CampaignSetup({ campaign, onCampaignUpdate }: CampaignSe
     mutationFn: (file: File) => api.uploadPDF(file, campaign.id.toString()),
     onSuccess: (data) => {
       toast({
-        title: "PDF Uploaded",
-        description: "Knowledge base has been updated successfully.",
+        title: t('campaignCreation.pdfUpdated'),
+        description: t('campaignCreation.pdfUpdatedMessage'),
       });
       // Update campaign with new knowledge base ID
       if (data.knowledgeBase?.id) {
@@ -80,8 +80,8 @@ export default function CampaignSetup({ campaign, onCampaignUpdate }: CampaignSe
     },
     onError: (error: any) => {
       toast({
-        title: "Upload Failed",
-        description: error.message || "Failed to upload PDF.",
+        title: t('campaignCreation.uploadFailed'),
+        description: error.message || t('campaignCreation.uploadFailedMessage'),
         variant: "destructive",
       });
     },
@@ -90,8 +90,8 @@ export default function CampaignSetup({ campaign, onCampaignUpdate }: CampaignSe
   const handleUpdateAgent = () => {
     if (!firstPrompt.trim()) {
       toast({
-        title: "Validation Error",
-        description: "Please provide a first prompt message.",
+        title: t('campaignCreation.validationError'),
+        description: t('campaignCreation.firstPromptRequired'),
         variant: "destructive",
       });
       return;
@@ -112,8 +112,8 @@ export default function CampaignSetup({ campaign, onCampaignUpdate }: CampaignSe
         // Ensure the campaign object is properly updated with the new ID
         onCampaignUpdate(data.campaign);
         toast({
-          title: "Campaign Updated",
-          description: "Campaign settings have been saved successfully.",
+          title: t('campaignCreation.campaignUpdated'),
+          description: t('campaignCreation.campaignUpdatedMessage'),
         });
         queryClient.invalidateQueries({ queryKey: ["/api/campaigns"] });
       }
@@ -123,8 +123,8 @@ export default function CampaignSetup({ campaign, onCampaignUpdate }: CampaignSe
   const handlePDFUpload = (file: File) => {
     if (file.type !== 'application/pdf') {
       toast({
-        title: "Invalid File",
-        description: "Please upload a PDF file.",
+        title: t('campaignCreation.invalidFile'),
+        description: t('campaignCreation.invalidFilePdf'),
         variant: "destructive",
       });
       return;
@@ -132,8 +132,8 @@ export default function CampaignSetup({ campaign, onCampaignUpdate }: CampaignSe
 
     if (file.size > 10 * 1024 * 1024) { // 10MB
       toast({
-        title: "File Too Large",
-        description: "PDF file must be smaller than 10MB.",
+        title: t('campaignCreation.fileTooLarge'),
+        description: t('campaignCreation.fileTooLargePdf'),
         variant: "destructive",
       });
       return;
@@ -153,8 +153,8 @@ export default function CampaignSetup({ campaign, onCampaignUpdate }: CampaignSe
       handlePDFUpload(pdfFile);
     } else {
       toast({
-        title: "Invalid File",
-        description: "Please upload a PDF file.",
+        title: t('campaignCreation.invalidFile'),
+        description: t('campaignCreation.invalidFilePdf'),
         variant: "destructive",
       });
     }
@@ -264,21 +264,21 @@ export default function CampaignSetup({ campaign, onCampaignUpdate }: CampaignSe
                       onClick={() => {
                         if (campaign?.id) {
                           const confirmDelete = window.confirm(
-                            "Are you sure you want to delete this file? This will remove it from the AI agent's knowledge base."
+                            t('campaignCreation.deleteFileConfirmMessage')
                           );
                           if (confirmDelete) {
                             api.deleteKnowledgeBase(file.id, campaign.id)
                               .then(() => {
                                 toast({
-                                  title: "File Deleted",
-                                  description: "Knowledge base file has been removed successfully.",
+                                  title: t('campaignCreation.fileDeleted'),
+                                  description: t('campaignCreation.fileDeletedMessage'),
                                 });
                                 queryClient.invalidateQueries({ queryKey: ["/api/knowledge-base"] });
                               })
                               .catch((error) => {
                                 toast({
-                                  title: "Delete Failed",
-                                  description: error.message || "Failed to delete file",
+                                  title: t('campaignCreation.deleteFailed'),
+                                  description: error.message || t('campaignCreation.deleteFailedMessage'),
                                   variant: "destructive",
                                 });
                               });

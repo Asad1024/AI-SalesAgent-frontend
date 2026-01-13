@@ -31,16 +31,20 @@ import LanguageSwitcher from '@/components/language-switcher';
 import { useAuth } from '@/hooks/use-auth';
 import { useToast } from '@/hooks/use-toast';
 import Logo from '@/components/logo';
+import { authService } from '@/lib/auth';
 
 export default function Signup() {
   const { t } = useTranslation();
-  const { register, user } = useAuth();
+  const { register, user, refreshUser } = useAuth();
   const { toast } = useToast();
   const [, setLocation] = useLocation();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    companyName: '',
+    firstName: '',
+    lastName: ''
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -56,13 +60,47 @@ export default function Signup() {
     }
   }, [user, setLocation]);
 
+  // Check for Google OAuth data in URL params and auto-fill form
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get('email');
+    const firstName = params.get('firstName');
+    const lastName = params.get('lastName');
+    const googleId = params.get('googleId');
+    const idToken = params.get('idToken');
+
+    if (email && googleId) {
+      // Auto-fill form with Google data
+      setFormData(prev => ({
+        ...prev,
+        email: email,
+        firstName: firstName || prev.firstName,
+        lastName: lastName || prev.lastName
+      }));
+
+      // Store Google data for later use in registration
+      if (idToken) {
+        (window as any).pendingGoogleAuth = {
+          idToken,
+          email,
+          name: `${firstName || ''} ${lastName || ''}`.trim() || params.get('name') || '',
+          picture: params.get('picture') || '',
+          googleId
+        };
+      }
+
+      // Clean up URL
+      window.history.replaceState({}, '', '/signup');
+    }
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (formData.password !== formData.confirmPassword) {
       toast({
-        title: "Password Mismatch",
-        description: "Passwords do not match. Please try again.",
+        title: t('signup.passwordMismatchTitle'),
+        description: t('signup.passwordMismatchDescription'),
         variant: "destructive",
       });
       return;
@@ -70,8 +108,19 @@ export default function Signup() {
 
     if (formData.password.length < 6) {
       toast({
-        title: "Password Too Short",
-        description: "Password must be at least 6 characters long.",
+        title: t('signup.passwordTooShortTitle'),
+        description: t('signup.passwordTooShortDescription'),
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoading(true);
+    
+    if (!formData.companyName || formData.companyName.trim() === '') {
+      toast({
+        title: t('signup.companyNameRequiredTitle'),
+        description: t('signup.companyNameRequiredDescription'),
         variant: "destructive",
       });
       return;
@@ -80,7 +129,25 @@ export default function Signup() {
     setIsLoading(true);
     
     try {
-      await register(formData.email, formData.password, formData.confirmPassword);
+      // Check if there's pending Google auth data to link
+      const pendingGoogleAuth = (window as any).pendingGoogleAuth;
+      const googleId = pendingGoogleAuth?.googleId;
+      
+      await register(
+        formData.email, 
+        formData.password, 
+        formData.confirmPassword,
+        formData.companyName,
+        formData.firstName,
+        formData.lastName,
+        googleId // Pass Google ID if available
+      );
+      
+      // Clear pending Google auth
+      if (pendingGoogleAuth) {
+        delete (window as any).pendingGoogleAuth;
+      }
+      
       setIsSuccess(true);
       
       // Redirect after success using router (no page reload)
@@ -89,8 +156,8 @@ export default function Signup() {
       }, 1000);
     } catch (error: any) {
       toast({
-        title: "Registration Failed",
-        description: error.message || "An error occurred during registration.",
+        title: t('signup.registrationFailedTitle'),
+        description: error.message || t('signup.registrationFailedDescription'),
         variant: "destructive",
       });
     } finally {
@@ -103,6 +170,130 @@ export default function Signup() {
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  // Google OAuth handler
+  useEffect(() => {
+    const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+    if (!googleClientId) {
+      console.warn('Google Client ID not configured');
+      return;
+    }
+
+    // Check if script already exists
+    if (document.querySelector('script[src="https://accounts.google.com/gsi/client"]')) {
+      // Script already loaded, initialize immediately
+      initializeGoogleSignIn(googleClientId);
+      return;
+    }
+
+    // Load Google Identity Services script
+    const script = document.createElement('script');
+    script.src = 'https://accounts.google.com/gsi/client';
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+
+    script.onload = () => {
+      initializeGoogleSignIn(googleClientId);
+    };
+
+    script.onerror = () => {
+      console.error('Failed to load Google Identity Services script');
+    };
+  }, []);
+
+  const initializeGoogleSignIn = (clientId: string) => {
+    const checkAndRender = () => {
+      if (window.google && window.google.accounts) {
+        window.google.accounts.id.initialize({
+          client_id: clientId,
+          callback: handleGoogleCallback,
+        });
+
+        // Render Google sign-in button
+        const buttonContainer = document.getElementById('google-signin-button');
+        if (buttonContainer && buttonContainer.children.length === 0) {
+          window.google.accounts.id.renderButton(buttonContainer, {
+            theme: 'outline',
+            size: 'large',
+            width: '100%',
+            text: 'signup_with',
+            locale: 'en'
+          });
+        }
+      } else {
+        // Retry after a short delay
+        setTimeout(checkAndRender, 100);
+      }
+    };
+    
+    checkAndRender();
+  };
+
+  const handleGoogleCallback = async (response: any) => {
+    setIsLoading(true);
+    try {
+      // Decode the JWT token to get user info
+      const tokenParts = response.credential.split('.');
+      const payload = JSON.parse(atob(tokenParts[1]));
+      
+      const googleData = {
+        idToken: response.credential,
+        email: payload.email,
+        name: payload.name,
+        picture: payload.picture,
+        googleId: payload.sub
+      };
+
+      // Check if user exists first
+      const checkResult = await authService.checkGoogleUser(googleData.email, googleData.googleId);
+      
+      if (checkResult.exists) {
+        // User exists - sign them in
+        const authResponse = await authService.googleLogin(googleData);
+        
+        if (authResponse.user) {
+          toast({
+            title: t('signup.accountAlreadyExistsTitle'),
+            description: t('signup.accountAlreadyExistsDescription'),
+            variant: "default",
+          });
+          
+          await refreshUser();
+          setIsSuccess(true);
+          setTimeout(() => {
+            setLocation('/dashboard');
+          }, 1000);
+        }
+      } else {
+        // User doesn't exist - auto-fill form with Google data
+        const nameParts = googleData.name ? googleData.name.split(' ') : [];
+        setFormData(prev => ({
+          ...prev,
+          email: googleData.email,
+          firstName: nameParts[0] || prev.firstName,
+          lastName: nameParts.slice(1).join(' ') || prev.lastName
+        }));
+
+        // Store Google data for registration
+        (window as any).pendingGoogleAuth = googleData;
+
+        toast({
+          title: t('signup.googleAccountConnectedTitle'),
+          description: t('signup.googleAccountConnectedDescription'),
+          variant: "default",
+        });
+      }
+    } catch (error: any) {
+      toast({
+        title: t('signup.googleSignUpFailedTitle'),
+        description: error.message || t('signup.googleSignUpFailedDescription'),
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   // Animation cycle for floating elements
@@ -195,10 +386,46 @@ export default function Signup() {
 
                 {/* Enhanced Form */}
                 <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6 lg:space-y-8">
+                  {/* First Name and Last Name - At the start */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm sm:text-base font-medium text-slate-700 dark:text-slate-300 mb-2 sm:mb-3">
+                        {t('signup.firstNameLabel')}
+                      </label>
+                      <div className="relative">
+                        <User className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-slate-400" />
+                        <input
+                          type="text"
+                          name="firstName"
+                          value={formData.firstName}
+                          onChange={handleChange}
+                          className="w-full pl-10 sm:pl-12 pr-4 py-3 sm:py-4 lg:py-5 border border-slate-200 dark:border-slate-600 rounded-xl sm:rounded-2xl bg-white/70 dark:bg-slate-700/70 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base lg:text-lg"
+                          placeholder={t('signup.firstNamePlaceholder')}
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-sm sm:text-base font-medium text-slate-700 dark:text-slate-300 mb-2 sm:mb-3">
+                        {t('signup.lastNameLabel')}
+                      </label>
+                      <div className="relative">
+                        <User className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-slate-400" />
+                        <input
+                          type="text"
+                          name="lastName"
+                          value={formData.lastName}
+                          onChange={handleChange}
+                          className="w-full pl-10 sm:pl-12 pr-4 py-3 sm:py-4 lg:py-5 border border-slate-200 dark:border-slate-600 rounded-xl sm:rounded-2xl bg-white/70 dark:bg-slate-700/70 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base lg:text-lg"
+                          placeholder={t('signup.lastNamePlaceholder')}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
                   {/* Enhanced Email */}
                   <div>
                     <label className="block text-sm sm:text-base font-medium text-slate-700 dark:text-slate-300 mb-2 sm:mb-3">
-                      {t('signup.emailLabel')}
+                      {t('signup.emailLabel')} <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
                       <Mail className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-slate-400" />
@@ -214,10 +441,29 @@ export default function Signup() {
                     </div>
                   </div>
 
+                  {/* Company Name - Required */}
+                  <div>
+                    <label className="block text-sm sm:text-base font-medium text-slate-700 dark:text-slate-300 mb-2 sm:mb-3">
+                      {t('signup.companyNameLabel')} <span className="text-red-500">*</span>
+                    </label>
+                    <div className="relative">
+                      <User className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-slate-400" />
+                      <input
+                        type="text"
+                        name="companyName"
+                        value={formData.companyName}
+                        onChange={handleChange}
+                        required
+                        className="w-full pl-10 sm:pl-12 pr-4 py-3 sm:py-4 lg:py-5 border border-slate-200 dark:border-slate-600 rounded-xl sm:rounded-2xl bg-white/70 dark:bg-slate-700/70 backdrop-blur-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base lg:text-lg"
+                        placeholder={t('signup.companyNamePlaceholder')}
+                      />
+                    </div>
+                  </div>
+
                   {/* Enhanced Password */}
                   <div>
                     <label className="block text-sm sm:text-base font-medium text-slate-700 dark:text-slate-300 mb-2 sm:mb-3">
-                      {t('signup.passwordLabel')}
+                      {t('signup.passwordLabel')} <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
                       <Lock className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-slate-400" />
@@ -243,7 +489,7 @@ export default function Signup() {
                   {/* Enhanced Confirm Password */}
                   <div>
                     <label className="block text-sm sm:text-base font-medium text-slate-700 dark:text-slate-300 mb-2 sm:mb-3">
-                      {t('signup.confirmPasswordLabel')}
+                      {t('signup.confirmPasswordLabel')} <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
                       <Lock className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-slate-400" />
@@ -284,6 +530,19 @@ export default function Signup() {
                       </>
                     )}
                   </Button>
+
+                  {/* Divider */}
+                  <div className="relative my-4 sm:my-6">
+                    <div className="absolute inset-0 flex items-center">
+                      <div className="w-full border-t border-slate-300 dark:border-slate-600"></div>
+                    </div>
+                    <div className="relative flex justify-center text-sm">
+                      <span className="px-2 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400">{t('signup.orContinueWith')}</span>
+                    </div>
+                  </div>
+
+                  {/* Google Sign-In Button */}
+                  <div id="google-signin-button" className="w-full"></div>
                 </form>
 
                 {/* Login Link */}

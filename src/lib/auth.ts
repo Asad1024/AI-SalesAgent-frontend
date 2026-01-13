@@ -4,6 +4,7 @@ export interface AuthResponse {
   message: string;
   user?: Omit<User, 'passwordHash'>;
   token?: string;
+  isExistingAccount?: boolean;
 }
 
 export interface AuthError {
@@ -12,20 +13,28 @@ export interface AuthError {
 }
 
 class AuthService {
-  // Production URL (commented for local testing)
-  // private baseUrl = 'https://aisparksalesagent-backend.onrender.com/api/auth';
+  // Production URL
+  private baseUrl = 'https://aisparksalesagent-backend.onrender.com/api/auth';
   
-  // Local development URL (Backend running on port 8000)
-  private baseUrl = 'http://localhost:8000/api/auth';
+  // Local development URL (Backend running on port 8000) - commented for production
+  // private baseUrl = 'http://localhost:8000/api/auth';
 
-  async register(email: string, password: string, confirmPassword: string): Promise<AuthResponse> {
+  async register(email: string, password: string, confirmPassword: string, companyName?: string, firstName?: string, lastName?: string, googleId?: string): Promise<AuthResponse> {
     const response = await fetch(`${this.baseUrl}/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       credentials: 'include',
-      body: JSON.stringify({ email, password, confirmPassword }),
+      body: JSON.stringify({ 
+        email, 
+        password, 
+        confirmPassword,
+        companyName: companyName || '',
+        firstName: firstName || '',
+        lastName: lastName || '',
+        googleId: googleId || undefined
+      }),
     });
 
     const data = await response.json();
@@ -77,7 +86,11 @@ class AuthService {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error('failed');
+      // Create error with additional info for Google-only users
+      const error: any = new Error(data.error || 'Login failed');
+      error.requiresGoogleAuth = data.requiresGoogleAuth || false;
+      error.hasGoogleId = data.hasGoogleId || false;
+      throw error;
     }
 
     if (data.token) {
@@ -140,6 +153,23 @@ class AuthService {
     }
 
     return data;
+  }
+
+  async setPassword(email: string, password: string, confirmPassword: string): Promise<void> {
+    const response = await fetch(`${this.baseUrl}/set-password`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({ email, password, confirmPassword }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || 'Failed to set password');
+    }
   }
 
   async changePassword(currentPassword: string, newPassword: string, confirmNewPassword: string): Promise<void> {
@@ -274,6 +304,52 @@ class AuthService {
     }
 
     return { authenticated: false };
+  }
+
+  async checkGoogleUser(email: string, googleId: string): Promise<{ exists: boolean; user?: any }> {
+    const response = await fetch(`${this.baseUrl}/google/check`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({ email, googleId }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || 'Failed to check user');
+    }
+
+    return data;
+  }
+
+  async googleLogin(googleData: { idToken?: string; email: string; name?: string; picture?: string; googleId: string }): Promise<AuthResponse> {
+    const response = await fetch(`${this.baseUrl}/google`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(googleData),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || 'Google authentication failed');
+    }
+
+    if (data.token) {
+      localStorage.setItem('auth-token', data.token);
+    }
+
+    if (data.user) {
+      localStorage.setItem('user', JSON.stringify(data.user));
+    }
+
+    return data;
   }
 }
 

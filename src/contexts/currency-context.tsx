@@ -38,13 +38,6 @@ const currencies: Currency[] = [
     name: 'Turkish Lira',
     flag: '🇹🇷',
     rate: 30.5
-  },
-  {
-    code: 'AZN',
-    symbol: '₼',
-    name: 'Azerbaijani Manat',
-    flag: '🇦🇿',
-    rate: 1.7
   }
 ];
 
@@ -52,7 +45,6 @@ const currencies: Currency[] = [
 const languageToCurrency: Record<string, string> = {
   'en': 'USD',
   'tr': 'TRY',
-  'az': 'AZN',
   'ar': 'AED'
 };
 

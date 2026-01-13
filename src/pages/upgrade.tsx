@@ -12,9 +12,9 @@ export default function UpgradePage() {
   const { toast } = useToast();
 
   const packages = [
-    { name: 'Basic', price: '12,000', period: 'One-time', highlighted: false, features: ['1 Seat', '500 Credits', 'Email Support'], icon: Zap, buttonText: 'Get Started' },
-    { name: 'Essential', price: '1,500', period: '/Month', highlighted: false, features: ['2 Seats', '500 Credits/Seat', 'Email Support'], icon: Rocket, buttonText: 'Subscribe' },
-    { name: 'Premium', price: '3,000', period: '/Month', highlighted: true, features: ['3 Seats', '2,500 Credits', 'Priority Support'], icon: Crown, buttonText: 'Subscribe' },
+    { name: 'Basic', price: '12,000', period: 'One-time', highlighted: false, features: ['1 Seat', '500 Minutes', 'Email Support'], icon: Zap, buttonText: 'Get Started' },
+    { name: 'Essential', price: '1,500', period: '/Month', highlighted: false, features: ['2 Seats', '500 Minutes/Seat', 'Email Support'], icon: Rocket, buttonText: 'Subscribe' },
+    { name: 'Premium', price: '3,000', period: '/Month', highlighted: true, features: ['3 Seats', '2,500 Minutes', 'Priority Support'], icon: Crown, buttonText: 'Subscribe' },
   ];
 
   const handleUpgradePlan = (plan: string) => {
@@ -72,7 +72,7 @@ export default function UpgradePage() {
 
               <div>
                 <h2 className="text-3xl font-bold text-black dark:text-black spark-gradient-text">Upgrade Your Plan</h2>
-                <p className="text-black dark:text-black mt-2">Get more credits and unlock premium features</p>
+                <p className="text-black dark:text-black mt-2">Get more minutes and unlock premium features</p>
               </div>
             </div>
             <div className="hidden lg:flex items-center gap-3">
@@ -134,10 +134,10 @@ export default function UpgradePage() {
                 <div className="p-6 rounded-lg bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600 hover:shadow-md transition-shadow">
                   <p className="font-bold text-slate-900 dark:text-white">Extra Seat</p>
                   <p className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-2">500 AED</p>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-2">+ 750 Credits per month</p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-2">+ 750 Minutes per month</p>
                 </div>
                 <div className="p-6 rounded-lg bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600 hover:shadow-md transition-shadow">
-                  <p className="font-bold text-slate-900 dark:text-white">Credit Recharge</p>
+                  <p className="font-bold text-slate-900 dark:text-white">Minutes Recharge</p>
                   <p className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-2">0.92 AED</p>
                   <p className="text-xs text-slate-600 dark:text-slate-400 mt-2">Per minute of call time</p>
                 </div>

@@ -127,11 +127,11 @@ export default function Dashboard() {
               </Sheet>
               
               <div>
-                <h2 className="text-3xl font-bold text-black dark:text-black spark-gradient-text">
+                <h2 className="text-3xl font-bold text-black dark:text-white spark-gradient-text">
                   {t('common.dashboard')}
                 </h2>
-                <p className="text-black dark:text-black mt-2">
-                  Manage your AI voice calling campaigns and sales automation
+                <p className="text-gray-600 dark:text-gray-300 mt-2">
+                  {t('dashboard.subtitle')}
                 </p>
               </div>
             </div>

@@ -5,9 +5,11 @@ import { ArrowLeft } from "lucide-react";
 import { useLocation } from "wouter";
 import ThemeToggle from "@/components/theme-toggle";
 import LanguageSwitcher from "@/components/language-switcher";
+import { useTranslation } from "react-i18next";
 
 export default function CampaignCreation() {
   const [, setLocation] = useLocation();
+  const { t } = useTranslation();
 
   return (
     <div className="flex h-screen bg-gradient-to-br from-brand-50 via-brand-100 to-brand-50 dark:from-brand-900 dark:via-brand-800/20 dark:to-brand-900">
@@ -25,10 +27,10 @@ export default function CampaignCreation() {
                 <ArrowLeft className="h-4 w-4" />
               </Button>
               <div>
-                <h2 className="text-3xl font-bold text-black dark:text-black spark-gradient-text">
-                  Create New Campaign
+                <h2 className="text-3xl font-bold text-black dark:text-white spark-gradient-text">
+                  {t('campaignCreation.title')}
                 </h2>
-                <p className="text-black dark:text-black mt-2">Set up your AI voice calling campaign</p>
+                <p className="text-gray-600 dark:text-gray-300 mt-2">{t('campaignCreation.subtitle')}</p>
               </div>
             </div>
             <div className="hidden lg:flex items-center gap-3">

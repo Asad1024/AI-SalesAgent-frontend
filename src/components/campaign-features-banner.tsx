@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   FileText, 
   Bot, 
@@ -19,12 +20,13 @@ import {
 } from 'lucide-react';
 
 export default function CampaignFeaturesBanner() {
+  const { t, i18n } = useTranslation();
   const [currentFeature, setCurrentFeature] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState('en');
+  const currentLanguage = i18n.language;
 
-  // Language translations
-  const translations = {
+  // Language translations using i18n
+  const translations = useMemo(() => ({
     en: {
       title: "Campaign Management Features",
       subtitle: "Complete AI voice calling campaign setup in 3 simple steps",
@@ -151,92 +153,92 @@ export default function CampaignFeaturesBanner() {
         ]
       }
     },
-    az: {
-      title: "Kampaniya İdarəetmə Xüsusiyyətləri",
-      subtitle: "3 sadə addımda tam AI səsli zəng kampaniyası quraşdırması",
+    hi: {
+      title: "अभियान प्रबंधन सुविधाएं",
+      subtitle: "3 सरल चरणों में पूर्ण AI वॉइस कॉलिंग अभियान सेटअप",
       features: {
         step1: {
-          title: "Addım 1: Kampaniya Seçimi",
-          description: "Yeni kampaniya yaradın və ya mövcud olanlardan seçin",
-          details: "Sıfırdan başlayın və ya əvvəlki kampaniyalarınızla davam edin"
+          title: "चरण 1: अभियान चयन",
+          description: "एक नया अभियान बनाएं या मौजूदा में से चुनें",
+          details: "शुरुआत करें या अपने पिछले अभियानों के साथ जारी रखें"
         },
         step2: {
-          title: "Addım 2: Kampaniya Konfiqurasiyası",
-          description: "Bilik bazası, AI şəxsiyyəti, səs və potensial müştəriləri təyin edin",
-          details: "PDF yükləyin, AI davranışını konfiqurasiya edin, səs seçin və zəng siyahılarını idarə edin"
+          title: "चरण 2: अभियान कॉन्फ़िगरेशन",
+          description: "ज्ञान आधार, AI व्यक्तित्व, आवाज़ और लीड सेट करें",
+          details: "PDF अपलोड करें, AI व्यवहार कॉन्फ़िगर करें, आवाज़ चुनें और कॉलिंग सूचियां प्रबंधित करें"
         },
         step3: {
-          title: "Addım 3: Kampaniya Başlatması",
-          description: "Kampaniyanızı test edin və zəng etməyə başlamaq üçün başladın",
-          details: "Bütün potensial müştərilərə başlamazdan əvvəl tək zənglə test edin"
+          title: "चरण 3: अभियान लॉन्च",
+          description: "अपने अभियान का परीक्षण करें और कॉलिंग शुरू करने के लिए लॉन्च करें",
+          details: "सभी लीड को लॉन्च करने से पहले एक कॉल से परीक्षण करें"
         }
       },
       featureNames: {
-        campaignSelection: "Kampaniya Seçimi",
-        knowledgeBase: "Bilik Bazası",
-        aiSetup: "AI Quraşdırması",
-        voiceSelection: "Səs Seçimi",
-        leadsUpload: "Potensial Müştəri Yükləməsi",
-        testCall: "Test Zəngi",
-        campaignLaunch: "Kampaniya Başlatması",
-        navigation: "Naviqasiya",
-        integration: "İnteqrasiya"
+        campaignSelection: "अभियान चयन",
+        knowledgeBase: "ज्ञान आधार",
+        aiSetup: "AI सेटअप",
+        voiceSelection: "आवाज़ चयन",
+        leadsUpload: "लीड अपलोड",
+        testCall: "टेस्ट कॉल",
+        campaignLaunch: "अभियान लॉन्च",
+        navigation: "नेविगेशन",
+        integration: "एकीकरण"
       },
       benefits: {
-        title: "Əsas Faydalar",
+        title: "मुख्य लाभ",
         items: [
-          "Dəqiqələr ərzində tam kampaniya quraşdırması",
-          "Başlatmazdan əvvəl test edin",
-          "Çoxdilli dəstək",
-          "Real vaxt monitorinqi",
-          "Addımlar arasında asan naviqasiya"
+          "मिनटों में पूर्ण अभियान सेटअप",
+          "लॉन्च करने से पहले परीक्षण करें",
+          "बहु-भाषा समर्थन",
+          "वास्तविक समय निगरानी",
+          "चरणों के बीच आसान नेविगेशन"
         ]
       }
     }
-  };
+  }), [t, currentLanguage]);
 
-  const t = translations[currentLanguage as keyof typeof translations];
+  const t_local = translations[currentLanguage as keyof typeof translations] || translations.en;
 
-  const features = [
+  const features = useMemo(() => [
     {
       icon: FileText,
-      title: t.features.step1.title,
-      description: t.features.step1.description,
-      details: t.features.step1.details,
+      title: t_local.features.step1.title,
+      description: t_local.features.step1.description,
+      details: t_local.features.step1.details,
       color: "from-blue-500 to-cyan-500",
       features: [
-        t.featureNames.campaignSelection,
-        "Create New Campaign",
-        "Select Existing"
+        t_local.featureNames.campaignSelection,
+        currentLanguage === 'ar' ? 'إنشاء حملة جديدة' : currentLanguage === 'tr' ? 'Yeni Kampanya Oluştur' : currentLanguage === 'hi' ? 'नई अभियान बनाएं' : "Create New Campaign",
+        currentLanguage === 'ar' ? 'اختيار موجود' : currentLanguage === 'tr' ? 'Mevcut Seç' : currentLanguage === 'hi' ? 'मौजूदा चुनें' : "Select Existing"
       ]
     },
     {
       icon: Settings,
-      title: t.features.step2.title,
-      description: t.features.step2.description,
-      details: t.features.step2.details,
+      title: t_local.features.step2.title,
+      description: t_local.features.step2.description,
+      details: t_local.features.step2.details,
       color: "from-purple-500 to-pink-500",
       features: [
-        t.featureNames.knowledgeBase,
-        t.featureNames.aiSetup,
-        t.featureNames.voiceSelection,
-        t.featureNames.leadsUpload
+        t_local.featureNames.knowledgeBase,
+        t_local.featureNames.aiSetup,
+        t_local.featureNames.voiceSelection,
+        t_local.featureNames.leadsUpload
       ]
     },
     {
       icon: Rocket,
-      title: t.features.step3.title,
-      description: t.features.step3.description,
-      details: t.features.step3.details,
+      title: t_local.features.step3.title,
+      description: t_local.features.step3.description,
+      details: t_local.features.step3.details,
       color: "from-blue-500 to-purple-500",
       features: [
-        t.featureNames.testCall,
-        t.featureNames.campaignLaunch,
-        t.featureNames.navigation,
-        t.featureNames.integration
+        t_local.featureNames.testCall,
+        t_local.featureNames.campaignLaunch,
+        t_local.featureNames.navigation,
+        t_local.featureNames.integration
       ]
     }
-  ];
+  ], [t_local, currentLanguage]);
 
   useEffect(() => {
     setIsVisible(true);
@@ -256,17 +258,17 @@ export default function CampaignFeaturesBanner() {
         {/* Language Selector */}
         <div className="flex justify-center mb-1 sm:mb-2 lg:mb-4">
           <div className="flex space-x-1 sm:space-x-2 bg-white/20 backdrop-blur-sm rounded-full p-0.5 sm:p-1">
-            {['en', 'ar', 'tr', 'az'].map((lang) => (
+            {['en', 'ar', 'tr', 'hi'].map((lang) => (
               <button
                 key={lang}
-                onClick={() => setCurrentLanguage(lang)}
+                onClick={() => i18n.changeLanguage(lang)}
                 className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                   currentLanguage === lang
                     ? 'bg-white text-purple-600 shadow-lg'
                     : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
               >
-                {lang === 'en' ? 'EN' : lang === 'ar' ? 'عربي' : lang === 'tr' ? 'TR' : 'AZ'}
+                {lang === 'en' ? 'EN' : lang === 'ar' ? 'عربي' : lang === 'tr' ? 'TR' : 'हिंदी'}
               </button>
             ))}
           </div>
@@ -279,11 +281,11 @@ export default function CampaignFeaturesBanner() {
               <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 xl:h-6 xl:w-6 text-white animate-pulse" />
             </div>
             <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white typing-animation" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-              {t.title}
+              {t_local.title}
             </h1>
           </div>
           <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/90 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-            {t.subtitle}
+            {t_local.subtitle}
           </p>
         </div>
 
@@ -351,13 +353,13 @@ export default function CampaignFeaturesBanner() {
                   <Target className="h-3 w-3 lg:h-4 lg:w-4 text-white" />
                 </div>
                 <h3 className="font-semibold text-gray-800 text-sm lg:text-base" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-                  {t.benefits.title}
+                  {t_local.benefits.title}
                 </h3>
               </div>
 
               {/* Benefits List */}
               <div className="space-y-2">
-                {t.benefits.items.map((benefit, index) => (
+                {t_local.benefits.items.map((benefit, index) => (
                   <div key={index} className="flex items-start space-x-2 fade-in" style={{animationDelay: `${index * 0.1}s`}}>
                     <div className="w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-gradient-to-r from-green-500 to-blue-500 mt-1.5 flex-shrink-0"></div>
                     <span className="text-xs lg:text-sm text-gray-700" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
@@ -374,7 +376,6 @@ export default function CampaignFeaturesBanner() {
                   <span className="text-xs text-green-600 font-medium" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
                     {currentLanguage === 'ar' ? 'جاهز للاستخدام' : 
                      currentLanguage === 'tr' ? 'Kullanıma Hazır' : 
-                     currentLanguage === 'az' ? 'İstifadəyə Hazırdır' : 
                      'Ready to Use'}
                   </span>
                 </div>
@@ -386,10 +387,10 @@ export default function CampaignFeaturesBanner() {
         {/* Bottom Stats */}
         <div className="mt-4 lg:mt-6 grid grid-cols-2 md:grid-cols-4 gap-2 lg:gap-4 flex-shrink-0">
           {[
-            { label: currentLanguage === 'ar' ? 'الخطوات' : currentLanguage === 'tr' ? 'Adımlar' : currentLanguage === 'az' ? 'Addımlar' : 'Steps', value: "3", icon: ArrowRight },
-            { label: currentLanguage === 'ar' ? 'الميزات' : currentLanguage === 'tr' ? 'Özellikler' : currentLanguage === 'az' ? 'Xüsusiyyətlər' : 'Features', value: "9+", icon: CheckCircle },
-            { label: currentLanguage === 'ar' ? 'اللغات' : currentLanguage === 'tr' ? 'Diller' : currentLanguage === 'az' ? 'Dillər' : 'Languages', value: "4", icon: Globe },
-            { label: currentLanguage === 'ar' ? 'التكامل' : currentLanguage === 'tr' ? 'Entegrasyon' : currentLanguage === 'az' ? 'İnteqrasiya' : 'Integration', value: "100%", icon: Zap }
+            { label: currentLanguage === 'ar' ? 'الخطوات' : currentLanguage === 'tr' ? 'Adımlar' : 'Steps', value: "3", icon: ArrowRight },
+            { label: currentLanguage === 'ar' ? 'الميزات' : currentLanguage === 'tr' ? 'Özellikler' : 'Features', value: "9+", icon: CheckCircle },
+            { label: currentLanguage === 'ar' ? 'اللغات' : currentLanguage === 'tr' ? 'Diller' : 'Languages', value: "4", icon: Globe },
+            { label: currentLanguage === 'ar' ? 'التكامل' : currentLanguage === 'tr' ? 'Entegrasyon' : 'Integration', value: "100%", icon: Zap }
           ].map((stat, index) => {
             const StatIcon = stat.icon;
             return (
@@ -414,7 +415,7 @@ export default function CampaignFeaturesBanner() {
           </div>
           <div className="text-center mt-1 lg:mt-2">
             <span className="text-white/80 text-xs lg:text-sm" style={{direction: currentLanguage === 'ar' ? 'rtl' : 'ltr'}}>
-              {currentFeature + 1} {currentLanguage === 'ar' ? 'من' : currentLanguage === 'tr' ? 'den' : currentLanguage === 'az' ? 'dən' : 'of'} {features.length} {currentLanguage === 'ar' ? 'خطوة' : currentLanguage === 'tr' ? 'adım' : currentLanguage === 'az' ? 'addım' : 'steps'}
+              {currentFeature + 1} {currentLanguage === 'ar' ? 'من' : currentLanguage === 'tr' ? 'den' : 'of'} {features.length} {currentLanguage === 'ar' ? 'خطوة' : currentLanguage === 'tr' ? 'adım' : 'steps'}
             </span>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 import { useTranslation } from 'react-i18next';
 import ComingSoonModal from '@/components/coming-soon-modal';
 import { 
@@ -147,6 +147,7 @@ export default function HomeOption2() {
   const { user, logout } = useAuth();
   const { toast } = useToast();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [, setLocation] = useLocation();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   const [videoRef, setVideoRef] = useState<HTMLVideoElement | null>(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
@@ -443,8 +444,8 @@ export default function HomeOption2() {
                             title: t('auth.logoutSuccessMessage'),
                             description: t('auth.logoutSuccessDescription'),
                           });
-                          // Force page reload to ensure state is cleared
-                          window.location.reload();
+                          // Force hard redirect to login page to update URL
+                          window.location.href = '/login';
                         } catch (error) {
                           console.error('Logout error:', error);
                           toast({
@@ -452,6 +453,8 @@ export default function HomeOption2() {
                             description: "There was an error logging out. Please try again.",
                             variant: "destructive"
                           });
+                          // Still redirect even if logout fails
+                          window.location.href = '/login';
                         }
                       }}
                       className="text-xs sm:text-sm px-2 sm:px-3 py-2 text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400"

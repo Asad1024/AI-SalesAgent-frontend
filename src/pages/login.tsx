@@ -27,15 +27,17 @@ import {
   Sparkles
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useTheme } from '@/hooks/use-theme';
 import LanguageSwitcher from '@/components/language-switcher';
 import { useAuth } from '@/hooks/use-auth';
 import { useToast } from '@/hooks/use-toast';
 import Logo from '@/components/logo';
+import { authService } from '@/lib/auth';
 
 export default function Login() {
   const { t } = useTranslation();
-  const { login, user } = useAuth();
+  const { login, user, refreshUser } = useAuth();
   const { toast } = useToast();
   const [, setLocation] = useLocation();
   const [formData, setFormData] = useState({
@@ -46,6 +48,13 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [currentAnimation, setCurrentAnimation] = useState(0);
+  const [showSetPasswordDialog, setShowSetPasswordDialog] = useState(false);
+  const [setPasswordData, setSetPasswordData] = useState({
+    password: '',
+    confirmPassword: ''
+  });
+  const [showSetPasswordFields, setShowSetPasswordFields] = useState(false);
+  const [isSettingPassword, setIsSettingPassword] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
   // Redirect to dashboard if already logged in
@@ -68,13 +77,68 @@ export default function Login() {
         setLocation('/dashboard');
       }, 1000);
     } catch (error: any) {
+      // Check if this is a Google-only account
+      if (error.requiresGoogleAuth) {
+        setShowSetPasswordDialog(true);
+        setShowSetPasswordFields(false);
+      } else {
+        toast({
+          title: t('auth.loginFailedTitle'),
+          description: error.message || t('auth.emailPasswordIncorrect'),
+          variant: "destructive",
+        });
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleSetPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (setPasswordData.password.length < 6) {
       toast({
-        title: "Login Failed",
-        description: error.message || "Invalid email or password.",
+        title: t('auth.passwordTooShortTitle'),
+        description: t('auth.passwordTooShortDescription'),
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (setPasswordData.password !== setPasswordData.confirmPassword) {
+      toast({
+        title: t('auth.passwordsDontMatchTitle'),
+        description: t('auth.passwordsDontMatchDescription'),
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSettingPassword(true);
+    try {
+      await authService.setPassword(formData.email, setPasswordData.password, setPasswordData.confirmPassword);
+      toast({
+        title: t('auth.passwordSetSuccessTitle'),
+        description: t('auth.passwordSetSuccessDescription'),
+        variant: "default",
+      });
+      setShowSetPasswordDialog(false);
+      setSetPasswordData({ password: '', confirmPassword: '' });
+      setShowSetPasswordFields(false);
+      // Auto-login after setting password
+      await login(formData.email, setPasswordData.password);
+      setIsSuccess(true);
+      setTimeout(() => {
+        setLocation('/dashboard');
+      }, 1000);
+    } catch (error: any) {
+      toast({
+        title: t('auth.failedToSetPasswordTitle'),
+        description: error.message || t('auth.failedToSetPasswordDescription'),
         variant: "destructive",
       });
     } finally {
-      setIsLoading(false);
+      setIsSettingPassword(false);
     }
   };
 
@@ -97,8 +161,8 @@ export default function Login() {
       }, 1000);
     } catch (error: any) {
       toast({
-        title: "Demo Login Failed",
-        description: error.message || "Unable to login with demo account.",
+        title: t('auth.demoLoginFailedTitle'),
+        description: error.message || t('auth.demoLoginFailedDescription'),
         variant: "destructive",
       });
     } finally {
@@ -113,6 +177,118 @@ export default function Login() {
     });
   };
 
+  // Google OAuth handler
+  useEffect(() => {
+    const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+    if (!googleClientId) {
+      console.warn('Google Client ID not configured');
+      return;
+    }
+
+    // Check if script already exists
+    if (document.querySelector('script[src="https://accounts.google.com/gsi/client"]')) {
+      // Script already loaded, initialize immediately
+      initializeGoogleSignIn(googleClientId);
+      return;
+    }
+
+    // Load Google Identity Services script
+    const script = document.createElement('script');
+    script.src = 'https://accounts.google.com/gsi/client';
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+
+    script.onload = () => {
+      initializeGoogleSignIn(googleClientId);
+    };
+
+    script.onerror = () => {
+      console.error('Failed to load Google Identity Services script');
+    };
+  }, []);
+
+  const initializeGoogleSignIn = (clientId: string) => {
+    const checkAndRender = () => {
+      if (window.google && window.google.accounts) {
+        window.google.accounts.id.initialize({
+          client_id: clientId,
+          callback: handleGoogleCallback,
+        });
+
+        // Render Google sign-in button
+        const buttonContainer = document.getElementById('google-signin-button');
+        if (buttonContainer && buttonContainer.children.length === 0) {
+          window.google.accounts.id.renderButton(buttonContainer, {
+            theme: 'outline',
+            size: 'large',
+            width: '100%',
+            text: 'signin_with',
+            locale: 'en'
+          });
+        }
+      } else {
+        // Retry after a short delay
+        setTimeout(checkAndRender, 100);
+      }
+    };
+    
+    checkAndRender();
+  };
+
+  const handleGoogleCallback = async (response: any) => {
+    setIsLoading(true);
+    try {
+      // Decode the JWT token to get user info
+      const tokenParts = response.credential.split('.');
+      const payload = JSON.parse(atob(tokenParts[1]));
+      
+      const googleData = {
+        idToken: response.credential,
+        email: payload.email,
+        name: payload.name,
+        picture: payload.picture,
+        googleId: payload.sub
+      };
+
+      // Check if user exists first
+      const checkResult = await authService.checkGoogleUser(googleData.email, googleData.googleId);
+      
+      if (checkResult.exists) {
+        // User exists - sign them in
+        const authResponse = await authService.googleLogin(googleData);
+        
+        if (authResponse.user) {
+          await refreshUser();
+          setIsSuccess(true);
+          setTimeout(() => {
+            setLocation('/dashboard');
+          }, 1000);
+        }
+      } else {
+        // User doesn't exist - redirect to signup with Google data
+        const params = new URLSearchParams({
+          email: googleData.email,
+          firstName: payload.given_name || '',
+          lastName: payload.family_name || '',
+          name: googleData.name || '',
+          picture: googleData.picture || '',
+          googleId: googleData.googleId,
+          idToken: googleData.idToken || ''
+        });
+        setLocation(`/signup?${params.toString()}`);
+      }
+    } catch (error: any) {
+      toast({
+        title: t('auth.googleSignInFailedTitle'),
+        description: error.message || t('auth.googleSignInFailedDescription'),
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   // Animation cycle for floating elements
   useEffect(() => {
     const interval = setInterval(() => {
@@ -122,17 +298,17 @@ export default function Login() {
   }, []);
 
   const floatingElements = [
-    { icon: Phone, text: "AI Voice Calls", color: "from-purple-500 to-pink-500" },
-    { icon: Bot, text: "Smart Agents", color: "from-blue-500 to-purple-500" },
-    { icon: MessageCircle, text: "Real-time Chat", color: "from-blue-500 to-cyan-500" },
-    { icon: TrendingUp, text: "Analytics", color: "from-orange-500 to-red-500" }
+    { icon: Phone, text: t('auth.floatingElements.aiVoiceCalls'), color: "from-purple-500 to-pink-500" },
+    { icon: Bot, text: t('auth.floatingElements.smartAgents'), color: "from-blue-500 to-purple-500" },
+    { icon: MessageCircle, text: t('auth.floatingElements.realTimeChat'), color: "from-blue-500 to-cyan-500" },
+    { icon: TrendingUp, text: t('auth.floatingElements.analytics'), color: "from-orange-500 to-red-500" }
   ];
 
   const features = [
-    { icon: Headphones, title: "Voice Cloning", description: "Custom AI voices" },
-    { icon: Mic, title: "Multi-language", description: "95+ languages" },
-    { icon: BarChart3, title: "Analytics", description: "Real-time insights" },
-    { icon: Shield, title: "Secure", description: "Enterprise-grade" }
+    { icon: Headphones, title: t('auth.features.voiceCloning'), description: t('auth.features.voiceCloningDesc') },
+    { icon: Mic, title: t('auth.features.multiLanguage'), description: t('auth.features.multiLanguageDesc') },
+    { icon: BarChart3, title: t('auth.features.analytics'), description: t('auth.features.analyticsDesc') },
+    { icon: Shield, title: t('auth.features.secure'), description: t('auth.features.secureDesc') }
   ];
 
   return (
@@ -211,7 +387,7 @@ export default function Login() {
               <div className="text-left">
                 <h1 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold spark-gradient-text">{t('auth.title')}</h1>
                 <p className="text-xs sm:text-sm lg:text-base text-slate-600 dark:text-slate-400">{t('auth.welcomeBack')}</p>
-                <p className="text-xs sm:text-sm text-purple-600 dark:text-purple-400 mt-1">Powered by Spark AI</p>
+                <p className="text-xs sm:text-sm text-purple-600 dark:text-purple-400 mt-1">{t('auth.poweredBySparkAI')}</p>
               </div>
             </div>
           </div>
@@ -227,7 +403,7 @@ export default function Login() {
                   {t('auth.welcomeMessage')}
                 </h2>
                 <p className="text-purple-600 dark:text-purple-300 mb-4">
-                  Redirecting to your dashboard...
+                  {t('auth.redirectingToDashboard')}
                 </p>
                 <div className="flex justify-center">
                   <Loader2 className="h-6 w-6 animate-spin text-purple-500" />
@@ -251,7 +427,7 @@ export default function Login() {
                   {/* Enhanced Email Field */}
                   <div>
                     <label className="block text-sm sm:text-base font-medium text-slate-700 dark:text-slate-300 mb-2 sm:mb-3">
-                      {t('common.email')}
+                      {t('common.email')} <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none">
@@ -270,7 +446,7 @@ export default function Login() {
                     {!formData.email && (
                       <div className="mt-2">
                         <span className="text-xs sm:text-sm text-red-500 bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded-lg">
-                          Please fill out this field.
+                          {t('auth.pleaseFillOutField')}
                         </span>
                       </div>
                     )}
@@ -279,7 +455,7 @@ export default function Login() {
                   {/* Enhanced Password Field */}
                   <div>
                     <label className="block text-sm sm:text-base font-medium text-slate-700 dark:text-slate-300 mb-2 sm:mb-3">
-                      {t('common.password')}
+                      {t('common.password')} <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3 sm:pl-4 flex items-center pointer-events-none">
@@ -327,6 +503,19 @@ export default function Login() {
                     )}
                   </Button>
 
+                  {/* Divider */}
+                  <div className="relative my-4 sm:my-6">
+                    <div className="absolute inset-0 flex items-center">
+                      <div className="w-full border-t border-slate-300 dark:border-slate-600"></div>
+                    </div>
+                    <div className="relative flex justify-center text-sm">
+                      <span className="px-2 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400">{t('auth.orContinueWith')}</span>
+                    </div>
+                  </div>
+
+                  {/* Google Sign-In Button */}
+                  <div id="google-signin-button" className="w-full"></div>
+                  
                   {/* Enhanced Demo Login Button */}
                   <Button
                     type="button"
@@ -347,8 +536,8 @@ export default function Login() {
                       {t('auth.demoCredentials')}
                     </h4>
                     <div className="text-xs text-slate-600 dark:text-slate-400 space-y-1">
-                      <p><strong>Email:</strong> admin@example.com</p>
-                      <p><strong>Password:</strong> admin123</p>
+                      <p><strong>{t('auth.demoEmail')}</strong> admin@example.com</p>
+                      <p><strong>{t('auth.demoPassword')}</strong> admin123</p>
                     </div>
                   </div>
                 </div>
@@ -356,9 +545,9 @@ export default function Login() {
                 {/* Sign Up Link */}
                 <div className="mt-4 sm:mt-6 text-center">
                   <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-                    Don't have an account?{' '}
+                    {t('auth.dontHaveAccount')}{' '}
                     <Link href="/signup" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-semibold transition-colors">
-                      Create one here
+                      {t('auth.createOneHere')}
                     </Link>
                   </p>
                 </div>
@@ -394,22 +583,123 @@ export default function Login() {
             <div className="inline-flex items-center space-x-4 sm:space-x-6 lg:space-x-8 bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-xl sm:rounded-2xl lg:rounded-3xl px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 border border-white/30 dark:border-slate-700/60 shadow-lg">
               <div className="text-center">
                 <div className="text-sm sm:text-lg lg:text-xl font-bold spark-gradient-text">10M+</div>
-                <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">Calls Made</div>
+                <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">{t('auth.callsMade')}</div>
               </div>
               <div className="w-px h-6 sm:h-8 lg:h-10 bg-slate-300 dark:bg-slate-600"></div>
               <div className="text-center">
                 <div className="text-sm sm:text-lg lg:text-xl font-bold spark-gradient-text">500+</div>
-                <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">Customers</div>
+                <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">{t('auth.customers')}</div>
               </div>
               <div className="w-px h-6 sm:h-8 lg:h-10 bg-slate-300 dark:bg-slate-600"></div>
               <div className="text-center">
                 <div className="text-sm sm:text-lg lg:text-xl font-bold spark-gradient-text">95+</div>
-                <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">Languages</div>
+                <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">{t('auth.languages')}</div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Set Password Dialog for Google-only accounts */}
+      <Dialog open={showSetPasswordDialog} onOpenChange={setShowSetPasswordDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>{t('auth.setPasswordDialogTitle')}</DialogTitle>
+            <DialogDescription>
+              {t('auth.setPasswordDialogDescription')}
+            </DialogDescription>
+          </DialogHeader>
+          
+          {!showSetPasswordFields ? (
+            <div className="space-y-4">
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                {t('auth.wouldYouLikeToSetPassword')} <strong>{formData.email}</strong>?
+              </p>
+              <div className="flex gap-3">
+                <Button
+                  onClick={() => setShowSetPasswordFields(true)}
+                  className="flex-1"
+                >
+                  {t('auth.setPassword')}
+                </Button>
+                <Button
+                  onClick={() => setShowSetPasswordDialog(false)}
+                  variant="outline"
+                  className="flex-1"
+                >
+                  {t('auth.useGoogleSignIn')}
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <form onSubmit={handleSetPassword} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                  {t('auth.newPassword')}
+                </label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    value={setPasswordData.password}
+                    onChange={(e) => setSetPasswordData({ ...setPasswordData, password: e.target.value })}
+                    required
+                    minLength={6}
+                    className="w-full pl-10 pr-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    placeholder={t('auth.enterNewPassword')}
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                  {t('common.confirmPassword')}
+                </label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    value={setPasswordData.confirmPassword}
+                    onChange={(e) => setSetPasswordData({ ...setPasswordData, confirmPassword: e.target.value })}
+                    required
+                    minLength={6}
+                    className="w-full pl-10 pr-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    placeholder={t('auth.confirmNewPassword')}
+                  />
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <Button
+                  type="submit"
+                  disabled={isSettingPassword}
+                  className="flex-1"
+                >
+                  {isSettingPassword ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      {t('auth.settingPassword')}
+                    </>
+                  ) : (
+                    t('auth.setPasswordAndSignIn')
+                  )}
+                </Button>
+                <Button
+                  type="button"
+                  onClick={() => {
+                    setShowSetPasswordFields(false);
+                    setSetPasswordData({ password: '', confirmPassword: '' });
+                  }}
+                  variant="outline"
+                  disabled={isSettingPassword}
+                >
+                  {t('common.cancel')}
+                </Button>
+              </div>
+            </form>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 } 

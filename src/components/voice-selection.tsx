@@ -367,8 +367,8 @@ export default function VoiceSelection({ selectedVoiceId, onVoiceSelect }: Voice
   const languageMap: Record<string, string[]> = {
     'tr': ['turkish', 'türkçe', 'turkce', 'istanbul', 'türkiye'],
     'ar': ['arabic', 'عربي', 'arab', 'middle east', 'gulf', 'saudi', 'emirates'],
-    'az': ['azerbaijani', 'azərbaycan', 'azerbaijan', 'baku'],
-    'en': ['english', 'american', 'british', 'australian', 'indian', 'us', 'uk', 'usa']
+    'en': ['english', 'american', 'british', 'australian', 'indian', 'us', 'uk', 'usa'],
+    'hi': ['hindi', 'हिंदी', 'hindustani', 'india', 'indian', 'hindi speaker'],
   };
   
   const rawLanguageCode = i18n.language || 'en';
@@ -383,6 +383,7 @@ export default function VoiceSelection({ selectedVoiceId, onVoiceSelect }: Voice
     const voiceLanguage = (voice.language || '').toLowerCase();
     const voiceDescription = (voice.description || '').toLowerCase();
     const voiceName = (voice.name || '').toLowerCase();
+    
     
     const matches = languageKeywords.some(keyword => {
       const keywordLower = keyword.toLowerCase();

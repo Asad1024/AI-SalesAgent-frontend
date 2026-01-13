@@ -12,8 +12,8 @@ import { Globe, Check } from 'lucide-react';
 const languages = [
   { code: 'en', name: 'English', flag: '🇺🇸' },
   { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
-  { code: 'az', name: 'Azərbaycanca', flag: '🇦🇿' },
   { code: 'ar', name: 'العربية', flag: '🇦🇪' },
+  { code: 'hi', name: 'हिंदी', flag: '🇮🇳' },
 ];
 
 export default function LanguageSwitcher() {
@@ -31,28 +31,28 @@ export default function LanguageSwitcher() {
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
         <Button
-          variant="ghost"
+          variant="outline"
           size="sm"
-          className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          className="flex items-center space-x-2 px-3 py-2 rounded-lg border-2 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-slate-300 dark:hover:border-slate-600 transition-all shadow-sm"
           title={t('language.selectLanguage')}
         >
-          <span className="text-base sm:text-lg">{currentLanguage.flag}</span>
-          <span className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 hidden sm:block">
+          <span className="text-lg">{currentLanguage.flag}</span>
+          <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
             {currentLanguage.name}
           </span>
-          <Globe className="h-3 w-3 sm:h-4 sm:w-4 text-slate-700 dark:text-slate-300" />
+          <Globe className="h-4 w-4 text-slate-600 dark:text-slate-400" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48">
+      <DropdownMenuContent align="end" className="w-52">
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}
             onClick={() => handleLanguageChange(language.code)}
-            className="flex items-center justify-between cursor-pointer"
+            className="flex items-center justify-between cursor-pointer py-2 px-3 hover:bg-slate-50 dark:hover:bg-slate-800"
           >
-            <div className="flex items-center space-x-2">
-              <span className="text-lg">{language.flag}</span>
-              <span className="text-sm font-medium">{language.name}</span>
+            <div className="flex items-center space-x-3">
+              <span className="text-xl">{language.flag}</span>
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{language.name}</span>
             </div>
             {i18n.language === language.code && (
               <Check className="h-4 w-4 text-green-600 dark:text-green-400" />

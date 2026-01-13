@@ -328,7 +328,7 @@ export default function Voices() {
                 <h2 className="text-3xl font-bold text-black dark:text-black spark-gradient-text">
                   {t('voices.title')}
                 </h2>
-                <p className="text-black dark:text-black mt-2">{t('voices.subtitle')}</p>
+                <p className="text-gray-600 dark:text-gray-300 mt-2">{t('voices.subtitle')}</p>
               </div>
             </div>
             <div className="hidden lg:flex items-center gap-3">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useLocation } from 'wouter';
 import { useTranslation } from 'react-i18next';
 import { 
@@ -16,12 +16,13 @@ import {
 } from 'lucide-react';
 
 const CampaignWorkflowBanner = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [currentStep, setCurrentStep] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [, setLocation] = useLocation();
+  const currentLanguage = i18n.language;
 
-  const workflowSteps = [
+  const workflowSteps = useMemo(() => [
     {
       id: 1,
       title: t('campaignWorkflow.step1.title'),
@@ -112,7 +113,7 @@ const CampaignWorkflowBanner = () => {
         t('campaignWorkflow.step5.features.2')
       ]
     }
-  ];
+  ], [t, currentLanguage]);
 
   const currentStepData = workflowSteps[currentStep];
 

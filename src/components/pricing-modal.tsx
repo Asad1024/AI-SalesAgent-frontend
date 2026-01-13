@@ -22,7 +22,7 @@ export default function PricingModal({ isOpen, onClose }: PricingModalProps) {
       price: '12,000',
       period: 'One-time',
       highlighted: false,
-      features: ['1 Seat', '500 Credits', 'Email Support'],
+      features: ['1 Seat', '500 Minutes', 'Email Support'],
       icon: Zap,
       buttonText: 'Get Started',
     },
@@ -31,7 +31,7 @@ export default function PricingModal({ isOpen, onClose }: PricingModalProps) {
       price: '1,500',
       period: '/Month',
       highlighted: false,
-      features: ['2 Seats', '500 Credits/Seat', 'Email Support'],
+      features: ['2 Seats', '500 Minutes/Seat', 'Email Support'],
       icon: Rocket,
       buttonText: 'Subscribe',
     },
@@ -40,7 +40,7 @@ export default function PricingModal({ isOpen, onClose }: PricingModalProps) {
       price: '3,000',
       period: '/Month',
       highlighted: true,
-      features: ['3 Seats', '2,500 Credits', 'Priority Support'],
+      features: ['3 Seats', '2,500 Minutes', 'Priority Support'],
       icon: Crown,
       buttonText: 'Subscribe',
     },
@@ -63,7 +63,7 @@ export default function PricingModal({ isOpen, onClose }: PricingModalProps) {
             Choose Your Plan
           </h2>
           <p className="text-sm text-slate-600 dark:text-slate-400">
-            Upgrade to get more credits and unlock premium features
+            Upgrade to get more minutes and unlock premium features
           </p>
         </div>
 
@@ -141,10 +141,10 @@ export default function PricingModal({ isOpen, onClose }: PricingModalProps) {
             <div className="p-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
               <p className="text-xs font-semibold text-slate-900 dark:text-white">Extra Seat</p>
               <p className="text-lg font-bold text-slate-900 dark:text-white">500 AED</p>
-              <p className="text-xs text-slate-600 dark:text-slate-400">+ 750 Credits</p>
+              <p className="text-xs text-slate-600 dark:text-slate-400">+ 750 Minutes</p>
             </div>
             <div className="p-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-              <p className="text-xs font-semibold text-slate-900 dark:text-white">Credit Recharge</p>
+              <p className="text-xs font-semibold text-slate-900 dark:text-white">Minutes Recharge</p>
               <p className="text-lg font-bold text-slate-900 dark:text-white">0.92 AED</p>
               <p className="text-xs text-slate-600 dark:text-slate-400">per minute</p>
             </div>

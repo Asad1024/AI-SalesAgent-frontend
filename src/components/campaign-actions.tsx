@@ -33,16 +33,16 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
     onSuccess: (data) => {
       setTestCallStatus("completed");
       toast({
-        title: "Test Call Successful",
-        description: data.message || "Test call completed successfully.",
+        title: t('campaignCreation.testCallSuccessful'),
+        description: data.message || t('campaignCreation.testCallSuccessfulMessage'),
       });
       setTimeout(() => setTestCallStatus("idle"), 3000);
     },
     onError: (error: any) => {
       setTestCallStatus("failed");
       toast({
-        title: "Test Call Failed",
-        description: error.message || "Failed to make test call.",
+        title: t('campaignCreation.testCallFailed'),
+        description: error.message || t('campaignCreation.testCallFailedMessage'),
         variant: "destructive",
       });
       setTimeout(() => setTestCallStatus("idle"), 3000);
@@ -54,14 +54,14 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
     mutationFn: (campaignId: number) => api.startCampaign({ campaignId }),
     onSuccess: (data) => {
       toast({
-        title: "Campaign Started",
-        description: data.message || "Campaign has been started successfully.",
+        title: t('campaignCreation.campaignStarted'),
+        description: data.message || t('campaignCreation.campaignStartedMessage'),
       });
     },
     onError: (error: any) => {
       toast({
-        title: "Campaign Start Failed",
-        description: error.message || "Failed to start campaign.",
+        title: t('campaignCreation.campaignStartFailed'),
+        description: error.message || t('campaignCreation.campaignStartFailedMessage'),
         variant: "destructive",
       });
     },
@@ -70,8 +70,8 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
   const handleTestCall = () => {
     if (!testPhoneNumber.trim()) {
       toast({
-        title: "Phone Number Required",
-        description: "Please enter a phone number for the test call.",
+        title: t('campaignCreation.phoneNumberRequired'),
+        description: t('campaignCreation.phoneNumberRequiredMessage'),
         variant: "destructive",
       });
       return;
@@ -81,8 +81,8 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
     const phoneRegex = /^[\+]?[\d\s\-\(\)]{7,15}$/;
     if (!phoneRegex.test(testPhoneNumber.trim())) {
       toast({
-        title: "Invalid Phone Number",
-        description: "Please enter a valid phone number (e.g., +15551234567 or 5551234567).",
+        title: t('campaignCreation.invalidPhoneNumber'),
+        description: t('campaignCreation.invalidPhoneNumberMessage'),
         variant: "destructive",
       });
       return;
@@ -90,8 +90,8 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
 
     if (!campaign) {
       toast({
-        title: "No Campaign",
-        description: "Please create a campaign first.",
+        title: t('campaignCreation.noCampaign'),
+        description: t('campaignCreation.noCampaignMessage2'),
         variant: "destructive",
       });
       return;
@@ -101,24 +101,23 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
     testCallMutation.mutate({
       phoneNumber: testPhoneNumber.trim(),
       campaignId: campaign.id,
-      firstName: testFirstName.trim() || "there"
+      firstName: testFirstName.trim() || null
     });
   };
 
   const handleStartCampaign = () => {
-    // Check credits first
-    const userCredits = user?.creditsBalance || 0;
-    const requiredCredits = uploadedLeads.length * 3; // 3 credits per lead (default)
+    // Check if user has minutes available (can't predict required minutes since call duration is unknown)
+    const userMinutes = user?.creditsBalance || 0;
     
-    if (userCredits < requiredCredits) {
+    if (userMinutes <= 0) {
       setShowUpgradeModal(true);
       return;
     }
 
     if (!campaign?.firstPrompt) {
       toast({
-        title: "Initial Message Required",
-        description: "Please set an initial message for the campaign.",
+        title: t('campaignCreation.initialMessageRequired'),
+        description: t('campaignCreation.initialMessageRequiredMessage'),
         variant: "destructive",
       });
       return;
@@ -126,8 +125,8 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
 
     if (!selectedVoiceId) {
       toast({
-        title: "Voice Required",
-        description: "Please select a voice for the campaign.",
+        title: t('campaignCreation.voiceRequired'),
+        description: t('campaignCreation.voiceRequiredMessage'),
         variant: "destructive",
       });
       return;
@@ -136,7 +135,7 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
     if (!campaign?.knowledgeBaseId) {
       toast({
         title: t('dashboard.knowledgeBaseRequired'),
-        description: "Please upload a knowledge base PDF file.",
+        description: t('campaignCreation.knowledgeBaseRequiredMessage'),
         variant: "destructive",
       });
       return;
@@ -144,14 +143,19 @@ export default function CampaignActions({ campaign, selectedVoiceId, uploadedLea
 
     if (uploadedLeads.length === 0) {
       toast({
-        title: "Leads Required",
-        description: "Please upload leads CSV file before starting the campaign.",
+        title: t('campaignCreation.leadsRequired'),
+        description: t('campaignCreation.leadsRequiredMessage'),
         variant: "destructive",
       });
       return;
     }
 
-    const confirmMessage = `Are you sure you want to start the campaign?\n\nThis will:\n- Use the selected voice (${selectedVoiceId})\n- Process ${uploadedLeads.length} leads\n- Use the uploaded knowledge base\n- Start with: "${campaign.firstPrompt}"\n- Cost: ${requiredCredits} credits`;
+    const confirmMessage = t('campaignCreation.startCampaignConfirmMessage2', {
+      voiceId: selectedVoiceId,
+      leadsCount: uploadedLeads.length,
+      firstPrompt: campaign.firstPrompt,
+      credits: requiredCredits
+    });
     
     if (window.confirm(confirmMessage)) {
       startCampaignMutation.mutate(campaign.id);

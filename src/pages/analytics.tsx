@@ -62,12 +62,46 @@ export default function Analytics() {
     const days = timeRange === '24h' ? 1 : timeRange === '7d' ? 7 : timeRange === '30d' ? 30 : 90;
     const data = [];
     
+    // If there's no actual data, return zeros for all days
+    if (analytics.totalCalls === 0) {
+      for (let i = days - 1; i >= 0; i--) {
+        const date = new Date();
+        date.setDate(date.getDate() - i);
+        data.push({
+          date: date.toISOString().split('T')[0],
+          calls: 0,
+          successful: 0,
+          failed: 0
+        });
+      }
+      return data;
+    }
+    
+    // Generate mock data based on actual analytics
+    // Distribute calls across days, ensuring at least some calls show up
+    const totalCallsToDistribute = analytics.totalCalls;
+    let remainingCalls = totalCallsToDistribute;
+    
     for (let i = days - 1; i >= 0; i--) {
       const date = new Date();
       date.setDate(date.getDate() - i);
       
-      const baseCalls = Math.max(1, Math.floor(analytics.totalCalls / days));
-      const calls = Math.floor(baseCalls * (0.5 + Math.random()));
+      let calls = 0;
+      
+      if (i === 0) {
+        // Last day gets all remaining calls
+        calls = remainingCalls;
+      } else {
+        // Distribute calls randomly, but ensure some distribution
+        const avgCallsPerDay = Math.ceil(remainingCalls / (i + 1));
+        // Use a random factor between 0.3 and 1.7 to distribute calls
+        const randomFactor = 0.3 + Math.random() * 1.4;
+        calls = Math.max(0, Math.floor(avgCallsPerDay * randomFactor));
+        // Don't allocate more than remaining calls
+        calls = Math.min(calls, remainingCalls);
+      }
+      
+      remainingCalls -= calls;
       
       if (analytics.failedCalls === 0) {
         const successful = calls;
@@ -79,7 +113,9 @@ export default function Analytics() {
           failed
         });
       } else {
-        const successful = Math.floor(calls * (analytics.successRate / 100));
+        const successful = calls > 0 
+          ? Math.floor(calls * (analytics.successRate / 100))
+          : 0;
         const failed = calls - successful;
         data.push({
           date: date.toISOString().split('T')[0],
@@ -97,6 +133,20 @@ export default function Analytics() {
     const days = timeRange === '24h' ? 1 : timeRange === '7d' ? 7 : timeRange === '30d' ? 30 : 90;
     const data = [];
     
+    // If there's no actual data, return zeros for all days
+    if (analytics.totalCalls === 0) {
+      for (let i = days - 1; i >= 0; i--) {
+        const date = new Date();
+        date.setDate(date.getDate() - i);
+        data.push({
+          date: date.toISOString().split('T')[0],
+          successRate: 0
+        });
+      }
+      return data;
+    }
+    
+    // Generate mock data based on actual analytics
     for (let i = days - 1; i >= 0; i--) {
       const date = new Date();
       date.setDate(date.getDate() - i);
@@ -114,13 +164,18 @@ export default function Analytics() {
     return data;
   };
 
-  const chartCallVolumeData = callVolumeData && callVolumeData.length > 0 
+  // Always generate chart data (either from API or mock)
+  const chartCallVolumeData = (callVolumeData && callVolumeData.length > 0) 
     ? callVolumeData 
     : generateMockCallVolumeData();
     
-  const chartSuccessRateData = successRateTrend && successRateTrend.length > 0 
+  const chartSuccessRateData = (successRateTrend && successRateTrend.length > 0) 
     ? successRateTrend 
     : generateMockSuccessRateTrend();
+  
+  // Debug: Log data to help identify issues
+  // console.log('Call Volume Data:', chartCallVolumeData);
+  // console.log('Success Rate Data:', chartSuccessRateData);
 
   const analyticsCards = [
     {
@@ -204,7 +259,7 @@ export default function Analytics() {
                 <h2 className="text-3xl font-bold text-black dark:text-black spark-gradient-text">
                   {t('analytics.title')}
                 </h2>
-                <p className="text-black dark:text-black mt-2">{t('analytics.subtitle')}</p>
+                <p className="text-gray-600 dark:text-gray-300 mt-2">{t('analytics.subtitle')}</p>
               </div>
             </div>
             <div className="hidden lg:flex items-center gap-3">
@@ -273,7 +328,7 @@ export default function Analytics() {
                       <div className="h-full flex items-center justify-center">
                         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
                       </div>
-                    ) : (
+                    ) : chartCallVolumeData && chartCallVolumeData.length > 0 ? (
                       <ResponsiveContainer width="100%" height="100%">
                         <BarChart data={chartCallVolumeData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -282,13 +337,22 @@ export default function Analytics() {
                             stroke="#6b7280"
                             fontSize={12}
                             tickFormatter={(value) => {
-                              const date = new Date(value);
-                              return timeRange === '24h' 
-                                ? date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-                                : date.toLocaleDateString([], { month: 'short', day: 'numeric' });
+                              try {
+                                const date = new Date(value);
+                                if (isNaN(date.getTime())) return value;
+                                return timeRange === '24h' 
+                                  ? date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                                  : date.toLocaleDateString([], { month: 'short', day: 'numeric' });
+                              } catch (e) {
+                                return value;
+                              }
                             }}
                           />
-                          <YAxis stroke="#6b7280" fontSize={12} />
+                          <YAxis 
+                            stroke="#6b7280" 
+                            fontSize={12}
+                            domain={[0, 'auto']}
+                          />
                           <Tooltip 
                             contentStyle={{
                               backgroundColor: 'white',
@@ -297,8 +361,13 @@ export default function Analytics() {
                               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                             }}
                             labelFormatter={(value) => {
-                              const date = new Date(value);
-                              return date.toLocaleDateString();
+                              try {
+                                const date = new Date(value);
+                                if (isNaN(date.getTime())) return value;
+                                return date.toLocaleDateString();
+                              } catch (e) {
+                                return value;
+                              }
                             }}
                             formatter={(value, name) => [
                               value,
@@ -311,6 +380,10 @@ export default function Analytics() {
                           <Bar dataKey="failed" fill="#ef4444" name="failed" radius={[4, 4, 0, 0]} />
                         </BarChart>
                       </ResponsiveContainer>
+                    ) : (
+                      <div className="h-full flex items-center justify-center text-slate-500 dark:text-slate-400">
+                        No data available
+                      </div>
                     )}
                   </div>
                 </CardContent>
@@ -331,7 +404,7 @@ export default function Analytics() {
                       <div className="h-full flex items-center justify-center">
                         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
                       </div>
-                    ) : (
+                    ) : chartSuccessRateData && chartSuccessRateData.length > 0 ? (
                       <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={chartSuccessRateData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                           <defs>
@@ -382,6 +455,10 @@ export default function Analytics() {
                           />
                         </AreaChart>
                       </ResponsiveContainer>
+                    ) : (
+                      <div className="h-full flex items-center justify-center text-slate-500 dark:text-slate-400">
+                        No data available
+                      </div>
                     )}
                   </div>
                 </CardContent>

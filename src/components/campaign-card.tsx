@@ -11,6 +11,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { useState } from "react";
 import UpgradeModal from "@/components/upgrade-modal";
 import { useQueryClient } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 
 interface CampaignCardProps {
   campaign: Campaign;
@@ -24,6 +25,7 @@ export function CampaignCard({ campaign, onDelete, onEdit }: CampaignCardProps) 
   const { user, refreshUser } = useAuth();
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const queryClient = useQueryClient();
+  const { t } = useTranslation();
 
   const getStatusClass = (status: string) => {
     switch (status) {
@@ -65,7 +67,7 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
       en: { label: 'EN', flag: '🇺🇸', color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300' },
       tr: { label: 'TR', flag: '🇹🇷', color: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300' },
       ar: { label: 'AR', flag: '🇦🇪', color: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300' },
-      az: { label: 'AZ', flag: '🇦🇿', color: 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300' }
+      hi: { label: 'HI', flag: '🇮🇳', color: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300' },
     };
     return languages[lang] || languages.en;
   };
@@ -73,22 +75,26 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
   const languageInfo = getLanguageInfo(campaign.language || 'en');
 
   const handleStopCampaign = async () => {
-    const confirmMessage = `Are you sure you want to stop the campaign "${campaign.name}"?\n\nThis will:\n- Stop all ongoing calls\n- Prevent new calls from starting\n- Keep campaign data intact`;
+    let confirmMessage = t('campaigns.stopConfirmMessage', { name: campaign.name });
+    // Ensure {name} is replaced (fallback if interpolation didn't work)
+    const campaignName = campaign.name || 'this campaign';
+    confirmMessage = confirmMessage.replace(/\{name\}/g, campaignName);
+    confirmMessage = confirmMessage.replace(/\{\{name\}\}/g, campaignName);
     
     if (window.confirm(confirmMessage)) {
       try {
         await api.post(`/api/campaigns/${campaign.id}/stop`, {});
         toast({
-          title: "Stopped",
-          description: "Campaign stopped successfully.",
+          title: t('campaigns.stopped'),
+          description: t('campaigns.stoppedMessage'),
         });
         // Refresh data without page reload
         queryClient.invalidateQueries({ queryKey: ["/api/campaigns"] });
         refreshUser();
       } catch (error: any) {
         toast({
-          title: "Error",
-          description: error.message || "Failed to stop campaign.",
+          title: t('common.error'),
+          description: error.message || t('campaigns.deleteErrorMessage'),
           variant: "destructive"
         });
       }
@@ -96,22 +102,26 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
   };
 
   const handlePauseCampaign = async () => {
-    const confirmMessage = `Are you sure you want to pause the campaign "${campaign.name}"?\n\nThis will:\n- Pause ongoing calls\n- Prevent new calls from starting\n- Allow resuming later`;
+    let confirmMessage = t('campaigns.pauseConfirmMessage', { name: campaign.name });
+    // Ensure {name} is replaced (fallback if interpolation didn't work)
+    const campaignName = campaign.name || 'this campaign';
+    confirmMessage = confirmMessage.replace(/\{name\}/g, campaignName);
+    confirmMessage = confirmMessage.replace(/\{\{name\}\}/g, campaignName);
     
     if (window.confirm(confirmMessage)) {
       try {
         await api.post(`/api/campaigns/${campaign.id}/pause`, {});
         toast({
-          title: "Paused",
-          description: "Campaign paused successfully.",
+          title: t('campaigns.paused'),
+          description: t('campaigns.pausedMessage'),
         });
         // Refresh data without page reload
         queryClient.invalidateQueries({ queryKey: ["/api/campaigns"] });
         refreshUser();
       } catch (error: any) {
         toast({
-          title: "Error",
-          description: error.message || "Failed to pause campaign.",
+          title: t('common.error'),
+          description: error.message || t('campaigns.deleteErrorMessage'),
           variant: "destructive"
         });
       }
@@ -122,39 +132,42 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
     try {
       await api.post(`/api/campaigns/${campaign.id}/resume`, {});
       toast({
-        title: "Resumed",
-        description: "Campaign resumed successfully.",
+        title: t('campaigns.resumed'),
+        description: t('campaigns.resumedMessage'),
       });
       // Refresh data without page reload
       queryClient.invalidateQueries({ queryKey: ["/api/campaigns"] });
       refreshUser();
     } catch (error: any) {
       toast({
-        title: "Error",
-        description: error.message || "Failed to resume campaign.",
+        title: t('common.error'),
+        description: error.message || t('campaigns.deleteErrorMessage'),
         variant: "destructive"
       });
     }
   };
 
   const handleStartCampaign = async () => {
-    // Check credits first
-    const userCredits = user?.creditsBalance || 0;
-    const requiredCredits = (campaign.totalLeads || 1) * 3; // 3 credits per lead
+    // Check if user has minutes available (can't predict required minutes since call duration is unknown)
+    const userMinutes = user?.creditsBalance || 0;
     
-    if (userCredits < requiredCredits) {
+    if (userMinutes <= 0) {
       setShowUpgradeModal(true);
       return;
     }
 
-    const confirmMessage = `Are you sure you want to start the campaign "${campaign.name}"?\n\nThis will:\n- Start making calls to leads\n- Use the configured voice and settings\n- Begin processing immediately\n- Cost: ${requiredCredits} credits`;
+    let confirmMessage = t('campaigns.startConfirmMessage', { name: campaign.name });
+    // Ensure {name} is replaced (fallback if interpolation didn't work)
+    const campaignName = campaign.name || 'this campaign';
+    confirmMessage = confirmMessage.replace(/\{name\}/g, campaignName);
+    confirmMessage = confirmMessage.replace(/\{\{name\}\}/g, campaignName);
     
     if (window.confirm(confirmMessage)) {
       try {
         await api.post(`/api/campaigns/start-campaign`, { campaignId: campaign.id });
         toast({
-          title: "Started",
-          description: "Campaign started successfully.",
+          title: t('campaigns.started'),
+          description: t('campaigns.startedMessage'),
         });
         // Refresh data without page reload
         queryClient.invalidateQueries({ queryKey: ["/api/campaigns"] });
@@ -166,8 +179,8 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
           setShowUpgradeModal(true);
         } else {
           toast({
-            title: "Error",
-            description: errorMessage || "Failed to start campaign.",
+            title: t('common.error'),
+            description: errorMessage || t('campaigns.deleteErrorMessage'),
             variant: "destructive"
           });
         }
@@ -191,7 +204,7 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
           <div className="flex-1">
             <CardTitle className="text-xl font-bold text-gray-800 dark:text-white">{campaign.name}</CardTitle>
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-              Created {new Date(campaign.createdAt).toLocaleDateString()}
+              {t('campaigns.created')} {new Date(campaign.createdAt).toLocaleDateString()}
             </p>
           </div>
           <div className="flex flex-col items-end gap-2">
@@ -206,15 +219,15 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
         <div className="flex justify-between items-center">
           <div className="text-center">
             <p className="text-2xl font-bold text-gray-800 dark:text-white">{campaign.completedCalls}</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Total Calls</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">{t('campaigns.totalCalls')}</p>
           </div>
           <div className="text-center">
             <p className="text-2xl font-bold text-green-500">{campaign.successfulCalls}</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Successful</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">{t('campaigns.successful')}</p>
           </div>
         </div>
         <div>
-          <p className="text-sm text-gray-500 dark:text-gray-400">Progress</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">{t('campaigns.progress')}</p>
           <div className="flex items-center gap-2">
             <Progress value={progress} className="w-full" />
             <span className="text-sm text-gray-500 dark:text-gray-400">{Math.round(progress)}%</span>
@@ -229,7 +242,7 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
               className="flex items-center gap-1 text-green-600 border-green-600 hover:bg-green-50"
             >
               <Play className="h-4 w-4" />
-              <span className="text-xs">Start</span>
+              <span className="text-xs">{t('campaigns.start')}</span>
             </Button>
           )}
           {canPause && (
@@ -240,7 +253,7 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
               className="flex items-center gap-1 text-yellow-600 border-yellow-600 hover:bg-yellow-50"
             >
               <Pause className="h-4 w-4" />
-              <span className="text-xs">Pause</span>
+              <span className="text-xs">{t('campaigns.pause')}</span>
             </Button>
           )}
           {canResume && (
@@ -251,7 +264,7 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
               className="flex items-center gap-1 text-blue-600 border-blue-600 hover:bg-blue-50"
             >
               <RotateCcw className="h-4 w-4" />
-              <span className="text-xs">Resume</span>
+              <span className="text-xs">{t('campaigns.resume')}</span>
             </Button>
           )}
           {canStop && (
@@ -262,7 +275,7 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
               className="flex items-center gap-1 text-red-600 border-red-600 hover:bg-red-50"
             >
               <Square className="h-4 w-4" />
-              <span className="text-xs">Stop</span>
+              <span className="text-xs">{t('campaigns.stop')}</span>
             </Button>
           )}
         </div>
@@ -286,8 +299,8 @@ const canEdit = (campaign.status === 'draft' || campaign.status === 'initiated')
               size="icon" 
               disabled
               title={campaign.status !== 'draft' && campaign.status !== 'initiated'
-                ? "Cannot edit published campaigns" 
-                : "Cannot edit campaigns with completed calls"
+                ? t('campaigns.cannotEditPublished')
+                : t('campaigns.cannotEditWithCompletedCalls')
               }
             >
               <Edit className="h-5 w-5 text-gray-300 dark:text-gray-600" />

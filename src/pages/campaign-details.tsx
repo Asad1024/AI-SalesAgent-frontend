@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { api } from "@/lib/api";
-import { ArrowLeft, RefreshCw, Users, CheckCircle, XCircle, Phone, Clock, Play, Pause, Download, MessageSquare, Loader2, AlertCircle } from "lucide-react";
+import { ArrowLeft, RefreshCw, Users, CheckCircle, XCircle, Phone, Clock, Play, Download, MessageSquare, Loader2, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -23,6 +23,7 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
   const [, setLocation] = useLocation();
   const [selectedLog, setSelectedLog] = useState<any>(null);
   const [playingCallSid, setPlayingCallSid] = useState<string | null>(null);
+  const [loadingAudioId, setLoadingAudioId] = useState<string | null>(null);
   const audioPlayerRef = useRef<HTMLAudioElement | null>(null);
   const { toast } = useToast();
 
@@ -73,12 +74,17 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
       if (playingCallSid === conversationId && audioPlayerRef.current) {
         audioPlayerRef.current.pause();
         setPlayingCallSid(null);
+        setLoadingAudioId(null);
         return;
       }
 
       if (audioPlayerRef.current) {
         audioPlayerRef.current.pause();
       }
+
+      // Set loading state
+      setLoadingAudioId(conversationId);
+      setPlayingCallSid(null);
 
       const audioUrl = `${api.getBaseUrl()}/api/conversations/${conversationId}/audio`;
 
@@ -95,6 +101,7 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
       });
       if (!response.ok) {
         console.error('Failed to fetch audio:', response.status, response.statusText);
+        setLoadingAudioId(null);
         setPlayingCallSid(null);
         return;
       }
@@ -105,19 +112,26 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
       const newAudioPlayer = new Audio();
       newAudioPlayer.src = objectUrl;
       audioPlayerRef.current = newAudioPlayer;
+      
+      // Clear loading and set playing state
+      setLoadingAudioId(null);
       setPlayingCallSid(conversationId);
+      
       newAudioPlayer.play().catch((e) => {
         console.error('Audio play error:', e);
         setPlayingCallSid(null);
+        setLoadingAudioId(null);
         URL.revokeObjectURL(objectUrl);
       });
       newAudioPlayer.onended = () => {
         setPlayingCallSid(null);
+        setLoadingAudioId(null);
         URL.revokeObjectURL(objectUrl);
       };
     } catch (e) {
       console.error('Audio playback error:', e);
       setPlayingCallSid(null);
+      setLoadingAudioId(null);
     }
   };
 
@@ -224,17 +238,32 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
                 </TableHeader>
                 <TableBody>
                   {callLogs.map((log: any) => {
-                    const lead = leads.find((l: any) => l.id === log.leadId);
-                    const leadName = lead?.firstName || lead?.name || "Unknown";
+                    // For test calls (leadId is null), use firstName from call log
+                    // For regular calls, try call log firstName first, then lead name
+                    const callLogFirstName = log.firstName || log.first_name;
+                    let displayName = "Test User";
+                    
+                    if (log.leadId === null || log.leadId === undefined) {
+                      // Test call - use firstName from call log
+                      displayName = callLogFirstName || "Test User";
+                    } else {
+                      // Regular call - try call log firstName, then lead name
+                      const lead = leads.find((l: any) => l.id === log.leadId);
+                      const leadFirstName = lead?.firstName || lead?.first_name;
+                      const leadName = lead?.name;
+                      displayName = callLogFirstName || leadFirstName || leadName || "Test User";
+                    }
                     const phoneNumber = log.phoneNumber || lead?.contactNo || lead?.phone || "N/A";
                     const duration = log.duration ? `${log.duration}s` : "N/A";
                     const hasAudio = log.elevenlabsConversationId && 
                                    log.elevenlabsConversationId !== 'null' && 
                                    log.elevenlabsConversationId !== 'undefined';
+                    const isPlaying = playingCallSid === log.elevenlabsConversationId;
+                    const isLoading = loadingAudioId === log.elevenlabsConversationId;
                     
                     return (
                       <TableRow key={log.id}>
-                        <TableCell className="font-medium">{leadName}</TableCell>
+                        <TableCell className="font-medium">{displayName}</TableCell>
                         <TableCell className="font-mono text-sm">{phoneNumber}</TableCell>
                         <TableCell>
                           <Badge 
@@ -254,10 +283,14 @@ export default function CampaignDetails({ id }: CampaignDetailsProps) {
                             variant="ghost"
                             size="icon"
                             onClick={() => handlePlayAudio(log.elevenlabsConversationId)}
-                            disabled={!hasAudio}
-                            title={hasAudio ? 'Play audio' : 'Audio not available yet'}
+                            disabled={!hasAudio || isLoading}
+                            title={hasAudio ? (isLoading ? 'Loading audio...' : isPlaying ? 'Pause audio' : 'Play audio') : 'Audio not available yet'}
                           >
-                            {playingCallSid === log.elevenlabsConversationId ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+                            {isLoading ? (
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                            ) : (
+                              <Play className="h-4 w-4" />
+                            )}
                           </Button>
                         </TableCell>
                         <TableCell className="text-right">
@@ -357,7 +390,7 @@ function TranscriptionDialog({ log, open, onOpenChange }: { log: any, open: bool
 
     if (Array.isArray(raw)) {
       return raw.map((entry: any) => {
-        const speaker = pick(entry, ['speaker', 'role', 'sender', 'participant', 'from']) || 'unknown';
+        const speaker = pick(entry, ['speaker', 'role', 'sender', 'participant', 'from']) || 'User';
         const text = pick(entry, ['text', 'content', 'message', 'value']) || '';
         return { speaker, text };
       }).filter((e: any) => (e.text || '').trim() !== '');
@@ -365,14 +398,14 @@ function TranscriptionDialog({ log, open, onOpenChange }: { log: any, open: bool
 
     if (Array.isArray(raw.messages)) {
       return raw.messages.map((m: any) => ({
-        speaker: pick(m, ['role', 'speaker', 'sender', 'participant']) || 'unknown',
+        speaker: pick(m, ['role', 'speaker', 'sender', 'participant']) || 'User',
         text: pick(m, ['content', 'text', 'message']) || ''
       })).filter((e: any) => (e.text || '').trim() !== '');
     }
 
     if (Array.isArray(raw.turns)) {
       return raw.turns.map((t: any) => ({
-        speaker: pick(t, ['speaker', 'participant', 'role']) || 'unknown',
+        speaker: pick(t, ['speaker', 'participant', 'role']) || 'User',
         text: pick(t, ['text', 'message', 'content']) || ''
       })).filter((e: any) => (e.text || '').trim() !== '');
     }

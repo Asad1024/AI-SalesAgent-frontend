@@ -40,8 +40,8 @@ export default function CampaignsOverview() {
     mutationFn: (id: number) => api.deleteCampaign(id),
     onSuccess: () => {
       toast({
-        title: "Campaign Deleted",
-        description: "The campaign has been successfully deleted.",
+        title: t('campaigns.deleteSuccess'),
+        description: t('campaigns.deleteSuccessMessage'),
       });
       queryClient.invalidateQueries({ queryKey: ["/api/campaigns"] });
       setShowDeleteDialog(false);
@@ -49,8 +49,8 @@ export default function CampaignsOverview() {
     },
     onError: (error: any) => {
       toast({
-        title: "Error",
-        description: error.message || "Failed to delete campaign",
+        title: t('campaigns.deleteError'),
+        description: error.message || t('campaigns.deleteErrorMessage'),
         variant: "destructive",
       });
     },
@@ -256,9 +256,9 @@ export default function CampaignsOverview() {
       <Dialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Are you sure?</DialogTitle>
+            <DialogTitle>{t('campaigns.deleteConfirmTitle')}</DialogTitle>
             <DialogDescription>
-              This action cannot be undone. This will permanently delete the "{campaignToDelete?.name}" campaign.
+              {t('campaigns.deleteConfirmMessage', { name: campaignToDelete?.name })}
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
@@ -267,7 +267,7 @@ export default function CampaignsOverview() {
               onClick={() => setShowDeleteDialog(false)}
               disabled={deleteCampaignMutation.isPending}
             >
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button 
               variant="destructive" 
@@ -277,10 +277,10 @@ export default function CampaignsOverview() {
               {deleteCampaignMutation.isPending ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Deleting
+                  {t('campaigns.deleting')}
                 </>
               ) : (
-                "Delete"
+                t('common.delete')
               )}
             </Button>
           </DialogFooter>

@@ -81,7 +81,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
 
   const { toast } = useToast();
   const { t, i18n } = useTranslation();
-  const { user } = useAuth();
+  const { user, refreshUser } = useAuth();
   const currentLanguage = i18n?.language || 'en';
   const normalizedLanguage = currentLanguage.split('-')[0].toLowerCase();
   const [defaultInitialMessage, setDefaultInitialMessage] = useState(() => t('campaignCreation.defaultInitialMessage'));
@@ -173,6 +173,15 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
         // Create a mock file for display purposes
         setLeadsFile({ name: `Existing leads (${campaign.leads.length})` } as File);
       }
+
+      // Sync campaignControlStatus with actual campaign status
+      if (campaign.status === 'active') {
+        setCampaignControlStatus('running');
+      } else if (campaign.status === 'paused') {
+        setCampaignControlStatus('paused');
+      } else {
+        setCampaignControlStatus('stopped');
+      }
     }
   }, [campaignDetails]);
 
@@ -189,36 +198,62 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
     mutationFn: (campaignData: any) => api.post('/api/campaigns', campaignData),
     onSuccess: (data) => {
       toast({
-        title: "Campaign Created",
-        description: "Campaign has been created successfully.",
+        title: t('campaignCreation.campaignCreated'),
+        description: t('campaignCreation.campaignCreatedMessage'),
       });
       setCurrentCampaign(data);
       setNewCampaignName('');
       setIsCreatingCampaign(false);
       setCurrentStep(3);
+      // New campaigns start as stopped
+      setCampaignControlStatus('stopped');
       queryClient.invalidateQueries({ queryKey: ['/api/campaigns'] });
     },
     onError: (error: any) => {
+      const errorMessage = error?.response?.data?.error || error?.message || t('campaignCreation.creationFailedMessage');
       toast({
-        title: "Creation Failed",
-        description: error.message || "Failed to create campaign",
+        title: t('campaignCreation.creationFailed'),
+        description: errorMessage,
         variant: "destructive",
       });
     },
   });
 
   const handleCreateCampaign = () => {
-    if (newCampaignName.trim()) {
-      const rawLanguage = i18n?.language || 'en';
-      const currentLanguage = rawLanguage.split('-')[0].toLowerCase();
-      const campaignData = {
-        name: newCampaignName,
-        firstPrompt: defaultInitialMessage,
-        systemPersona: defaultSystemPersona,
-        language: currentLanguage
-      };
-      createCampaignMutation.mutate(campaignData);
+    if (!newCampaignName.trim()) {
+      toast({
+        title: t('campaignCreation.campaignNameRequired'),
+        description: t('campaignCreation.campaignNameRequiredMessage'),
+        variant: "destructive",
+      });
+      return;
     }
+
+    // Check for duplicate name in the current user's campaigns
+    const trimmedName = newCampaignName.trim();
+    const duplicateCampaign = campaigns.find(
+      (campaign: Campaign) => campaign.name.toLowerCase() === trimmedName.toLowerCase()
+    );
+
+    if (duplicateCampaign) {
+      toast({
+        title: t('campaignCreation.duplicateCampaignName'),
+        description: t('campaignCreation.duplicateCampaignNameMessage'),
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const rawLanguage = i18n?.language || 'en';
+    const currentLanguage = rawLanguage.split('-')[0].toLowerCase();
+    const campaignData = {
+      name: trimmedName,
+      firstPrompt: defaultInitialMessage,
+      systemPersona: defaultSystemPersona,
+      language: currentLanguage,
+      selectedVoiceId: selectedVoice || null // Include selected voice ID if available
+    };
+    createCampaignMutation.mutate(campaignData);
   };
 
   // PDF upload mutation
@@ -226,8 +261,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
     mutationFn: (file: File) => api.uploadPDF(file, currentCampaign?.id?.toString() || '1'),
     onSuccess: (data) => {
       toast({
-        title: "PDF Uploaded",
-        description: "Knowledge base has been uploaded successfully.",
+        title: t('campaignCreation.pdfUploaded'),
+        description: t('campaignCreation.pdfUploadedMessage'),
       });
 
       // Normalize backend response: prefer data.knowledgeBase
@@ -251,8 +286,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
     },
     onError: (error: any) => {
       toast({
-        title: "Upload Failed",
-        description: error.message || "Failed to upload PDF.",
+        title: t('campaignCreation.uploadFailed'),
+        description: error.message || t('campaignCreation.uploadFailedMessage'),
         variant: "destructive",
       });
     },
@@ -263,8 +298,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
     mutationFn: (file: File) => api.uploadCSV(file, currentCampaign?.id?.toString() || '1'),
     onSuccess: (data) => {
       toast({
-        title: "CSV Uploaded",
-        description: `Successfully uploaded ${data.leadsCount || 0} leads.`,
+        title: t('campaignCreation.csvUploaded'),
+        description: t('campaignCreation.csvUploadedMessage', { count: data.leadsCount || 0 }),
       });
       setLeadsFile({ name: `Uploaded CSV (${data.leadsCount || 0} leads)`, leads: data.leads } as any);
       
@@ -286,8 +321,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
     },
     onError: (error: any) => {
       toast({
-        title: "Upload Failed",
-        description: error.message || "Failed to upload CSV.",
+        title: t('campaignCreation.uploadFailed'),
+        description: error.message || t('campaignCreation.csvUploadFailedMessage'),
         variant: "destructive",
       });
     },
@@ -298,7 +333,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
     mutationFn: (data: any) => api.makeTestCall(data),
     onSuccess: (data) => {
       toast({
-        title: "Test Call Initiated",
+        title: t('campaignCreation.testCallInitiated'),
         description: `Call initiated to ${testCallData.phoneNumber}. Status: ${data.status}`,
       });
       
@@ -310,8 +345,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
         setShowUpgradeModal(true);
       } else {
         toast({
-          title: "Test Call Failed",
-          description: errorMessage || "Failed to make test call.",
+          title: t('campaignCreation.testCallFailed'),
+          description: errorMessage || t('campaignCreation.testCallFailedMessage'),
           variant: "destructive",
         });
       }
@@ -326,13 +361,18 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       setCampaignControlStatus('running');
       
       toast({
-        title: "Campaign Started",
-        description: data.message || "Campaign has been started successfully.",
+        title: t('campaignCreation.campaignStarted'),
+        description: data.message || t('campaignCreation.campaignStartedMessage'),
       });
+      
+      // Refresh campaign details to get updated status
+      const campaignId = data.campaign?.id || currentCampaign?.id;
+      if (campaignId) {
+        queryClient.invalidateQueries({ queryKey: [`/api/campaigns/${campaignId}`] });
+      }
       
       // Fetch campaign status after starting
       try {
-        const campaignId = data.campaign?.id || currentCampaign?.id;
         const status = await api.getCampaignStatus(campaignId);
         setCampaignStatus(status);
         setShowCampaignStatus(true);
@@ -341,8 +381,10 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
         const interval = setInterval(() => {
           api.getCampaignStatus(campaignId).then((status) => {
             setCampaignStatus(status);
+            // Refresh user credits to show updated balance
+            refreshUser();
             
-            // Stop refreshing if campaign is completed
+            // Stop refreshing only if campaign is completed (not stopped, as we need to see final progress)
             if (status.status === 'completed') {
               clearInterval(interval);
               setStatusRefreshInterval(null);
@@ -366,8 +408,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
         setShowUpgradeModal(true);
       } else {
         toast({
-          title: "Campaign Start Failed",
-          description: errorMessage || "Failed to start campaign.",
+          title: t('campaignCreation.campaignStartFailed'),
+          description: errorMessage || t('campaignCreation.campaignStartFailedMessage'),
           variant: "destructive",
         });
       }
@@ -380,15 +422,15 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       api.cloneVoice(data.file, data.name, data.description),
     onSuccess: (data) => {
       toast({
-        title: "Voice Cloned",
-        description: "Voice has been cloned successfully.",
+        title: t('campaignCreation.voiceCloned'),
+        description: t('campaignCreation.voiceClonedMessage'),
       });
       queryClient.invalidateQueries({ queryKey: ['/api/voices'] });
     },
     onError: (error: any) => {
       toast({
-        title: "Voice Cloning Failed",
-        description: error.message || "Failed to clone voice.",
+        title: t('campaignCreation.voiceCloningFailed'),
+        description: error.message || t('campaignCreation.voiceCloningFailedMessage'),
         variant: "destructive",
       });
     },
@@ -422,8 +464,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       api.deleteKnowledgeBase(fileToDelete.id, currentCampaign.id)
         .then(() => {
           toast({
-            title: "File Deleted",
-            description: "Knowledge base file has been removed successfully.",
+            title: t('campaignCreation.fileDeleted'),
+            description: t('campaignCreation.fileDeletedMessage'),
           });
           // Optimistically remove from local state
           setKnowledgeBaseFiles((prev: any[]) => (prev || []).filter((f: any) => f && f.id !== fileToDelete.id));
@@ -434,8 +476,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
         })
         .catch((error) => {
           toast({
-            title: "Delete Failed",
-            description: error.message || "Failed to delete file",
+            title: t('campaignCreation.deleteFailed'),
+            description: error.message || t('campaignCreation.deleteFailedMessage'),
             variant: "destructive",
           });
         });
@@ -445,8 +487,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       setKnowledgeBaseFiles(newFiles);
       setCurrentCampaign((prev: any) => prev ? { ...prev, knowledgeBase: (prev.knowledgeBase || []).filter((_: any, i: number) => i !== index) } : prev);
       toast({
-        title: "File Removed",
-        description: "The selected file has been removed.",
+        title: t('campaignCreation.fileRemoved'),
+        description: t('campaignCreation.fileRemovedMessage'),
       });
     }
   };
@@ -472,8 +514,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
     }
 
     toast({
-      title: "File Deleted",
-      description: "Leads file has been removed.",
+      title: t('campaignCreation.fileDeleted'),
+      description: t('campaignCreation.fileRemovedMessage'),
     });
   };
 
@@ -757,14 +799,24 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
     }
   };
 
-  const handleVoiceSelect = (voiceId: string) => {
+  const handleVoiceSelect = async (voiceId: string) => {
     setSelectedVoice(voiceId);
     if (currentCampaign) {
+      // Update local state
       setCurrentCampaign({
         ...currentCampaign,
         selectedVoice: voiceId,
         selectedVoiceId: voiceId
       });
+      
+      // Auto-save voice ID to backend when voice is selected
+      try {
+        await api.updateAgent(Number(currentCampaign.id), {
+          selectedVoiceId: voiceId
+        });
+      } catch (error) {
+        // Don't show error toast - voice will be saved when campaign starts
+      }
     }
   };
 
@@ -830,21 +882,19 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       return;
     }
 
-    // Check credits before starting
-    const userCredits = user?.creditsBalance || 0;
-    // Get leads count - prioritize actual leads array length over totalLeads
-    const leadsCount = currentCampaign?.leads?.length || 
-                      csvLeads.length || 
-                      currentCampaign?.totalLeads || 
-                      0;
-    const requiredCredits = leadsCount * 3; // 3 credits per lead (default)
+    // Check if user has minutes available (can't predict required minutes since call duration is unknown)
+    const userMinutes = user?.creditsBalance || 0;
     
-    if (userCredits < requiredCredits && leadsCount > 0) {
+    if (userMinutes <= 0) {
       setShowUpgradeModal(true);
       return;
     }
 
-    const confirmMessage = `Are you sure you want to start the campaign "${currentCampaign.name}"?\n\nThis will:\n- Use the selected voice\n- Process uploaded leads\n- Use the uploaded knowledge base\n- Start making calls immediately`;
+    let confirmMessage = t('campaignCreation.startCampaignConfirmMessage', { name: currentCampaign.name || 'this campaign' });
+    // Ensure {name} is replaced (fallback if interpolation didn't work)
+    const campaignName = currentCampaign.name || 'this campaign';
+    confirmMessage = confirmMessage.replace(/\{name\}/g, campaignName);
+    confirmMessage = confirmMessage.replace(/\{\{name\}\}/g, campaignName);
     
     if (window.confirm(confirmMessage)) {
       // Prepare full campaign data with all settings
@@ -869,21 +919,27 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
 
   const handleStopCampaign = () => {
     if (currentCampaign?.id) {
-      const confirmMessage = `Are you sure you want to stop the campaign "${currentCampaign.name}"?\n\nThis will:\n- Stop all ongoing calls\n- Prevent new calls from starting\n- Keep campaign data intact`;
+      let confirmMessage = t('campaigns.stopConfirmMessage', { name: currentCampaign.name });
+      // Ensure {name} is replaced (fallback if interpolation didn't work)
+      const campaignName = currentCampaign.name || 'this campaign';
+      confirmMessage = confirmMessage.replace(/\{name\}/g, campaignName);
+      confirmMessage = confirmMessage.replace(/\{\{name\}\}/g, campaignName);
       
       if (window.confirm(confirmMessage)) {
         api.post(`/api/campaigns/${currentCampaign.id}/stop`, {})
           .then(() => {
             setCampaignControlStatus('stopped');
             toast({
-              title: "Stopped",
-              description: "stopped.",
+              title: t('campaigns.stopped'),
+              description: t('campaigns.stoppedMessage'),
             });
+            // Refresh campaign details to get updated status
+            queryClient.invalidateQueries({ queryKey: [`/api/campaigns/${currentCampaign.id}`] });
           })
           .catch((error) => {
             toast({
-              title: "Error",
-              description: "Error.",
+              title: t('common.error'),
+              description: error.message || t('campaigns.deleteErrorMessage'),
               variant: "destructive"
             });
           });
@@ -893,21 +949,27 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
 
   const handlePauseCampaign = () => {
     if (currentCampaign?.id) {
-      const confirmMessage = `Are you sure you want to pause the campaign "${currentCampaign.name}"?\n\nThis will:\n- Pause ongoing calls\n- Prevent new calls from starting\n- Allow resuming later`;
+      let confirmMessage = t('campaigns.pauseConfirmMessage', { name: currentCampaign.name });
+      // Ensure {name} is replaced (fallback if interpolation didn't work)
+      const campaignName = currentCampaign.name || 'this campaign';
+      confirmMessage = confirmMessage.replace(/\{name\}/g, campaignName);
+      confirmMessage = confirmMessage.replace(/\{\{name\}\}/g, campaignName);
       
       if (window.confirm(confirmMessage)) {
         api.post(`/api/campaigns/${currentCampaign.id}/pause`, {})
           .then(() => {
             setCampaignControlStatus('paused');
             toast({
-              title: "Paused",
-              description: "paused.",
+              title: t('campaigns.paused'),
+              description: t('campaigns.pausedMessage'),
             });
+            // Refresh campaign details to get updated status
+            queryClient.invalidateQueries({ queryKey: [`/api/campaigns/${currentCampaign.id}`] });
           })
           .catch((error) => {
             toast({
-              title: "Error",
-              description: "Error.",
+              title: t('common.error'),
+              description: error.message || t('campaigns.deleteErrorMessage'),
               variant: "destructive"
             });
           });
@@ -924,6 +986,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
             title: "Resumed",
             description: "resumed.",
           });
+          // Refresh campaign details to get updated status
+          queryClient.invalidateQueries({ queryKey: [`/api/campaigns/${currentCampaign.id}`] });
         })
         .catch((error) => {
           toast({
@@ -991,9 +1055,9 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
     const languageKeywords = {
       'tr': ['turkish', 'türkçe', 'istanbul', 'ankara', 'izmir'],
       'ar': ['arabic', 'عربي', 'arab', 'saudi', 'dubai', 'uae'],
-      'en': ['english', 'american', 'british', 'australian', 'canadian'],
-      'az': ['azerbaijani', 'azərbaycan', 'baku']
+      'en': ['english', 'american', 'british', 'australian', 'canadian']
     };
+    
     
     const currentLangKeywords = languageKeywords[normalizedLanguage as keyof typeof languageKeywords] || [];
     
@@ -1012,10 +1076,10 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
 
   if (isLoading && campaignId) {
     return (
-      <div className="max-w-6xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+      <div className="max-w-6xl mx-auto p-6 bg-white dark:bg-gray-900 rounded-lg shadow-lg">
         <div className="flex items-center justify-center py-12">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
-          <span className="ml-3 text-gray-600">Loading campaign...</span>
+          <span className="ml-3 text-gray-600 dark:text-gray-300">Loading campaign...</span>
         </div>
       </div>
     );
@@ -1030,6 +1094,9 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
           </div>
           <div>
             <h1 className="text-xl font-bold text-brand-800 dark:text-brand-200">{t('dashboard.campaignManagement')}</h1>
+            {!currentCampaign && (
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{t('dashboard.createNewOrSelectExisting')}</p>
+            )}
             {currentCampaign && (
               <div className="flex items-center space-x-2">
                 <span className="text-xs text-brand-600 dark:text-brand-400">{t('dashboard.campaign')} {currentCampaign.name}</span>
@@ -1047,16 +1114,6 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
 
       {currentStep === 1 && (
         <div className="space-y-6">
-          <div className="flex items-center space-x-3 mb-6">
-            <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
-              <FileText className="h-5 w-5 text-purple-600" />
-            </div>
-            <div>
-              <h2 className="text-xl font-semibold text-gray-900">{t('dashboard.campaignSelection')}</h2>
-              <p className="text-gray-600">{t('dashboard.createNewOrSelectExisting')}</p>
-            </div>
-          </div>
-
           <div className="text-center py-12">
             {!isCreatingCampaign ? (
               <button
@@ -1072,7 +1129,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   type="text"
                   value={newCampaignName}
                   onChange={(e) => setNewCampaignName(e.target.value)}
-                  placeholder="Enter campaign name"
+                  placeholder={t('campaignCreation.campaignLaunch.enterCampaignName')}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   autoFocus
                   disabled={createCampaignMutation.isPending}
@@ -1085,7 +1142,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   {createCampaignMutation.isPending ? (
                     <>
                       <Loader2 className="h-4 w-4 animate-spin" />
-                      <span>Creating...</span>
+                      <span>{t('campaignCreation.campaignLaunch.creating')}</span>
                     </>
                   ) : (
                     t('dashboard.createCampaign')
@@ -1096,9 +1153,9 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
           </div>
 
           <div className="mt-8">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('dashboard.existingCampaigns')}</h3>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">{t('dashboard.existingCampaigns')}</h3>
             {campaigns.length === 0 ? (
-              <p className="text-gray-500 text-center py-8">{t('dashboard.noExistingCampaigns')}</p>
+              <p className="text-gray-500 dark:text-gray-400 text-center py-8">{t('dashboard.noExistingCampaigns')}</p>
             ) : (
               <div className="space-y-2">
                 {campaigns.map((campaign: any) => {
@@ -1109,15 +1166,15 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                       onClick={() => {
                         setLocation(canEdit ? `/campaigns/${campaign.id}/edit` : `/campaigns/${campaign.id}`);
                       }}
-                      className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
+                      className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 bg-white dark:bg-gray-900 cursor-pointer transition-colors"
                     >
                       <div className="flex items-center justify-between">
-                        <h4 className="font-medium text-gray-900">{campaign.name}</h4>
+                        <h4 className="font-medium text-gray-900 dark:text-gray-100">{campaign.name}</h4>
                         {!canEdit && (
-                          <span className="text-xs px-2 py-1 rounded bg-yellow-100 text-yellow-700 border border-yellow-200">View Only</span>
+                          <span className="text-xs px-2 py-1 rounded bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 border border-yellow-200 dark:border-yellow-800">View Only</span>
                         )}
                       </div>
-                      <p className="text-sm text-gray-500">Created {new Date().toLocaleDateString()}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">Created {new Date().toLocaleDateString()}</p>
                     </div>
                   );
                 })}
@@ -1231,7 +1288,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                       <textarea
                         value={customScript}
                         onChange={(e) => setCustomScript(e.target.value)}
-                        placeholder="Enter your custom opening message..."
+                        placeholder={t('campaignCreation.campaignLaunch.enterCustomOpening')}
                         rows={2}
                         className="w-full px-2 py-1.5 text-xs border border-brand-300 dark:border-brand-600 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-white dark:bg-brand-800"
                       />
@@ -1242,7 +1299,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
 
                 <div>
                   <label className="block text-xs font-medium text-brand-700 dark:text-brand-300 mb-1">
-                    Initial Message (Override)
+                    {t('campaignCreation.campaignLaunch.initialMessageOverride')}
                   </label>
                   <div className="relative">
                     <div className="w-full px-2 py-1.5 text-xs border border-brand-300 dark:border-brand-600 rounded-lg bg-white dark:bg-brand-800 min-h-[32px] flex items-center">
@@ -1345,14 +1402,14 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                     onClick={() => setShowCloneForm(!showCloneForm)}
                     className="px-3 py-1.5 border border-brand-300 dark:border-brand-600 text-brand-700 dark:text-brand-300 rounded-lg hover:bg-brand-50 dark:hover:bg-brand-800/30 transition-colors text-xs"
                   >
-                    {showCloneForm ? 'Cancel' : 'Clone Voice'}
+                    {showCloneForm ? t('campaignCreation.campaignLaunch.cancel') : t('voices.cloneVoice')}
                   </button>
                 </div>
                 
                 <div className="mt-2">
                   <input
                     type="text"
-                    placeholder="Search voices by name, accent, gender, or age..."
+                    placeholder={t('campaignCreation.campaignLaunch.searchVoices')}
                     value={voiceSearchTerm}
                     onChange={(e) => setVoiceSearchTerm(e.target.value)}
                     className="w-full px-2 py-1.5 border border-brand-300 dark:border-brand-600 rounded-lg text-xs focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-white dark:bg-brand-800"
@@ -1365,35 +1422,35 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                 </div>
                 
                 {showCloneForm && (
-                  <div className="mt-4 p-4 border border-gray-200 rounded-lg bg-gray-50">
-                    <h4 className="text-sm font-medium text-gray-700 mb-3">Clone Your Voice</h4>
+                  <div className="mt-4 p-4 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800">
+                    <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Clone Your Voice</h4>
                     <div className="space-y-3">
                       <div>
-                        <label className="block text-xs font-medium text-gray-600 mb-1">
+                        <label className="block text-xs font-medium text-gray-600 dark:text-gray-300 mb-1">
                           Voice Name
                         </label>
                         <input
                           type="text"
                           value={cloneName}
                           onChange={(e) => setCloneName(e.target.value)}
-                          placeholder="Enter voice name"
+                          placeholder={t('campaignCreation.campaignLaunch.enterVoiceName')}
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-medium text-gray-600 mb-1">
+                        <label className="block text-xs font-medium text-gray-600 dark:text-gray-300 mb-1">
                           Description (Optional)
                         </label>
                         <input
                           type="text"
                           value={cloneDescription}
                           onChange={(e) => setCloneDescription(e.target.value)}
-                          placeholder="Enter description"
+                          placeholder={t('campaignCreation.campaignLaunch.enterDescription')}
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-medium text-gray-600 mb-1">
+                        <label className="block text-xs font-medium text-gray-600 dark:text-gray-300 mb-1">
                           Audio File
                         </label>
                         <input
@@ -1409,7 +1466,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                 
                 <div className="max-h-80 overflow-y-auto space-y-2 pr-2">
                   {filteredVoices.length === 0 ? (
-                    <div className="text-center py-8 text-gray-500">
+                    <div className="text-center py-8 text-gray-500 dark:text-gray-400">
                       <p>No voices found matching your search.</p>
                       <p className="text-xs mt-1">Try a different search term or clear the search.</p>
                     </div>
@@ -1557,37 +1614,27 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
 
       {currentStep === 4 && currentCampaign && (
         <div className="space-y-6">
-          <div className="flex items-center space-x-3 mb-6">
-            <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
-              <Rocket className="h-5 w-5 text-purple-600" />
-            </div>
-            <div>
-              <h2 className="text-xl font-semibold text-gray-900">Campaign Launch</h2>
-              <p className="text-gray-600">Test and start your campaign.</p>
-            </div>
-          </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Test Single Call</h3>
+            <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('campaignCreation.campaignLaunch.testSingleCall')}</h3>
               
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    First Name (optional)
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    {t('campaignCreation.campaignLaunch.firstNameOptional')}
                   </label>
                   <input
                     type="text"
                     value={testCallData.firstName}
                     onChange={(e) => setTestCallData({...testCallData, firstName: e.target.value})}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Enter first name"
+                    placeholder={t('campaignCreation.campaignLaunch.firstNamePlaceholder')}
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    {t('campaignCreation.campaignLaunch.phoneNumber')}
                   </label>
                   <input
                     type="tel"
@@ -1609,27 +1656,27 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   {testCallMutation.isPending ? (
                     <>
                       <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                      <span>Calling...</span>
+                      <span>{t('campaignCreation.campaignLaunch.calling')}</span>
                     </>
                   ) : (
                     <>
                   <Phone className="h-4 w-4" />
-                  <span>Test Call</span>
+                  <span>{t('campaignCreation.campaignLaunch.testCall')}</span>
                     </>
                   )}
                 </button>
               </div>
               
               <div className="mt-6">
-                <h4 className="text-sm font-medium text-gray-700 mb-3">
-                  Complete all required steps to enable test calls:
+                <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+                  {t('campaignCreation.campaignLaunch.completeStepsToEnable')}
                 </h4>
                 <div className="space-y-2">
                   {[
-                    { label: 'Set initial message', completed: (currentCampaign.aiConfig?.initialMessage?.trim() || currentCampaign.firstPrompt?.trim() || '') !== '' },
-                    { label: 'Select a voice', completed: (currentCampaign.selectedVoice || currentCampaign.selectedVoiceId || '') !== '' },
-                    { label: 'Upload knowledge base', completed: (currentCampaign.knowledgeBase?.length || 0) > 0 || !!currentCampaign.knowledgeBaseId },
-                    { label: 'Upload leads CSV', completed: (currentCampaign.leads?.length || 0) > 0 }
+                    { label: t('campaignCreation.campaignLaunch.setInitialMessage'), completed: (currentCampaign.aiConfig?.initialMessage?.trim() || currentCampaign.firstPrompt?.trim() || '') !== '' },
+                    { label: t('campaignCreation.campaignLaunch.selectVoice'), completed: (currentCampaign.selectedVoice || currentCampaign.selectedVoiceId || '') !== '' },
+                    { label: t('campaignCreation.campaignLaunch.uploadKnowledgeBase'), completed: (currentCampaign.knowledgeBase?.length || 0) > 0 || !!currentCampaign.knowledgeBaseId },
+                    { label: t('campaignCreation.campaignLaunch.uploadLeadsCsv'), completed: (currentCampaign.leads?.length || 0) > 0 }
                   ].map((item, index) => (
                     <div key={index} className="flex items-center space-x-2">
                       {item.completed ? (
@@ -1637,7 +1684,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                       ) : (
                         <Circle className="h-4 w-4 text-gray-400" />
                       )}
-                      <span className={`text-sm ${item.completed ? 'text-purple-700' : 'text-gray-500'}`}>
+                      <span className={`text-sm ${item.completed ? 'text-purple-700 dark:text-purple-400' : 'text-gray-500 dark:text-gray-400'}`}>
                         {item.label}
                       </span>
                     </div>
@@ -1646,8 +1693,8 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Campaign Control</h3>
+            <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('campaignCreation.campaignLaunch.campaignControl')}</h3>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
                 <button
@@ -1662,12 +1709,12 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   {startCampaignMutation.isPending ? (
                     <>
                       <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                      <span>Starting...</span>
+                      <span>{t('campaignCreation.campaignLaunch.starting')}</span>
                     </>
                   ) : (
                     <>
                       <Play className="h-4 w-4" />
-                      <span>Start</span>
+                      <span>{t('campaignCreation.campaignLaunch.start')}</span>
                     </>
                   )}
                 </button>
@@ -1685,12 +1732,12 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   {campaignControlStatus === 'paused' ? (
                     <>
                       <RotateCcw className="h-4 w-4" />
-                      <span>Resume</span>
+                      <span>{t('campaignCreation.campaignLaunch.resume')}</span>
                     </>
                   ) : (
                     <>
                       <Pause className="h-4 w-4" />
-                      <span>Pause</span>
+                      <span>{t('campaignCreation.campaignLaunch.pause')}</span>
                     </>
                   )}
                 </button>
@@ -1705,7 +1752,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   }`}
                 >
                   <Square className="h-4 w-4" />
-                  <span>Stop</span>
+                  <span>{t('campaignCreation.campaignLaunch.stop')}</span>
                 </button>
               </div>
 
@@ -1716,9 +1763,9 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                     campaignControlStatus === 'paused' ? 'bg-yellow-500' :
                     'bg-gray-400'
                   }`}></div>
-                  <span className="text-sm font-medium text-gray-700">
-                    Status: {campaignControlStatus === 'running' ? 'Running' : 
-                            campaignControlStatus === 'paused' ? 'Paused' : 'Stopped'}
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    {t('campaignCreation.campaignLaunch.status')}: {campaignControlStatus === 'running' ? t('campaignCreation.campaignLaunch.running') : 
+                            campaignControlStatus === 'paused' ? t('campaignCreation.campaignLaunch.paused') : t('campaignCreation.campaignLaunch.stopped')}
                   </span>
                 </div>
               </div>
@@ -1729,20 +1776,20 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   className="w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-lg font-medium transition-colors bg-purple-600 text-white hover:bg-purple-700"
                 >
                   <Users className="h-4 w-4" />
-                  <span>View Existing Campaigns</span>
+                  <span>{t('campaignCreation.campaignLaunch.viewExistingCampaigns')}</span>
                 </button>
               </div>
               
               <div>
-                <h4 className="text-sm font-medium text-gray-700 mb-3">
-                  Campaign Requirements:
+                <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+                  {t('campaignCreation.campaignLaunch.campaignRequirements')}
                 </h4>
                 <div className="space-y-2">
                   {[
-                    { label: 'Initial Message Required', completed: (currentCampaign.aiConfig?.initialMessage?.trim() || currentCampaign.firstPrompt?.trim() || '') !== '' },
-                    { label: 'Voice Selection Required', completed: (currentCampaign.selectedVoice || currentCampaign.selectedVoiceId || '') !== '' },
-                    { label: 'Knowledge Base Required', completed: (currentCampaign.knowledgeBase?.length || 0) > 0 || !!currentCampaign.knowledgeBaseId },
-                    { label: 'Leads CSV Required', completed: (currentCampaign.leads?.length || 0) > 0 }
+                    { label: t('campaignCreation.campaignLaunch.initialMessageRequired'), completed: (currentCampaign.aiConfig?.initialMessage?.trim() || currentCampaign.firstPrompt?.trim() || '') !== '' },
+                    { label: t('campaignCreation.campaignLaunch.voiceSelectionRequired'), completed: (currentCampaign.selectedVoice || currentCampaign.selectedVoiceId || '') !== '' },
+                    { label: t('campaignCreation.campaignLaunch.knowledgeBaseRequired'), completed: (currentCampaign.knowledgeBase?.length || 0) > 0 || !!currentCampaign.knowledgeBaseId },
+                    { label: t('campaignCreation.campaignLaunch.leadsCsvRequired'), completed: (currentCampaign.leads?.length || 0) > 0 }
                   ].map((item, index) => (
                     <div key={index} className="flex items-center space-x-2">
                       {item.completed ? (
@@ -1750,7 +1797,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                       ) : (
                         <Circle className="h-4 w-4 text-gray-400" />
                       )}
-                      <span className={`text-sm ${item.completed ? 'text-purple-700' : 'text-gray-500'}`}>
+                      <span className={`text-sm ${item.completed ? 'text-purple-700 dark:text-purple-400' : 'text-gray-500 dark:text-gray-400'}`}>
                         {item.label}
                       </span>
                     </div>
@@ -1766,7 +1813,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
         <div className="flex justify-between mt-8 pt-6 border-t border-gray-200">
           <button
             onClick={() => setCurrentStep(currentStep - 1)}
-            className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+            className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
           >
             {t('dashboard.previous')}
           </button>
@@ -1790,57 +1837,69 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
               <Rocket className="h-5 w-5 text-purple-600" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-purple-900">Campaign Active</h3>
-              <p className="text-purple-700">Your campaign is now making calls!</p>
+              <h3 className="text-lg font-semibold text-purple-900">{t('campaignCreation.campaignLaunch.campaignActive')}</h3>
+              <p className="text-purple-700">{t('campaignCreation.campaignLaunch.campaignActiveMessage')}</p>
             </div>
           </div>
           
            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-             <div className="bg-white rounded-lg p-3 text-center">
+             <div className="bg-white dark:bg-gray-800 rounded-lg p-3 text-center">
                <div className="text-2xl font-bold text-purple-600">{campaignStatus.totalLeads || 0}</div>
-               <div className="text-sm text-gray-600">Total Leads</div>
+               <div className="text-sm text-gray-600">{t('campaignCreation.campaignLaunch.totalLeads')}</div>
              </div>
-             <div className="bg-white rounded-lg p-3 text-center">
+             <div className="bg-white dark:bg-gray-800 rounded-lg p-3 text-center">
                <div className="text-2xl font-bold text-blue-600">{campaignStatus.completedCalls || 0}</div>
-               <div className="text-sm text-gray-600">Calls Made</div>
+               <div className="text-sm text-gray-600">{t('campaignCreation.campaignLaunch.callsMade')}</div>
              </div>
-             <div className="bg-white rounded-lg p-3 text-center">
+             <div className="bg-white dark:bg-gray-800 rounded-lg p-3 text-center">
                <div className="text-2xl font-bold text-purple-600">{campaignStatus.successfulCalls || 0}</div>
-               <div className="text-sm text-gray-600">Successful</div>
+               <div className="text-sm text-gray-600">{t('campaignCreation.campaignLaunch.successfulCalls')}</div>
              </div>
-             <div className="bg-white rounded-lg p-3 text-center">
+             <div className="bg-white dark:bg-gray-800 rounded-lg p-3 text-center">
                <div className="text-2xl font-bold text-orange-600">{campaignStatus.pendingCalls || 0}</div>
-               <div className="text-sm text-gray-600">Pending</div>
+               <div className="text-sm text-gray-600">{t('campaignCreation.campaignLaunch.pendingCalls')}</div>
              </div>
            </div>
 
            {/* Enhanced Lead Details */}
            {currentCampaign?.leads && currentCampaign.leads.length > 0 && (
-             <div className="bg-white rounded-lg p-4 mb-4">
+             <div className="bg-white dark:bg-gray-800 rounded-lg p-4 mb-4">
                <h4 className="font-semibold text-gray-900 mb-3">📋 Leads from CSV</h4>
                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-40 overflow-y-auto">
-                 {currentCampaign.leads.map((lead: any, index: number) => (
-                   <div key={index} className="flex items-center justify-between p-2 bg-gray-50 rounded">
-                     <div>
-                       <span className="font-medium text-gray-900">{lead.name || `Lead ${index + 1}`}</span>
-                       <span className="text-sm text-gray-500 ml-2">({lead.phone || lead.phoneNumber})</span>
+                 {currentCampaign.leads.map((lead: any, index: number) => {
+                   // Get lead name - use firstName, or combine firstName and lastName
+                   const leadName = lead.firstName 
+                     ? (lead.lastName ? `${lead.firstName} ${lead.lastName}` : lead.firstName)
+                     : `Lead ${index + 1}`;
+                   
+                   // Get phone number - use contactNo (the correct field name)
+                   const phoneNumber = lead.contactNo || lead.phone || lead.phoneNumber || '';
+                   
+                   return (
+                     <div key={index} className="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-700 rounded">
+                       <div>
+                         <span className="font-medium text-gray-900">{leadName}</span>
+                         {phoneNumber && (
+                           <span className="text-sm text-gray-500 ml-2">({phoneNumber})</span>
+                         )}
+                       </div>
+                       <div className="text-xs text-gray-500">
+                         {index < (campaignStatus.completedCalls || 0) ? (
+                           <span className="text-purple-600">✅ Called</span>
+                         ) : (
+                           <span className="text-orange-600">⏳ Pending</span>
+                         )}
+                       </div>
                      </div>
-                     <div className="text-xs text-gray-500">
-                       {index < (campaignStatus.completedCalls || 0) ? (
-                         <span className="text-purple-600">✅ Called</span>
-                       ) : (
-                         <span className="text-orange-600">⏳ Pending</span>
-                       )}
-                     </div>
-                   </div>
-                 ))}
+                   );
+                 })}
                </div>
              </div>
            )}
 
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-4">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-gray-700">Progress</span>
+              <span className="text-sm font-medium text-gray-700">{t('campaignCreation.campaignLaunch.progress')}</span>
               <span className="text-sm text-gray-600">{campaignStatus.progressPercentage || 0}%</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">
@@ -1853,28 +1912,64 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
 
            {/* Call History */}
            {campaignStatus.callHistory && campaignStatus.callHistory.length > 0 && (
-             <div className="bg-white rounded-lg p-4 mb-4">
-               <h4 className="font-semibold text-gray-900 mb-3">📞 Call History</h4>
+             <div className="bg-white dark:bg-gray-800 rounded-lg p-4 mb-4">
+               <h4 className="font-semibold text-gray-900 mb-3">📞 {t('campaignCreation.campaignLaunch.callHistory')}</h4>
                <div className="space-y-2 max-h-48 overflow-y-auto">
-                 {campaignStatus.callHistory.map((call: any, index: number) => (
-                   <div key={index} className="flex items-center justify-between p-2 bg-gray-50 rounded">
-                     <div className="flex items-center space-x-3">
-                       <div className={`w-2 h-2 rounded-full ${call.success ? 'bg-purple-500' : 'bg-red-500'}`}></div>
-                       <div>
-                         <span className="font-medium text-gray-900">{call.leadName}</span>
-                         <span className="text-sm text-gray-500 ml-2">({call.phone})</span>
+                 {campaignStatus.callHistory.map((call: any, index: number) => {
+                   // Clean up any template variables from leadName
+                   let displayName = call.leadName || 'Unknown';
+                   displayName = displayName.replace(/\{\{?\s*name\s*\}?\}/gi, '').trim() || 'Unknown';
+                   displayName = displayName.replace(/\{\{?\s*first_name\s*\}?\}/gi, '').trim() || 'Unknown';
+                   
+                   // Determine status display and color
+                   const callStatus = (call.status || '').toLowerCase();
+                   let statusDisplay = call.status || 'Pending';
+                   let statusColor = 'text-gray-600';
+                   let statusIcon = '⏳';
+                   let dotColor = 'bg-gray-500';
+                   
+                   if (callStatus === 'completed') {
+                     statusDisplay = '✅ Completed';
+                     statusColor = 'text-green-600';
+                     statusIcon = '✅';
+                     dotColor = 'bg-green-500';
+                   } else if (callStatus === 'failed' || callStatus === 'cancelled' || callStatus === 'no_answer') {
+                     statusDisplay = '❌ Failed';
+                     statusColor = 'text-red-600';
+                     statusIcon = '❌';
+                     dotColor = 'bg-red-500';
+                   } else if (callStatus === 'calling' || callStatus === 'in_progress' || callStatus === 'ringing') {
+                     statusDisplay = '📞 Calling';
+                     statusColor = 'text-blue-600';
+                     statusIcon = '📞';
+                     dotColor = 'bg-blue-500';
+                   } else {
+                     statusDisplay = '⏳ Pending';
+                     statusColor = 'text-orange-600';
+                     statusIcon = '⏳';
+                     dotColor = 'bg-orange-500';
+                   }
+                   
+                   return (
+                     <div key={index} className="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-700 rounded">
+                       <div className="flex items-center space-x-3">
+                         <div className={`w-2 h-2 rounded-full ${dotColor}`}></div>
+                         <div>
+                           <span className="font-medium text-gray-900">{displayName}</span>
+                           <span className="text-sm text-gray-500 ml-2">({call.phone})</span>
+                         </div>
+                       </div>
+                       <div className="text-right">
+                         <div className="text-xs text-gray-500">
+                           {new Date(call.timestamp).toLocaleTimeString()}
+                         </div>
+                         <div className={`text-xs ${statusColor}`}>
+                           {statusDisplay}
+                         </div>
                        </div>
                      </div>
-                     <div className="text-right">
-                       <div className="text-xs text-gray-500">
-                         {new Date(call.timestamp).toLocaleTimeString()}
-                       </div>
-                       <div className={`text-xs ${call.success ? 'text-purple-600' : 'text-red-600'}`}>
-                         {call.success ? `✅ ${call.status}` : `❌ Failed`}
-                       </div>
-                     </div>
-                   </div>
-                 ))}
+                   );
+                 })}
                </div>
              </div>
            )}
@@ -1883,10 +1978,10 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
              <div className="text-sm text-gray-600">
                <p>Status: <span className="font-medium text-purple-600 capitalize">{campaignStatus.status}</span></p>
                {campaignStatus.startedAt && (
-                 <p>Started: {new Date(campaignStatus.startedAt).toLocaleString()}</p>
+                 <p>{t('campaignCreation.campaignLaunch.started')}: {new Date(campaignStatus.startedAt).toLocaleString()}</p>
                )}
                {campaignStatus.lastCallAt && (
-                 <p>Last Call: {new Date(campaignStatus.lastCallAt).toLocaleString()}</p>
+                 <p>{t('campaignCreation.campaignLaunch.lastCall')}: {new Date(campaignStatus.lastCallAt).toLocaleString()}</p>
                )}
              </div>
              <button
@@ -1899,7 +1994,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                }}
                className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
              >
-               Close
+               {t('campaignCreation.campaignLaunch.close')}
              </button>
            </div>
         </div>
@@ -1908,7 +2003,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
       {/* Enhanced CSV Preview Modal */}
       {showCSVPreview && csvLeads.length > 0 && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 max-w-4xl w-full mx-4 max-h-[90vh] overflow-hidden">
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-4xl w-full mx-4 max-h-[90vh] overflow-hidden">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold text-gray-900">📋 CSV Leads Preview & Edit</h3>
               <button
@@ -1949,7 +2044,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
             <div className="max-h-96 overflow-y-auto border border-gray-200 rounded-lg">
               <div className="divide-y divide-gray-200">
                 {csvLeads.map((lead, index) => (
-                  <div key={index} className="p-3 hover:bg-gray-50 transition-colors">
+                  <div key={index} className="p-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3 flex-1">
                         <div className="flex items-center space-x-2">
@@ -1973,14 +2068,14 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                                   value={editedName}
                                   onChange={(e) => setEditedName(e.target.value)}
                                   className="flex-1 px-2 py-1 text-sm border border-gray-300 rounded focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-                                  placeholder="First Name"
+                                  placeholder={t('campaignCreation.campaignLaunch.firstNamePlaceholder')}
                                 />
                                 <input
                                   type="text"
                                   value={editedLastName}
                                   onChange={(e) => setEditedLastName(e.target.value)}
                                   className="flex-1 px-2 py-1 text-sm border border-gray-300 rounded focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-                                  placeholder="Last Name (optional)"
+                                  placeholder={t('campaignCreation.campaignLaunch.lastNameOptional')}
                                 />
                               </div>
                               <div className="flex items-center space-x-2">
@@ -1989,7 +2084,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                                   value={editedPhone}
                                   onChange={(e) => setEditedPhone(e.target.value)}
                                   className="flex-1 px-2 py-1 text-sm border border-gray-300 rounded focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-                                  placeholder="+971xxxxxxxx"
+                                  placeholder={t('campaignCreation.campaignLaunch.phonePlaceholder')}
                                 />
                               </div>
                               <div className="flex items-center space-x-2">
@@ -1998,7 +2093,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                                   value={editedEmail}
                                   onChange={(e) => setEditedEmail(e.target.value)}
                                   className="flex-1 px-2 py-1 text-sm border border-gray-300 rounded focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-                                  placeholder="Email (optional)"
+                                  placeholder={t('campaignCreation.campaignLaunch.emailOptional')}
                                 />
                               </div>
                               {/* Action Buttons */}
@@ -2007,13 +2102,13 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                                   onClick={handleSaveLeadEdit}
                                   className="px-2 py-1 text-xs bg-green-600 text-white rounded hover:bg-green-700"
                                 >
-                                  Save
+                                  {t('campaignCreation.campaignLaunch.save')}
                                 </button>
                                 <button
                                   onClick={handleCancelEdit}
                                   className="px-2 py-1 text-xs bg-gray-500 text-white rounded hover:bg-gray-600"
                                 >
-                                  Cancel
+                                  {t('campaignCreation.campaignLaunch.cancel')}
                                 </button>
                               </div>
                             </div>
@@ -2070,13 +2165,13 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
                   onClick={() => setShowCSVPreview(false)}
                   className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors"
                 >
-                  Cancel
+                  {t('campaignCreation.campaignLaunch.cancel')}
                 </button>
                 <button
                   onClick={() => setShowCSVPreview(false)}
                   className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
                 >
-                  Confirm & Close
+                  {t('leads.confirm')} & {t('campaignCreation.campaignLaunch.close')}
                 </button>
               </div>
             </div>

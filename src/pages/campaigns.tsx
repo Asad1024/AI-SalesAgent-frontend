@@ -39,16 +39,16 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
     mutationFn: (id: number) => api.deleteCampaign(id),
     onSuccess: () => {
       toast({
-        title: "Campaign Deleted",
-        description: "The campaign has been successfully deleted.",
+        title: t('campaigns.deleteSuccess'),
+        description: t('campaigns.deleteSuccessMessage'),
       });
       queryClient.invalidateQueries({ queryKey: ["/api/campaigns"] });
       setShowDeleteDialog(false);
     },
     onError: (error: any) => {
       toast({
-        title: "Error",
-        description: error.message || "Failed to delete campaign",
+        title: t('campaigns.deleteError'),
+        description: error.message || t('campaigns.deleteErrorMessage'),
         variant: "destructive",
       });
     },
@@ -71,10 +71,10 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
     
     if (!canEdit) {
       toast({
-        title: "Cannot Edit Campaign",
+        title: t('campaigns.cannotEditTitle'),
         description: campaign.status !== 'draft' 
-          ? "Only draft campaigns can be edited" 
-          : "Cannot edit campaigns with completed calls",
+          ? t('campaigns.cannotEditDraft')
+          : t('campaigns.cannotEditWithCalls'),
         variant: "destructive",
       });
       return;
@@ -133,7 +133,7 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
                   
                   <div>
                     <h2 className="text-3xl font-bold text-black dark:text-black spark-gradient-text">{t('campaigns.title')}</h2>
-                    <p className="text-black dark:text-black mt-2">{t('campaigns.subtitle')}</p>
+                    <p className="text-gray-600 dark:text-gray-300 mt-2">{t('campaigns.subtitle')}</p>
                   </div>
                 </div>
                 <div className="hidden lg:flex items-center gap-3">
@@ -157,6 +157,13 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
                   className="pl-10 bg-white dark:bg-slate-800"
                 />
               </div>
+              <Button
+                onClick={() => setLocation("/campaigns/new")}
+                className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-200 whitespace-nowrap"
+              >
+                <Plus className="h-4 w-4 mr-2" />
+                {t('campaigns.createNew')}
+              </Button>
             </div>
             {isLoading ? (
               <div className="text-center py-8">
@@ -192,9 +199,16 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
       <Dialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Are you sure?</DialogTitle>
+            <DialogTitle>{t('campaigns.deleteConfirmTitle')}</DialogTitle>
             <DialogDescription>
-              This action cannot be undone. This will permanently delete the "{campaignToDelete?.name}" campaign.
+              {(() => {
+                let message = t('campaigns.deleteConfirmMessage', { name: campaignToDelete?.name });
+                // Ensure {name} and {{name}} are replaced (fallback if interpolation didn't work)
+                const campaignName = campaignToDelete?.name || 'this campaign';
+                message = message.replace(/\{name\}/g, campaignName);
+                message = message.replace(/\{\{name\}\}/g, campaignName);
+                return message;
+              })()}
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
@@ -203,7 +217,7 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
               onClick={() => setShowDeleteDialog(false)}
               disabled={deleteCampaignMutation.isPending}
             >
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button 
               variant="destructive" 
@@ -213,10 +227,10 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
               {deleteCampaignMutation.isPending ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Deleting
+                  {t('campaigns.deleting')}
                 </>
               ) : (
-                "Delete"
+                t('common.delete')
               )}
             </Button>
           </DialogFooter>

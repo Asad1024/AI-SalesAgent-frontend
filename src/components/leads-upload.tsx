@@ -6,6 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Users, Upload, FileSpreadsheet, Trash2 } from "lucide-react";
 import { api } from "@/lib/api";
+import { useTranslation } from "react-i18next";
 
 interface LeadsUploadProps {
   campaignId?: number;
@@ -17,6 +18,7 @@ export default function LeadsUpload({ campaignId, onLeadsUpload, uploadedLeads }
   const [isDragging, setIsDragging] = useState(false);
   const { toast } = useToast();
   const queryClient = useQueryClient();
+  const { t } = useTranslation();
 
   // CSV upload mutation
   const csvUploadMutation = useMutation({
@@ -24,16 +26,16 @@ export default function LeadsUpload({ campaignId, onLeadsUpload, uploadedLeads }
       api.uploadCSV(file, campaignId.toString()),
     onSuccess: (data) => {
       toast({
-        title: "CSV Uploaded",
-        description: `Successfully uploaded ${data.leadsCount} leads.`,
+        title: t('campaignCreation.csvUploaded'),
+        description: t('campaignCreation.csvUploadedMessage', { count: data.leadsCount }),
       });
       onLeadsUpload(data.leads || []);
       queryClient.invalidateQueries({ queryKey: ["/api/campaigns"] });
     },
     onError: (error: any) => {
       toast({
-        title: "Upload Failed",
-        description: error.message || "Failed to upload CSV.",
+        title: t('campaignCreation.uploadFailed'),
+        description: error.message || t('campaignCreation.csvUploadFailedMessage'),
         variant: "destructive",
       });
     },
@@ -44,16 +46,16 @@ export default function LeadsUpload({ campaignId, onLeadsUpload, uploadedLeads }
     mutationFn: (campaignId: number) => api.deleteLeads(campaignId),
     onSuccess: (data) => {
       toast({
-        title: "Leads Deleted",
-        description: `Successfully deleted ${data.deletedCount} leads.`,
+        title: t('campaignCreation.leadsDeleted'),
+        description: t('campaignCreation.leadsDeletedMessage'),
       });
       onLeadsUpload([]); // Clear the leads from the parent component
       queryClient.invalidateQueries({ queryKey: ["/api/campaigns"] });
     },
     onError: (error: any) => {
       toast({
-        title: "Delete Failed",
-        description: error.message || "Failed to delete leads.",
+        title: t('campaignCreation.deleteLeadsFailed'),
+        description: error.message || t('campaignCreation.deleteLeadsFailedMessage'),
         variant: "destructive",
       });
     },
@@ -62,8 +64,8 @@ export default function LeadsUpload({ campaignId, onLeadsUpload, uploadedLeads }
   const handleCSVUpload = (file: File) => {
     if (!campaignId) {
       toast({
-        title: "No Campaign",
-        description: "Please create or select a campaign first.",
+        title: t('campaignCreation.noCampaign'),
+        description: t('campaignCreation.noCampaignMessage'),
         variant: "destructive",
       });
       return;
@@ -71,8 +73,8 @@ export default function LeadsUpload({ campaignId, onLeadsUpload, uploadedLeads }
 
     if (file.type !== 'text/csv' && !file.name.endsWith('.csv')) {
       toast({
-        title: "Invalid File",
-        description: "Please upload a CSV file.",
+        title: t('campaignCreation.invalidFile'),
+        description: t('campaignCreation.invalidFileCsv'),
         variant: "destructive",
       });
       return;
@@ -80,8 +82,8 @@ export default function LeadsUpload({ campaignId, onLeadsUpload, uploadedLeads }
 
     if (file.size > 5 * 1024 * 1024) { // 5MB
       toast({
-        title: "File Too Large",
-        description: "CSV file must be smaller than 5MB.",
+        title: t('campaignCreation.fileTooLarge'),
+        description: t('campaignCreation.fileTooLargeCsv'),
         variant: "destructive",
       });
       return;
@@ -103,8 +105,8 @@ export default function LeadsUpload({ campaignId, onLeadsUpload, uploadedLeads }
       handleCSVUpload(csvFile);
     } else {
       toast({
-        title: "Invalid File",
-        description: "Please upload a CSV file.",
+        title: t('campaignCreation.invalidFile'),
+        description: t('campaignCreation.invalidFileCsv'),
         variant: "destructive",
       });
     }
@@ -120,8 +122,8 @@ export default function LeadsUpload({ campaignId, onLeadsUpload, uploadedLeads }
   const handleDeleteLeads = () => {
     if (!campaignId) {
       toast({
-        title: "No Campaign",
-        description: "Please create or select a campaign first.",
+        title: t('campaignCreation.noCampaign'),
+        description: t('campaignCreation.noCampaignMessage'),
         variant: "destructive",
       });
       return;
@@ -129,15 +131,15 @@ export default function LeadsUpload({ campaignId, onLeadsUpload, uploadedLeads }
 
     if (uploadedLeads.length === 0) {
       toast({
-        title: "No Leads",
-        description: "There are no leads to delete.",
+        title: t('campaignCreation.noLeads'),
+        description: t('campaignCreation.noLeadsMessage'),
         variant: "destructive",
       });
       return;
     }
 
     const confirmDelete = window.confirm(
-      `Are you sure you want to delete all ${uploadedLeads.length} uploaded leads? This action cannot be undone.`
+      t('campaignCreation.deleteLeadsConfirmMessage', { count: uploadedLeads.length })
     );
 
     if (confirmDelete) {

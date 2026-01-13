@@ -65,9 +65,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
-  const register = async (email: string, password: string, confirmPassword: string) => {
+  const register = async (email: string, password: string, confirmPassword: string, companyName?: string, firstName?: string, lastName?: string, googleId?: string) => {
     try {
-      const response = await authService.register(email, password, confirmPassword);
+      const response = await authService.register(email, password, confirmPassword, companyName, firstName, lastName, googleId);
       // Use creditsBalance from API only, no hardcoded defaults
       setUser(response.user || null);
     } catch (error) {
