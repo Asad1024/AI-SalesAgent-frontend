@@ -37,7 +37,7 @@ import { authService } from '@/lib/auth';
 
 export default function Login() {
   const { t } = useTranslation();
-  const { login, user, refreshUser } = useAuth();
+  const { login, user, refreshUser, googleLogin: authGoogleLogin } = useAuth();
   const { toast } = useToast();
   const [, setLocation] = useLocation();
   const [formData, setFormData] = useState({
@@ -255,16 +255,13 @@ export default function Login() {
       const checkResult = await authService.checkGoogleUser(googleData.email, googleData.googleId);
       
       if (checkResult.exists) {
-        // User exists - sign them in
-        const authResponse = await authService.googleLogin(googleData);
-        
-        if (authResponse.user) {
-          await refreshUser();
-          setIsSuccess(true);
-          setTimeout(() => {
-            setLocation('/dashboard');
-          }, 1000);
-        }
+        // User exists - sign them in using auth hook (sets user state immediately)
+        await authGoogleLogin(googleData);
+        // Clear loading state
+        setIsLoading(false);
+        // Use hard redirect to ensure it works - user state is already set
+        window.location.href = '/dashboard';
+        return; // Exit early to prevent finally block from running
       } else {
         // User doesn't exist - redirect to signup with Google data
         const params = new URLSearchParams({
@@ -276,7 +273,9 @@ export default function Login() {
           googleId: googleData.googleId,
           idToken: googleData.idToken || ''
         });
-        setLocation(`/signup?${params.toString()}`);
+        setIsLoading(false);
+        window.location.href = `/signup?${params.toString()}`;
+        return; // Exit early to prevent finally block from running
       }
     } catch (error: any) {
       toast({

@@ -7,6 +7,7 @@ interface AuthContextType {
   loading: boolean;
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string, confirmPassword: string) => Promise<void>;
+  googleLogin: (googleData: { idToken?: string; email: string; name?: string; picture?: string; googleId: string }) => Promise<void>;
   logout: () => Promise<void>;
   updateProfile: (email: string) => Promise<void>;
   changePassword: (currentPassword: string, newPassword: string, confirmNewPassword: string) => Promise<void>;
@@ -37,21 +38,52 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, []);
 
   const checkAuthStatus = async () => {
+    // First, check localStorage synchronously to set user immediately
+    // This prevents redirect loops after Google login
+    const token = localStorage.getItem('auth-token');
+    const storedUser = localStorage.getItem('user');
+    
+    if (token && storedUser) {
+      try {
+        const user = JSON.parse(storedUser);
+        // Convert date strings back to Date objects if needed
+        if (user.createdAt && typeof user.createdAt === 'string') {
+          user.createdAt = new Date(user.createdAt);
+        }
+        if (user.updatedAt && typeof user.updatedAt === 'string') {
+          user.updatedAt = new Date(user.updatedAt);
+        }
+        // Set user immediately from localStorage
+        setUser(user);
+        setLoading(false); // Set loading to false early so routes can render
+      } catch (parseError) {
+        // If parsing fails, continue to API check
+        setLoading(false);
+      }
+    } else {
+      // No cached data, set loading to false so routes can render
+      setLoading(false);
+    }
+    
+    // Then verify with API in the background (don't block rendering)
     try {
       const status = await authService.checkStatus();
       if (status.authenticated && status.user) {
-        // Use creditsBalance from API only, no hardcoded defaults
+        // Update user with fresh data from API
         setUser(status.user);
-      } else {
+      } else if (!token || !storedUser) {
+        // Only set to null if we don't have cached data
         setUser(null);
       }
+      // If we have cached data but API says not authenticated, keep cached user
+      // (token might be expired but we'll let the user try to use the app)
     } catch (error) {
-      console.warn('Auth check failed, running in demo mode:', error);
-      // Don't set user to null on error, just log the warning
-      // This allows the app to continue functioning even when backend is unavailable
-      setUser(null);
-    } finally {
-      setLoading(false);
+      // If API fails but we have cached data, keep the cached user
+      if (!token || !storedUser) {
+        console.warn('Auth check failed, running in demo mode:', error);
+        setUser(null);
+      }
+      // If we have cached data, don't clear it on API error
     }
   };
 
@@ -69,6 +101,16 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     try {
       const response = await authService.register(email, password, confirmPassword, companyName, firstName, lastName, googleId);
       // Use creditsBalance from API only, no hardcoded defaults
+      setUser(response.user || null);
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  const googleLogin = async (googleData: { idToken?: string; email: string; name?: string; picture?: string; googleId: string }) => {
+    try {
+      const response = await authService.googleLogin(googleData);
+      // Set user directly from response (googleLogin already saved to localStorage)
       setUser(response.user || null);
     } catch (error) {
       throw error;
@@ -119,6 +161,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     loading,
     login,
     register,
+    googleLogin,
     logout,
     updateProfile,
     changePassword,
