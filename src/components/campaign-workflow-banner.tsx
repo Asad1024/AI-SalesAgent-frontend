@@ -20,12 +20,8 @@ const CampaignWorkflowBanner = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [, setLocation] = useLocation();
-  const currentLanguage = i18n.language;
 
   const workflowSteps = useMemo(() => {
-    // Force recalculation when language changes by accessing currentLanguage
-    const lang = currentLanguage;
-    
     return [
       {
         id: 1,
@@ -118,7 +114,8 @@ const CampaignWorkflowBanner = () => {
         ]
       }
     ];
-  }, [t, currentLanguage, i18n.language]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [i18n.language]);
 
   const currentStepData = workflowSteps[currentStep];
 
@@ -126,7 +123,7 @@ const CampaignWorkflowBanner = () => {
   useEffect(() => {
     setCurrentStep(0);
     setIsAnimating(false);
-  }, [currentLanguage, i18n.language]);
+  }, [i18n.language]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -138,7 +135,7 @@ const CampaignWorkflowBanner = () => {
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [workflowSteps.length, currentLanguage]);
+  }, [workflowSteps.length, i18n.language]);
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 mb-4 sm:mb-6 lg:mb-8">
