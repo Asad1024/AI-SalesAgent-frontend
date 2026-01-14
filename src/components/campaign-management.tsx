@@ -381,7 +381,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
         let prevCompletedCalls = status.completedCalls || 0;
         let prevSuccessfulCalls = status.successfulCalls || 0;
         
-        // Set up auto-refresh every 2 seconds for faster call completion detection
+        // Set up auto-refresh every 3 seconds
         const interval = setInterval(() => {
           api.getCampaignStatus(campaignId).then((newStatus) => {
             const currentCompleted = newStatus.completedCalls || 0;
@@ -393,12 +393,10 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
             setCampaignStatus(newStatus);
             
             // Only refresh user data if calls actually completed (to get updated minutes balance)
-            // Call immediately without waiting - this ensures credits update instantly
             if (callsCompleted) {
-              // Immediately refresh user balance when calls complete
-              refreshUser().catch((error) => {
-                console.error('Failed to refresh user balance:', error);
-              });
+              refreshUser();
+              // Dispatch event to update credits in sidebar
+              window.dispatchEvent(new CustomEvent('callCompleted'));
               // Update previous stats
               prevCompletedCalls = currentCompleted;
               prevSuccessfulCalls = currentSuccessful;

@@ -977,4 +977,14 @@ export const api = {
       return handleResponse(response);
     },
   },
+
+  // Get credits balance
+  getCredits: async () => {
+    const response = await fetch(`${BASE_URL}/api/auth/credits`, {
+      method: 'GET',
+      headers: getAuthHeaders(),
+      credentials: 'include',
+    });
+    return handleResponse(response);
+  },
 };

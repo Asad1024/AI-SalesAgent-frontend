@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { 
   Phone, 
   BarChart3, 
@@ -16,6 +16,7 @@ import {
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { api } from "@/lib/api";
 import Logo from "./logo";
 import ThemeToggle from "./theme-toggle";
 import LanguageSwitcher from "./language-switcher";
@@ -25,6 +26,38 @@ export default function Sidebar() {
   const [location, setLocation] = useLocation();
   const { user, logout } = useAuth();
   const { toast } = useToast();
+  const [creditsBalance, setCreditsBalance] = useState<number>(0);
+
+  // Fetch credits on component mount and on page refresh
+  useEffect(() => {
+    fetchCredits();
+    
+    // Listen for custom event when calls complete
+    const handleCallComplete = () => {
+      fetchCredits();
+    };
+    
+    window.addEventListener('callCompleted', handleCallComplete);
+    
+    return () => {
+      window.removeEventListener('callCompleted', handleCallComplete);
+    };
+  }, []);
+
+  const fetchCredits = async () => {
+    try {
+      const data = await api.getCredits();
+      if (data && typeof data.creditsBalance === 'number') {
+        setCreditsBalance(data.creditsBalance);
+      }
+    } catch (error) {
+      console.error('Failed to fetch credits:', error);
+      // Fallback to user.creditsBalance if available
+      if (user?.creditsBalance !== undefined) {
+        setCreditsBalance(user.creditsBalance);
+      }
+    }
+  };
 
   const navigation = [
     { 
@@ -171,21 +204,21 @@ export default function Sidebar() {
           </div>
 
           <div className={`flex items-center justify-between px-4 py-3 rounded-2xl border shadow-md bg-white/80 dark:bg-slate-900/70 ${
-            (user?.creditsBalance || 0) < 50
+            creditsBalance < 50
               ? 'border-red-200/70 dark:border-red-700/50'
               : 'border-emerald-200/70 dark:border-emerald-700/50'
           }`}>
             <div className="flex items-center space-x-2">
               <Coins className={`h-4 w-4 ${
-                (user?.creditsBalance || 0) < 50 ? 'text-red-500' : 'text-emerald-600'
+                creditsBalance < 50 ? 'text-red-500' : 'text-emerald-600'
               }`} />
               <span className="text-sm font-semibold text-slate-800 dark:text-slate-200">{t('common.minutes')}</span>
             </div>
             <div className="flex items-center gap-2">
               <span className={`text-sm font-bold ${
-                (user?.creditsBalance || 0) < 50 ? 'text-red-600' : 'text-emerald-600'
+                creditsBalance < 50 ? 'text-red-600' : 'text-emerald-600'
               }`}>
-                {user?.creditsBalance ?? 0}
+                {creditsBalance}
               </span>
               <button
                 onClick={() => setLocation('/upgrade')}
