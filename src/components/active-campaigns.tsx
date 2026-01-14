@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -16,16 +16,49 @@ export default function ActiveCampaigns() {
   const { data: campaignsData, isLoading, refetch } = useQuery({
     queryKey: ["/api/campaigns"],
     queryFn: () => api.getCampaigns(),
-    refetchInterval: 15000, // Refresh every 15 seconds (optimized)
-    staleTime: 10000, // Consider data stale after 10 seconds
+    refetchInterval: 10000, // Refresh every 10 seconds to get updated campaign progress
+    staleTime: 5000, // Consider data stale after 5 seconds
     gcTime: 60000, // Keep in cache for 60 seconds
     refetchOnWindowFocus: false, // Don't refetch on window focus
   });
 
-  // Refresh user data when campaigns are updated to show updated minutes balance
+  // Track previous campaign stats to detect when calls complete
+  const prevCampaignStats = useRef<Map<number, { completedCalls: number; successfulCalls: number }>>(new Map());
+
+  // Refresh user data when calls complete (detect changes in completedCalls or successfulCalls)
   useEffect(() => {
-    if (campaignsData) {
-      refreshUser();
+    if (campaignsData && campaignsData.length > 0) {
+      let callsCompleted = false;
+      
+      campaignsData.forEach((campaign: Campaign) => {
+        const prevStats = prevCampaignStats.current.get(campaign.id);
+        const currentCompleted = campaign.completedCalls || 0;
+        const currentSuccessful = campaign.successfulCalls || 0;
+        
+        // Check if calls have completed (stats changed)
+        if (prevStats) {
+          if (prevStats.completedCalls !== currentCompleted || prevStats.successfulCalls !== currentSuccessful) {
+            callsCompleted = true;
+          }
+        } else {
+          // First time seeing this campaign, initialize stats
+          prevCampaignStats.current.set(campaign.id, {
+            completedCalls: currentCompleted,
+            successfulCalls: currentSuccessful
+          });
+        }
+        
+        // Update stored stats
+        prevCampaignStats.current.set(campaign.id, {
+          completedCalls: currentCompleted,
+          successfulCalls: currentSuccessful
+        });
+      });
+      
+      // If calls completed, refresh user data to get updated minutes balance
+      if (callsCompleted) {
+        refreshUser();
+      }
     }
   }, [campaignsData, refreshUser]);
 

@@ -377,15 +377,31 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
         setCampaignStatus(status);
         setShowCampaignStatus(true);
         
+        // Track previous status to detect when calls complete
+        let prevCompletedCalls = status.completedCalls || 0;
+        let prevSuccessfulCalls = status.successfulCalls || 0;
+        
         // Set up auto-refresh every 3 seconds
         const interval = setInterval(() => {
-          api.getCampaignStatus(campaignId).then((status) => {
-            setCampaignStatus(status);
-            // Refresh user credits to show updated balance (force refresh to bypass throttle)
-            refreshUser();
+          api.getCampaignStatus(campaignId).then((newStatus) => {
+            const currentCompleted = newStatus.completedCalls || 0;
+            const currentSuccessful = newStatus.successfulCalls || 0;
+            
+            // Check if calls have completed (stats changed)
+            const callsCompleted = prevCompletedCalls !== currentCompleted || prevSuccessfulCalls !== currentSuccessful;
+            
+            setCampaignStatus(newStatus);
+            
+            // Only refresh user data if calls actually completed (to get updated minutes balance)
+            if (callsCompleted) {
+              refreshUser();
+              // Update previous stats
+              prevCompletedCalls = currentCompleted;
+              prevSuccessfulCalls = currentSuccessful;
+            }
             
             // Stop refreshing only if campaign is completed (not stopped, as we need to see final progress)
-            if (status.status === 'completed') {
+            if (newStatus.status === 'completed') {
               clearInterval(interval);
               setStatusRefreshInterval(null);
             }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -35,13 +35,46 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
   const { data: campaigns, isLoading } = useQuery({
     queryKey: ["/api/campaigns"],
     queryFn: api.getCampaigns,
-    refetchInterval: 30000, // Refresh every 30 seconds to get updated campaign progress
+    refetchInterval: 10000, // Refresh every 10 seconds to get updated campaign progress
   });
 
-  // Refresh user data when campaigns are updated to show updated minutes balance
+  // Track previous campaign stats to detect when calls complete
+  const prevCampaignStats = useRef<Map<number, { completedCalls: number; successfulCalls: number }>>(new Map());
+
+  // Refresh user data when calls complete (detect changes in completedCalls or successfulCalls)
   useEffect(() => {
-    if (campaigns) {
-      refreshUser();
+    if (campaigns && campaigns.length > 0) {
+      let callsCompleted = false;
+      
+      campaigns.forEach((campaign: Campaign) => {
+        const prevStats = prevCampaignStats.current.get(campaign.id);
+        const currentCompleted = campaign.completedCalls || 0;
+        const currentSuccessful = campaign.successfulCalls || 0;
+        
+        // Check if calls have completed (stats changed)
+        if (prevStats) {
+          if (prevStats.completedCalls !== currentCompleted || prevStats.successfulCalls !== currentSuccessful) {
+            callsCompleted = true;
+          }
+        } else {
+          // First time seeing this campaign, initialize stats
+          prevCampaignStats.current.set(campaign.id, {
+            completedCalls: currentCompleted,
+            successfulCalls: currentSuccessful
+          });
+        }
+        
+        // Update stored stats
+        prevCampaignStats.current.set(campaign.id, {
+          completedCalls: currentCompleted,
+          successfulCalls: currentSuccessful
+        });
+      });
+      
+      // If calls completed, refresh user data to get updated minutes balance
+      if (callsCompleted) {
+        refreshUser();
+      }
     }
   }, [campaigns, refreshUser]);
 
