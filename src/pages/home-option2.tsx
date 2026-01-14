@@ -280,34 +280,42 @@ export default function HomeOption2() {
 
   const pricingPlans = [
     {
-      name: t('home.pricingPlans.essential.name'),
-      price: t('home.pricingPlans.essential.price'),
-      period: t('home.pricingPlans.essential.period'),
-      description: t('home.pricingPlans.essential.description'),
+      name: 'Basic',
+      price: '12,000',
+      period: 'One-time',
+      description: 'Perfect for getting started with AI calling',
       features: [
-        t('home.pricingPlans.essential.features.monitoring'),
-        t('home.pricingPlans.essential.features.tweaks'),
-        t('home.pricingPlans.essential.features.rollover'),
-        t('home.pricingPlans.essential.features.report'),
-        t('home.pricingPlans.essential.features.email')
+        '1 Seat',
+        '500 Minutes',
+        'Email Support'
       ],
-      cta: t('home.pricingPlans.essential.cta'),
+      cta: 'Get Started',
       popular: false
     },
     {
-      name: t('home.pricingPlans.premium.name'),
-      price: t('home.pricingPlans.premium.price'),
-      period: t('home.pricingPlans.premium.period'),
-      description: t('home.pricingPlans.premium.description'),
+      name: 'Essential',
+      price: '1,500',
+      period: '/Month',
+      description: 'Ideal for growing businesses',
       features: [
-        t('home.pricingPlans.premium.features.everything'),
-        t('home.pricingPlans.premium.features.optimization'),
-        t('home.pricingPlans.premium.features.strategy'),
-        t('home.pricingPlans.premium.features.priority'),
-        t('home.pricingPlans.premium.features.earlyAccess'),
-        t('home.pricingPlans.premium.features.notice')
+        '2 Seats',
+        '500 Minutes/Seat',
+        'Email Support'
       ],
-      cta: t('home.pricingPlans.premium.cta'),
+      cta: 'Subscribe',
+      popular: false
+    },
+    {
+      name: 'Premium',
+      price: '3,000',
+      period: '/Month',
+      description: 'For businesses requiring advanced features',
+      features: [
+        '3 Seats',
+        '2,500 Minutes',
+        'Priority Support'
+      ],
+      cta: 'Subscribe',
       popular: true,
       limited: false
     }
@@ -1128,7 +1136,7 @@ export default function HomeOption2() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {pricingPlans.map((plan, index) => (
               <div key={index} className={`group relative overflow-visible transition-all duration-700 hover:scale-105 ${
                 plan.popular 
