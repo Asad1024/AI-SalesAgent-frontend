@@ -155,15 +155,33 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const refreshUser = async () => {
     try {
-      // Force refresh to bypass throttle and get fresh user data from API
-      const status = await authService.checkStatus(true);
-      if (status.authenticated && status.user) {
-        setUser(status.user);
-        // Also update localStorage with fresh data
-        localStorage.setItem('user', JSON.stringify(status.user));
+      // Use getProfile to get fresh user data directly from database
+      // This bypasses all caching and throttling
+      const freshUser = await authService.getProfile();
+      if (freshUser) {
+        // Update both React state and localStorage with fresh data
+        setUser(freshUser);
+        localStorage.setItem('user', JSON.stringify(freshUser));
+      } else {
+        // Fallback to checkStatus if getProfile fails
+        const status = await authService.checkStatus(true);
+        if (status.authenticated && status.user) {
+          setUser(status.user);
+          localStorage.setItem('user', JSON.stringify(status.user));
+        }
       }
     } catch (error) {
       console.error('Failed to refresh user:', error);
+      // Fallback to checkStatus on error
+      try {
+        const status = await authService.checkStatus(true);
+        if (status.authenticated && status.user) {
+          setUser(status.user);
+          localStorage.setItem('user', JSON.stringify(status.user));
+        }
+      } catch (fallbackError) {
+        console.error('Fallback refresh also failed:', fallbackError);
+      }
     }
   };
 

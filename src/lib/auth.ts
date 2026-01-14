@@ -120,8 +120,24 @@ class AuthService {
   }
 
   async getProfile(): Promise<Omit<User, 'passwordHash'> | null> {
-    const response = await fetch(`${this.baseUrl}/profile`, {
+    const token = localStorage.getItem('auth-token');
+    const headers: HeadersInit = {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0',
+    };
+    
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+    
+    // Add timestamp to prevent browser caching
+    const url = `${this.baseUrl}/profile?t=${Date.now()}`;
+    const response = await fetch(url, {
+      headers,
       credentials: 'include',
+      cache: 'no-store',
     });
 
     if (response.status === 401) {
