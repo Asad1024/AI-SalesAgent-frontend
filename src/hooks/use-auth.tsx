@@ -12,6 +12,7 @@ interface AuthContextType {
   updateProfile: (email: string) => Promise<void>;
   changePassword: (currentPassword: string, newPassword: string, confirmNewPassword: string) => Promise<void>;
   refreshUser: () => Promise<void>;
+  updateCreditsBalance: (newBalance: number) => void;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -185,6 +186,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
+  const updateCreditsBalance = (newBalance: number) => {
+    if (user) {
+      const updatedUser = { ...user, creditsBalance: newBalance };
+      setUser(updatedUser);
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+    }
+  };
+
   const value: AuthContextType = {
     user,
     loading,
@@ -195,6 +204,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     updateProfile,
     changePassword,
     refreshUser,
+    updateCreditsBalance,
   };
 
   return (

@@ -56,8 +56,11 @@ export default function ActiveCampaigns() {
       });
       
       // If calls completed, refresh user data to get updated minutes balance
+      // Call immediately without waiting - this ensures credits update instantly
       if (callsCompleted) {
-        refreshUser();
+        refreshUser().catch((error) => {
+          console.error('Failed to refresh user balance:', error);
+        });
       }
     }
   }, [campaignsData, refreshUser]);
