@@ -40,7 +40,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   useEffect(() => {
     const refreshInterval = setInterval(() => {
       refreshUser();
-    }, 30000); // Refresh every 30 seconds
+    }, 15000); // Refresh every 15 seconds to keep balance updated
     
     return () => clearInterval(refreshInterval);
   }, []);
@@ -155,9 +155,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const refreshUser = async () => {
     try {
-      const status = await authService.checkStatus();
+      // Force refresh to bypass throttle and get fresh user data from API
+      const status = await authService.checkStatus(true);
       if (status.authenticated && status.user) {
         setUser(status.user);
+        // Also update localStorage with fresh data
+        localStorage.setItem('user', JSON.stringify(status.user));
       }
     } catch (error) {
       console.error('Failed to refresh user:', error);

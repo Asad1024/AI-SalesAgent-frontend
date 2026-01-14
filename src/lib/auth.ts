@@ -191,13 +191,14 @@ class AuthService {
 
   // Throttle checkStatus calls to prevent 429 errors
   private lastStatusCheck = 0;
-  private statusCheckCooldown = 10000; // 10 seconds cooldown between status checks
+  private statusCheckCooldown = 5000; // 5 seconds cooldown between status checks (reduced from 10s)
 
-  async checkStatus(): Promise<{ authenticated: boolean; user?: Omit<User, 'passwordHash'> }> {
+  async checkStatus(forceRefresh: boolean = false): Promise<{ authenticated: boolean; user?: Omit<User, 'passwordHash'> }> {
     const now = Date.now();
     
-    // Throttle: if called too soon, return cached data
-    if (now - this.lastStatusCheck < this.statusCheckCooldown) {
+    // Throttle: if called too soon and not forcing refresh, return cached data
+    // But allow force refresh to bypass throttle for explicit user balance updates
+    if (!forceRefresh && now - this.lastStatusCheck < this.statusCheckCooldown) {
       const storedUser = localStorage.getItem('user');
       const token = localStorage.getItem('auth-token');
       if (token && storedUser) {
@@ -233,14 +234,20 @@ class AuthService {
 
         const headers: HeadersInit = {
           'Content-Type': 'application/json',
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0',
         };
 
         headers['Authorization'] = `Bearer ${token}`;
 
-        const response = await fetch(`${this.baseUrl}/status`, {
+        // Add timestamp to prevent browser caching
+        const url = `${this.baseUrl}/status?t=${Date.now()}`;
+        const response = await fetch(url, {
           headers,
           credentials: 'include',
           signal: controller.signal,
+          cache: 'no-store',
         });
 
         clearTimeout(timeoutId);

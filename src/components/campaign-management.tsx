@@ -381,7 +381,7 @@ export default function CampaignManagement({ campaignId }: CampaignManagementPro
         const interval = setInterval(() => {
           api.getCampaignStatus(campaignId).then((status) => {
             setCampaignStatus(status);
-            // Refresh user credits to show updated balance
+            // Refresh user credits to show updated balance (force refresh to bypass throttle)
             refreshUser();
             
             // Stop refreshing only if campaign is completed (not stopped, as we need to see final progress)
