@@ -9,8 +9,11 @@ export default function AnimatedBanner() {
   const [isCalling, setIsCalling] = useState(false);
   const [callStatus, setCallStatus] = useState('idle');
 
-  const rawCurrentLanguage = i18n.language || 'en';
-  const currentLanguage = rawCurrentLanguage.split('-')[0].toLowerCase();
+  // Make currentLanguage reactive to language changes
+  const currentLanguage = useMemo(() => {
+    const rawLang = i18n.language || 'en';
+    return rawLang.split('-')[0].toLowerCase();
+  }, [i18n.language]);
   
   // Memoize stats to recalculate when language changes
   // Use i18n.t with explicit language to ensure translations are found
@@ -25,7 +28,7 @@ export default function AnimatedBanner() {
       { label: i18n.t('stats.languagesSupported', { lng: lang }), value: "95+", icon: Globe },
       { label: i18n.t('stats.uptime', { lng: lang }), value: "99.9%", icon: TrendingUp }
     ];
-  }, [i18n, currentLanguage]);
+  }, [i18n, i18n.language]);
 
   // Memoize features to recalculate when language changes
   // Use i18n.t with explicit language to ensure translations update
@@ -176,7 +179,7 @@ export default function AnimatedBanner() {
       ]
     }
     ];
-  }, [i18n, currentLanguage]);
+  }, [i18n, i18n.language]);
 
   useEffect(() => {
     setIsVisible(true);
