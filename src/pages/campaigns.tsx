@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,6 +15,7 @@ import { useTranslation } from "react-i18next";
 import CampaignWorkflowBanner from "@/components/campaign-workflow-banner";
 import ThemeToggle from "@/components/theme-toggle";
 import LanguageSwitcher from "@/components/language-switcher";
+import { useAuth } from "@/hooks/use-auth";
 
 interface CampaignManagementProps {
   campaignId?: string;
@@ -29,11 +30,20 @@ export default function Campaigns({ campaignId }: CampaignManagementProps) {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
   const queryClient = useQueryClient();
+  const { refreshUser } = useAuth();
 
   const { data: campaigns, isLoading } = useQuery({
     queryKey: ["/api/campaigns"],
     queryFn: api.getCampaigns,
+    refetchInterval: 30000, // Refresh every 30 seconds to get updated campaign progress
   });
+
+  // Refresh user data when campaigns are updated to show updated minutes balance
+  useEffect(() => {
+    if (campaigns) {
+      refreshUser();
+    }
+  }, [campaigns, refreshUser]);
 
   const deleteCampaignMutation = useMutation({
     mutationFn: (id: number) => api.deleteCampaign(id),

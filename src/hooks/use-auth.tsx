@@ -34,7 +34,15 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   useEffect(() => {
     checkAuthStatus();
-    // Only check status on mount, not continuously
+  }, []);
+
+  // Set up periodic refresh of user data to update minutes balance
+  useEffect(() => {
+    const refreshInterval = setInterval(() => {
+      refreshUser();
+    }, 30000); // Refresh every 30 seconds
+    
+    return () => clearInterval(refreshInterval);
   }, []);
 
   const checkAuthStatus = async () => {

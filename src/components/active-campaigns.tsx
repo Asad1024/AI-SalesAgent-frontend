@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -6,9 +6,11 @@ import { Progress } from "@/components/ui/progress";
 import { useQuery } from "@tanstack/react-query";
 import { BarChart3, RefreshCw, Pause, Square, Play } from "lucide-react";
 import { api, type Campaign } from "@/lib/api";
+import { useAuth } from "@/hooks/use-auth";
 
 export default function ActiveCampaigns() {
   const [refreshing, setRefreshing] = useState(false);
+  const { refreshUser } = useAuth();
 
   // Get campaigns
   const { data: campaignsData, isLoading, refetch } = useQuery({
@@ -19,6 +21,13 @@ export default function ActiveCampaigns() {
     gcTime: 60000, // Keep in cache for 60 seconds
     refetchOnWindowFocus: false, // Don't refetch on window focus
   });
+
+  // Refresh user data when campaigns are updated to show updated minutes balance
+  useEffect(() => {
+    if (campaignsData) {
+      refreshUser();
+    }
+  }, [campaignsData, refreshUser]);
 
   const handleRefresh = async () => {
     setRefreshing(true);
