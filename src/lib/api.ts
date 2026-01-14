@@ -148,7 +148,7 @@ export interface ExperienceCallRequest {
 }
 
 // Production URL
-const BASE_URL = 'https://aisparksalesagent-backend.onrender.com';
+const BASE_URL = 'https://aisparksalesagent-backend-v1.onrender.com';
 
 // For local development, uncomment the line below and comment the line above
 // Use environment variable if available, otherwise default to localhost

@@ -14,7 +14,7 @@ export interface AuthError {
 
 class AuthService {
   // Production URL
-  private baseUrl = 'https://aisparksalesagent-backend.onrender.com/api/auth';
+  private baseUrl = 'https://aisparksalesagent-backend-v1.onrender.com/api/auth';
   
   // Local development URL (Backend running on port 8000) - commented for production
   // private baseUrl = 'http://localhost:8000/api/auth';
