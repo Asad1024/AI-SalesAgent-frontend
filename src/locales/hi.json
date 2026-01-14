@@ -2118,84 +2118,84 @@
   },
   "progress": "of {total} features",
   "campaignWorkflow": {
-    "title": "How Campaigns Work",
-    "subtitle": "Follow these simple steps to create and launch your AI voice calling campaigns",
-    "workflowTitle": "Campaign Workflow",
-    "step": "Step",
-    "startFirstCampaign": "Start Your First Campaign",
+    "title": "अपना AI सेल्स अभियान मिनटों में लॉन्च करें",
+    "subtitle": "बुद्धिमान आवाज़ स्वचालन के साथ अपने लीड जनरेशन को बदलें - सेटअप से सफलता तक",
+    "workflowTitle": "त्वरित प्रारंभ गाइड",
+    "step": "चरण",
+    "startFirstCampaign": "अपना पहला अभियान बनाएं",
     "step1": {
-      "title": "Create Campaign",
-      "description": "Set up your voice calling campaign",
+      "title": "अपना अभियान बनाएं",
+      "description": "सेकंडों में अपना AI सेल्स एजेंट बनाएं",
       "details": [
-        "Enter campaign name and description",
-        "Write your opening message",
-        "Configure AI personality",
-        "Set campaign objectives"
+        "एक यादगार अभियान नाम चुनें",
+        "अपना व्यक्तिगत ओपनिंग मैसेज तैयार करें",
+        "अपने AI एजेंट की व्यक्तित्व परिभाषित करें",
+        "अपने सेल्स लक्ष्य और टारगेट सेट करें"
       ],
       "features": [
-        "Campaign Setup",
-        "Message Creation",
-        "AI Configuration"
+        "त्वरित सेटअप",
+        "कस्टम मैसेज",
+        "स्मार्ट AI"
       ]
     },
     "step2": {
-      "title": "Upload Leads",
-      "description": "Add your contact list",
+      "title": "अपने लीड्स आयात करें",
+      "description": "तुरंत अपने संभावित ग्राहकों से जुड़ें",
       "details": [
-        "Upload a CSV with contacts",
-        "Map fields (name, phone, email)",
-        "Validate phone numbers",
-        "Preview lead data"
+        "अपनी संपर्क सूची अपलोड करें (CSV प्रारूप)",
+        "स्वचालित रूप से संपर्क फ़ील्ड मैप करें",
+        "स्मार्ट फोन नंबर सत्यापन",
+        "लीड जानकारी संपादित और सत्यापित करें"
       ],
       "features": [
-        "CSV Upload",
-        "Field Mapping",
-        "Data Validation"
+        "बल्क आयात",
+        "ऑटो-मैपिंग",
+        "लीड एडिटर"
       ]
     },
     "step3": {
-      "title": "Configure AI",
-      "description": "Set up voice and knowledge base",
+      "title": "अपने AI एजेंट को अनुकूलित करें",
+      "description": "अपने एजेंट को आवाज़ और ज्ञान दें",
       "details": [
-        "Select AI voice (ElevenLabs)",
-        "Upload knowledge base documents",
-        "Configure conversation flow",
-        "Set call parameters"
+        "1000+ प्रीमियम AI आवाज़ों में से चुनें",
+        "अपने उत्पाद/सेवा दस्तावेज़ अपलोड करें",
+        "अपने व्यापार ज्ञान के साथ AI को प्रशिक्षित करें",
+        "बातचीत स्क्रिप्ट कॉन्फ़िगर करें"
       ],
       "features": [
-        "Voice Selection",
-        "Knowledge Base",
-        "AI Setup"
+        "प्रीमियम आवाज़ें",
+        "ज्ञान आधार",
+        "स्मार्ट स्क्रिप्ट"
       ]
     },
     "step4": {
-      "title": "Test & Launch",
-      "description": "Test and start your campaign",
+      "title": "टेस्ट करें और लाइव जाएं",
+      "description": "आत्मविश्वास के साथ अपना अभियान लॉन्च करें",
       "details": [
-        "Make test calls to verify setup",
-        "Review campaign settings",
-        "Start campaign execution",
-        "Monitor call progress"
+        "पहले अपने नंबर पर टेस्ट कॉल करें",
+        "आवाज़ और मैसेज गुणवत्ता सत्यापित करें",
+        "एक क्लिक से अभियान लॉन्च करें",
+        "रियल-टाइम में कॉल होते देखें"
       ],
       "features": [
-        "Test Calls",
-        "Campaign Launch",
-        "Progress Monitoring"
+        "टेस्ट मोड",
+        "वन-क्लिक लॉन्च",
+        "लाइव मॉनिटरिंग"
       ]
     },
     "step5": {
-      "title": "Monitor Results",
-      "description": "Track campaign performance",
+      "title": "ट्रैक करें और अनुकूलित करें",
+      "description": "सफलता मापें और परिणामों में सुधार करें",
       "details": [
-        "View call statistics",
-        "Analyze success rates",
-        "Review call recordings",
-        "Export results"
+        "रियल-टाइम कॉल सांख्यिकी डैशबोर्ड",
+        "सफलता दर और रूपांतरण मेट्रिक्स",
+        "कॉल रिकॉर्डिंग सुनें",
+        "विश्लेषण के लिए डेटा निर्यात करें"
       ],
       "features": [
-        "विश्लेषण",
-        "Call Logs",
-        "Performance Reports"
+        "लाइव एनालिटिक्स",
+        "कॉल रिकॉर्डिंग",
+        "डेटा निर्यात"
       ]
     }
   }

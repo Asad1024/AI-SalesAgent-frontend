@@ -26,7 +26,15 @@ export default function Sidebar() {
   const [location, setLocation] = useLocation();
   const { user, logout } = useAuth();
   const { toast } = useToast();
-  const [creditsBalance, setCreditsBalance] = useState<number>(0);
+  // Initialize with user.creditsBalance if available, otherwise 0
+  const [creditsBalance, setCreditsBalance] = useState<number>(user?.creditsBalance ?? 0);
+
+  // Update creditsBalance when user changes
+  useEffect(() => {
+    if (user?.creditsBalance !== undefined) {
+      setCreditsBalance(user.creditsBalance);
+    }
+  }, [user?.creditsBalance]);
 
   // Fetch credits on component mount and on page refresh
   useEffect(() => {
@@ -48,14 +56,19 @@ export default function Sidebar() {
     try {
       const data = await api.getCredits();
       if (data && typeof data.creditsBalance === 'number') {
+        // Only update if we get a valid number, keep previous value otherwise
         setCreditsBalance(data.creditsBalance);
       }
     } catch (error) {
       console.error('Failed to fetch credits:', error);
-      // Fallback to user.creditsBalance if available
-      if (user?.creditsBalance !== undefined) {
-        setCreditsBalance(user.creditsBalance);
-      }
+      // Don't reset to 0 on error, keep the previous value
+      // Only use user.creditsBalance as fallback if we don't have a value yet
+      setCreditsBalance((prevBalance) => {
+        if (prevBalance === 0 && user?.creditsBalance !== undefined) {
+          return user.creditsBalance;
+        }
+        return prevBalance; // Keep previous value
+      });
     }
   };
 
