@@ -219,13 +219,26 @@ export default function Login() {
         // Render Google sign-in button
         const buttonContainer = document.getElementById('google-signin-button');
         if (buttonContainer && buttonContainer.children.length === 0) {
+          // Ensure container has proper width
+          const containerWidth = buttonContainer.offsetWidth || buttonContainer.clientWidth || 400;
+          
           window.google.accounts.id.renderButton(buttonContainer, {
             theme: 'outline',
             size: 'large',
-            width: '100%',
+            width: containerWidth,
             text: 'signin_with',
-            locale: 'en'
+            locale: 'en',
+            shape: 'rectangular'
           });
+          
+          // Force re-render if button doesn't appear at full size
+          setTimeout(() => {
+            const iframe = buttonContainer.querySelector('iframe');
+            if (iframe) {
+              iframe.style.width = '100%';
+              iframe.style.minWidth = `${containerWidth}px`;
+            }
+          }, 100);
         }
       } else {
         // Retry after a short delay
@@ -513,7 +526,7 @@ export default function Login() {
                   </div>
 
                   {/* Google Sign-In Button */}
-                  <div id="google-signin-button" className="w-full"></div>
+                  <div id="google-signin-button" className="w-full min-h-[48px] flex items-center justify-center"></div>
                   
                   {/* Enhanced Demo Login Button */}
                   <Button
