@@ -22,100 +22,111 @@ const CampaignWorkflowBanner = () => {
   const [, setLocation] = useLocation();
   const currentLanguage = i18n.language;
 
-  const workflowSteps = useMemo(() => [
-    {
-      id: 1,
-      title: t('campaignWorkflow.step1.title'),
-      description: t('campaignWorkflow.step1.description'),
-      icon: FileText,
-      color: "from-blue-500 to-cyan-500",
-      details: [
-        t('campaignWorkflow.step1.details.0'),
-        t('campaignWorkflow.step1.details.1'),
-        t('campaignWorkflow.step1.details.2'),
-        t('campaignWorkflow.step1.details.3')
-      ],
-      features: [
-        t('campaignWorkflow.step1.features.0'),
-        t('campaignWorkflow.step1.features.1'),
-        t('campaignWorkflow.step1.features.2')
-      ]
-    },
-    {
-      id: 2,
-      title: t('campaignWorkflow.step2.title'),
-      description: t('campaignWorkflow.step2.description'),
-      icon: Users,
-      color: "from-purple-500 to-pink-500",
-      details: [
-        t('campaignWorkflow.step2.details.0'),
-        t('campaignWorkflow.step2.details.1'),
-        t('campaignWorkflow.step2.details.2'),
-        t('campaignWorkflow.step2.details.3')
-      ],
-      features: [
-        t('campaignWorkflow.step2.features.0'),
-        t('campaignWorkflow.step2.features.1'),
-        t('campaignWorkflow.step2.features.2')
-      ]
-    },
-    {
-      id: 3,
-      title: t('campaignWorkflow.step3.title'),
-      description: t('campaignWorkflow.step3.description'),
-      icon: Settings,
-      color: "from-blue-500 to-purple-500",
-      details: [
-        t('campaignWorkflow.step3.details.0'),
-        t('campaignWorkflow.step3.details.1'),
-        t('campaignWorkflow.step3.details.2'),
-        t('campaignWorkflow.step3.details.3')
-      ],
-      features: [
-        t('campaignWorkflow.step3.features.0'),
-        t('campaignWorkflow.step3.features.1'),
-        t('campaignWorkflow.step3.features.2')
-      ]
-    },
-    {
-      id: 4,
-      title: t('campaignWorkflow.step4.title'),
-      description: t('campaignWorkflow.step4.description'),
-      icon: Rocket,
-      color: "from-orange-500 to-red-500",
-      details: [
-        t('campaignWorkflow.step4.details.0'),
-        t('campaignWorkflow.step4.details.1'),
-        t('campaignWorkflow.step4.details.2'),
-        t('campaignWorkflow.step4.details.3')
-      ],
-      features: [
-        t('campaignWorkflow.step4.features.0'),
-        t('campaignWorkflow.step4.features.1'),
-        t('campaignWorkflow.step4.features.2')
-      ]
-    },
-    {
-      id: 5,
-      title: t('campaignWorkflow.step5.title'),
-      description: t('campaignWorkflow.step5.description'),
-      icon: BarChart3,
-      color: "from-indigo-500 to-purple-500",
-      details: [
-        t('campaignWorkflow.step5.details.0'),
-        t('campaignWorkflow.step5.details.1'),
-        t('campaignWorkflow.step5.details.2'),
-        t('campaignWorkflow.step5.details.3')
-      ],
-      features: [
-        t('campaignWorkflow.step5.features.0'),
-        t('campaignWorkflow.step5.features.1'),
-        t('campaignWorkflow.step5.features.2')
-      ]
-    }
-  ], [t, currentLanguage]);
+  const workflowSteps = useMemo(() => {
+    // Force recalculation when language changes by accessing currentLanguage
+    const lang = currentLanguage;
+    
+    return [
+      {
+        id: 1,
+        title: t('campaignWorkflow.step1.title'),
+        description: t('campaignWorkflow.step1.description'),
+        icon: FileText,
+        color: "from-blue-500 to-cyan-500",
+        details: [
+          t('campaignWorkflow.step1.details.0'),
+          t('campaignWorkflow.step1.details.1'),
+          t('campaignWorkflow.step1.details.2'),
+          t('campaignWorkflow.step1.details.3')
+        ],
+        features: [
+          t('campaignWorkflow.step1.features.0'),
+          t('campaignWorkflow.step1.features.1'),
+          t('campaignWorkflow.step1.features.2')
+        ]
+      },
+      {
+        id: 2,
+        title: t('campaignWorkflow.step2.title'),
+        description: t('campaignWorkflow.step2.description'),
+        icon: Users,
+        color: "from-purple-500 to-pink-500",
+        details: [
+          t('campaignWorkflow.step2.details.0'),
+          t('campaignWorkflow.step2.details.1'),
+          t('campaignWorkflow.step2.details.2'),
+          t('campaignWorkflow.step2.details.3')
+        ],
+        features: [
+          t('campaignWorkflow.step2.features.0'),
+          t('campaignWorkflow.step2.features.1'),
+          t('campaignWorkflow.step2.features.2')
+        ]
+      },
+      {
+        id: 3,
+        title: t('campaignWorkflow.step3.title'),
+        description: t('campaignWorkflow.step3.description'),
+        icon: Settings,
+        color: "from-blue-500 to-purple-500",
+        details: [
+          t('campaignWorkflow.step3.details.0'),
+          t('campaignWorkflow.step3.details.1'),
+          t('campaignWorkflow.step3.details.2'),
+          t('campaignWorkflow.step3.details.3')
+        ],
+        features: [
+          t('campaignWorkflow.step3.features.0'),
+          t('campaignWorkflow.step3.features.1'),
+          t('campaignWorkflow.step3.features.2')
+        ]
+      },
+      {
+        id: 4,
+        title: t('campaignWorkflow.step4.title'),
+        description: t('campaignWorkflow.step4.description'),
+        icon: Rocket,
+        color: "from-orange-500 to-red-500",
+        details: [
+          t('campaignWorkflow.step4.details.0'),
+          t('campaignWorkflow.step4.details.1'),
+          t('campaignWorkflow.step4.details.2'),
+          t('campaignWorkflow.step4.details.3')
+        ],
+        features: [
+          t('campaignWorkflow.step4.features.0'),
+          t('campaignWorkflow.step4.features.1'),
+          t('campaignWorkflow.step4.features.2')
+        ]
+      },
+      {
+        id: 5,
+        title: t('campaignWorkflow.step5.title'),
+        description: t('campaignWorkflow.step5.description'),
+        icon: BarChart3,
+        color: "from-indigo-500 to-purple-500",
+        details: [
+          t('campaignWorkflow.step5.details.0'),
+          t('campaignWorkflow.step5.details.1'),
+          t('campaignWorkflow.step5.details.2'),
+          t('campaignWorkflow.step5.details.3')
+        ],
+        features: [
+          t('campaignWorkflow.step5.features.0'),
+          t('campaignWorkflow.step5.features.1'),
+          t('campaignWorkflow.step5.features.2')
+        ]
+      }
+    ];
+  }, [t, currentLanguage, i18n.language]);
 
   const currentStepData = workflowSteps[currentStep];
+
+  // Reset step when language changes to ensure proper re-render
+  useEffect(() => {
+    setCurrentStep(0);
+    setIsAnimating(false);
+  }, [currentLanguage, i18n.language]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -127,7 +138,7 @@ const CampaignWorkflowBanner = () => {
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [workflowSteps.length]);
+  }, [workflowSteps.length, currentLanguage]);
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 mb-4 sm:mb-6 lg:mb-8">
